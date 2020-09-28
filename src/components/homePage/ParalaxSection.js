@@ -3,7 +3,7 @@ import useScrollPosition from '../hooks/useScrollPosition';
 import useWindowSize from '../hooks/useWindowSize';
 import styled from 'styled-components';
 
-const ParalaxContainer = styled.div`
+const ParalaxContainer = styled.section`
     position: relative;
     overflow: hidden;
     height: 60vw;
@@ -17,10 +17,7 @@ const paralaxStyle = ({ transform = 0, multiplier = 0, offset = 0, top }) => ({
     top,
 });
 
-const ParalaxSection = () => {
-    const scrollPosition = useScrollPosition();
-    const windowSize = useWindowSize();
-
+const ParalaxSection = ({ scrollPosition, windowSize }) => {
     const transform = Math.min(
         (scrollPosition - (windowSize.height / 2)) / windowSize.height,
         1

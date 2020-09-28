@@ -1,28 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from '../styles/media';
+import font from '../styles/font';
 
-const Description = styled.div`
-    background: black;
-`
+import ContentContainer from '../layout/ContentContainer';
 
 const FeaturePanel = styled.section`
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90vw;
 
     &.left {
         flex-direction: row-reverse;
     }
 
     ${media.phone`
-        width: 100vw;
         flex-wrap: wrap;
-    `}
-
-    ${media.large`
-        width: 70vw;
     `}
 `;
 
@@ -34,6 +25,8 @@ const FeatureImage = styled.div`
     width: 50%;
 
     img {
+        width: 100%;
+        height: auto;
         display: block;
         margin-bottom: 0;
     }
@@ -59,14 +52,19 @@ const FeatureText = styled.div`
     `}
 `;
 
-const BodyText = styled.article`
-    width: 60%;
-    font-family: interstate-condensed, sans-serif;
-    font-size: 2vw;
+const FeatureTextBody = styled.article`
+    ${font.body}
+
+    width: 25vw;
     line-height: 1.4;
+    font-size: 1.4rem;
+
+    ${media.desktop`
+        font-size: 1.6rem;
+    `}
 
     ${media.large`
-        font-size: 1.7vw;
+        width: 20vw;
     `}
 
     ${media.phone`
@@ -78,7 +76,7 @@ const BodyText = styled.article`
 `;
 
 const Bk = styled.span`
-    font-family: ff-brokenscript-bc-web, serif;
+    ${font.display}
 `;
 
 const Feature = ({ image, children, className }) => (
@@ -87,20 +85,16 @@ const Feature = ({ image, children, className }) => (
             {image}
         </FeatureImage>
         <FeatureText>
-            <BodyText>
+            <FeatureTextBody>
                 {children}
-            </BodyText>
+            </FeatureTextBody>
         </FeatureText>
     </FeaturePanel>
 );
 
 const FeaturesSection = () => {
-
-
     return (
-        <>
-            <Description />
-
+        <ContentContainer>
             <Feature image={<img src={require('./images/mockup-spread-inventory.jpg')} />}>
                 <Bk>Brutally fast, equally flavourful character creation</Bk> gets you playing your mouse adventurer as quickly as possible.
             </Feature>
@@ -118,9 +112,9 @@ const FeaturesSection = () => {
             </Feature>
 
             <Feature image={<img src={require('./images/promo-stumpsville.jpg')} />}>
-                <Bk>Delve into the ready to play</Bk> adventure site of <Bk>Stumpsville</Bk> and explore further into the<br/> <Bk>Earldom of Ek.</Bk>
+                <Bk>Delve into the ready to play</Bk> adventure site of <Bk>Stumpsville</Bk> and explore further into the <Bk>Earldom of{'\u00a0'}Ek.</Bk>
             </Feature>
-        </>
+        </ContentContainer>
     );
 };
 

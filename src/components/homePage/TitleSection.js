@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Navigation from '../navigation/Navigation';
+import BodyText from '../styles/BodyText';
+import LosingGamesLogo from '../navigation/logos/LosingGamesLogo';
 import media from '../styles/media';
 
-const TitleSectionContainer = styled.div`
+const TitleSectionContainer = styled.section`
     position: relative;
     min-height: 100vh;
     width: 100vw;
@@ -58,19 +60,8 @@ const MausritterLogoTitle = styled.h1`
 
 const Blurb = styled.div`
     padding: 1rem;
-    padding-top: 0;
     background: white;
 `
-
-const BodyText = styled.div`
-    font-family: interstate-condensed, sans-serif;
-    font-size: 1.4rem;
-    line-height: 1.4;
-
-    ${media.phone`
-        font-size: 1.3rem;
-    `}
-`;
 
 const TitleSection = () => {
     return (
@@ -88,9 +79,7 @@ const TitleSection = () => {
 
                         <br />
                         <p style={{ textAlign: 'center' }}>
-                            <a href="https://losing.games">
-                                <img src={require('./images/losing-games-logo.svg')} width="160" />
-                            </a>
+                            <LosingGamesLogo />
                         </p>
                     </BodyText>
                 </Blurb>

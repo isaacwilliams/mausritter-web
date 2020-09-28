@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import font from '../styles/font';
+
+import { Link } from 'gatsby'
 
 const Nav = styled.nav`
     margin: auto;
@@ -12,8 +15,9 @@ const Nav = styled.nav`
     flex-wrap: wrap;
 `
 
-const NavItem = styled.a`
-    font-family: ff-brokenscript-bc-web, serif;
+const NavItem = styled(Link)`
+    ${font.display}
+
     padding: 0.5rem 1rem;
     margin: 0 2rem;
     color: black;
@@ -30,19 +34,19 @@ const NavItem = styled.a`
 const Navigation = () => {
     return (
         <Nav>
-            <NavItem href="https://losing-games.itch.io/mausritter">
+            <NavItem to="/#get-mausritter">
                 Get the game
             </NavItem>
 
-            <NavItem href="/mouse">
+            <NavItem to="/mouse">
                 Make a mouse
             </NavItem>
 
-            <NavItem href="/resources">
+            <NavItem to="/resources">
                 Resources
             </NavItem>
 
-            <NavItem href="/community">
+            <NavItem to="/community">
                 Community
             </NavItem>
         </Nav>

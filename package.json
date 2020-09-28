@@ -11,8 +11,12 @@
     "gatsby-plugin-offline": "^3.2.23",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sharp": "^2.6.27",
-    "gatsby-source-filesystem": "^2.3.24",
+    "gatsby-remark-autolink-headers": "^2.3.11",
+    "gatsby-remark-table-of-contents": "^0.1.1",
+    "gatsby-source-filesystem": "^2.3.27",
+    "gatsby-transformer-remark": "^2.8.31",
     "gatsby-transformer-sharp": "^2.5.13",
+    "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -20,6 +24,7 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "eslint-config-react-app": "^5.2.1",
     "prettier": "2.0.5"
   },
   "keywords": [
