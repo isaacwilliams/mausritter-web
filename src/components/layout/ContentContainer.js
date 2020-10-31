@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from '../styles/media';
 
-const ContentContainer = styled.section`
+export const ContentContainer = styled.section`
     margin-left: auto;
     margin-right: auto;
 
