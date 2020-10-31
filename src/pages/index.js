@@ -5,11 +5,13 @@ import Image from "../components/image"
 import SiteContainer from '../components/layout/SiteContainer';
 import SEO from "../components/layout/SEO"
 
-import TitleSection from '../components/homePage/TitleSection';
-import ParalaxSection from '../components/homePage/ParalaxSection';
-import FeaturesSection from '../components/homePage/FeaturesSection';
-import GetGameSection from '../components/homePage/GetGameSection';
+import TitleSection from '../components/homePage/title/TitleSection';
+import ParalaxSection from '../components/homePage/paralax/ParalaxSection';
+import FeaturesSection from '../components/homePage/features/FeaturesSection';
+import GetGameSection from '../components/homePage/getGame/GetGameSection';
+import ResourcesSection from '../components/homePage/resources/ResourcesSection';
 import FloatingNavigation from '../components/navigation/FloatingNavigation';
+
 import Footer from '../components/navigation/Footer';
 
 import useScrollPosition from '../components/hooks/useScrollPosition';
@@ -28,7 +30,7 @@ const IndexPage = () => {
             <ParalaxSection scrollPosition={scrollPosition} windowSize={windowSize} />
             <FeaturesSection />
             <GetGameSection />
-
+            <ResourcesSection />
             <Footer />
         </SiteContainer>
     );

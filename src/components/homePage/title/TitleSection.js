@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Navigation from '../navigation/Navigation';
-import BodyText from '../styles/BodyText';
-import LosingGamesLogo from '../navigation/logos/LosingGamesLogo';
-import media from '../styles/media';
+import Navigation from '../../navigation/Navigation';
+import BodyText from '../../styles/BodyText';
+import LosingGamesLogo from '../../navigation/logos/LosingGamesLogo';
+import media from '../../styles/media';
 
 const TitleSectionContainer = styled.section`
     position: relative;
@@ -12,7 +12,7 @@ const TitleSectionContainer = styled.section`
     width: 100vw;
     overflow: hidden;
 
-    background-image: url(${require('./images/divider-stem.jpg')});
+    background-image: url(${require('./divider-stem.jpg')});
     background-repeat: no-repeat;
     background-size: 250px;
     background-position: bottom -100px right 0;
@@ -52,7 +52,7 @@ const MausritterLogoTitle = styled.h1`
     max-width: 30rem;
     height: 8rem;
     font-size: 0;
-    background: url(${require('./images/mausritter-logo.svg')});
+    background: url(${require('../../navigation/logos/mausritter-logo.svg')});
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;

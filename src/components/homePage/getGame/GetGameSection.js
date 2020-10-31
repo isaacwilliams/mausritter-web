@@ -2,8 +2,15 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import styled from 'styled-components';
-import media from '../styles/media';
-import font from '../styles/font';
+import media from '../../styles/media';
+import font from '../../styles/font';
+
+import { FlexContainer } from '../../layout/ContentContainer';
+
+import {
+    Title,
+    SubTitle,
+} from '../../styles/shared';
 
 const GetGameWrapper = styled.article`
     background: #eee;
@@ -11,34 +18,7 @@ const GetGameWrapper = styled.article`
     padding-bottom: 6rem;
 `
 
-const TitleSection = styled.h2`
-    ${font.display}
-    padding-bottom: 2rem;
-
-    font-size: 2.5rem;
-
-    text-align: center;
-
-    ${media.phone`
-        font-size: 5vw;
-    `}
-`
-
-const GetGameSection = styled.section`
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90vw;
-
-    ${media.phone`
-        width: 100vw;
-        flex-wrap: wrap;
-    `}
-
-    ${media.large`
-        width: 70vw;
-    `}
-`;
+const GetGameSection = FlexContainer;
 
 const OptionLink = styled(Link)`
     display: flex;
@@ -47,7 +27,7 @@ const OptionLink = styled(Link)`
     flex-direction: column;
 
     width: 50%;
-    padding-bottom: 1vw;
+    padding-bottom: 2vw;
 
     text-decoration: none;
     color: black;
@@ -90,12 +70,7 @@ const OptionLink = styled(Link)`
     `}
 `;
 
-const OtherEditionsSection = styled.section`
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
+const OtherEditionsSection = styled(FlexContainer)`
     flex-direction: column;
 
     width: 90vw;
@@ -107,11 +82,6 @@ const OtherEditionsSection = styled.section`
     margin-right: auto;
 
     border-top: 1px solid #ddd;
-
-    h3 {
-        ${font.display}
-        font-size: 1.5rem;
-    }
 
     div {
         display: flex;
@@ -148,9 +118,9 @@ const CountryFlagLink = styled(Link)`
 
 const GetGame = ({}) => (
     <GetGameWrapper id="get-mausritter">
-        <TitleSection>
+        <Title>
             Get Mausritter
-        </TitleSection>
+        </Title>
 
         <GetGameSection>
             <OptionLink to="https://gamesomnivorous.com/">
@@ -172,14 +142,15 @@ const GetGame = ({}) => (
         </GetGameSection>
 
         <OtherEditionsSection>
-            <h3>In other languages:</h3>
+            <SubTitle>In other languages:</SubTitle>
 
             <div>
-                <CountryFlagLink to="https://gamesomnivorous.com/">
+                <CountryFlagLink to="https://www.elrefugioeditorial.com/mausritter">
                     <img src={require('./images/flag-spain.png')} />
                     Español
                 </CountryFlagLink>
 
+                {/*
                 <CountryFlagLink to="https://gamesomnivorous.com/">
                     <img src={require('./images/flag-france.png')} />
                     Français
@@ -189,6 +160,7 @@ const GetGame = ({}) => (
                     <img src={require('./images/flag-poland.png')} />
                     Polski
                 </CountryFlagLink>
+                */}
             </div>
         </OtherEditionsSection>
     </GetGameWrapper>

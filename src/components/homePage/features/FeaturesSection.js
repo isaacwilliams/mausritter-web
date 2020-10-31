@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../styles/media';
-import font from '../styles/font';
+import media from '../../styles/media';
+import font from '../../styles/font';
 
-import ContentContainer from '../layout/ContentContainer';
+import ContentContainer from '../../layout/ContentContainer';
 
 const FeaturePanel = styled.section`
     display: flex;

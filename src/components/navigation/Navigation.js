@@ -11,8 +11,24 @@ const Nav = styled.nav`
     display: flex;
 
     align-items: center;
+    justify-content: space-between;
+`
+
+const NavSection = styled.div`
+    display: flex;
+
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+
+    &.left {
+        justify-content: flex-start;
+        margin-left: 1rem;
+    }
+
+    &.right {
+        justify-content: flex-end;
+        margin-right: 1rem;
+    }
 `
 
 const NavItem = styled(Link)`
@@ -31,24 +47,58 @@ const NavItem = styled(Link)`
     }
 `
 
+const NavLogo = styled(Link)`
+    margin-right: auto;
+
+    width: ${260 * 0.7}px;
+    height: ${78 * 0.7}px;
+
+    font-size: 0;
+
+    background: url(${require('../navigation/logos/mausritter-logo.svg')});
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+`
+
+const Divider = styled.div`
+    height: 1rem;
+    width: 1px;
+    margin: 0 2rem;
+    border-right: 1px solid #ccc;
+`;
+
+
 const Navigation = () => {
     return (
         <Nav>
-            <NavItem to="/#get-mausritter">
-                Get the game
-            </NavItem>
+            <NavSection className="left">
+                <NavLogo to="/">
+                    Mausritter
+                </NavLogo>
+            </NavSection>
 
-            <NavItem to="/mouse">
-                Make a mouse
-            </NavItem>
+            <NavSection className="center">
+                <NavItem to="/#get-mausritter">
+                    Get the game
+                </NavItem>
 
-            <NavItem to="/resources">
-                Resources
-            </NavItem>
+                <NavItem to="/#resources">
+                    Resources
+                </NavItem>
 
-            <NavItem to="/community">
-                Community
-            </NavItem>
+                <NavItem to="/#community">
+                    Community
+                </NavItem>
+            </NavSection>
+
+            <NavSection className="right">
+                <NavItem to="/mouse">
+                    Make a mouse
+                </NavItem>
+            </NavSection>
+
+
         </Nav>
     );
 };

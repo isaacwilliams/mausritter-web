@@ -22,4 +22,13 @@ const ContentContainer = styled.section`
     `}
 `;
 
+export const FlexContainer = styled(ContentContainer)`
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: row;
+`
+
 export default ContentContainer;

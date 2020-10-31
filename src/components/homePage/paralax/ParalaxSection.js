@@ -1,6 +1,6 @@
 import React from 'react';
-import useScrollPosition from '../hooks/useScrollPosition';
-import useWindowSize from '../hooks/useWindowSize';
+import useScrollPosition from '../../hooks/useScrollPosition';
+import useWindowSize from '../../hooks/useWindowSize';
 import styled from 'styled-components';
 
 const ParalaxContainer = styled.section`
@@ -25,10 +25,10 @@ const ParalaxSection = ({ scrollPosition, windowSize }) => {
 
     return (
         <ParalaxContainer >
-            <img src={require('./images/mausritter-seperated-4.jpg')} style={paralaxStyle({ transform })} />
-            <img src={require('./images/mausritter-seperated-3.png')} style={paralaxStyle({ transform, multiplier: -8, offset: 0 })} />
-            <img src={require('./images/mausritter-seperated-2.png')} style={paralaxStyle({ transform, multiplier: -10, offset: -20 })} />
-            <img src={require('./images/mausritter-seperated-1.png')} style={paralaxStyle({ transform, multiplier: -20, offset: 4 })} />
+            <img src={require('./mausritter-seperated-4.jpg')} style={paralaxStyle({ transform })} />
+            <img src={require('./mausritter-seperated-3.png')} style={paralaxStyle({ transform, multiplier: -8, offset: 0 })} />
+            <img src={require('./mausritter-seperated-2.png')} style={paralaxStyle({ transform, multiplier: -10, offset: -20 })} />
+            <img src={require('./mausritter-seperated-1.png')} style={paralaxStyle({ transform, multiplier: -20, offset: 4 })} />
         </ParalaxContainer>
     );
 };
