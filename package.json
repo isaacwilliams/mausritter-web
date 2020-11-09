@@ -1,9 +1,10 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A website for the roleplaying game Mausritter",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Isaac Williams <isaac@isaacwilliams.net>",
+  "homepage": "https://mausritter.com",
   "dependencies": {
     "classnames": "^2.2.6",
     "gatsby": "^2.24.47",
@@ -17,7 +18,10 @@
     "gatsby-source-filesystem": "^2.3.27",
     "gatsby-transformer-remark": "^2.8.31",
     "gatsby-transformer-sharp": "^2.5.13",
+    "gh-pages": "^3.1.0",
+    "install": "^0.13.0",
     "lodash": "^4.17.20",
+    "npm": "^6.14.8",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -39,7 +43,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
     "type": "git",
