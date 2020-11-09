@@ -88,11 +88,12 @@ const CommunitySection = () => (
 
             <Feature image={<img src={require('./discord-mouse.png')} />}>
                 <DiscordDescription>
-                    Got questions? Looking for ideas or content for your game?
+                    Got questions?
+                    Looking for content for your game, or want to share your own?
                     Want to find people to play with?
                 </DiscordDescription>
                 <DiscordDescription>
-                    Join our friendly and helpful Discord community.
+                    Join the friendly and helpful Discord community.
                 </DiscordDescription>
                 <LinkButtonDiscord href="https://discord.gg/v4wmKsv">Mausritter Discord</LinkButtonDiscord>
             </Feature>
