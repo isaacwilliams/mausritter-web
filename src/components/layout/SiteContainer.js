@@ -48,6 +48,9 @@ const SiteContainer = ({ children }) => (
                             { name: 'og:image', content: `${data.site.siteMetadata.siteUrl}${require('./website-share-image.jpg')}` },
                             { name: 'og:image:width', content: 1600 },
                             { name: 'og:image:height', content: 900 },
+                            { name: 'twitter:card', content: 'summary_large_image' },
+                            { name: 'twitter:image', content: `${data.site.siteMetadata.siteUrl}${require('./website-share-image.jpg')}` },
+                            { name: 'twitter:site': content: 'mausritter' },
                         ]}>
                     <html lang="en" />
                     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
