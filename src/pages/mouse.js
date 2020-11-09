@@ -7,7 +7,6 @@ import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
 
 import MouseGenerator from '../components/mouseGenerator/MouseGenerator';
-import Footer from '../components/navigation/Footer';
 
 const BodyDark = styled.div`
     position: absolute;
@@ -23,8 +22,6 @@ const IndexPage = () => {
             <Navigation />
 
             <MouseGenerator />
-
-            <Footer />
         </SiteContainer>
     );
 }
