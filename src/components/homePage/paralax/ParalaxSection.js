@@ -27,8 +27,8 @@ const ParalaxSection = ({ scrollPosition, windowSize }) => {
         <ParalaxContainer >
             <img src={require('./mausritter-seperated-4.jpg')} style={paralaxStyle({ transform })} />
             <img src={require('./mausritter-seperated-3.png')} style={paralaxStyle({ transform, multiplier: -8, offset: 0 })} />
-            <img src={require('./mausritter-seperated-2.png')} style={paralaxStyle({ transform, multiplier: -10, offset: -20 })} />
-            <img src={require('./mausritter-seperated-1.png')} style={paralaxStyle({ transform, multiplier: -20, offset: 4 })} />
+            <img src={require('./mausritter-seperated-2.png')} style={paralaxStyle({ transform, multiplier: -12, offset: -20 })} />
+            <img src={require('./mausritter-seperated-1.png')} style={paralaxStyle({ transform, multiplier: -22, offset: 8 })} />
         </ParalaxContainer>
     );
 };
