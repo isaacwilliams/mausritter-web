@@ -1,14 +1,43 @@
-import React from "react"
+import React from 'react';
+import styled from 'styled-components';
 
-import SiteContainer from "../components/layout/SiteContainer"
-import SEO from "../components/layout/SEO"
+import SiteContainer from '../components/layout/SiteContainer';
+import Navigation from '../components/navigation/Navigation';
+
+import { ContentContainer, FlexContainer } from '../components/layout/ContentContainer';
+import { Title } from '../components/styles/shared';
+import BodyText from '../components/styles/BodyText';
+
+const FlexColumn = styled(FlexContainer)`
+    margin-top: 4rem;
+    flex-direction: column;
+`;
+
+const LostMouseImage = styled.img`
+    max-width: 20rem;
+    height: auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+`
 
 const NotFoundPage = () => (
-  <SiteContainer>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </SiteContainer>
+    <SiteContainer>
+        <Navigation />
+
+        <ContentContainer>
+            <FlexColumn>
+                <Title>
+                    Are you lost, little mouse?
+                </Title>
+
+                <LostMouseImage src={require('../components/404page/lost-mouse.png')} alt="A small mouse holding a flaming torch." />
+
+                <BodyText>
+                    Sorry, there's nothing here.
+                </BodyText>
+            </FlexColumn>
+        </ContentContainer>
+    </SiteContainer>
 )
 
 export default NotFoundPage
