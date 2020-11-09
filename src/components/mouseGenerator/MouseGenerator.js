@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import Helmet from 'react-helmet';
+import styled, { css, createGlobalStyle } from 'styled-components';
 import font from '../styles/font';
 import colors from '../styles/colors';
 import media from '../styles/media';
@@ -9,10 +10,6 @@ import { FlexContainer, ContentContainer } from '../layout/ContentContainer';
 import InventoryItem from './InventoryItem';
 
 import useRollMouse from './useRollMouse';
-
-const FontImport = styled.div`
-    @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
-`
 
 const Attr = styled.div`
     display: grid;
@@ -311,9 +308,9 @@ const MausritterCharacter = () => {
 
     return (
         <ContentContainer>
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
-            </style>
+            <Helmet>
+                <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet" />
+            </Helmet>
 
             <TitleWrapper>
                 <Title>
