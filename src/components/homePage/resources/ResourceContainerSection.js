@@ -62,6 +62,15 @@ const ResourceLink = styled(Link)`
             box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
         }
     }
+
+    ${media.phone`
+        width: 25vw;
+        height: 25vw;
+
+        img {
+            max-height: 16vw;
+        }
+    `}
 `;
 
 const HeroResourceLink = styled(Link)`
@@ -73,6 +82,7 @@ const HeroResourceLink = styled(Link)`
     flex-direction: column;
 
     height: 10rem;
+    max-height: 10vw;
 
     padding: 2rem;
     margin-top: 1rem;
@@ -113,14 +123,18 @@ const ResourcesSectionContainer = styled.div`
 `;
 
 const ResourceSubTitle = styled(SubTitle)`
+    padding-bottom: 0;
+    margin-bottom: 1rem;
     position: relative;
 
     width: 100%;
     text-align: left;
 
-    text-shadow: -4px -4px 0 white, 4px -4px 0 white, -4px 4px 0 white, 4px 4px 0 white;
+    border-bottom: 0.5rem solid black;
 
-    &:after {
+    /* text-shadow: -4px -4px 0 white, 4px -4px 0 white, -4px 4px 0 white, 4px 4px 0 white; */
+
+    /* &:after {
         position: absolute;
 
         left: 0;
@@ -131,7 +145,7 @@ const ResourceSubTitle = styled(SubTitle)`
         content: '';
 
         z-index: -1;
-    }
+    } */
 `
 
 const ResourcesSection = ({ title, resources = [], heroResources = [] }) => {

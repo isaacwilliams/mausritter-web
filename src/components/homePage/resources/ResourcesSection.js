@@ -17,6 +17,11 @@ import ResourceContainerSection from './ResourceContainerSection';
 const ResourcesWrapper = styled.div`
     padding-top: 6rem;
     padding-bottom: 6rem;
+
+    ${media.phone`
+        padding-left: 3rem;
+        padding-right: 3rem;
+    `}
 `
 
 const Resources = ({}) => (

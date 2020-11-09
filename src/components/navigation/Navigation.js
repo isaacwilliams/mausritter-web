@@ -40,7 +40,7 @@ const NavItem = styled(Link)`
     letter-spacing: 0.025rem;
     white-space: nowrap;
 
-    background: white;
+    background: ${({ transparent }) => transparent ? 'transparent' : 'white'};
 
     &:hover {
         background: yellow;
@@ -59,6 +59,10 @@ const NavLogo = styled(Link)`
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-color: yellow;
+    }
 `
 
 const Divider = styled.div`
@@ -69,7 +73,7 @@ const Divider = styled.div`
 `;
 
 
-const Navigation = () => {
+const Navigation = ({ transparent }) => {
     return (
         <Nav>
             <NavSection className="left">
@@ -79,21 +83,21 @@ const Navigation = () => {
             </NavSection>
 
             <NavSection className="center">
-                <NavItem to="/#get-mausritter">
+                <NavItem to="/#get-mausritter" transparent={transparent}>
                     Get the game
                 </NavItem>
 
-                <NavItem to="/#resources">
+                <NavItem to="/#resources" transparent={transparent}>
                     Resources
                 </NavItem>
 
-                <NavItem to="/#community">
+                <NavItem to="/#community" transparent={transparent}>
                     Community
                 </NavItem>
             </NavSection>
 
             <NavSection className="right">
-                <NavItem to="/mouse">
+                <NavItem to="/mouse" transparent={transparent}>
                     Make a mouse
                 </NavItem>
             </NavSection>

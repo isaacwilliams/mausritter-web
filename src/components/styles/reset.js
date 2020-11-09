@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
-import { fontBody } from './font';
+import font from './font';
 
 export const inputReset = css`
-    ${fontBody}
+    ${font.body}
     font-size: 1rem;
     border: none;
 `

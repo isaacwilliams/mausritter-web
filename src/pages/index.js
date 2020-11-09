@@ -10,6 +10,7 @@ import ParalaxSection from '../components/homePage/paralax/ParalaxSection';
 import FeaturesSection from '../components/homePage/features/FeaturesSection';
 import GetGameSection from '../components/homePage/getGame/GetGameSection';
 import ResourcesSection from '../components/homePage/resources/ResourcesSection';
+import CommunitySection from '../components/homePage/community/CommunitySection';
 import FloatingNavigation from '../components/navigation/FloatingNavigation';
 
 import Footer from '../components/navigation/Footer';
@@ -31,6 +32,7 @@ const IndexPage = () => {
             <FeaturesSection />
             <GetGameSection />
             <ResourcesSection />
+            <CommunitySection />
             <Footer />
         </SiteContainer>
     );

@@ -1,8 +1,8 @@
 
 export default {
     background: '#ffffff',
-    
-    body: '#333000',
+
+    body: '#001122',
     bodyLight: '#555555',
 
     highlight: 'yellow',

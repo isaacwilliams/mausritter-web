@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import classNames from 'classnames';
 
 import Navigation from './Navigation';
 
@@ -9,18 +10,15 @@ const FloatingTop = styled.div`
     left: 0;
     width: 100%;
 
-    background: white;
+    background: ${({ transparent }) => transparent ? 'transparent' : 'white'};
+    opacity: ${({ hide }) => hide ? 0 : 1};
 
     z-index: 999;
-
-    &.hide {
-        opacity: 0;
-    }
 `
-const FloatingNavigation = ({ hide }) => {
+const FloatingNavigation = ({ hide, transparent }) => {
     return (
-        <FloatingTop className={hide && 'hide'}>
-            <Navigation />
+        <FloatingTop transparent={transparent} hide={hide}>
+            <Navigation transparent={transparent} />
         </FloatingTop>
     );
 };

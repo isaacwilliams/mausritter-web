@@ -11,7 +11,7 @@ export const Title = styled.h2`
     text-align: center;
 
     ${media.phone`
-        font-size: 5vw;
+        font-size: 2rem;
     `}
 `;
 
@@ -22,6 +22,6 @@ export const SubTitle = styled.h3`
     font-size: 2rem;
 
     ${media.phone`
-        font-size: 3vw;
+        font-size: 1.4rem;
     `}
 `;

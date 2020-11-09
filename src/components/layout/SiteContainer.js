@@ -6,7 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import reset from '../styles/reset';
 import font from '../styles/font';
-import * as colors from '../styles/colors';
+import colors from '../styles/colors';
 
 const GlobalStyle = createGlobalStyle`
     ${reset};
@@ -19,11 +19,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: ${colors.highlight};
-
-        &:hover {
-            color: ${colors.highlightAlt};
-        }
+        color: ${colors.body};
     }
 `
 

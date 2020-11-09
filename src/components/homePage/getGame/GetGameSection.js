@@ -18,7 +18,11 @@ const GetGameWrapper = styled.article`
     padding-bottom: 6rem;
 `
 
-const GetGameSection = FlexContainer;
+const GetGameSection = styled(FlexContainer)`
+    ${media.phone`
+        display: block;
+    `}
+`;
 
 const OptionLink = styled(Link)`
     display: flex;
@@ -75,9 +79,9 @@ const OtherEditionsSection = styled(FlexContainer)`
 
     width: 90vw;
 
-    margin-top: 2vw;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     margin-left: auto;
     margin-right: auto;
 
