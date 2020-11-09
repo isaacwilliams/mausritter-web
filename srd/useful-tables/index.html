@@ -1,0 +1,756 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.24.47"/><title data-react-helmet="true">Mausritter</title><link data-react-helmet="true" rel="alternate" type="application/rss+xml" href="/feed.xml"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABgUlEQVRYhe2XsUpDMRSGj46KbpY6C76Fi4/gpKu46SI4+ACuOoijBelUWhRHOzhWcNNZqk6iFcVBXSN/45GYnJwbLr1cxBv4h+ZPzvluQnLSMfNGhkps42UmR6sAKgARoHtOtLFF1GjKk+CvrBJ1TmX/49N6GHNxmUGAY8g6OyazuDA8lj9aXiLzdGP965797foYj3747w9k2kdk5ud+jznct56bizUEQAI/sCsEXF+L+xB8P3HsQwIAhtCSaMFTfIhXSgRgYQljk6UtYmEePgLLHYNJAvi+mtXJ0koBgH3sdypAIcdwciJ9bDJAvZaTZlQAtZmSAYpqAQBusTxteip7krSNAUD/Lh/AbD17jLSNf7Mavrzq/uC5YIDWie4/DgoGGGVLBtg70E/I5jbR7b0eA2+MYIx/N+O+1kpurFawULC0GFCvm1GM/IqI6oY+flQggV/xAOcWG6mq7u6EBUkEgPpXtvS6iV2hD48MBMVYLQZKtPQYgap/RhXAPwcgoi/hKhDJwmbESQAAAABJRU5ErkJggg=="/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA2UlEQVQ4jWP8/4HhPwMFgIkSzQxUM+DVawaGvikMDJFJDAz3HjAwfP0G4eeUQPggsHMvhA8SB8nDwZdnDP+zU8DhAMdqyqh8J1tUfkQQw39Q2IHDD8bobUEoeHkb1dC7Fxj+71iLMAgkB9OHNRDFRBkY7G0QfCUFBgZ3ZwYGTXU8gQjzK1mBiA18+oQp+PYdCQacv4QptmIdCQYQC7AaAIprZACKf1BagYGpcxgY5i6CcmDRAYo6UPyuWsDwH5Q2YHxQ9F48ClEDokFRCVIDkgeJDfXMxMDAAAAWjYX/HeuVjgAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="description" content="A blog about D&amp;D and other games"/><meta data-react-helmet="true" name="og:description" content="A blog about D&amp;D and other games"/><meta data-react-helmet="true" name="og:title" content="Mausritter"/><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link as="script" rel="preload" href="/webpack-runtime-faa7c8e3dd884849fea6.js"/><link as="script" rel="preload" href="/framework-63ec46a3540d83159f28.js"/><link as="script" rel="preload" href="/app-54805056db77f9720396.js"/><link as="script" rel="preload" href="/commons-7674eee6ef32694e5999.js"/><link as="script" rel="preload" href="/2ce3f4aeb6c440763a4395cdb70ee4d836c1bfba-b1eb586b4e8bc0cf01fa.js"/><link as="script" rel="preload" href="/component---src-templates-srd-template-js-8615fdcc70b13761734e.js"/><link as="fetch" rel="preload" href="/page-data/srd/useful-tables/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style>@import url(&quot;https://use.typekit.net/jcg4vha.css&quot;);</style><nav class="sc-AxjAm bcMPWx"><div class="sc-AxirZ bJCmFu left"><a class="sc-AxhCb eSwYtm" href="/">Mausritter</a></div><div class="sc-AxirZ bJCmFu center"><a class="sc-AxiKw kKqptu" href="/#get-mausritter">Get the game</a><a class="sc-AxiKw kKqptu" href="/#resources">Resources</a><a class="sc-AxiKw kKqptu" href="/#community">Community</a></div><div class="sc-AxirZ bJCmFu right"><a class="sc-AxiKw kKqptu" href="/mouse">Make a mouse</a></div></nav><div class="sc-fzqyvX eOQcGc"><nav class="sc-fznNTe fnbSrb"><ul><div class="sc-fzobTh ktGuED">Player rules</div><ul><li><a href="/srd/brave-mice-dangerous-world">Brave mice in a dangerous world</a></li><li><a href="/srd/make-a-mouse">Make a mouse</a></li><li><a href="/srd/inventory">Inventory</a></li><li><a href="/srd/how-to-play">How to play</a></li><li><a href="/srd/magic">Magic</a></li><li><a href="/srd/recruiting-help">Recruiting help</a></li></ul></ul><ul><div class="sc-fzobTh ktGuED">GM rules and resources</div><ul><li><a href="/srd/running-mausritter">Running Mausritter</a></li><li><a href="/srd/creatures">Creatures</a></li><li><a href="/srd/hexcrawl-toolbox">Hexcrawl toolbox</a></li><li><a href="/srd/adventure-site-toolbox">Adventure site toolbox</a></li><li class="current"><a aria-current="page" class="" href="/srd/useful-tables">Useful tables</a></li></ul></ul></nav><div class="sc-fzooss ivOodO"><div class="sc-AxgMl sc-fznBtT ccaska"><h1 id="useful-tables" style="position:relative;"><a href="#useful-tables" aria-label="useful tables permalink" class="anchor before"></a>Useful tables</h1>
+<h2 id="non-player-mice" style="position:relative;"><a href="#non-player-mice" aria-label="non player mice permalink" class="anchor before"></a>Non-player mice</h2>
+<h3 id="social-position" style="position:relative;"><a href="#social-position" aria-label="social position permalink" class="anchor before"></a>Social position</h3>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Social position</th>
+<th>Payment for service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Poor</td>
+<td>d6p</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Common</td>
+<td>d6 x 10p</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Common</td>
+<td>d6 x 10p</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Burghermouse</td>
+<td>d6 x 50p</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Guildmouse</td>
+<td>d4 x 100p</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Noblemouse</td>
+<td>d4 x 1000p</td>
+</tr>
+</tbody>
+</table>
+<h3 id="birthsign" style="position:relative;"><a href="#birthsign" aria-label="birthsign permalink" class="anchor before"></a>Birthsign</h3>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Birthsign</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Star</td>
+<td>Brave / Reckless</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Wheel</td>
+<td>Industrious / Unimaginative</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Acorn</td>
+<td>Inquisitive / Stubborn</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Storm</td>
+<td>Generous / Wrathful</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Moon</td>
+<td>Wise / Mysterious</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Mother</td>
+<td>Nurturing / Worrying</td>
+</tr>
+</tbody>
+</table>
+<h3 id="details" style="position:relative;"><a href="#details" aria-label="details permalink" class="anchor before"></a>Details</h3>
+<table>
+<thead>
+<tr>
+<th>d20</th>
+<th>Appearance</th>
+<th>Quirk</th>
+<th>Wants</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Soulful eyes</td>
+<td>Constantly grooming</td>
+<td>Freedom</td>
+<td>Parent</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bright, patched clothes</td>
+<td>Obsessed with weather</td>
+<td>Safety</td>
+<td>Sibling</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wreath of daisies</td>
+<td>Very high energy</td>
+<td>Escape</td>
+<td>Cousin</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Grubby clothes</td>
+<td>Traveled, knowledgeable</td>
+<td>Excitement</td>
+<td>Second cousin</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Large floppy hat</td>
+<td>Cursed by a wizard</td>
+<td>Power</td>
+<td>Grandparent</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Pockets full of seed</td>
+<td>Scares easily</td>
+<td>Meaning</td>
+<td>Related, but don’t know it</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Bent twig walking stick</td>
+<td>Ashamed of past crimes</td>
+<td>Health</td>
+<td>Married</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Carries rusted pinsword</td>
+<td>Very competitive</td>
+<td>Wealth</td>
+<td>Former lovers</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Long, wild fur</td>
+<td>Flamboyant drunkard</td>
+<td>Protection</td>
+<td>In love, unrequited</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Very, very old</td>
+<td>Extremely polite</td>
+<td>Love</td>
+<td>Drinking buddies</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Bandaged tail</td>
+<td>Unreservedly honest</td>
+<td>To protect</td>
+<td>Debt owed</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Tail tied with a bow</td>
+<td>Slow, careful speech</td>
+<td>Food</td>
+<td>Long and tumultuous</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Missing an ear</td>
+<td>Quick, erratic speech</td>
+<td>Friendship</td>
+<td>Sworn enemies</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Long whiskers</td>
+<td>Secret servant of a cat</td>
+<td>Rest</td>
+<td>Guild brothers</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Twinkling eyes</td>
+<td>Raised by rats</td>
+<td>Knowledge</td>
+<td>Childhood friends</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Huge, heavy black cloak</td>
+<td>Outcast from home</td>
+<td>Savagery</td>
+<td>One stole from the other</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Old battle scars</td>
+<td>Many pet insects</td>
+<td>Beauty</td>
+<td>Worked together</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Very young</td>
+<td>Hates being outdoors</td>
+<td>Revenge</td>
+<td>Grew up together</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Shaved fur</td>
+<td>Local hero</td>
+<td>To serve</td>
+<td>Serve the same lord</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Braided fur</td>
+<td>Very twitchy whiskers</td>
+<td>Fun</td>
+<td>Never met before</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adventure-seeds" style="position:relative;"><a href="#adventure-seeds" aria-label="adventure seeds permalink" class="anchor before"></a>Adventure seeds</h2>
+<p>Spark inspiration for adventure. Roll once and read across, or roll individually for each column and combine.</p>
+<table>
+<thead>
+<tr>
+<th>d66</th>
+<th>Creature</th>
+<th>Problem</th>
+<th>Complication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>Fishermouse</td>
+<td>Have been accused of a crime</td>
+<td>A player’s hireling is responsible</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Unruly family</td>
+<td>Looking for a new home</td>
+<td>Need to cross a river</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Wizard</td>
+<td>Is being followed</td>
+<td>Antagonist is their own shadow</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Roach wrangler</td>
+<td>Discovered a strange artifact</td>
+<td>They have amnesia</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Farmer</td>
+<td>Experienced an unsettling omen</td>
+<td>The antagonist is in disguise</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Burghermaster</td>
+<td>Want to assassinate a rival</td>
+<td>Player mouse’s home is involved</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Forager</td>
+<td>Want to retrieve lost treasure</td>
+<td>It is protected by strange beasts</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Shopkeeper</td>
+<td>Home has been destroyed</td>
+<td>Antagonist is their closest friend</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Traveling merchant</td>
+<td>Most valued possession was stolen</td>
+<td>They are the true antagonist</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Pigeon rider</td>
+<td>Has been kidnapped</td>
+<td>Player mouse’s friend is involved</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Ale brewer</td>
+<td>Has been exiled from settlement</td>
+<td>They've been framed</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Herbalist</td>
+<td>Searching for a rare cure</td>
+<td>It's very urgent</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Message runner</td>
+<td>Have lost their way</td>
+<td>They have vital information</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Vagrant</td>
+<td>Have had all their food stolen</td>
+<td>The antagonist had a good reason</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Test subject</td>
+<td>Are on the run from humans</td>
+<td>They’re being tracked by a chip</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Tin miner</td>
+<td>Have been waylaid by bandits</td>
+<td>The antagonist is very drunk</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Baker</td>
+<td>Have eaten a poisonous berry</td>
+<td>Antagonist is a family member</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Hedge knight</td>
+<td>Family member is missing</td>
+<td>They’re dying</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Tax collector</td>
+<td>Have lost of a lot of pips</td>
+<td>They’re very drunk</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Matriarch</td>
+<td>Has been accused of murder</td>
+<td>Antagonist is a shape-shifter</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Prospector</td>
+<td>Pack tortoise is stuck</td>
+<td>They’re much richer than they look</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Tunnellers Guild boss</td>
+<td>Has been murdered</td>
+<td>Player mouse's rival is involved</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Noblemouse</td>
+<td>Their home is under attack</td>
+<td>Antagonist wants retribution</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Rat bandit</td>
+<td>Want to steal from a rival</td>
+<td>A ghost is haunting the location</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Queen bee</td>
+<td>Traveling to a new home</td>
+<td>Their followers disagree</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Ant army officer</td>
+<td>Is hunted by enemies</td>
+<td>They are badly injured</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Owl sorcerer</td>
+<td>Want to retrieve a rare spell</td>
+<td>It is deep in a cave</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Cat lord</td>
+<td>Want to be entertained</td>
+<td>They've trapped the player mice</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Duckling</td>
+<td>Has lost their mother</td>
+<td>Need to get to an island</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Giant millipede</td>
+<td>Want somewhere warm to sleep</td>
+<td>Need item carried by a player mouse</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Lilliputian ambassador</td>
+<td>Want to reach the mouse queen</td>
+<td>They don’t understand local customs</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Trapped ghost</td>
+<td>Want to find their true love</td>
+<td>They can’t leave their current location</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Faerie envoy</td>
+<td>Want to kidnap a mouse</td>
+<td>A player mouse is their target</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Swarm of midges</td>
+<td>Want to steal from a player mouse</td>
+<td>Antagonist is unusually skilled</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Grandmother spider</td>
+<td>Has lost an ancient treasure</td>
+<td>They’ve eaten it</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Baby bird</td>
+<td>Cannot get home</td>
+<td>Need to climb a tree</td>
+</tr>
+</tbody>
+</table>
+<h2 id="seasons" style="position:relative;"><a href="#seasons" aria-label="seasons permalink" class="anchor before"></a>Seasons</h2>
+<p><strong>Poor weather:</strong> While traveling in <strong>highlighted</strong> weather, make STR save or gain an Exhausted Condition.</p>
+<h3 id="spring" style="position:relative;"><a href="#spring" aria-label="spring permalink" class="anchor before"></a>Spring</h3>
+<h4 id="weather" style="position:relative;"><a href="#weather" aria-label="weather permalink" class="anchor before"></a>Weather</h4>
+<table>
+<thead>
+<tr>
+<th>2d6</th>
+<th>Weather</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td><strong>Rain storm</strong></td>
+</tr>
+<tr>
+<td>3-5</td>
+<td>Drizzle</td>
+</tr>
+<tr>
+<td>6-8</td>
+<td>Overcast</td>
+</tr>
+<tr>
+<td>9-11</td>
+<td>Bright and sunny</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Clear and warm</td>
+</tr>
+</tbody>
+</table>
+<h4 id="seasonal-events" style="position:relative;"><a href="#seasonal-events" aria-label="seasonal events permalink" class="anchor before"></a>Seasonal events</h4>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Seasonal event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Flooding washes away an important landmark</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mother bird, very protective of her eggs</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Merchant’s cart sunken in a pool of mud</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Migrating butterflies, hungry for nectar</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mice weaving wreathes of flowers to prepare for...</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Wedding festival, a joyous procession</td>
+</tr>
+</tbody>
+</table>
+<h3 id="summer" style="position:relative;"><a href="#summer" aria-label="summer permalink" class="anchor before"></a>Summer</h3>
+<h4 id="weather-1" style="position:relative;"><a href="#weather-1" aria-label="weather 1 permalink" class="anchor before"></a>Weather</h4>
+<table>
+<thead>
+<tr>
+<th>2d6</th>
+<th>Weather</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td><strong>Thunder storm</strong></td>
+</tr>
+<tr>
+<td>3-5</td>
+<td><strong>Very hot</strong></td>
+</tr>
+<tr>
+<td>6-8</td>
+<td>Clear, hot</td>
+</tr>
+<tr>
+<td>9-11</td>
+<td>Pleasantly sunny</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Beautifully warm</td>
+</tr>
+</tbody>
+</table>
+<h4 id="seasonal-events-1" style="position:relative;"><a href="#seasonal-events-1" aria-label="seasonal events 1 permalink" class="anchor before"></a>Seasonal events</h4>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Seasonal event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Heat wave makes travel exhausting for next week</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Baby bird, fallen from nest</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pleasant and refreshing sun shower</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Swarm of locusts destroy a settlement’s crops</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mice building elaborate costumes to prepare for...</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Midsummer festival, a wild dance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="autumn" style="position:relative;"><a href="#autumn" aria-label="autumn permalink" class="anchor before"></a>Autumn</h3>
+<h4 id="weather-2" style="position:relative;"><a href="#weather-2" aria-label="weather 2 permalink" class="anchor before"></a>Weather</h4>
+<table>
+<thead>
+<tr>
+<th>2d6</th>
+<th>Weather</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td><strong>Wild winds</strong></td>
+</tr>
+<tr>
+<td>3-5</td>
+<td><strong>Heavy rain</strong></td>
+</tr>
+<tr>
+<td>6-8</td>
+<td>Cool</td>
+</tr>
+<tr>
+<td>9-11</td>
+<td>Patchy rain</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Clear and crisp</td>
+</tr>
+</tbody>
+</table>
+<h4 id="seasonal-events-2" style="position:relative;"><a href="#seasonal-events-2" aria-label="seasonal events 2 permalink" class="anchor before"></a>Seasonal events</h4>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Seasonal event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>An important tree is felled by wild winds</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mother bird, distraught from children leaving home</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A large patch of mushrooms emerges overnight</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Rumors that truffles are growing nearby</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mice carrying bundles of grain and baking pies for...</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Harvest festival, a grand feast</td>
+</tr>
+</tbody>
+</table>
+<h3 id="winter" style="position:relative;"><a href="#winter" aria-label="winter permalink" class="anchor before"></a>Winter</h3>
+<h4 id="weather-3" style="position:relative;"><a href="#weather-3" aria-label="weather 3 permalink" class="anchor before"></a>Weather</h4>
+<table>
+<thead>
+<tr>
+<th>2d6</th>
+<th>Weather</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td><strong>Snow storm</strong></td>
+</tr>
+<tr>
+<td>3-5</td>
+<td><strong>Sleet</strong></td>
+</tr>
+<tr>
+<td>6-8</td>
+<td><strong>Bitter cold</strong></td>
+</tr>
+<tr>
+<td>9-11</td>
+<td>Overcast</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Clear and crisp</td>
+</tr>
+</tbody>
+</table>
+<h4 id="seasonal-events-3" style="position:relative;"><a href="#seasonal-events-3" aria-label="seasonal events 3 permalink" class="anchor before"></a>Seasonal events</h4>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Seasonal event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Snow prevents above-ground movement for a week</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bird with a broken wing, old and grey</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lost migrating duck, separated by the flock</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Travellers disappear in a fast moving storm</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mice building an effigy of old Winter to prepare for...</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Midwinter festival, a magnificent bonfire</td>
+</tr>
+</tbody>
+</table></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/srd/useful-tables";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da901081db5f1889332d.js"],"app":["/app-54805056db77f9720396.js"],"component---src-pages-404-js":["/component---src-pages-404-js-b3d45241c5b8813d0894.js"],"component---src-pages-index-js":["/component---src-pages-index-js-350fd70846d083d2ed91.js"],"component---src-pages-mouse-js":["/component---src-pages-mouse-js-721552f3df4864501d64.js"],"component---src-templates-srd-template-js":["/component---src-templates-srd-template-js-8615fdcc70b13761734e.js"]};/*]]>*/</script><script src="/polyfill-da901081db5f1889332d.js" nomodule=""></script><script src="/component---src-templates-srd-template-js-8615fdcc70b13761734e.js" async=""></script><script src="/2ce3f4aeb6c440763a4395cdb70ee4d836c1bfba-b1eb586b4e8bc0cf01fa.js" async=""></script><script src="/commons-7674eee6ef32694e5999.js" async=""></script><script src="/app-54805056db77f9720396.js" async=""></script><script src="/framework-63ec46a3540d83159f28.js" async=""></script><script src="/webpack-runtime-faa7c8e3dd884849fea6.js" async=""></script></body></html>

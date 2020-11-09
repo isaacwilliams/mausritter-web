@@ -1,0 +1,556 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.24.47"/><title data-react-helmet="true">Mausritter</title><link data-react-helmet="true" rel="alternate" type="application/rss+xml" href="/feed.xml"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABgUlEQVRYhe2XsUpDMRSGj46KbpY6C76Fi4/gpKu46SI4+ACuOoijBelUWhRHOzhWcNNZqk6iFcVBXSN/45GYnJwbLr1cxBv4h+ZPzvluQnLSMfNGhkps42UmR6sAKgARoHtOtLFF1GjKk+CvrBJ1TmX/49N6GHNxmUGAY8g6OyazuDA8lj9aXiLzdGP965797foYj3747w9k2kdk5ud+jznct56bizUEQAI/sCsEXF+L+xB8P3HsQwIAhtCSaMFTfIhXSgRgYQljk6UtYmEePgLLHYNJAvi+mtXJ0koBgH3sdypAIcdwciJ9bDJAvZaTZlQAtZmSAYpqAQBusTxteip7krSNAUD/Lh/AbD17jLSNf7Mavrzq/uC5YIDWie4/DgoGGGVLBtg70E/I5jbR7b0eA2+MYIx/N+O+1kpurFawULC0GFCvm1GM/IqI6oY+flQggV/xAOcWG6mq7u6EBUkEgPpXtvS6iV2hD48MBMVYLQZKtPQYgap/RhXAPwcgoi/hKhDJwmbESQAAAABJRU5ErkJggg=="/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA2UlEQVQ4jWP8/4HhPwMFgIkSzQxUM+DVawaGvikMDJFJDAz3HjAwfP0G4eeUQPggsHMvhA8SB8nDwZdnDP+zU8DhAMdqyqh8J1tUfkQQw39Q2IHDD8bobUEoeHkb1dC7Fxj+71iLMAgkB9OHNRDFRBkY7G0QfCUFBgZ3ZwYGTXU8gQjzK1mBiA18+oQp+PYdCQacv4QptmIdCQYQC7AaAIprZACKf1BagYGpcxgY5i6CcmDRAYo6UPyuWsDwH5Q2YHxQ9F48ClEDokFRCVIDkgeJDfXMxMDAAAAWjYX/HeuVjgAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="description" content="A blog about D&amp;D and other games"/><meta data-react-helmet="true" name="og:description" content="A blog about D&amp;D and other games"/><meta data-react-helmet="true" name="og:title" content="Mausritter"/><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link as="script" rel="preload" href="/webpack-runtime-faa7c8e3dd884849fea6.js"/><link as="script" rel="preload" href="/framework-63ec46a3540d83159f28.js"/><link as="script" rel="preload" href="/app-54805056db77f9720396.js"/><link as="script" rel="preload" href="/commons-7674eee6ef32694e5999.js"/><link as="script" rel="preload" href="/2ce3f4aeb6c440763a4395cdb70ee4d836c1bfba-b1eb586b4e8bc0cf01fa.js"/><link as="script" rel="preload" href="/component---src-templates-srd-template-js-8615fdcc70b13761734e.js"/><link as="fetch" rel="preload" href="/page-data/srd/make-a-mouse/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style>@import url(&quot;https://use.typekit.net/jcg4vha.css&quot;);</style><nav class="sc-AxjAm bcMPWx"><div class="sc-AxirZ bJCmFu left"><a class="sc-AxhCb eSwYtm" href="/">Mausritter</a></div><div class="sc-AxirZ bJCmFu center"><a class="sc-AxiKw kKqptu" href="/#get-mausritter">Get the game</a><a class="sc-AxiKw kKqptu" href="/#resources">Resources</a><a class="sc-AxiKw kKqptu" href="/#community">Community</a></div><div class="sc-AxirZ bJCmFu right"><a class="sc-AxiKw kKqptu" href="/mouse">Make a mouse</a></div></nav><div class="sc-fzqyvX eOQcGc"><nav class="sc-fznNTe fnbSrb"><ul><div class="sc-fzobTh ktGuED">Player rules</div><ul><li><a href="/srd/brave-mice-dangerous-world">Brave mice in a dangerous world</a></li><li class="current"><a aria-current="page" class="" href="/srd/make-a-mouse">Make a mouse</a></li><li><a href="/srd/inventory">Inventory</a></li><li><a href="/srd/how-to-play">How to play</a></li><li><a href="/srd/magic">Magic</a></li><li><a href="/srd/recruiting-help">Recruiting help</a></li></ul></ul><ul><div class="sc-fzobTh ktGuED">GM rules and resources</div><ul><li><a href="/srd/running-mausritter">Running Mausritter</a></li><li><a href="/srd/creatures">Creatures</a></li><li><a href="/srd/hexcrawl-toolbox">Hexcrawl toolbox</a></li><li><a href="/srd/adventure-site-toolbox">Adventure site toolbox</a></li><li><a href="/srd/useful-tables">Useful tables</a></li></ul></ul></nav><div class="sc-fzooss ivOodO"><div class="sc-AxgMl sc-fznBtT ccaska"><h1 id="make-a-mouse" style="position:relative;"><a href="#make-a-mouse" aria-label="make a mouse permalink" class="anchor before"></a>Make a mouse</h1>
+<p>The world is very big and very dangerous for a small mouse adventurer. You will need to be very brave, and always keep your wits about you.</p>
+<h2 id="1-attributes" style="position:relative;"><a href="#1-attributes" aria-label="1 attributes permalink" class="anchor before"></a>1. Attributes</h2>
+<p>Your mouse has three attribute scores. These measure their basic strengths and weaknesses.</p>
+<ul>
+<li><strong>STR:</strong> physical strength and resilience.</li>
+<li><strong>DEX:</strong> speed and agility.</li>
+<li><strong>WIL:</strong> strength of will and charisma.</li>
+</ul>
+<p>For each of these attributes, in order, roll <strong>3d6</strong>.</p>
+<p>Keep the <strong>two highest dice</strong> results for a value between 2—12.</p>
+<p>You may then swap any two attributes.</p>
+<h2 id="2-hp-pips-and-background" style="position:relative;"><a href="#2-hp-pips-and-background" aria-label="2 hp pips and background permalink" class="anchor before"></a>2. HP, pips and background</h2>
+<p><strong>Roll d6</strong> for your <strong>Hit Protection</strong> (HP). This is the damage your mouse can shrug off before taking serious harm.</p>
+<p><strong>Roll d6</strong> for your mouse’s starting <strong>pips</strong>. These are the basic currency of the mouse kingdom.</p>
+<p><strong>Cross reference</strong> the value of your <strong>HP</strong> with your <strong>pips</strong> on the <strong>Background table</strong>. This is what your mouse was before becoming an adventurer.</p>
+<h2 id="3-starting-equipment" style="position:relative;"><a href="#3-starting-equipment" aria-label="3 starting equipment permalink" class="anchor before"></a>3. Starting equipment</h2>
+<p>Your mouse starts with:</p>
+<ul>
+<li><strong>Torches</strong></li>
+<li><strong>Rations</strong></li>
+<li>Two items from their <strong>background</strong></li>
+<li>A <strong>weapon</strong> of your choice (see p. 9)</li>
+</ul>
+<p>If your mouse’s highest attribute is 9 or less, roll on the Background table again and take either Item A or B. If your highest is 7 or less, take both.</p>
+<h2 id="4-details" style="position:relative;"><a href="#4-details" aria-label="4 details permalink" class="anchor before"></a>4. Details</h2>
+<p>Roll or choose <strong>birthsign</strong>, <strong>coat</strong> and a <strong>physical detail</strong>.</p>
+<p>Choose a <strong>name</strong> appropriate for a brave mouse.</p>
+<h2 id="backgrounds" style="position:relative;"><a href="#backgrounds" aria-label="backgrounds permalink" class="anchor before"></a>Backgrounds</h2>
+<table>
+<thead>
+<tr>
+<th>HP</th>
+<th>Pips</th>
+<th>Background</th>
+<th>Item A</th>
+<th>Item B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Test subject</td>
+<td>Spell: Magic missile</td>
+<td>Lead coat (Heavy armour)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>Kitchen forager</td>
+<td>Shield &#x26; jerkin (Light armour)</td>
+<td>Cookpots</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>Cage dweller</td>
+<td>Spell: Be understood</td>
+<td>Bottle of milk</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>Hedge witch</td>
+<td>Spell: Heal</td>
+<td>Incense stick</td>
+</tr>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>Leatherworker</td>
+<td>Shield &#x26; jerkin (Light armour)</td>
+<td>Shears</td>
+</tr>
+<tr>
+<td>1</td>
+<td>6</td>
+<td>Street tough</td>
+<td>Dagger (Light, d6)</td>
+<td>Flask of coffee</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>Mendicant priest</td>
+<td>Spell: Restore</td>
+<td>Holy symbol</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>Beetleherd</td>
+<td>Hireling: Loyal beetle</td>
+<td>Pole, 6"</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>Ale brewer</td>
+<td>Hireling: Drunken torchbearer</td>
+<td>Small barrel of ale</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>Fishermouse</td>
+<td>Net</td>
+<td>Needle (Light, d6)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>Blacksmith</td>
+<td>Hammer (Medium, d6/d8)</td>
+<td>Metal file</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+<td>Wireworker</td>
+<td>Wire, spool</td>
+<td>Electric lantern</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>Woodcutter</td>
+<td>Axe (Medium, d6/d8)</td>
+<td>Twine, roll</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>Bat cultist</td>
+<td>Spell: Darkness</td>
+<td>Bag of bat teeth</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>Tin miner</td>
+<td>Pickaxe (Medium, d6/d8)</td>
+<td>Lantern</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>Trash collector</td>
+<td>Trashhook (Heavy, d10)</td>
+<td>Mirror</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>Wall rover</td>
+<td>Fishhook</td>
+<td>Thread, spool</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+<td>Merchant</td>
+<td>Hireling: Pack rat</td>
+<td>20p IOU from a noblemouse</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>Raft crew</td>
+<td>Hammer (Medium, d6/d8)</td>
+<td>Wooden spikes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>Worm wrangler</td>
+<td>Pole, 6"</td>
+<td>Soap</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+<td>Sparrow rider</td>
+<td>Fishhook</td>
+<td>Goggles</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>Sewer guide</td>
+<td>Metal file</td>
+<td>Thread, spool</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>Prison guard</td>
+<td>Chain, 6"</td>
+<td>Spear (Heavy, d10)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6</td>
+<td>Fungus farmer</td>
+<td>Dried mushroom (as rations)</td>
+<td>Spore mask</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>Dam builder</td>
+<td>Shovel</td>
+<td>Wooden spikes</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>Cartographer</td>
+<td>Quill &#x26; ink</td>
+<td>Compass</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>Trap thief</td>
+<td>Block of cheese</td>
+<td>Glue</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4</td>
+<td>Vagabond</td>
+<td>Tent</td>
+<td>Treasure map, dubious</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>Grain farmer</td>
+<td>Spear (Heavy, d10)</td>
+<td>Whistle</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>Message runner</td>
+<td>Bedroll</td>
+<td>Documents, sealed</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>Troubadour</td>
+<td>Musical instrument</td>
+<td>Disguise kit</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>Gambler</td>
+<td>Set of loaded dice</td>
+<td>Mirror</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>Sap tapper</td>
+<td>Bucket</td>
+<td>Wooden spikes</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>Bee keeper</td>
+<td>Jar of honey</td>
+<td>Net</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5</td>
+<td>Librarian</td>
+<td>Scrap of obscure book</td>
+<td>Quill &#x26; ink</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>Pauper noblemouse</td>
+<td>Felt hat</td>
+<td>Perfume</td>
+</tr>
+</tbody>
+</table>
+<h2 id="birthsign" style="position:relative;"><a href="#birthsign" aria-label="birthsign permalink" class="anchor before"></a>Birthsign</h2>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Sign</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Star</td>
+<td>Brave / Reckless</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Wheel</td>
+<td>Industrious / Unimaginative</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Acorn</td>
+<td>Inquisitive / Stubborn</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Storm</td>
+<td>Generous / Wrathful</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Moon</td>
+<td>Wise / Mysterious</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Mother</td>
+<td>Nurturing / Worrying</td>
+</tr>
+</tbody>
+</table>
+<h2 id="coat" style="position:relative;"><a href="#coat" aria-label="coat permalink" class="anchor before"></a>Coat</h2>
+<table>
+<thead>
+<tr>
+<th>d6</th>
+<th>Color</th>
+<th>d6</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Chocolate</td>
+<td>1</td>
+<td>Solid</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Black</td>
+<td>2</td>
+<td>Brindle</td>
+</tr>
+<tr>
+<td>3</td>
+<td>White</td>
+<td>3</td>
+<td>Patchy</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tan</td>
+<td>4</td>
+<td>Banded</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Grey</td>
+<td>5</td>
+<td>Marbled</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Blue</td>
+<td>6</td>
+<td>Flecked</td>
+</tr>
+</tbody>
+</table>
+<h2 id="detail" style="position:relative;"><a href="#detail" aria-label="detail permalink" class="anchor before"></a>Detail</h2>
+<table>
+<thead>
+<tr>
+<th>d66</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>Scarred body</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Corpulent body</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Skeletal body</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Willowy body</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Tiny body</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Massive body</td>
+</tr>
+<tr>
+<td>21</td>
+<td>War paint</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Foreign clothes</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Elegant clothes</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Patched clothes</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Fashionable clothes</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Unwashed clothes</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Missing ear</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Lumpy face</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Beautiful face</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Round face</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Delicate face</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Elongated face</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Groomed fur</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Dreadlocks</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Dyed fur</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Shaved fur</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Frizzy fur</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Silky fur</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Night black eyes</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Eye patch</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Blood red eyes</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Wise eyes</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Sharp eyes</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Luminous eyes</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Cropped tail</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Whip-like tail</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Tufted tail</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Stubby tail</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Prehensile tail</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Curly tail</td>
+</tr>
+</tbody>
+</table></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/srd/make-a-mouse";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da901081db5f1889332d.js"],"app":["/app-54805056db77f9720396.js"],"component---src-pages-404-js":["/component---src-pages-404-js-b3d45241c5b8813d0894.js"],"component---src-pages-index-js":["/component---src-pages-index-js-350fd70846d083d2ed91.js"],"component---src-pages-mouse-js":["/component---src-pages-mouse-js-721552f3df4864501d64.js"],"component---src-templates-srd-template-js":["/component---src-templates-srd-template-js-8615fdcc70b13761734e.js"]};/*]]>*/</script><script src="/polyfill-da901081db5f1889332d.js" nomodule=""></script><script src="/component---src-templates-srd-template-js-8615fdcc70b13761734e.js" async=""></script><script src="/2ce3f4aeb6c440763a4395cdb70ee4d836c1bfba-b1eb586b4e8bc0cf01fa.js" async=""></script><script src="/commons-7674eee6ef32694e5999.js" async=""></script><script src="/app-54805056db77f9720396.js" async=""></script><script src="/framework-63ec46a3540d83159f28.js" async=""></script><script src="/webpack-runtime-faa7c8e3dd884849fea6.js" async=""></script></body></html>
