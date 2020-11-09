@@ -3,6 +3,10 @@ module.exports = {
     title: `Mausritter`,
     description: `Take up the sword and don the whiskers of a brave mouse adventurer in Mausritter, the rules-light fantasy adventure roleplaying game.`,
     author: `@isaacwilliams`,
+    siteUrl: 'https://mausritter.com',
+    social: {
+        twitter: `mausritter`,
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
