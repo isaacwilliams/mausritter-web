@@ -28,6 +28,8 @@ query SiteTitleQuery {
     site {
         siteMetadata {
             title
+            siteUrl
+            description
         }
     }
 }
@@ -40,8 +42,8 @@ const SiteContainer = ({ children }) => (
             <>
                 <Helmet title={data.site.siteMetadata.title}
                         meta={[
-                            { name: 'description', content: 'The sword-and-whiskers tabletop role-playing game.' },
-                            { name: 'og:description', content: 'The sword-and-whiskers tabletop role-playing game.' },
+                            { name: 'description', content: data.site.siteMetadata.description },
+                            { name: 'og:description', content: data.site.siteMetadata.description },
                             { name: 'og:title', content: data.site.siteMetadata.title },
                             { name: 'og:image', content: `${data.site.siteMetadata.siteUrl}${require('./website-share-image.jpg')}` },
                             { name: 'og:image:width', content: 1600 },
