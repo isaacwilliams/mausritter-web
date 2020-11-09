@@ -43,7 +43,7 @@ const SiteContainer = ({ children }) => (
                             { name: 'description', content: 'The sword-and-whiskers tabletop role-playing game.' },
                             { name: 'og:description', content: 'The sword-and-whiskers tabletop role-playing game.' },
                             { name: 'og:title', content: data.site.siteMetadata.title },
-                            { name: 'og:image', content: require('./website-share-image.jpg') },
+                            { name: 'og:image', content: `${data.site.siteMetadata.siteUrl}${require('./website-share-image.jpg')}` },
                             { name: 'og:image:width', content: 1600 },
                             { name: 'og:image:height', content: 900 },
                         ]}>
