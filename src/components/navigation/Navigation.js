@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import font from '../styles/font';
+import media from '../styles/media';
+
 
 import { Link } from 'gatsby'
 
@@ -12,6 +14,10 @@ const Nav = styled.nav`
 
     align-items: center;
     justify-content: space-between;
+
+    ${media.phone`
+        padding: 0.5rem 1rem;
+    `}
 `
 
 const NavSection = styled.div`
@@ -29,6 +35,20 @@ const NavSection = styled.div`
         justify-content: flex-end;
         margin-right: 1rem;
     }
+
+    ${media.phone`
+        &.left {
+            margin-left: 0;
+        }
+
+        &.center {
+            display: none;
+        }
+
+        &.right {
+            margin-right: 0;
+        }
+    `}
 `
 
 const NavItem = styled(Link)`
@@ -45,6 +65,11 @@ const NavItem = styled(Link)`
     &:hover {
         background: yellow;
     }
+
+    ${media.phone`
+        padding: 0.4rem 0.8rem;
+        margin: 0;
+    `}
 `
 
 const NavLogo = styled(Link)`
@@ -63,6 +88,11 @@ const NavLogo = styled(Link)`
     &:hover {
         background-color: yellow;
     }
+
+    ${media.phone`
+        width: ${260 * 0.5}px;
+        height: ${78 * 0.5}px;
+    `}
 `
 
 const Divider = styled.div`

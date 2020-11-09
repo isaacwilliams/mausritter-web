@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 import SEO from "../components/layout/SEO"
 import SiteContainer from '../components/layout/SiteContainer';
-import FloatingNavigation from '../components/navigation/FloatingNavigation';
+import Navigation from '../components/navigation/Navigation';
 
 import MouseGenerator from '../components/mouseGenerator/MouseGenerator';
+import Footer from '../components/navigation/Footer';
 
 const BodyDark = styled.div`
     position: absolute;
@@ -19,9 +20,11 @@ const BodyDark = styled.div`
 const IndexPage = () => {
     return (
         <SiteContainer>
-            <FloatingNavigation transparent />
+            <Navigation />
 
             <MouseGenerator />
+
+            <Footer />
         </SiteContainer>
     );
 }

@@ -29,6 +29,11 @@ const Attr = styled.div`
 
     font-size: 1.8rem;
     overflow: hidden;
+
+    ${media.phone`
+        font-size: 1.2rem;
+        grid-template-columns: 7rem 1fr 1fr;
+    `}
 `;
 
 const AttrInfo = styled.div`
@@ -47,7 +52,7 @@ const AttrInfo = styled.div`
 const AttrName = styled.div`
     position: relative;
 
-    padding: 1rem;
+    padding: 0.6rem;
 
     ${font.display}
     font-weight: 900;
@@ -60,10 +65,18 @@ const AttrVal = styled.div`
     font-size: 2rem;
     text-align: left;
     margin-left: 1rem;
+
+    ${media.phone`
+        font-size: 1.2rem;
+    `}
 `;
 
 const AttrNameSmall = styled(AttrName)`
     font-size: 1.2rem;
+
+    ${media.phone`
+        font-size: 1rem;
+    `}
 `;
 
 const AttrValSmall = styled(AttrVal)`
@@ -80,8 +93,8 @@ const AttrValCurrent = styled(AttrVal)`
 `;
 
 const CharacterWrapper = styled.div`
-    ${media.desktop`
-    `}
+    margin-bottom: 8rem;
+    min-height: 1vh;
 `;
 
 const GridContainer = styled.div`
@@ -92,6 +105,13 @@ const GridContainer = styled.div`
     column-gap: 2rem;
 
     margin-bottom: 4rem;
+
+    ${media.phone`
+        display: block;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+    `}
 `;
 
 const MouseColorGridContainer = styled(GridContainer)`
@@ -117,6 +137,10 @@ const CharacterDetailArea = styled.div`
     background: white;
     padding: 0.8rem 1rem;
     font-size: 1.1rem;
+
+    ${media.phone`
+        font-size: 1rem;
+    `}
 `;
 
 const CharacterAttrArea = styled.div`
@@ -125,17 +149,31 @@ const CharacterAttrArea = styled.div`
 
 const CharacterInventoryArea = styled.div`
     grid-area: inventory;
+
+    ${media.phone`
+        margin-top: 2rem;
+    `}
 `;
 
 const NameAttr = styled(Attr)`
     margin: 0;
     border-bottom: 0;
     border-radius: 0.5rem 0.5rem 0 0;
+    grid-template-columns: 9rem 1fr;
+
+    ${media.phone`
+        grid-template-columns: 7rem 1fr;
+    `}
 `;
 
 const BackgroundAttr = styled(Attr)`
     margin: 0;
     border-radius: 0 0 0.5rem 0.5rem;
+    grid-template-columns: 9rem 1fr;
+
+    ${media.phone`
+        grid-template-columns: 7rem 1fr;
+    `}
 `;
 
 const DetailName = styled.span`
@@ -159,8 +197,16 @@ const TitleWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    padding-top: 10rem;
-    padding-bottom: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+
+    ${media.phone`
+        display: block;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    `}
 `;
 
 const RollButton = styled.button`
@@ -196,6 +242,10 @@ const InventoryTitleWrapper = styled.div`
 const InventoryTitle = styled.h3`
     font-size: 1.8rem;
     ${font.display}
+
+    ${media.phone`
+        font-size: 1.4rem;
+    `}
 `;
 
 const InventoryPips = styled.div`
@@ -208,6 +258,11 @@ const InventoryPips = styled.div`
 
     font-size: 1.1rem;
     font-weight: bold;
+
+    ${media.phone`
+        padding: 0.3rem 0.8rem;
+        font-size: 1rem;
+    `}
 `;
 
 const InventoryList = styled.div`
@@ -221,6 +276,10 @@ const ExtraItemsTitle = styled.ul`
 
     font-size: 1.3rem;
     ${font.display}
+
+    ${media.phone`
+        font-size: 1.2rem;
+    `}
 `;
 
 const ExtraItemsList = styled.ul`
@@ -230,6 +289,10 @@ const ExtraItemsList = styled.ul`
     li {
         margin-left: 1.1rem;
     }
+
+    ${media.phone`
+        font-size: 1.1rem;
+    `}
 `;
 
 const MausritterCharacter = () => {
