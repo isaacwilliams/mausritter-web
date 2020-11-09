@@ -40,9 +40,12 @@ const SiteContainer = ({ children }) => (
             <>
                 <Helmet title={data.site.siteMetadata.title}
                         meta={[
-                            { name: 'description', content: 'A blog about D&D and other games' },
-                            { name: 'og:description', content: 'A blog about D&D and other games' },
+                            { name: 'description', content: 'The sword-and-whiskers tabletop role-playing game.' },
+                            { name: 'og:description', content: 'The sword-and-whiskers tabletop role-playing game.' },
                             { name: 'og:title', content: data.site.siteMetadata.title },
+                            { name: 'og:image', content: require('./website-share-image.jpg') },
+                            { name: 'og:image:width', content: 1600 },
+                            { name: 'og:image:height', content: 900 },
                         ]}>
                     <html lang="en" />
                     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
