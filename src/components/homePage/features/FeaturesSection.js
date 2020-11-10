@@ -20,7 +20,7 @@ const FeaturesSection = () => {
             </Feature>
 
             <Feature image={<img src={require('./images/promo-character-sheet.jpg')} />} className="left">
-                <Bk>Physical card-based inventory system</Bk> keeps bookkeeping to a minimum and hard choices to a maximum.
+                <Bk>Physical card-based inventory system</Bk> minimises bookkeeping and maximises hard choices.
             </Feature>
 
             <Feature image={<img src={require('./images/promo-image-spell.jpg')} />}>
