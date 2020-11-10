@@ -94,6 +94,13 @@ const Resources = ({}) => (
                 link: 'https://justafatyeti.itch.io/stonewall',
                 className: 'shadow',
             },
+            {
+                name: 'Thistle Kingdom Zine',
+                author: 'Christopher Käck',
+                image: require('./images/adventure-thistle-kingdom-1.png'),
+                link: 'https://kejsarmakten.itch.io/thistle-kingdom-1',
+                className: 'shadow',
+            },
         ]} />
     </ResourcesWrapper>
 );
