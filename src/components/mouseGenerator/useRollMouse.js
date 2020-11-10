@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { sum, times, drop, max, compact } from 'lodash/fp';
+import { sum, times, drop, max, compact, uniqueId } from 'lodash/fp';
 
 import {
     BACKGROUNDS,
@@ -43,6 +43,7 @@ const rollCharacter = () => {
     const statMax = max([str, dex, wil]);
 
     return {
+        id: uniqueId(),
         name,
         coat,
         physicalDetail,

@@ -294,6 +294,7 @@ const ExtraItemsList = styled.ul`
 
 const MausritterCharacter = () => {
     const [{
+        id,
         name,
         coat,
         physicalDetail,
@@ -305,6 +306,20 @@ const MausritterCharacter = () => {
         background,
         items,
     }, rollMouse] = useRollMouse();
+
+    console.log({
+        id,
+        name,
+        coat,
+        physicalDetail,
+        birthsign,
+        disposition,
+        stats,
+        hp,
+        pips,
+        background,
+        items,
+    });
 
     return (
         <ContentContainer>
@@ -385,7 +400,7 @@ const MausritterCharacter = () => {
 
                         <InventoryList>
                             {items.filter(({ type }) => type !== 'special').map((item, i) => (
-                                <InventoryItem key={i} item={item} />
+                                <InventoryItem key={`${id}${i}`} item={item} />
                             ))}
                         </InventoryList>
 
@@ -395,7 +410,7 @@ const MausritterCharacter = () => {
 
                         <ExtraItemsList>
                             {items.filter(({ type }) => type === 'special').map((item, i) => (
-                                <li key={i}>
+                                <li key={`${id}${i}`}>
                                     {item.name}
                                 </li>
                             ))}
