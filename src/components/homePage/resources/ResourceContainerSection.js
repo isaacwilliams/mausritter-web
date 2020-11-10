@@ -149,8 +149,6 @@ const ResourceSubTitle = styled(SubTitle)`
 `
 
 const ResourcesSection = ({ title, resources = [], heroResources = [] }) => {
-    console.log(heroResources);
-
     return (
         <ResourcesSectionContainer>
             <FlexContainer>
@@ -160,17 +158,14 @@ const ResourcesSection = ({ title, resources = [], heroResources = [] }) => {
             </FlexContainer>
 
             <ContentContainer>
-                {heroResources.map(({ name, image, imageOverlay, link, className }) => {
-                    console.log(image);
-                    return (
-                        <HeroResourceLink to={link} style={{ backgroundImage: `url(${image})` }} className={className}>
-                            <div className="name">{name}</div>
-                            {imageOverlay && (
-                                <div className="image-overlay" style={{ backgroundImage: `url(${imageOverlay})` }} />
-                            )}
-                        </HeroResourceLink>
-                    );
-                })}
+                {heroResources.map(({ name, image, imageOverlay, link, className }, i) => (
+                    <HeroResourceLink key={i} to={link} style={{ backgroundImage: `url(${image})` }} className={className}>
+                        <div className="name">{name}</div>
+                        {imageOverlay && (
+                            <div className="image-overlay" style={{ backgroundImage: `url(${imageOverlay})` }} />
+                        )}
+                    </HeroResourceLink>
+                ))}
             </ContentContainer>
 
             <ResourcesContainer>
