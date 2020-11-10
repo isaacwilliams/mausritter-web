@@ -154,11 +154,13 @@ const GetGame = ({}) => (
                     Español
                 </CountryFlagLink>
 
-                {/*
-                <CountryFlagLink to="https://gamesomnivorous.com/">
+                <CountryFlagLink to="https://www.drivethrurpg.com/product/313115/Mausritter">
                     <img src={require('./images/flag-france.png')} />
                     Français
                 </CountryFlagLink>
+
+                {/*
+
 
                 <CountryFlagLink to="https://gamesomnivorous.com/">
                     <img src={require('./images/flag-poland.png')} />
