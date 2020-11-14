@@ -17,6 +17,8 @@ import useAdventureSite from './useAdventureSite';
 const Summary = styled.div`
     max-width: 50rem;
 
+    margin: 0 auto;
+
     font-size: 1.8rem;
     text-align: justify;
 `;
