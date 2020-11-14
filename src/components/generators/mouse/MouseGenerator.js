@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import Helmet from 'react-helmet';
-import styled, { css, createGlobalStyle } from 'styled-components';
-import font from '../styles/font';
-import colors from '../styles/colors';
-import media from '../styles/media';
+import styled, { css } from 'styled-components';
+import font from '../../styles/font';
+import colors from '../../styles/colors';
+import media from '../../styles/media';
 
-import { FlexContainer, ContentContainer } from '../layout/ContentContainer';
+import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
+import {
+    Title,
+    TitleWrapper,
+    RollButton,
+} from '../generatorComponents';
 
 import InventoryItem from './InventoryItem';
 
@@ -182,52 +187,6 @@ const DetailValue = styled.span`
     font-weight: 600;
 `;
 
-const Title = styled.h1`
-    font-size: 2.2rem;
-    font-weight: bold;
-    ${font.display};
-`;
-
-const TitleWrapper = styled.div`
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-
-    ${media.phone`
-        display: block;
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    `}
-`;
-
-const RollButton = styled.button`
-    padding: 0.6rem 1.5rem;
-
-    border: 0;
-    border-radius: 0.2rem;
-
-    background: #ddd;
-    color: ${colors.body};
-
-    font-size: 1.1rem;
-    ${font.display}
-    letter-spacing: 0.05rem;
-
-    cursor: pointer;
-    outline: none;
-
-    &:hover {
-        background: yellow;
-        color: black;
-    }
-`;
-
 const InventoryTitleWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -329,11 +288,11 @@ const MausritterCharacter = () => {
 
             <TitleWrapper>
                 <Title>
-                    Mouse roller
+                    Brave mouse adventurer...
                 </Title>
 
                 <RollButton onClick={() => rollMouse()}>
-                    Roll another mouse
+                    Roll again
                 </RollButton>
             </TitleWrapper>
 

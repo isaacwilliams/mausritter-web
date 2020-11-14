@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { sum, times, drop, max, compact, uniqueId } from 'lodash/fp';
+import { sum, times, drop, max, compact } from 'lodash/fp';
+import { nanoid } from 'nanoid';
+
+import {
+    pick,
+    roll,
+    rollDice,
+} from '../generatorUtils';
 
 import {
     BACKGROUNDS,
@@ -10,13 +17,6 @@ import {
     PHYSICAL_DETAIL,
     BIRTH_SIGNS,
 } from './mouseGeneratorConstants';
-
-const pick = (array) => (
-    array[Math.floor(Math.random() * array.length)]
-);
-
-const roll = (size) => Math.floor(Math.random() * size) + 1;
-const rollDice = (numberOfDice) => (sides) => sum(times(() => roll(sides), numberOfDice))
 
 const rollStat = () => sum(drop(1)(times(() => roll(6), 3).sort()));
 const rollHp = () => rollDice(1)(6);
@@ -43,7 +43,7 @@ const rollCharacter = () => {
     const statMax = max([str, dex, wil]);
 
     return {
-        id: uniqueId(),
+        id: nanoid(),
         name,
         coat,
         physicalDetail,

@@ -6,7 +6,7 @@ import SEO from "../components/layout/SEO"
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
 
-import MouseGenerator from '../components/generators/mouse/MouseGenerator';
+import MouseGenerator from '../components/generators/adventureSite/AdventureSiteGenerator';
 
 const BodyDark = styled.div`
     position: absolute;

@@ -2,9 +2,9 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { repeat, times } from 'lodash/fp';
 
-import font from '../styles/font';
-import colors from '../styles/colors';
-import media from '../styles/media';
+import font from '../../styles/font';
+import colors from '../../styles/colors';
+import media from '../../styles/media';
 
 const ITEM_SIZE = 1.2;
 
