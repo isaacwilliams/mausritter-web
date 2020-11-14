@@ -6,7 +6,7 @@ import SEO from "../components/layout/SEO"
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
 
-import MouseGenerator from '../components/generators/adventureSite/AdventureSiteGenerator';
+import AdventureSiteGenerator from '../components/generators/adventureSite/AdventureSiteGenerator';
 
 const BodyDark = styled.div`
     position: absolute;
@@ -19,9 +19,11 @@ const BodyDark = styled.div`
 const IndexPage = () => {
     return (
         <SiteContainer>
+            <SEO title="Adventure site generator" />
+
             <Navigation />
 
-            <MouseGenerator />
+            <AdventureSiteGenerator />
         </SiteContainer>
     );
 }

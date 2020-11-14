@@ -19,6 +19,8 @@ const BodyDark = styled.div`
 const IndexPage = () => {
     return (
         <SiteContainer>
+            <SEO title="Make a mouse" />
+
             <Navigation />
 
             <MouseGenerator />

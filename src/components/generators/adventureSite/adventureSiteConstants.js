@@ -53,26 +53,26 @@ export const NAME_B = [
 ];
 
 export const SUMMARY_CONSTRUCTION = [
-    'ancient bat cult temple',
-    'long-abandoned watchtower',
-    'noblemouse’s country manor',
-    'hidden winter storehouse',
-    'burial site of ancient mice',
-    'warren dug by rabbits or foxes',
-    'human house or other building',
-    'sewer or drainage pipes',
-    'claustrophobic ant-dug tunnels',
-    'massive tree, carved out by mice',
-    'wizard’s tower',
-    'settlement’s grain mill',
-    'rat king’s nest',
-    'skeleton of a great beast',
-    'witch’s academy',
-    'gatehouse to faerie realm',
-    'deep mine',
-    'bandit’s hideout',
-    'natural cave',
-    'mouse settlement',
+    ['an', 'ancient bat cult temple'],
+    ['a','long-abandoned watchtower'],
+    ['a', 'noblemouse’s country manor'],
+    ['a', 'hidden winter storehouse'],
+    ['a', 'burial site of ancient mice'],
+    ['a', 'warren dug by rabbits or foxes'],
+    ['a', 'human house or other building'],
+    ['a series of', 'sewer or drainage pipes'],
+    ['a series of', 'claustrophobic ant-dug tunnels'],
+    ['a', 'massive tree, carved out by mice'],
+    ['a', 'wizard’s tower'],
+    ['a', 'settlement’s grain mill'],
+    ['a', 'rat king’s nest'],
+    ['the', 'skeleton of a great beast'],
+    ['a', 'witch’s academy'],
+    ['a', 'gatehouse to the faerie realm'],
+    ['a', 'deep mine'],
+    ['a', 'bandit’s hideout'],
+    ['a', 'natural cave'],
+    ['a', 'mouse settlement'],
 ];
 
 export const SUMMARY_RUIN_ACTION = [
@@ -100,16 +100,16 @@ export const SUMMARY_RUIN = [
 ];
 
 export const SUMMARY_INHABITANTS = [
-    'mice, driven mad or desperate',
-    'mice, magically altered',
-    'rat bandits',
-    'creatures from a distant land',
-    'the original residents, strangely twisted',
-    'ghostly spirits',
-    'a faerie advance guard',
-    'a foul-tempered snake',
-    'an infestation of insects',
-    'a cat lord and their servants',
+    'Mice, driven mad or desperate',
+    'Mice, magically altered',
+    'Rat bandits',
+    'Creatures from a distant land',
+    'The original residents, strangely twisted',
+    'Ghostly spirits',
+    'A faerie advance guard',
+    'A foul-tempered snake',
+    'An infestation of insects',
+    'A cat lord and their servants',
 ];
 
 export const SUMMARY_INHABITANT_ACTION = [

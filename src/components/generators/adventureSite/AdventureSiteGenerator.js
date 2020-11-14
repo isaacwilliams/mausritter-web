@@ -17,8 +17,6 @@ import useAdventureSite from './useAdventureSite';
 const Summary = styled.div`
     max-width: 50rem;
 
-    margin: 0 auto;
-
     font-size: 1.8rem;
     text-align: justify;
 `;
@@ -34,7 +32,7 @@ const SummaryFeature = styled.span`
 
 const RoomsContainer = styled.div`
     position: relative;
-    margin-top: 3rem;
+    margin-top: 4rem;
 `;
 
 const Room = styled.div`
@@ -135,7 +133,7 @@ const AdventureSiteGenerator = () => {
         <ContentContainer>
             <TitleWrapper>
                 <Title>
-                    Adventure site
+                    Delving into...
                 </Title>
 
                 <RollButton onClick={() => rollSite()}>
@@ -145,11 +143,11 @@ const AdventureSiteGenerator = () => {
 
             <Summary>
                 <SummaryName>{name}</SummaryName>
-                {' is a '}
-                <SummaryFeature>{construction}</SummaryFeature>
+                {`, ${construction[0]} `}
+                <SummaryFeature>{construction[1]}</SummaryFeature>
                 {` ${ruinAction} `}
                 <SummaryFeature>{ruin}</SummaryFeature>.
-                {' Now '}
+                {' '}
                 <SummaryFeature>{inhabitant}</SummaryFeature>
                 {` ${inhabitantAction} `}
                 <SummaryFeature>{goal}</SummaryFeature>.
