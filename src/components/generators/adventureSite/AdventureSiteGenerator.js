@@ -21,11 +21,20 @@ const Summary = styled.div`
 
     font-size: 1.8rem;
     text-align: justify;
+
+    ${media.phone`
+        margin: 0 1rem;
+        font-size: 1.4rem;
+    `}
 `;
 
 const SummaryName = styled.span`
     ${font.display}
     font-size: 2.4rem;
+
+    ${media.phone`
+        font-size: 1.8rem;
+    `}
 `;
 
 const SummaryFeature = styled.span`
@@ -35,6 +44,28 @@ const SummaryFeature = styled.span`
 const RoomsContainer = styled.div`
     position: relative;
     margin-top: 4rem;
+
+    ${media.phone`
+        overflow: scroll;
+        max-width: 100%;
+
+        -webkit-overflow-scrolling: touch;
+    `}
+`;
+
+const RoomArray = styled.div`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    gap: 1rem;
+
+    ${media.phone`
+        padding: 1rem;
+        grid-template-columns: repeat(5, 8rem);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0.8rem;
+    `}
 `;
 
 const Room = styled.div`
@@ -46,6 +77,11 @@ const Room = styled.div`
 
     grid-column: ${({ posX }) => posX};
     grid-row: ${({ posY }) => posY};
+
+    ${media.phone`
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    `}
 `;
 
 const StatusIconContainer = styled.div`
@@ -62,6 +98,11 @@ const StatusIcon = styled.div`
     height: 1.5rem;
 
     margin-bottom: 0.2rem;
+
+    ${media.phone`
+        width: 1.2rem;
+        height: 1.2rem;
+    `}
 `;
 
 const CreatureIcon = styled(StatusIcon)`
@@ -81,22 +122,20 @@ const RoomType = styled.div`
 const RoomsKey = styled.div`
     position: absolute;
     width: 30rem;
+    left: 1rem;
+
+    ${media.phone`
+        font-size: 0.8rem;
+    `}
 `;
 
 const RoomsKeyEntry = styled.div`
     display: flex;
+    align-items: center;
 
     ${StatusIcon} {
         margin-right: 0.3rem;
     }
-`;
-
-const RoomArray = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-
-    gap: 1rem;
 `;
 
 const Credits = styled.div`
