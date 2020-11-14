@@ -38,6 +38,11 @@ const Resources = ({}) => (
                 image: require('./images/make-mouse.png'),
                 link: '/mouse',
             },
+            {
+                name: 'Aventure site generator',
+                image: require('./images/adventure-site.png'),
+                link: '/adventure-site',
+            },
         ]} />
 
         <ResourceContainerSection title="Printable sheets" resources={[
