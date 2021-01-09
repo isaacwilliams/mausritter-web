@@ -1,0 +1,209 @@
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+
+import media from '../../components/styles/media';
+
+import { ContentContainer } from '../../components/layout/ContentContainer';
+import BodyText from '../../components/styles/BodyText';
+import { Title, SubTitle } from '../../components/styles/shared';
+
+const LicencePageContainer = styled.div`
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+`;
+
+const LicenceTable = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+`;
+
+const FlexColumn = styled.div`
+    width: 48%;
+`;
+
+const IntroContainer = styled.div`
+    margin-bottom: 4rem;
+
+    ${media.phone`
+        padding-left: 0;
+        padding-right: 0;
+    `}
+
+    ${media.large`
+        width: 70rem;
+        padding-left: 0;
+        padding-right: 0;
+    `}
+`;
+
+const LegalBlockquote = styled.blockquote`
+    padding: 1rem;
+    border: 1px solid #999;
+    color: #333;
+`;
+
+const SubTitleReducedPad = styled(SubTitle)`
+    padding-bottom: 0;
+    font-size: 1.8rem;
+`;
+
+const BodyTextMed = styled(BodyText)`
+    font-size: 1.2rem;
+`;
+
+const LogoDownloadButton = styled.a`
+    padding: 1rem;
+
+    max-width: 50%;
+
+    display: block;
+    text-align: center;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        max-width: 12rem;
+    }
+
+    &:hover {
+        background: yellow;
+    }
+`;
+
+const ThirdPartyLicence = () => (
+    <LicencePageContainer>
+        <ContentContainer>
+            <Title>
+                Mausritter Third Party Licence
+            </Title>
+
+            <IntroContainer>
+                <BodyText className="large center">
+                    <p>
+                        This licence allows anyone to make adventures, beasts, spells or
+                        hacks for Mausritter and sell or publish for free.
+                    </p>
+                </BodyText>
+            </IntroContainer>
+
+            <LicenceTable>
+                <div>
+                    <SubTitleReducedPad>
+                        Rules
+                    </SubTitleReducedPad>
+
+                    <BodyTextMed>
+                        <p>
+                            If you follow these rules you are allowed to publish free or commerical material
+                            based upon or declaring compatibility with Mausritter without express permission from Losing Games.
+                        </p>
+
+                        <p>Without explicit permission, you <strong>may not:</strong></p>
+
+                        <ul>
+                            <li>Copy or translate the art or text of the Mausritter book</li>
+                            <li>Use the Losing Games, Games Omnivorous or Mausritter logos</li>
+                            <li>State or imply that your work is an offical Mausritter product, or that it is endorsed by Losing Games</li>
+                        </ul>
+
+                        <p>You <strong>may:</strong></p>
+
+                        <ul>
+                            <li>Use, copy and modify the item card templates and item card art</li>
+                            <li>Use, reference and modify the game rules and mechanics</li>
+                            <li>Reference any locations, creatures, characters or factions mentioned in the Mausritter book</li>
+                        </ul>
+
+                        <p>
+                            You are allowed and encouraged (but are not required to)
+                            use the “Compatible with Mausritter” logo in your product,
+                            and on the website or storefront where you promote the product.
+                        </p>
+
+                        <p>
+                            <LogoDownloadButton href="https://drive.google.com/drive/folders/16hFJkH4hbwuDO0EIb1nswMnz9Logh8nD">
+                                <img src={require('./compatible-with-mausritter.svg')} />
+                                Download
+                            </LogoDownloadButton>
+                        </p>
+                    </BodyTextMed>
+                </div>
+
+                <div>
+                    <SubTitleReducedPad>
+                        Legal
+                    </SubTitleReducedPad>
+
+                    <BodyTextMed>
+                        <p>
+                            The following text must be included somewhere visible within your publication,
+                            and on the website or storefront where you promote the product:
+                        </p>
+
+                        <LegalBlockquote>
+                            [Product name] is an independent production by [Author or Publisher] and is not affiliated with Losing Games.
+                            It is published under the Mausritter Third Party Licence.
+                        </LegalBlockquote>
+
+                        <p>
+                            This copyright text must be legibly included somewhere on the product:
+                        </p>
+
+                        <LegalBlockquote>
+                            Mausritter is copyright Losing Games.
+                        </LegalBlockquote>
+
+                        <p>
+                            Losing Games takes no responsibility for any legal claims against your product.
+                        </p>
+                    </BodyTextMed>
+                </div>
+
+                <div>
+                    <SubTitleReducedPad>
+                        What makes it Mausritter?
+                    </SubTitleReducedPad>
+
+                    <BodyTextMed>
+                        <p>
+                            Mausritter is about small-scale adventurers in a huge world. Mouse adventurers who take on big challanges and face down grave danger.
+                        </p>
+
+                        <p>
+                            Make it small and dense. Leave liminal space to be filled by the players.
+                        </p>
+
+                        <p>
+                            Mausritter can sometimes contain dark themes under the surface,
+                            but don't publish anything that contains sexist, racist, homophobic, transphobic or hateful content and tropes.
+                        </p>
+                    </BodyTextMed>
+
+                    <SubTitleReducedPad>
+                        Website listing
+                    </SubTitleReducedPad>
+
+                    <BodyTextMed>
+                        <p>
+                            We love to feature the creativity and work of Mausritter's community!
+                        </p>
+
+                        <p>
+                            To be listed under the <a href="/#resources">Third party adventures and resources</a>:
+                        </p>
+
+                        <ul>
+                            <li>Conform to the rules of the Third Party Licence</li>
+                            <li>Finish your product and publish it online</li>
+                            <li>Send a 800x1120px cover image and a link to your product to <a href="http://twitter.com/mausritter">@mausritter</a> on Twitter, or post both in the <a>#third-party-products</a> channel on the Mausritter discord</li>
+                        </ul>
+                    </BodyTextMed>
+                </div>
+            </LicenceTable>
+        </ContentContainer>
+    </LicencePageContainer>
+);
+
+export default ThirdPartyLicence;

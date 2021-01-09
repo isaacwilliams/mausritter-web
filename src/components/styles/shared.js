@@ -17,7 +17,7 @@ export const Title = styled.h2`
 
 export const SubTitle = styled.h3`
     ${font.display}
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 
     font-size: 2rem;
 

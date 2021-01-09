@@ -7,6 +7,10 @@ const BodyText = styled.div`
     font-size: 1.4rem;
     line-height: 1.4;
 
+    strong {
+        font-weight: bold;
+    }
+
     h1, h2, h3, h4 {
         ${font.display};
     }
@@ -32,6 +36,18 @@ const BodyText = styled.div`
     ${media.phone`
         font-size: 1.3rem;
     `}
+
+    &.center {
+        text-align: center;
+    }
+
+    &.small {
+        font-size: 1rem;
+    }
+
+    &.large {
+        font-size: 1.6rem;
+    }
 `;
 
 export default BodyText;

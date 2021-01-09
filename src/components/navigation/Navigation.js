@@ -66,6 +66,11 @@ const NavItem = styled(Link)`
         background: yellow;
     }
 
+    ${media.size('1100px')`
+        padding: 0.5rem 0.5rem;
+        margin: 0 1rem;
+    `}
+
     ${media.phone`
         padding: 0.4rem 0.8rem;
         margin: 0;
@@ -119,6 +124,10 @@ const Navigation = ({ transparent }) => {
 
                 <NavItem to="/#resources" transparent={transparent}>
                     Resources
+                </NavItem>
+
+                <NavItem to="/#adventures" transparent={transparent}>
+                    Adventures
                 </NavItem>
 
                 <NavItem to="/#community" transparent={transparent}>

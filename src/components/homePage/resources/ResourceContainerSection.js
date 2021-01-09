@@ -63,6 +63,18 @@ const ResourceLink = styled(Link)`
         }
     }
 
+    ${media.size('1290px')`
+        width: calc(25% - 4rem);
+    `}
+
+    ${media.size('920px')`
+        width: calc(33% - 4rem);
+    `}
+
+    ${media.size('800px')`
+        width: calc(50% - 4rem);
+    `}
+
     ${media.phone`
         width: 25vw;
         height: 25vw;
@@ -131,24 +143,13 @@ const ResourceSubTitle = styled(SubTitle)`
     text-align: left;
 
     border-bottom: 0.5rem solid black;
-
-    /* text-shadow: -4px -4px 0 white, 4px -4px 0 white, -4px 4px 0 white, 4px 4px 0 white; */
-
-    /* &:after {
-        position: absolute;
-
-        left: 0;
-        top: 1.3rem;
-        right: 0;
-
-        border-top: 0.5rem solid black;
-        content: '';
-
-        z-index: -1;
-    } */
 `
 
-const ResourcesSection = ({ title, resources = [], heroResources = [] }) => {
+const ResourcesFooterContainer = styled.div`
+    margin-top: 1rem;
+`;
+
+const ResourcesSection = ({ title, resources = [], heroResources = [], footer }) => {
     return (
         <ResourcesSectionContainer>
             <FlexContainer>
@@ -170,13 +171,21 @@ const ResourcesSection = ({ title, resources = [], heroResources = [] }) => {
 
             <ResourcesContainer>
                 {resources.map(({ name, author, image, link, className }) => (
-                    <ResourceLink to={link} key={link} className={className}>
+                    <ResourceLink to={link} key={`${name}${author}${link}`} className={className}>
                         {image && <img src={image} alt="" />}
                         <div className="name">{name}</div>
                         {author && <div className="author">{author}</div>}
                     </ResourceLink>
                 ))}
             </ResourcesContainer>
+
+            {footer && (
+                <ResourcesFooterContainer>
+                    <ContentContainer>
+                        {footer}
+                    </ContentContainer>
+                </ResourcesFooterContainer>
+            )}
         </ResourcesSectionContainer>
     );
 };
