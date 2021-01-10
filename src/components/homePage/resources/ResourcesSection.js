@@ -73,23 +73,6 @@ const Resources = ({}) => (
             </BodyText>
         } />
 
-        <ResourceContainerSection title="Play online" resources={[
-            {
-                name: 'Foundry VTT Module',
-                author: 'Futilrevenge',
-                image: require('./images/online-foundry.jpg'),
-                link: 'https://foundryvtt.com/packages/mausritter/',
-                className: 'shadow',
-            },
-            {
-                name: 'Tabletop Simulator Module',
-                author: 'Lei',
-                image: require('./images/online-tts.jpg'),
-                link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=2128571929',
-                className: 'shadow',
-            },
-        ]} />
-
         <div id="adventures" />
 
         <ResourceContainerSection title="Companion adventures" heroResources={[
@@ -184,6 +167,23 @@ const Resources = ({}) => (
                 These third-party works are not associated with Losing Games. Learn about the <Link to="/third-party-licence">Mausritter Third Party Licence</Link>
             </BodyText>
         } />
+
+        <ResourceContainerSection title="Play online" resources={[
+            {
+                name: 'Foundry VTT Module',
+                author: 'Futilrevenge',
+                image: require('./images/online-foundry.jpg'),
+                link: 'https://foundryvtt.com/packages/mausritter/',
+                className: 'shadow',
+            },
+            {
+                name: 'Tabletop Simulator Module',
+                author: 'Lei',
+                image: require('./images/online-tts.jpg'),
+                link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=2128571929',
+                className: 'shadow',
+            },
+        ]} />
     </ResourcesWrapper>
 );
 

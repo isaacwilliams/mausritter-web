@@ -126,10 +126,6 @@ const Navigation = ({ transparent }) => {
                     Resources
                 </NavItem>
 
-                <NavItem to="/#adventures" transparent={transparent}>
-                    Adventures
-                </NavItem>
-
                 <NavItem to="/#community" transparent={transparent}>
                     Community
                 </NavItem>
