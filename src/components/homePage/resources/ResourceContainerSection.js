@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { sortBy } from 'lodash/fp';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
@@ -16,7 +17,7 @@ const ResourcesContainer = styled(FlexContainer)`
     justify-content: start;
 `;
 
-const ResourceLink = styled(Link)`
+const linkStyle = css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,7 +86,7 @@ const ResourceLink = styled(Link)`
     `}
 `;
 
-const HeroResourceLink = styled(Link)`
+const heroLinkStyle = css`
     position: relative;
 
     display: flex;
@@ -129,6 +130,12 @@ const HeroResourceLink = styled(Link)`
     }
 `;
 
+const StyledGatsbyResourceLink = styled(Link)`${linkStyle}`;
+const StyledExternalResourceLink = styled.a`${linkStyle}`;
+
+const StyledGatsbyHeroResourceLink = styled(Link)`${heroLinkStyle}`;
+const StyledExternalHeroResourceLink = styled.a`${heroLinkStyle}`;
+
 const ResourcesSectionContainer = styled.div`
     margin-top: 1rem;
     margin-bottom: 4rem;
@@ -149,7 +156,30 @@ const ResourcesFooterContainer = styled.div`
     margin-top: 1rem;
 `;
 
-const ResourcesSection = ({ title, resources = [], heroResources = [], footer }) => {
+
+const ResourceLink = ({ to, ...rest }) => {
+    if (to.startsWith('http')) {
+        return <StyledExternalResourceLink href={to} {...rest} />;
+    } else {
+        return <StyledGatsbyResourceLink to={to} {...rest} />;
+    }
+};
+
+const HeroResourceLink = ({ to, ...rest }) => {
+    if (to.startsWith('http')) {
+        return <StyledExternalHeroResourceLink href={to} {...rest} />;
+    } else {
+        return <StyledGatsbyHeroResourceLink to={to} {...rest} />;
+    }
+};
+
+const ResourcesSection = ({ title, resources = [], heroResources = [], footer, sortByField }) => {
+    const sortedResources = sortByField ?
+        sortBy(sortByField, resources).reverse() :
+        resources;
+
+    console.log(sortedResources, sortByField);
+
     return (
         <ResourcesSectionContainer>
             <FlexContainer>
@@ -170,7 +200,7 @@ const ResourcesSection = ({ title, resources = [], heroResources = [], footer })
             </ContentContainer>
 
             <ResourcesContainer>
-                {resources.map(({ name, author, image, link, className }) => (
+                {sortedResources.map(({ name, author, image, link, className }) => (
                     <ResourceLink to={link} key={`${name}${author}${link}`} className={className}>
                         {image && <img src={image} alt="" />}
                         <div className="name">{name}</div>

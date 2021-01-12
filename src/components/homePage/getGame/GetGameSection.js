@@ -24,7 +24,7 @@ const GetGameSection = styled(FlexContainer)`
     `}
 `;
 
-const OptionLink = styled(Link)`
+const OptionLink = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +94,7 @@ const OtherEditionsSection = styled(FlexContainer)`
     }
 `;
 
-const CountryFlagLink = styled(Link)`
+const CountryFlagLink = styled.a`
     display: block;
 
     width: 3rem;
@@ -158,15 +158,6 @@ const GetGame = ({}) => (
                     <img src={require('./images/flag-france.png')} />
                     Français
                 </CountryFlagLink>
-
-                {/*
-
-
-                <CountryFlagLink to="https://gamesomnivorous.com/">
-                    <img src={require('./images/flag-poland.png')} />
-                    Polski
-                </CountryFlagLink>
-                */}
             </div>
         </OtherEditionsSection>
     </GetGameWrapper>

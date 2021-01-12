@@ -15,6 +15,8 @@ import BodyText from '../../styles/BodyText';
 
 import ResourceContainerSection from './ResourceContainerSection';
 
+import THIRD_PARTY_RESOURCES from './thirdPartyResourcesData';
+
 const ResourcesWrapper = styled.div`
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -84,89 +86,15 @@ const Resources = ({}) => (
             },
         ]} />
 
-        <ResourceContainerSection title="Third-party adventures and resources" resources={[
-            {
-                name: 'The Library War: Queen’s Quest',
-                author: 'Josh Domanski',
-                image: require('./images/adventure-library-war.png'),
-                link: 'https://unenthuser.itch.io/the-library-war-queens-quest',
-                className: 'shadow',
-            },
-            {
-                name: 'Fort Ploddy',
-                author: 'Harrison Swift',
-                image: require('./images/adventure-ploddy.png'),
-                link: 'https://unenthuser.itch.io/the-library-war-queens-quest',
-                className: 'shadow',
-            },
-            {
-                name: 'MausRatos #1',
-                author: '@mausratos',
-                image: require('./images/adventure-mausratos.png'),
-                link: 'https://mausratosbr.itch.io/mausratos1',
-                className: 'shadow',
-            },
-            {
-                name: 'A not so Stille Nacht',
-                author: 'ManaRampMatt',
-                image: require('./images/adventure-still-night.png'),
-                link: 'https://manarampmatt.itch.io/silentnight',
-                className: 'shadow',
-            },
-            {
-                name: 'Bernpyle #2',
-                author: 'ManaRampMatt',
-                link: 'https://manarampmatt.itch.io/bernpyleissue2',
-                image: require('./images/adventure-bernpyle-2.png'),
-                className: 'shadow',
-            },
-            {
-                name: 'Thistle Kingdom #2: Winter',
-                author: 'Christopher Käck',
-                image: require('./images/adventure-thistle-kingdom-2.png'),
-                link: 'https://kejsarmakten.itch.io/thistle-kingdom-2',
-                className: 'shadow',
-            },
-            {
-                name: 'Bestiarium',
-                author: 'ManaRampMatt & Mausritter Discord',
-                link: 'https://manarampmatt.itch.io/beastiarium-mausritter',
-                image: require('./images/adventure-beastarium.png'),
-                className: 'shadow',
-            },
-            {
-                name: 'Bernpyle #1',
-                author: 'ManaRampMatt',
-                link: 'https://manarampmatt.itch.io/bernpyle-an-unofficial-mausritter-zine',
-                image: require('./images/adventure-burrow.png'),
-                className: 'shadow',
-            },
-            {
-                name: 'Lake of the Pirat King',
-                author: 'Cameron Donnelly & Richard Davis',
-                link: 'https://justafatyeti.itch.io/lake-of-the-pirat-king',
-                image: require('./images/adventure-lake-pirat.png'),
-                className: 'shadow',
-            },
-            {
-                name: 'Stonewall',
-                author: 'Cameron Donnelly & Richard Davis',
-                image: require('./images/adventure-stonewall.png'),
-                link: 'https://justafatyeti.itch.io/stonewall',
-                className: 'shadow',
-            },
-            {
-                name: 'Thistle Kingdom #1: Summer',
-                author: 'Christopher Käck',
-                image: require('./images/adventure-thistle-kingdom-1.png'),
-                link: 'https://kejsarmakten.itch.io/thistle-kingdom-1',
-                className: 'shadow',
-            },
-        ]} footer={
-            <BodyText className="small center">
-                These third-party works are not associated with Losing Games. Learn about the <Link to="/third-party-licence">Mausritter Third Party Licence</Link>
-            </BodyText>
-        } />
+        <ResourceContainerSection title="Third-party adventures and resources"
+            sortByField="releaseDate"
+            resources={THIRD_PARTY_RESOURCES}
+            footer={
+                <BodyText className="small center">
+                    <p>These works are created under the Mausritter Third Party Licence, and are not assocated with Losing Games.</p>
+                    <p>Learn about the <Link to="/third-party-licence">Mausritter Third Party Licence</Link></p>
+                </BodyText>
+            } />
 
         <ResourceContainerSection title="Play online" resources={[
             {
