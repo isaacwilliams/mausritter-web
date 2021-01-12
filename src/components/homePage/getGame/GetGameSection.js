@@ -127,7 +127,7 @@ const GetGame = ({}) => (
         </Title>
 
         <GetGameSection>
-            <OptionLink to="https://gamesomnivorous.com/">
+            <OptionLink href="https://gamesomnivorous.com/">
                 <img src={require('./images/mockup-box.png')} />
 
                 <h3>Print edition</h3>
@@ -135,7 +135,7 @@ const GetGame = ({}) => (
                     From Games Omnivorous
                 </span>
             </OptionLink>
-            <OptionLink to="https://losing-games.itch.io/mausritter">
+            <OptionLink href="https://losing-games.itch.io/mausritter">
                 <img src={require('./images/mockup-pdf.png')} />
 
                 <h3>Digital edition</h3>
@@ -149,12 +149,12 @@ const GetGame = ({}) => (
             <SubTitle>In other languages:</SubTitle>
 
             <div>
-                <CountryFlagLink to="https://www.elrefugioeditorial.com/mausritter">
+                <CountryFlagLink href="https://www.elrefugioeditorial.com/mausritter">
                     <img src={require('./images/flag-spain.png')} />
                     Español
                 </CountryFlagLink>
 
-                <CountryFlagLink to="https://www.drivethrurpg.com/product/313115/Mausritter">
+                <CountryFlagLink href="https://www.drivethrurpg.com/product/313115/Mausritter">
                     <img src={require('./images/flag-france.png')} />
                     Français
                 </CountryFlagLink>
