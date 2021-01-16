@@ -46,6 +46,11 @@ const Resources = ({}) => (
                 image: require('./images/adventure-site.png'),
                 link: '/adventure-site',
             },
+            {
+                name: 'Item card studio',
+                image: require('./images/tool-item-studio.png'),
+                link: '/item-card-studio',
+            },
         ]} />
 
         <ResourceContainerSection title="Printable sheets" resources={[
