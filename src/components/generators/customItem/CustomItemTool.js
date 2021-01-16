@@ -16,6 +16,7 @@ import drawItemCanvas from './drawItemCanvas';
 import drawItemCanvasToImage from './drawItemCanvasToImage';
 import customItemStateReducer, { initialState } from './customItemStateReducer';
 import useLocalStorage from './useLocalStorage';
+import useFetchImageSource from './useFetchImageSource';
 
 import CUSTOM_ITEM_TEMPLATES from './customItemTemplates';
 import CUSTOM_ITEM_IMAGES from './customItemImages';
@@ -116,7 +117,6 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     const [fontsReady, setFontsReady] = useState();
     const [imageFile, setImageFile] = useState();
-    const [imageSource, setImageSource] = useState();
 
     const [sheetItems, setSheetItems] = useLocalStorage('mausritter.sheet-items', []);
 
@@ -124,6 +124,22 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const selectedImageMode = CUSTOM_ITEM_IMAGES.find(({ name }) => name === itemState.image);
 
     const imageRes = itemState.resolution === 100 ? 100 : 150;
+
+    const [imageUrl, setImageUrl] = useState();
+    const imageSource = useFetchImageSource(imageUrl);
+
+    useEffect(() => {
+        if (!imageFile) return setImageUrl(null);
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(imageFile);
+        fileReader.onloadend = (event) => {
+            setImageUrl(event.target.result)
+        };
+    }, [imageFile]);
+
+    useEffect(() => {
+        setImageUrl(selectedImageMode?.url);
+    }, [selectedImageMode]);
 
     const handleSaveImageButtonClick = () => {
         const canvas = canvasRef.current;
@@ -138,7 +154,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const addSheetItem = () => {
         setSheetItems([
             ...sheetItems,
-            { id: nanoid(), ...itemState, imageSource },
+            { id: nanoid(), ...itemState, imageUrl },
         ]);
     };
 
@@ -157,42 +173,8 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         });
 
         setTemplateMode('Freeform');
-
-        setImageSource(savedItemState.imageSource);
+        setImageUrl(savedItemState.imageUrl);
     };
-
-
-    useEffect(() => {
-        if (!imageFile) return setImageSource(undefined);
-
-        const fileReader = new FileReader();
-        const image = new Image();
-
-        fileReader.readAsDataURL(imageFile);
-        fileReader.onloadend = (event) => {
-             image.src = event.target.result;
-        };
-
-        image.onload = (event) => {
-            setImageSource(image);
-        };
-    }, [imageFile]);
-
-    useEffect(() => {
-        if (!selectedImageMode || selectedImageMode.special) {
-            setImageSource(null);
-            return;
-        };
-
-        console.log('selectedImageMode', selectedImageMode);
-
-        const image = new Image();
-        image.src = selectedImageMode.url;
-
-        image.addEventListener('load', () => {
-            setImageSource(image);
-        });
-    }, [selectedImageMode]);
 
     useEffect(() => {
         Promise.all([

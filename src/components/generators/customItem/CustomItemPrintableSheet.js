@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import drawItemCanvasToImage from './drawItemCanvasToImage';
+import useFetchImageSource from './useFetchImageSource';
 
 export const PrintableSheet = styled.div`
     width: 210mm;
@@ -95,6 +96,7 @@ const SavedCard = styled.div`
 const CustomItemSavedCard = ({ itemState, restoreSheetItem, removeSheetItem, interactive }) => {
     const canvasRef = useRef();
     const imgRef = useRef();
+    const imageSource = useFetchImageSource(itemState.imageUrl);
 
     const { id } = itemState;
 
@@ -114,9 +116,9 @@ const CustomItemSavedCard = ({ itemState, restoreSheetItem, removeSheetItem, int
         drawItemCanvasToImage(
             canvasRef.current,
             imgRef.current,
-            { ...itemState, border: false },
+            { ...itemState, imageSource, border: false },
         );
-    }, []);
+    }, [imageSource]);
 
     const cardStyle = {
         gridRowEnd: `span ${itemState.height}`,
