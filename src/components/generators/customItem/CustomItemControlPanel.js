@@ -35,6 +35,7 @@ const ControlPanelFooter = styled.div`
 const ControlPanelTools = styled.div`
     display: grid;
     grid-template-columns: 1fr 14rem;
+    min-height: 290px;
 `;
 
 const ControlPanelToolsSection = styled.div`
