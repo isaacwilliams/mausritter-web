@@ -11,7 +11,7 @@ const resources = [
         name: 'Fort Ploddy',
         author: 'Harrison Swift',
         image: require('./images/adventure-ploddy.png'),
-        link: 'https://unenthuser.itch.io/the-library-war-queens-quest',
+        link: 'https://glaucus.itch.io/fort-ploddy',
         className: 'shadow',
         releaseDate: '2020-12-28',
     },
