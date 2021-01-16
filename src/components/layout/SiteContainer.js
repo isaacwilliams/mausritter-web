@@ -16,6 +16,8 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
         line-height: 1.33;
         color: ${colors.body};
+
+        background: ${({ dark }) => (dark ? '#eeeeee' : 'white')};
     }
 
     a {
@@ -35,7 +37,7 @@ query SiteTitleQuery {
 }
 `
 
-const SiteContainer = ({ children }) => (
+const SiteContainer = ({ children, dark }) => (
     <StaticQuery
         query={pageQuery}
         render={data => (
@@ -58,7 +60,7 @@ const SiteContainer = ({ children }) => (
                     <link rel="icon" type="image/png" sizes="16x16" href={require('./favicon-16x16.png')} />
                     <link rel="stylesheet" href="https://use.typekit.net/jcg4vha.css" />
                 </Helmet>
-                <GlobalStyle />
+                <GlobalStyle dark={dark} />
                 {children}
             </>
         )}
