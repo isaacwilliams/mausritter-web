@@ -1,7 +1,7 @@
 
 const CUSTOM_ITEM_IMAGES = [
-    { name: 'None', special: 'none', url: 'none' },
-    { name: 'Custom...', special: 'upload', url: 'upload' },
+    { name: 'None', special: 'none' },
+    { name: 'Custom...', special: 'upload' },
     { special: 'divider' },
     { name: 'Torch', url: require('./images/item-torch.png') },
     { name: 'Lantern', url: require('./images/item-lantern.png') },
