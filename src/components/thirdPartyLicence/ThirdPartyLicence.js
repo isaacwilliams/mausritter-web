@@ -15,8 +15,30 @@ const LicencePageContainer = styled.div`
 
 const LicenceTable = styled.div`
     display: grid;
+
+    ${media.phone`
+        display: block;
+
+        margin-left: 2rem;
+        margin-right: 2rem;
+
+        > div {
+            margin-bottom: 2rem;
+        }
+    `}
+`;
+
+const LicenceTableTop = styled(LicenceTable)`
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+`;
+
+const LicenceTableBottom = styled(LicenceTable)`
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+    column-gap: 3rem;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 `;
 
 const FlexColumn = styled.div`
@@ -27,8 +49,8 @@ const IntroContainer = styled.div`
     margin-bottom: 4rem;
 
     ${media.phone`
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
     `}
 
     ${media.large`
@@ -42,6 +64,7 @@ const LegalBlockquote = styled.blockquote`
     padding: 1rem;
     border: 1px solid #999;
     color: #333;
+    background: #f9f9f9;
 `;
 
 const SubTitleReducedPad = styled(SubTitle)`
@@ -56,14 +79,14 @@ const BodyTextMed = styled(BodyText)`
 const LogoDownloadButton = styled.a`
     padding: 1rem;
 
-    max-width: 50%;
+    max-width: 10rem;
 
     display: block;
-    text-align: center;
+    text-align: left;
 
     img {
         display: block;
-        margin: 0 auto;
+        margin-bottom: 0.5rem;
         max-width: 12rem;
     }
 
@@ -88,7 +111,7 @@ const ThirdPartyLicence = () => (
                 </BodyText>
             </IntroContainer>
 
-            <LicenceTable>
+            <LicenceTableTop>
                 <div>
                     <SubTitleReducedPad>
                         Rules
@@ -115,19 +138,6 @@ const ThirdPartyLicence = () => (
                             <li>Use, reference and modify the game rules and mechanics</li>
                             <li>Reference any locations, creatures, characters or factions mentioned in the Mausritter book</li>
                         </ul>
-
-                        <p>
-                            You are allowed and encouraged (but are not required to)
-                            use the “Compatible with Mausritter” logo in your product,
-                            and on the website or storefront where you promote the product.
-                        </p>
-
-                        <p>
-                            <LogoDownloadButton href="https://drive.google.com/drive/folders/16hFJkH4hbwuDO0EIb1nswMnz9Logh8nD">
-                                <img src={require('./compatible-with-mausritter.svg')} />
-                                Download
-                            </LogoDownloadButton>
-                        </p>
                     </BodyTextMed>
                 </div>
 
@@ -160,6 +170,30 @@ const ThirdPartyLicence = () => (
                         </p>
                     </BodyTextMed>
                 </div>
+            </LicenceTableTop>
+
+            <LicenceTableBottom>
+                <div>
+                    <SubTitleReducedPad>
+                        Compatibility logo
+                    </SubTitleReducedPad>
+
+                    <BodyTextMed>
+                        <p>
+                            You are allowed and encouraged (but are not required to)
+                            use the “Compatible with Mausritter” logo in your product,
+                            and on the website or storefront where you promote the product.
+                        </p>
+
+                        <p>
+                            <LogoDownloadButton href="https://drive.google.com/drive/folders/16hFJkH4hbwuDO0EIb1nswMnz9Logh8nD">
+                                <img src={require('./compatible-with-mausritter.svg')} />
+                                Download
+                            </LogoDownloadButton>
+                        </p>
+                    </BodyTextMed>
+                </div>
+
 
                 <div>
                     <SubTitleReducedPad>
@@ -180,7 +214,9 @@ const ThirdPartyLicence = () => (
                             but don't publish anything that contains sexist, racist, homophobic, transphobic or hateful content and tropes.
                         </p>
                     </BodyTextMed>
+                </div>
 
+                <div>
                     <SubTitleReducedPad>
                         Website listing
                     </SubTitleReducedPad>
@@ -201,7 +237,7 @@ const ThirdPartyLicence = () => (
                         </ul>
                     </BodyTextMed>
                 </div>
-            </LicenceTable>
+            </LicenceTableBottom>
         </ContentContainer>
     </LicencePageContainer>
 );
