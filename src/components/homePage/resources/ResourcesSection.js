@@ -42,7 +42,7 @@ const Resources = ({}) => (
                 link: '/mouse',
             },
             {
-                name: 'Aventure site generator',
+                name: 'Adventure site generator',
                 image: require('./images/adventure-site.png'),
                 link: '/adventure-site',
             },

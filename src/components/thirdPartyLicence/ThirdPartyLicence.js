@@ -119,7 +119,7 @@ const ThirdPartyLicence = () => (
 
                     <BodyTextMed>
                         <p>
-                            If you follow these rules you are allowed to publish free or commerical material
+                            If you follow these rules you are allowed to publish free or commercial material
                             based upon or declaring compatibility with Mausritter without express permission from Losing Games.
                         </p>
 
