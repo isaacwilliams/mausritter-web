@@ -116,7 +116,7 @@ const CustomItemSavedCard = ({ itemState, restoreSheetItem, removeSheetItem, int
         drawItemCanvasToImage(
             canvasRef.current,
             imgRef.current,
-            { ...itemState, imageSource, border: false },
+            { ...itemState, imageSource, resolution: 300, border: false },
         );
     }, [imageSource]);
 
@@ -129,8 +129,8 @@ const CustomItemSavedCard = ({ itemState, restoreSheetItem, removeSheetItem, int
         <SavedCard interactive={interactive} style={cardStyle} onClick={handleRestoreButtonClick}>
             <button className="remove-button" onClick={handleRemoveButtonClick}>X</button>
             <canvas ref={canvasRef}
-                    width={itemState.width * itemState.resolution}
-                    height={itemState.height * itemState.resolution}
+                    width={itemState.width * 300}
+                    height={itemState.height * 300}
                     style={{ display: 'none' }} />
 
             <img ref={imgRef} style={{ width: `${itemState.width}in`, height: `${itemState.height}in` }} />

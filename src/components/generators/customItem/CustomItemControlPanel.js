@@ -199,8 +199,8 @@ const CustomItemControlPanel = ({
                     type: 'set-resolution',
                     resolution: Number(event.target.value),
                 })}>
-                    <option value={600}>High (print)</option>
-                    <option value={300}>Medium (screen)</option>
+                    <option value={600}>Extra high</option>
+                    <option value={300}>High (print/screen)</option>
                     <option value={100}>Low (low density screen)</option>
                 </select>
             </FooterInputContainer>
