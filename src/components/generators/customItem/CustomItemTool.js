@@ -23,7 +23,7 @@ import CUSTOM_ITEM_IMAGES from './customItemImages';
 
 const StudioContainer = styled.div`
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr minmax(130mm, 1fr);
 
     padding-left: 3rem;
     padding-right: 3rem;
