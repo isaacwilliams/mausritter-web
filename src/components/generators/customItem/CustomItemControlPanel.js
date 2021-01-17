@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { kebabCase } from 'lodash/fp'
 
+import media from '../../styles/media';
+
 import { RollButton } from '../generatorComponents';
 
 import CUSTOM_ITEM_TEMPLATES from './customItemTemplates';
@@ -30,12 +32,20 @@ const ControlPanelFooter = styled.div`
 
     padding: 1.5rem;
     border-top: 1px solid #aaa;
+
+    ${media.phone`
+        display: block;
+    `}
 `;
 
 const ControlPanelTools = styled.div`
     display: grid;
     grid-template-columns: 1fr 14rem;
     min-height: 290px;
+
+    ${media.phone`
+        display: block;
+    `}
 `;
 
 const ControlPanelToolsSection = styled.div`
@@ -44,6 +54,11 @@ const ControlPanelToolsSection = styled.div`
 
 const ControlPanelToolsSectionRight = styled(ControlPanelToolsSection)`
     border-left: 1px solid #aaa;
+
+    ${media.phone`
+        border-top: 1px solid #aaa;
+        border-left: 0;
+    `}
 `;
 
 const StyledInputContainer = styled.label`
@@ -55,6 +70,7 @@ const StyledInputContainer = styled.label`
 
         margin-right: 0.5rem;
         min-width: 5rem;
+        font-size: 1.2rem;
     }
 
     input {
@@ -67,6 +83,10 @@ const StyledInputContainer = styled.label`
         &[type=file] {
             width: 11rem;
         }
+
+        ${media.phone`
+            font-size: 1rem;
+        `}
     }
 `;
 
@@ -76,10 +96,25 @@ const FooterInputContainer = styled(StyledInputContainer)`
     span {
         min-width: 0;
     }
+
+    ${media.phone`
+        margin-bottom: 1rem;
+    `}
 `;
 
 const ControlButton = styled(RollButton)`
     margin-left: 1rem;
+
+    ${media.phone`
+        margin-left: 0rem;
+        margin-right: 1rem;
+    `}
+`;
+
+const ControlButtonSaveSheet = styled(ControlButton)`
+    ${media.phone`
+        display: none;
+    `}
 `;
 
 const CustomItemInput = ({ fieldName, title, itemState, dispatch, fieldType = 'text' }) => (
@@ -205,9 +240,9 @@ const CustomItemControlPanel = ({
                 </select>
             </FooterInputContainer>
 
-            <ControlButton onClick={handleSaveToSheetButtonClick}>
+            <ControlButtonSaveSheet onClick={handleSaveToSheetButtonClick}>
                 Save to sheet
-            </ControlButton>
+            </ControlButtonSaveSheet>
 
             <ControlButton onClick={handleSaveImageButtonClick}>
                 Save item image

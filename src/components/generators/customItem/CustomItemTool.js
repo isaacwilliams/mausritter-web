@@ -5,6 +5,8 @@ import { kebabCase, compact, lowerCase } from 'lodash/fp';
 import styled, { css } from 'styled-components';
 import { nanoid } from 'nanoid';
 
+import media from '../../styles/media';
+
 import { ContentContainer } from '../../layout/ContentContainer';
 import { Title } from '../../styles/shared';
 import BodyText from '../../styles/BodyText';
@@ -27,6 +29,15 @@ const StudioContainer = styled.div`
 
     padding-left: 3rem;
     padding-right: 3rem;
+
+    ${media.size('1000px')`
+        grid-template-columns: 1fr;
+    `}
+
+    ${media.phone`
+        padding-left: 1rem;
+        padding-right: 1rem;
+    `}
 `;
 
 const ItemCreatorContainer = styled.div`
@@ -75,6 +86,10 @@ const PrintableSheetStudioContainer = styled.div`
             transform-origin: 0% 0%;
         }
     }
+
+    ${media.size('1000px')`
+        display: none;
+    `}
 `;
 
 const PrintableSheetPrintButton = styled.button`
