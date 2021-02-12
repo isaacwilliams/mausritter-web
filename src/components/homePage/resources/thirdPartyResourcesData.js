@@ -41,7 +41,7 @@ const resources = [
     },
     {
         name: 'Zauberei’s Grim Grimoire',
-        author: 'Gray Moth',
+        author: 'Greyson Yandt',
         link: 'https://greysonwhy.itch.io/zaubereis-grim-grimoire',
         image: require('./images/adventure-grim-grimoire.png'),
         className: 'shadow',
