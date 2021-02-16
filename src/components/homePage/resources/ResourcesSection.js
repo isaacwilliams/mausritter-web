@@ -74,6 +74,11 @@ const Resources = ({}) => (
                 image: require('./images/sheets-hexcrawl.png'),
                 link: require('./files/mausritter-hexcrawl-template.pdf'),
             },
+            {
+                name: 'Rules reference sheet',
+                image: require('./images/sheets-rules-reference.png'),
+                link: require('./files/mausritter-rules-reference.pdf'),
+            },
         ]} footer={
             <BodyText className="small center">
                 All printable sheets are released under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution (CC BY 4.0)</a> licence
