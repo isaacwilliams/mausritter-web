@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
+import Helmet from 'react-helmet';
 
 import { kebabCase, compact, lowerCase } from 'lodash/fp';
 import styled, { css } from 'styled-components';
@@ -193,10 +194,10 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     useEffect(() => {
         Promise.all([
-            new FontFaceObserver('interstate-condensed').load(),
-            new FontFaceObserver('interstate-condensed', { weight: 600 }).load(),
-            new FontFaceObserver('interstate-condensed', { style: 'italic' }).load(),
-            new FontFaceObserver('ff-brokenscript-bc-web').load(),
+            new FontFaceObserver('Open Sans Condensed').load(),
+            new FontFaceObserver('Open Sans Condensed', { weight: 700 }).load(),
+            new FontFaceObserver('Open Sans Condensed', { style: 'italic' }).load(),
+            new FontFaceObserver('Texturina', { weight: 800 }).load(),
         ]).then(() => {
             setFontsReady(true);
 
@@ -252,6 +253,12 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     return (
         <>
+            <Helmet>
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:wght@800&display=swap"
+                        rel="stylesheet" />
+            </Helmet>
+
             <div style={{ display: 'none' }}>
                 <canvas ref={canvasRef}
                         width={itemState.width * itemState.resolution}

@@ -4,12 +4,15 @@ import {
     drawImageProp,
 } from './drawCanvasUtils';
 
+const FONT_TITLE = 'Texturina';
+const FONT_DISPLAY = 'Open Sans Condensed';
+
 const drawItemCanvas = (canvas, ctx, item) => {
     const px = (value) => value * (item.resolution / 100);
 
     const drawTitle = () => {
         let fontSize = px(13);
-        ctx.font = `${fontSize}px ff-brokenscript-bc-web`;
+        ctx.font = `${fontSize}px ${FONT_TITLE}`;
         ctx.textAlign = 'left';
         ctx.fillStyle = item.foregroundColor;
 
@@ -20,7 +23,7 @@ const drawItemCanvas = (canvas, ctx, item) => {
 
     const drawDamage = () => {
         ctx.fillStyle = item.foregroundColor;
-        ctx.font = `bold ${px(11)}px interstate-condensed`;
+        ctx.font = `bold ${px(11)}px ${FONT_DISPLAY}`;
         ctx.textAlign = 'right';
         ctx.fillText(item.damage, canvas.width - px(9), px(42));
         ctx.textAlign = 'left';
@@ -58,10 +61,10 @@ const drawItemCanvas = (canvas, ctx, item) => {
 
         ctx.textAlign = 'left';
 
-        ctx.font = `bold ${px(10)}px interstate-condensed`;
+        ctx.font = `bold ${px(10)}px ${FONT_DISPLAY}`;
         ctx.fillText('Clear:', px(6), canvas.height - px(8 + 11));
 
-        ctx.font = `${px(10)}px interstate-condensed`;
+        ctx.font = `${px(10)}px ${FONT_DISPLAY}`;
         ctx.fillText(item.clearDetail, px(6), canvas.height - px(8));
     };
 
@@ -72,14 +75,14 @@ const drawItemCanvas = (canvas, ctx, item) => {
         ctx.lineWidth = px(3);
 
         ctx.textAlign = 'left';
-        ctx.font = `bold ${px(10)}px interstate-condensed`;
+        ctx.font = `bold ${px(10)}px ${FONT_DISPLAY}`;
 
         ctx.strokeText(item.classDetail, px(6), canvas.height - px(8));
         ctx.fillText(item.classDetail, px(6), canvas.height - px(8));
     }
 
     const drawMechanicDetail = () => {
-        ctx.font = `italic ${px(10)}px interstate-condensed`;
+        ctx.font = `italic ${px(10)}px ${FONT_DISPLAY}`;
         ctx.textAlign = 'left';
 
         let top = px(31);
