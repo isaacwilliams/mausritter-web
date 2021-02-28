@@ -158,6 +158,11 @@ const GetGame = ({}) => (
                     <img src={require('./images/flag-france.png')} />
                     Français
                 </CountryFlagLink>
+
+                <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg?fbclid=IwAR2W6BhnDRAZGewaVtG8z_pLUs6ypBLSZj0_jh5jALh9Wv7m0KdPGlAG9tI">
+                    <img src={require('./images/flag-poland.png')} />
+                    Polski
+                </CountryFlagLink>
             </div>
         </OtherEditionsSection>
     </GetGameWrapper>
