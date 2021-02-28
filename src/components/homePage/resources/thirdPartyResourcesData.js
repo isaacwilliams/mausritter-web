@@ -1,5 +1,21 @@
 const resources = [
     {
+        name: 'Stoneford',
+        author: 'Juan Carlos Hernández',
+        link: 'https://imsobadatnicknames.itch.io/stoneford-a-location-for-mausritter',
+        image: require('./images/adventure-stoneford.png'),
+        className: 'shadow',
+        releaseDate: '2021-02-28',
+    },
+    {
+        name: 'Tales from Moonshore',
+        author: 'Lux, Paige & ManaRampMatt',
+        link: 'https://manarampmatt.itch.io/tales-from-moonshore',
+        image: require('./images/adventure-moonshore.png'),
+        className: 'shadow',
+        releaseDate: '2021-02-27',
+    },
+    {
         name: 'Mouse Supplements',
         author: 'Gray Moth',
         link: 'https://graymoth.itch.io/mousesupplements',
