@@ -13,9 +13,16 @@ module.exports = {
     {
         resolve: `gatsby-source-filesystem`,
         options: {
-            path: `${__dirname}/src/srd-markdown`,
+            path: `${__dirname}/content/srd-markdown`,
             name: `srd-markdown`,
         },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+          path: `${__dirname}/content/resources/`,
+          name: `resources`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,

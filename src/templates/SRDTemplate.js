@@ -75,13 +75,9 @@ const SRDContainer = styled.div`
     position: relative;
 `
 
-const SRDTemplate = ({ data, pageContext: { srdPages } }) => {
-    const simplifiedPages = srdPages.map(get('node.frontmatter'));
-    const groupedPages = Object.entries(groupBy('section', simplifiedPages));
-    const page = get('markdownRemark', data);
-    const frontmatter = get('frontmatter', page);
-
-    console.log(page);
+const SRDTemplate = ({ data: { page: { html, frontmatter }, toc } }) => {
+    const tocPages = toc.edges.map(get('node.markdown.frontmatter'));
+    const groupedPages = Object.entries(groupBy('section', tocPages));
 
     return (
         <SiteContainer>
@@ -108,7 +104,7 @@ const SRDTemplate = ({ data, pageContext: { srdPages } }) => {
                     ))}
                 </TOC>
                 <BodyContainer>
-                    <BodyTextSmall dangerouslySetInnerHTML={{ __html: page.html }} />
+                    <BodyTextSmall dangerouslySetInnerHTML={{ __html: html }} />
                 </BodyContainer>
             </SRDContainer>
         </SiteContainer>
@@ -121,13 +117,29 @@ export default SRDTemplate;
 
 export const pageQuery = graphql`
     query($slug: String!) {
-        markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+        page: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
             html
             frontmatter {
                 slug
                 title
             }
-            tableOfContents
+        }
+
+        toc: allFile(
+            sort: { fields: childMarkdownRemark___frontmatter___order }
+            filter: {sourceInstanceName: {eq: "srd-markdown"}}
+        ) {
+            edges {
+                node {
+                    markdown: childMarkdownRemark {
+                        frontmatter {
+                            title
+                            section
+                            slug
+                        }
+                    }
+                }
+            }
         }
     }
 `;

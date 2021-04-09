@@ -1,4 +1,5 @@
 const path = require(`path`);
+const { first } = require('lodash/fp');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
@@ -6,17 +7,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     const result = await graphql(`
         {
-            allMarkdownRemark(
-                sort: { fields: [frontmatter___order], order: ASC }
-                limit: 1000
+            allFile(
+                sort: { fields: childMarkdownRemark___frontmatter___order }
+                filter: {sourceInstanceName: {eq: "srd-markdown"}}
             ) {
                 edges {
                     node {
-                        frontmatter {
-                            order
-                            section
-                            title
-                            slug
+                        markdown: childMarkdownRemark {
+                            frontmatter {
+                                title
+                                section
+                                slug
+                            }
                         }
                     }
                 }
@@ -36,18 +38,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     const SRDTemplate = require.resolve(`./src/templates/SRDTemplate.js`);
 
-    const srdPages = result.data.allMarkdownRemark.edges;
-
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        console.log('path', `srd/${node.frontmatter.slug}`);
+    result.data.allFile.edges.forEach(({ node: { markdown } }) => {
         createPage({
-            path: `srd/${node.frontmatter.slug}`,
+            path: `srd/${markdown.frontmatter.slug}`,
             component: SRDTemplate,
-            context: {
-                // additional data can be passed via context
-                ...node.frontmatter,
-                srdPages,
-            },
+            context: markdown.frontmatter,
         })
     });
+
+    const firstPage = first(result.data.allFile.edges).node.markdown;
+
+    createPage({
+        path: `srd`,
+        component: SRDTemplate,
+        context: firstPage.frontmatter,
+    });
+
+    // first(result.data.allFile).node
 }
