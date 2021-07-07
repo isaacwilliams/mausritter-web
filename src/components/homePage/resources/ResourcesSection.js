@@ -22,8 +22,9 @@ const ResourcesWrapper = styled.div`
     padding-bottom: 6rem;
 
     ${media.phone`
-        padding-left: 3rem;
-        padding-right: 3rem;
+        width: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
     `}
 `
 

@@ -6,6 +6,8 @@ import styled, { css } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
+import LazyLoad from 'react-lazyload';
+
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 import {
     SubTitle,
@@ -18,6 +20,10 @@ const ResourcesContainer = styled(FlexContainer)`
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: start;
+
+    ${media.phone`
+        display: block;
+    `}
 `;
 
 const linkStyle = css`
@@ -41,7 +47,7 @@ const linkStyle = css`
         transition: transform 0.3s ease-in-out;
     }
 
-    .name {
+    .info {
         margin-top: 1rem;
         font-size: 1rem;
         text-align: center;
@@ -49,7 +55,6 @@ const linkStyle = css`
 
     .author {
         font-size: 0.9rem;
-        text-align: center;
         opacity: 0.7;
     }
 
@@ -80,11 +85,26 @@ const linkStyle = css`
     `}
 
     ${media.phone`
-        width: 25vw;
-        height: 25vw;
+        display: grid;
+
+        grid-template-columns: 6rem 1fr;
+        grid-template-rows: auto 1fr;
+
+        width: auto;
+        height: auto;
+
+        padding: 1rem;
+
+        text-align: left;
+
+        .info {
+            margin-top: 0;
+            text-align: left;
+        }
 
         img {
             max-height: 16vw;
+            max-width: 5rem;
         }
     `}
 `;
@@ -131,6 +151,15 @@ const heroLinkStyle = css`
     &:hover {
         background-size: 103% auto;
     }
+
+    ${media.phone`
+        width: auto;
+        height: 25vw;
+
+        img {
+            max-height: 16vw;
+        }
+    `}
 `;
 
 const StyledGatsbyResourceLink = styled(Link)`${linkStyle}`;
@@ -217,8 +246,6 @@ const ResourcesSection = ({ title, resources = [], heroResources = [], footer, s
     const resourcesOverLimit = sortedResources.length - limitedResources.length;
     const isLimited = sortedResources.length > RESOURCES_LIMIT;
 
-    console.log(sortedResources, sortByField);
-
     return (
         <ResourcesSectionContainer>
             <FlexContainer>
@@ -240,11 +267,15 @@ const ResourcesSection = ({ title, resources = [], heroResources = [], footer, s
 
             <ResourcesContainer>
                 {limitedResources.map(({ name, author, image, link, className }) => (
-                    <ResourceLink to={link} key={`${name}${author}${link}`} className={className}>
-                        {image && <img src={image} alt="" />}
-                        <div className="name">{name}</div>
-                        {author && <div className="author">{author}</div>}
-                    </ResourceLink>
+                    <LazyLoad height={272} offset={100} key={`${name}${author}${link}`} once>
+                        <ResourceLink to={link} className={className}>
+                            {image && <img src={image} alt="" />}
+                            <div className="info">
+                                <div className="name">{name}</div>
+                                {author && <div className="author">{author}</div>}
+                            </div>
+                        </ResourceLink>
+                    </LazyLoad>
                 ))}
             </ResourcesContainer>
 

@@ -1,5 +1,21 @@
 const resources = [
     {
+        name: 'Mayfield',
+        author: 'Various',
+        link: 'https://manarampmatt.itch.io/mayfield',
+        image: require('./images/adventure-mayfield.jpg'),
+        className: 'shadow',
+        releaseDate: '2021-06-26',
+    },
+    {
+        name: 'Chimneyhaus',
+        author: 'James Hanna',
+        link: 'https://feylightstudio.com/product/chimneyhaus/',
+        image: require('./images/adventure-chimneyhaus.jpg'),
+        className: 'shadow',
+        releaseDate: '2021-06-25',
+    },
+    {
         name: 'Stoneford',
         author: 'Juan Carlos Hernández',
         link: 'https://imsobadatnicknames.itch.io/stoneford-a-location-for-mausritter',
