@@ -158,6 +158,7 @@ const heroLinkStyle = css`
 
         img {
             max-height: 16vw;
+            background-size: auto 100%;
         }
     `}
 `;
