@@ -10,6 +10,10 @@ const Footer = styled.footer`
 
     background: #222222;
     color: white;
+
+    a {
+        color: white;
+    }
 `;
 
 const LogoContainer = styled.div`
@@ -18,7 +22,7 @@ const LogoContainer = styled.div`
 
 const FooterSection = () => (
     <Footer>
-        Mausritter ©2020 Isaac Williams & Losing Games
+        Mausritter ©2020 <a href="https://isaacwilliams.net">Isaac Williams</a> &amp; <a href="https://losing.games">Losing Games</a>
 
         <LogoContainer>
             <LosingGamesLogo className="light" />
