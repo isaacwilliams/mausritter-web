@@ -16,7 +16,7 @@ const BodyText = styled.div`
     }
 
     h1 {
-        font-size:
+        font-size: 2rem;
     }
 
     p, ul {

@@ -1,10 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Navigation from '../../navigation/Navigation';
 import BodyText from '../../styles/BodyText';
 import LosingGamesLogo from '../../navigation/logos/LosingGamesLogo';
+import KickstarterPromoSection from './KickstarterPromoSection';
+
 import media from '../../styles/media';
+import font from '../../styles/font';
+
 
 const TitleSectionContainer = styled.section`
     position: relative;
@@ -26,7 +30,7 @@ const TitleSectionBody = styled.div`
     position: relative;
     margin: auto;
     width: 500px;
-    padding-top: 15vh;
+    padding-top: 5vh;
 
     ${media.phone`
         width: auto;
@@ -66,6 +70,14 @@ const Blurb = styled.div`
 const TitleSection = () => {
     return (
         <TitleSectionContainer>
+            <KickstarterPromoSection href="https://kickstarter.com" target="_blank">
+                <div className="background" />
+                <div className="title">
+                    <div>Explore further.</div>
+                    <div className="kickstarter">Mausritter is on Kickstarter</div>
+                </div>
+            </KickstarterPromoSection>
+
             <TitleSectionBody>
                 <MausritterLogoTitle>
                     Mausritter

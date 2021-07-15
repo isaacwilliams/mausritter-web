@@ -18,11 +18,6 @@ const CommunitySectionWrapper = styled.section`
     background: #eee;
 `;
 
-const MouseImage = styled.img`
-    width: 20rem;
-    height: auto;
-`;
-
 const DiscordDescription = styled.p`
     margin-bottom: 1.6rem;
     font-size: 1.4rem;
@@ -65,6 +60,10 @@ const LinkButtonTwitter = styled(LinkButton)`
     margin-left: 1rem;
     margin-right: 1rem;
     background-image: url(${require('./icon-twitter.svg')});
+
+    ${media.phone`
+        margin-bottom: 1rem;
+    `}
 `;
 
 const LinkButtonDiscord = styled(LinkButton)`
@@ -75,6 +74,8 @@ const TwitterLinksContainer = styled(FlexContainer)`
     ${media.phone`
         width: auto;
         display: flex;
+        flex-direction: column;
+
         padding-left: 3rem;
         padding-right: 3rem;
         font-size: 1.3rem;
@@ -104,7 +105,7 @@ const CommunitySection = () => (
                 News and updates
             </SubTitleCenter>
 
-            <FlexContainer>
+            <TwitterLinksContainer>
                 <LinkButtonTwitter href="https://twitter.com/mausritter">
                     @mausritter
                 </LinkButtonTwitter>
@@ -112,7 +113,7 @@ const CommunitySection = () => (
                 <LinkButtonTwitter href="https://twitter.com/isaacwilliams">
                     @isaacwilliams
                 </LinkButtonTwitter>
-            </FlexContainer>
+            </TwitterLinksContainer>
         </ContentContainer>
     </CommunitySectionWrapper>
 );

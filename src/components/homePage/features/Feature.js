@@ -70,6 +70,8 @@ const FeatureTextBody = styled.article`
         padding-left: 3rem;
         padding-right: 3rem;
         font-size: 1.3rem;
+
+        text-align: center;
     `}
 `;
 
