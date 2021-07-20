@@ -12,6 +12,12 @@ const KickstarterPromoSection = styled.a`
     overflow: hidden;
     background-color: #152029;
 
+    transition: min-height 0.7s ease-in-out;
+
+    &.hidden {
+        min-height: 0vh;
+    }
+
     .title {
         display: flex;
         position: absolute;
