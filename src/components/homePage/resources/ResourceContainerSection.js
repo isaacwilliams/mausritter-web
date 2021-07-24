@@ -72,18 +72,6 @@ const linkStyle = css`
         }
     }
 
-    ${media.size('1290px')`
-        width: calc(25% - 4rem);
-    `}
-
-    ${media.size('920px')`
-        width: calc(33% - 4rem);
-    `}
-
-    ${media.size('800px')`
-        width: calc(50% - 4rem);
-    `}
-
     ${media.phone`
         display: grid;
 

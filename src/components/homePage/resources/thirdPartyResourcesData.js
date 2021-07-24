@@ -1,5 +1,21 @@
 const resources = [
     {
+        name: 'Bernpyle #6 — Into the Veins of the Earth',
+        author: 'ManaRampMatt',
+        link: 'https://manarampmatt.itch.io/bernpyle-6-into-the-veins-of-the-earth',
+        image: require('./images/adventure-bernpyle-6.png'),
+        className: 'shadow',
+        releaseDate: '2021-07-23',
+    },
+    {
+        name: 'The Vitacernis',
+        author: 'Brian Stauffer',
+        link: 'https://brstf.itch.io/the-vitacernis',
+        image: require('./images/adventure-vitacernis.png'),
+        className: 'shadow',
+        releaseDate: '2021-05-11',
+    },
+    {
         name: 'Mayfield',
         author: 'Various',
         link: 'https://manarampmatt.itch.io/mayfield',
