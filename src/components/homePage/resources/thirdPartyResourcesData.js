@@ -16,6 +16,14 @@ const resources = [
         releaseDate: '2021-05-11',
     },
     {
+        name: 'Alchemy',
+        author: 'Fortune Trove',
+        link: 'https://fortunetrove.itch.io/alchemy-supplement',
+        image: require('./images/adventure-alchemy.png'),
+        className: 'shadow',
+        releaseDate: '2021-07-06',
+    },
+    {
         name: 'Mayfield',
         author: 'Various',
         link: 'https://manarampmatt.itch.io/mayfield',
