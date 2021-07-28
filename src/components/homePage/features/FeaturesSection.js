@@ -15,23 +15,23 @@ const Bk = styled.span`
 const FeaturesSection = () => {
     return (
         <ContentContainer>
-            <Feature image={<img src={require('./images/mockup-spread-inventory.jpg')} />}>
+            <Feature image={<img src={require('./images/mockup-spread-inventory.jpg')} loading="lazy" />}>
                 <Bk>Brutally fast, equally flavourful character creation</Bk> gets you playing your mouse adventurer as quickly as possible.
             </Feature>
 
-            <Feature image={<img src={require('./images/promo-character-sheet.jpg')} />} className="left">
+            <Feature image={<img src={require('./images/promo-character-sheet.jpg')} loading="lazy" />} className="left" >
                 <Bk>Physical card-based inventory system</Bk> minimises bookkeeping and maximises hard choices.
             </Feature>
 
-            <Feature image={<img src={require('./images/promo-image-spell.jpg')} />}>
+            <Feature image={<img src={require('./images/promo-image-spell.jpg')} loading="lazy" />}>
                 <Bk>Dangerous and evocative magic</Bk> system with 15 spells to find and cast.
             </Feature>
 
-            <Feature image={<img src={require('./images/mockup-spread-landmarks.jpg')} />} className="left">
+            <Feature image={<img src={require('./images/mockup-spread-landmarks.jpg')} loading="lazy" />} className="left">
                 <Bk>Generous toolbox of resources</Bk> provides the Game Master with plenty of support to create their own mouse-scale sandbox adventures.
             </Feature>
 
-            <Feature image={<img src={require('./images/promo-stumpsville.jpg')} />}>
+            <Feature image={<img src={require('./images/promo-stumpsville.jpg')} loading="lazy" />}>
                 <Bk>Delve into the ready to play</Bk> adventure site of <Bk>Stumpsville</Bk> and explore further into the <Bk>Earldom of{'\u00a0'}Ek.</Bk>
             </Feature>
         </ContentContainer>

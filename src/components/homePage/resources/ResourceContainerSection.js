@@ -258,7 +258,7 @@ const ResourcesSection = ({ title, resources = [], heroResources = [], footer, s
                 {limitedResources.map(({ name, author, image, link, className }) => (
                     <LazyLoad height={272} offset={100} key={`${name}${author}${link}`} once>
                         <ResourceLink to={link} className={className}>
-                            {image && <img src={image} alt="" />}
+                            {image && <img src={image} alt="" loading="lazy" />}
                             <div className="info">
                                 <div className="name">{name}</div>
                                 {author && <div className="author">{author}</div>}

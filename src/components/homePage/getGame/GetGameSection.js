@@ -128,7 +128,7 @@ const GetGame = ({}) => (
 
         <GetGameSection>
             <OptionLink href="https://www.kickstarter.com/projects/isaac-williams/mausritter-box-set-and-adventure-collection">
-                <img src={require('./images/mockup-box.png')} />
+                <img loading="lazy" src={require('./images/mockup-box.png')} />
 
                 <h3>Print edition</h3>
                 <span>
@@ -136,7 +136,7 @@ const GetGame = ({}) => (
                 </span>
             </OptionLink>
             <OptionLink href="https://losing-games.itch.io/mausritter">
-                <img src={require('./images/mockup-pdf.png')} />
+                <img loading="lazy" src={require('./images/mockup-pdf.png')} />
 
                 <h3>Digital edition</h3>
                 <span>
@@ -150,17 +150,17 @@ const GetGame = ({}) => (
 
             <div>
                 <CountryFlagLink href="https://www.elrefugioeditorial.com/mausritter">
-                    <img src={require('./images/flag-spain.png')} />
+                    <img loading="lazy" src={require('./images/flag-spain.png')} />
                     Español
                 </CountryFlagLink>
 
                 <CountryFlagLink href="https://www.drivethrurpg.com/product/313115/Mausritter">
-                    <img src={require('./images/flag-france.png')} />
+                    <img loading="lazy" src={require('./images/flag-france.png')} />
                     Français
                 </CountryFlagLink>
 
                 <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg?fbclid=IwAR2W6BhnDRAZGewaVtG8z_pLUs6ypBLSZj0_jh5jALh9Wv7m0KdPGlAG9tI">
-                    <img src={require('./images/flag-poland.png')} />
+                    <img loading="lazy" src={require('./images/flag-poland.png')} />
                     Polski
                 </CountryFlagLink>
             </div>
