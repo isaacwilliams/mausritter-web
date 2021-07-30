@@ -18,6 +18,10 @@ const KickstarterPromoSection = styled.a`
         min-height: 0vh;
     }
 
+    &.fullscreen {
+        min-height: 100vh;
+    }
+
     .title {
         display: flex;
         position: absolute;
