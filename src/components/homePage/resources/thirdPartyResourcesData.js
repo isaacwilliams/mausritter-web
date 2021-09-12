@@ -1,5 +1,13 @@
 const resources = [
     {
+        name: 'Queasy Quarry Quest',
+        author: 'imnotsupposedtogetjigsinit',
+        link: 'https://notsupposedtogetjigs.itch.io/queasy-quarry-quest',
+        image: require('./images/adventure-qqq.jpg'),
+        className: 'shadow',
+        releaseDate: '2021-09-11',
+    },
+    {
         name: 'Bernpyle #6 — Into the Veins of the Earth',
         author: 'ManaRampMatt',
         link: 'https://manarampmatt.itch.io/bernpyle-6-into-the-veins-of-the-earth',
