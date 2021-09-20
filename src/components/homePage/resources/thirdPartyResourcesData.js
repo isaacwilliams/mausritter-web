@@ -1,5 +1,21 @@
 const resources = [
     {
+        name: 'Bat Cultist Lair',
+        author: 'Brian Stauffer',
+        link: 'https://brstf.itch.io/ori-magi',
+        image: require('./images/adventure-ori-magi.png'),
+        className: 'shadow',
+        releaseDate: '2021-09-16',
+    },
+    {
+        name: 'Bat Cultist Lair',
+        author: 'Heart of Arcana',
+        link: 'https://heart-of-arcana.itch.io/bat-cultist-lair',
+        image: require('./images/adventure-bat-cultist-lair.png'),
+        className: 'shadow',
+        releaseDate: '2021-09-15',
+    },
+    {
         name: 'Queasy Quarry Quest',
         author: 'imnotsupposedtogetjigsinit',
         link: 'https://notsupposedtogetjigs.itch.io/queasy-quarry-quest',
