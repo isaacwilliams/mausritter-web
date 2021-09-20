@@ -31,7 +31,7 @@ const TitleSectionBody = styled.div`
     position: relative;
     margin: auto;
     width: 500px;
-    padding-top: 5vh;
+    padding-top: 20vh;
 
     ${media.phone`
         width: auto;
@@ -93,8 +93,6 @@ const KickstarterPromoBanner = () => {
 const TitleSection = () => {
     return (
         <TitleSectionContainer>
-            <KickstarterPromoBanner />
-
             <TitleSectionBody>
                 <MausritterLogoTitle>
                     Mausritter

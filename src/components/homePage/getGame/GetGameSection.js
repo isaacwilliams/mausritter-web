@@ -127,7 +127,7 @@ const GetGame = ({}) => (
         </Title>
 
         <GetGameSection>
-            <OptionLink href="https://www.kickstarter.com/projects/isaac-williams/mausritter-box-set-and-adventure-collection">
+            <OptionLink href="https://mausritter-box-set-and-adventure-collection.backerkit.com/hosted_preorders">
                 <img loading="lazy" src={require('./images/mockup-box.png')} />
 
                 <h3>Print edition</h3>
