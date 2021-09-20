@@ -1,6 +1,6 @@
 const resources = [
     {
-        name: 'Bat Cultist Lair',
+        name: 'Sanctum of the Ori Magi',
         author: 'Brian Stauffer',
         link: 'https://brstf.itch.io/ori-magi',
         image: require('./images/adventure-ori-magi.png'),
