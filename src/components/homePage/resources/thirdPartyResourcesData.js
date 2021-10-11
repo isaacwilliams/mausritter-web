@@ -1,5 +1,29 @@
 const resources = [
     {
+        name: 'Sölverkalt',
+        author: 'David Lombardo',
+        link: 'https://awkwardturtle.itch.io/soverkalt',
+        image: require('./images/adventure-solverkalt.png'),
+        className: 'shadow',
+        releaseDate: '2021-10-11',
+    },
+    {
+        name: 'Sunken Abbey',
+        author: 'Paul Ligorski',
+        link: 'https://heart-of-arcana.itch.io/sunken-abbey',
+        image: require('./images/adventure-sunken-abbey.png'),
+        className: 'shadow',
+        releaseDate: '2021-10-06',
+    },
+    {
+        name: 'The Flood Priest’s Garden',
+        author: 'ManaRampMatt',
+        link: 'https://manarampmatt.itch.io/the-flood-priests-garden',
+        image: require('./images/adventure-flood-priest.png'),
+        className: 'shadow',
+        releaseDate: '2021-09-24',
+    },
+    {
         name: 'Sanctum of the Ori Magi',
         author: 'Brian Stauffer',
         link: 'https://brstf.itch.io/ori-magi',
@@ -9,7 +33,7 @@ const resources = [
     },
     {
         name: 'Bat Cultist Lair',
-        author: 'Heart of Arcana',
+        author: 'Paul Ligorski',
         link: 'https://heart-of-arcana.itch.io/bat-cultist-lair',
         image: require('./images/adventure-bat-cultist-lair.png'),
         className: 'shadow',
