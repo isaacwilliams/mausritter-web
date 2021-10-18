@@ -31,6 +31,7 @@ const CUSTOM_ITEM_IMAGES = [
     { name: 'Spell 3', url: require('./images/item-spell-3.png') },
     { name: 'Spell 4', url: require('./images/item-spell-4.png') },
     { name: 'Spell 5', url: require('./images/item-spell-5.png') },
+    { name: 'Spell (blank)', url: require('./images/item-spell-blank.png') },
 ];
 
 export default CUSTOM_ITEM_IMAGES;
