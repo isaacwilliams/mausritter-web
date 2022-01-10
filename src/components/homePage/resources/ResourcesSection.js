@@ -88,7 +88,14 @@ const Resources = ({}) => (
 
         <div id="adventures" />
 
+
         <ResourceContainerSection title="Companion adventures" heroResources={[
+            {
+                name: 'The Estate Adventure Collection',
+                link: 'https://losing-games.itch.io/mausritter-the-estate-adventure-collection',
+                image: require('./images/the-estate-promo.jpg'),
+                imageOverlay: require('./images/the-estate-promo-logo.png'),
+            },
             {
                 name: 'Honey in the Rafters',
                 link: 'https://losing-games.itch.io/mausritter-honey-in-the-rafters',
