@@ -1,5 +1,37 @@
 const resources = [
     {
+        name: 'Keep It Together',
+        author: 'Rich Hawkes',
+        link: 'https://www.drivethrurpg.com/product/379384/Keep-It-Together',
+        image: require('./images/adventure-keep-it-together.png'),
+        className: 'shadow',
+        releaseDate: '2022-02-14',
+    },
+    {
+        name: 'Rattlepoint City',
+        author: 'Matthew Stegman',
+        link: 'https://manarampmatt.itch.io/rattle-point-city',
+        image: require('./images/adventure-rattle-point.png'),
+        className: 'shadow',
+        releaseDate: '2022-02-03',
+    },
+    {
+        name: 'Crawler Beyond the Stone',
+        author: 'Brian Stauffer',
+        link: 'https://brstf.itch.io/crawler-beyond-the-stone',
+        image: require('./images/adventure-crawler.png'),
+        className: 'shadow',
+        releaseDate: '2022-02-03',
+    },
+    {
+        name: 'Oak Pasture',
+        author: 'PenPaperDice',
+        link: 'https://penpaperdice.itch.io/oak-pasture-1',
+        image: require('./images/adventure-oak-pasture.png'),
+        className: 'shadow',
+        releaseDate: '2022-01-09',
+    },
+    {
         name: 'The Mountain Lord’s Respite',
         author: 'David Lombardo',
         link: 'https://awkwardturtle.itch.io/the-badger-lords-respite',
