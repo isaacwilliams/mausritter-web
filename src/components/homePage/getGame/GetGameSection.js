@@ -154,12 +154,12 @@ const GetGame = ({}) => (
                     Español
                 </CountryFlagLink>
 
-                <CountryFlagLink href="https://www.drivethrurpg.com/product/313115/Mausritter">
+                <CountryFlagLink href="https://electric-goat.net/mausritter">
                     <img loading="lazy" src={require('./images/flag-france.png')} />
                     Français
                 </CountryFlagLink>
 
-                <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg?fbclid=IwAR2W6BhnDRAZGewaVtG8z_pLUs6ypBLSZj0_jh5jALh9Wv7m0KdPGlAG9tI">
+                <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg">
                     <img loading="lazy" src={require('./images/flag-poland.png')} />
                     Polski
                 </CountryFlagLink>
