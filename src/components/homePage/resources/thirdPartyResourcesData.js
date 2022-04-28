@@ -1,5 +1,13 @@
 const resources = [
     {
+        name: 'Perez’s Assignment',
+        author: 'Antonio Buch',
+        link: 'https://buchplays.itch.io/perezs-assignment',
+        image: require('./images/adventure-perez.png'),
+        className: 'shadow',
+        releaseDate: '2022-03-23',
+    },
+    {
         name: 'Keep It Together',
         author: 'Rich Hawkes',
         link: 'https://www.drivethrurpg.com/product/379384/Keep-It-Together',
