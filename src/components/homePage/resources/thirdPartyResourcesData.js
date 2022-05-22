@@ -1,6 +1,22 @@
 const resources = [
     {
         name: 'Perez’s Assignment',
+        author: 'Paul Ligorski',
+        link: 'https://heart-of-arcana.itch.io/shrine-of-the-jade-scorpion',
+        image: require('./images/adventure-jade-scorpian.png'),
+        className: 'shadow',
+        releaseDate: '2022-05-14',
+    },
+    {
+        name: 'Lilliputian: Adventure on the Open Seas',
+        author: 'ManaRampMatt',
+        link: 'https://manarampmatt.itch.io/lilliputian',
+        image: require('./images/adventure-lilliputian.png'),
+        className: 'shadow',
+        releaseDate: '2022-05-08',
+    },
+    {
+        name: 'Perez’s Assignment',
         author: 'Antonio Buch',
         link: 'https://buchplays.itch.io/perezs-assignment',
         image: require('./images/adventure-perez.png'),
