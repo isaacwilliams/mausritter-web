@@ -1,6 +1,6 @@
 const resources = [
     {
-        name: 'Perez’s Assignment',
+        name: 'Shrine of the Jade Scorpion',
         author: 'Paul Ligorski',
         link: 'https://heart-of-arcana.itch.io/shrine-of-the-jade-scorpion',
         image: require('./images/adventure-jade-scorpian.png'),
