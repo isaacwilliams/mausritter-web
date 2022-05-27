@@ -127,7 +127,7 @@ const GetGame = ({}) => (
         </Title>
 
         <GetGameSection>
-            <OptionLink href="https://mausritter-box-set-and-adventure-collection.backerkit.com/hosted_preorders">
+            <OptionLink href="https://gamesomnivorous.com/collections/minimalist-rpgs">
                 <img loading="lazy" src={require('./images/mockup-box.png')} />
 
                 <h3>Print edition</h3>
