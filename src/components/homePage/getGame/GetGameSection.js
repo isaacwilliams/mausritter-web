@@ -163,6 +163,16 @@ const GetGame = ({}) => (
                     <img loading="lazy" src={require('./images/flag-poland.png')} />
                     Polski
                 </CountryFlagLink>
+
+                <CountryFlagLink href="https://www.system-matters.de/shop/mausritter/">
+                    <img loading="lazy" src={require('./images/flag-germany.png')} />
+                    Deutsch
+                </CountryFlagLink>
+
+                <CountryFlagLink href="https://www.mytago.cz/book/mausritter">
+                    <img loading="lazy" src={require('./images/flag-czech.png')} />
+                    Cestina
+                </CountryFlagLink>
             </div>
         </OtherEditionsSection>
     </GetGameWrapper>
