@@ -16,7 +16,7 @@ const resources = [
         releaseDate: '2022-08-19',
     },
     {
-        name: 'Maus Menangerie',
+        name: 'Maus Menagerie',
         author: 'Colin Chapman',
         link: require('./files/Mausritter_-_Maus_Menagerie_A4.pdf'),
         image: require('./images/adventure-maus-menangerie.png'),
