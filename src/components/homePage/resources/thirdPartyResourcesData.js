@@ -1,5 +1,29 @@
 const resources = [
     {
+        name: "Good Old Forest Story",
+        author: "RomaB",
+        link: "https://romab.itch.io/forest-story",
+        image: require("./images/adventure-forest-story.png"),
+        className: "shadow",
+        releaseDate: "2022-11-17",
+    },
+    {
+        name: "Faerie Ring",
+        author: "Antonio Buch",
+        link: "https://buchplays.itch.io/faerie-ring",
+        image: require("./images/adventure-faerie-ring.png"),
+        className: "shadow",
+        releaseDate: "2022-11-14",
+    },
+    {
+        name: "The Whites",
+        author: "Josef Adamčík & Anna Marklová",
+        link: "https://josefadamcik.itch.io/the-whites",
+        image: require("./images/adventure-the-whites.jpg"),
+        className: "shadow",
+        releaseDate: "2022-11-16",
+    },
+    {
         name: "It's Rough in the Rough",
         author: "Matthew Morris",
         link: "https://manarampmatt.itch.io/its-rough-in-the-rough",
