@@ -1,16 +1,13 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React from 'react'
+import { Link } from 'gatsby'
 
-import styled from 'styled-components';
-import media from '../../styles/media';
-import font from '../../styles/font';
+import styled from 'styled-components'
+import media from '../../styles/media'
+import font from '../../styles/font'
 
-import { FlexContainer } from '../../layout/ContentContainer';
+import { FlexContainer } from '../../layout/ContentContainer'
 
-import {
-    Title,
-    SubTitle,
-} from '../../styles/shared';
+import { Title, SubTitle } from '../../styles/shared'
 
 const GetGameWrapper = styled.article`
     background: #eee;
@@ -22,9 +19,11 @@ const GetGameSection = styled(FlexContainer)`
     ${media.phone`
         display: block;
     `}
-`;
+`
 
 const OptionLink = styled.a`
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +71,7 @@ const OptionLink = styled.a`
         padding-bottom: 3rem;
         font-size: 3vw;
     `}
-`;
+`
 
 const OtherEditionsSection = styled(FlexContainer)`
     flex-direction: column;
@@ -92,7 +91,7 @@ const OtherEditionsSection = styled(FlexContainer)`
         align-items: center;
         justify-content: center;
     }
-`;
+`
 
 const CountryFlagLink = styled.a`
     display: block;
@@ -118,30 +117,44 @@ const CountryFlagLink = styled.a`
         background: yellow;
         text-decoration: underline;
     }
-`;
+`
+
+const SoldOutBanner = styled.div`
+    position: absolute;
+
+    top: 40%;
+    left: 50%;
+
+    padding: 0.5rem 1rem;
+
+    background: red;
+    color: white;
+
+    ${font.display};
+
+    white-space: nowrap;
+
+    transform: translate(-50%, -50%) rotate(-30deg);
+`
 
 const GetGame = ({}) => (
     <GetGameWrapper id="get-mausritter">
-        <Title>
-            Get Mausritter
-        </Title>
+        <Title>Get Mausritter</Title>
 
         <GetGameSection>
             <OptionLink href="https://gamesomnivorous.com/collections/minimalist-rpgs">
                 <img loading="lazy" src={require('./images/mockup-box.png')} />
 
                 <h3>Print edition</h3>
-                <span>
-                    From Games Omnivorous
-                </span>
+                <span>From Games Omnivorous</span>
+
+                <SoldOutBanner>Reprint coming Q2 2023.</SoldOutBanner>
             </OptionLink>
             <OptionLink href="https://losing-games.itch.io/mausritter">
                 <img loading="lazy" src={require('./images/mockup-pdf.png')} />
 
                 <h3>Digital edition</h3>
-                <span>
-                    Pay what you want at Itch.io
-                </span>
+                <span>Pay what you want at Itch.io</span>
             </OptionLink>
         </GetGameSection>
 
@@ -150,32 +163,47 @@ const GetGame = ({}) => (
 
             <div>
                 <CountryFlagLink href="https://www.elrefugioeditorial.com/mausritter">
-                    <img loading="lazy" src={require('./images/flag-spain.png')} />
+                    <img
+                        loading="lazy"
+                        src={require('./images/flag-spain.png')}
+                    />
                     Español
                 </CountryFlagLink>
 
                 <CountryFlagLink href="https://electric-goat.net/mausritter">
-                    <img loading="lazy" src={require('./images/flag-france.png')} />
+                    <img
+                        loading="lazy"
+                        src={require('./images/flag-france.png')}
+                    />
                     Français
                 </CountryFlagLink>
 
                 <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg">
-                    <img loading="lazy" src={require('./images/flag-poland.png')} />
+                    <img
+                        loading="lazy"
+                        src={require('./images/flag-poland.png')}
+                    />
                     Polski
                 </CountryFlagLink>
 
                 <CountryFlagLink href="https://www.system-matters.de/shop/mausritter/">
-                    <img loading="lazy" src={require('./images/flag-germany.png')} />
+                    <img
+                        loading="lazy"
+                        src={require('./images/flag-germany.png')}
+                    />
                     Deutsch
                 </CountryFlagLink>
 
                 <CountryFlagLink href="https://www.mytago.cz/book/mausritter">
-                    <img loading="lazy" src={require('./images/flag-czech.png')} />
+                    <img
+                        loading="lazy"
+                        src={require('./images/flag-czech.png')}
+                    />
                     Cestina
                 </CountryFlagLink>
             </div>
         </OtherEditionsSection>
     </GetGameWrapper>
-);
+)
 
-export default GetGame;
+export default GetGame
