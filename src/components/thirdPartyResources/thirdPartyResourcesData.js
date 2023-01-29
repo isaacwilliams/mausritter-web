@@ -1,5 +1,21 @@
 const resources = [
     {
+        name: 'Journey to Giants Cove',
+        author: 'Ross Burton',
+        link: 'https://rossburton.itch.io/journey-to-giants-cove',
+        image: require('./images/adventure-giants-cove.png'),
+        type: 'adventure',
+        releaseDate: '2021-03-17',
+    },
+    {
+        name: 'The Red Tower',
+        author: 'Ross Burton',
+        link: 'https://rossburton.itch.io/the-red-tower',
+        image: require('./images/adventure-red-tower.png'),
+        type: 'adventure',
+        releaseDate: '2021-03-21',
+    },
+    {
         name: 'Backgrounds',
         author: 'Charles Edward Pipe',
         link: 'https://charlesedwardpipe.itch.io/backgrounds-for-mausritter',
