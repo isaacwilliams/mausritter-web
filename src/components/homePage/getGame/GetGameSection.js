@@ -147,8 +147,6 @@ const GetGame = ({}) => (
 
                 <h3>Print edition</h3>
                 <span>From Games Omnivorous</span>
-
-                <SoldOutBanner>Reprint coming Q2 2023.</SoldOutBanner>
             </OptionLink>
             <OptionLink href="https://losing-games.itch.io/mausritter">
                 <img loading="lazy" src={require('./images/mockup-pdf.png')} />
