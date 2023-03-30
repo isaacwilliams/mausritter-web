@@ -2,8 +2,7 @@ const resources = [
     {
         name: 'Tiny Titans',
         author: 'Hugh Lashbrooke',
-        link:
-            'https://hlashbrooke.itch.io/menhir-mot-the-castle-of-lord-larkspur',
+        link: 'https://hlashbrooke.itch.io/tiny-titans',
         image: require('./images/tiny-titans.png'),
         type: 'adventure',
         releaseDate: '2023-03-26',
