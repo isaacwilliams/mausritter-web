@@ -13,7 +13,9 @@ import { Title } from '../../styles/shared';
 import BodyText from '../../styles/BodyText';
 
 import CustomItemControlPanel from './CustomItemControlPanel';
-import CustomItemPrintableSheet, { PrintableSheet } from './CustomItemPrintableSheet';
+import CustomItemPrintableSheet, {
+    PrintableSheet,
+} from './CustomItemPrintableSheet';
 
 import drawItemCanvas from './drawItemCanvas';
 import drawItemCanvasToImage from './drawItemCanvasToImage';
@@ -56,7 +58,8 @@ const ItemContainer = styled.div`
     min-height: 300px;
 
     img {
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1), 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+            0 0.2rem 1rem rgba(0, 0, 0, 0.2);
     }
 `;
 
@@ -71,12 +74,13 @@ const PrintableSheetStudioContainer = styled.div`
 
     background: #ddd;
 
-    > div {
+    > .sheet-area {
         position: relative;
         width: ${210 / 2}mm;
         height: ${297 / 2}mm;
 
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1), 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+            0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 
         ${PrintableSheet} {
             position: absolute;
@@ -97,11 +101,23 @@ const PrintableSheetPrintButton = styled.button`
     margin-top: 2rem;
 `;
 
-const PrintableSheetClearButton = styled.button`
+const PrintableSheetToolsAreaRight = styled.div`
     position: absolute;
     top: 1rem;
     right: 1rem;
 `;
+
+const PrintableSheetToolsAreaLeft = styled.div`
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+
+    > button {
+        margin-right: 1rem;
+    }
+`;
+
+const PrintableSheetClearButton = styled.button``;
 
 const PrintModeInstructions = styled.div`
     position: absolute;
@@ -124,20 +140,28 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const canvasRef = useRef();
     const imgRef = useRef();
 
-    const [templateMode, setTemplateMode] = useState(CUSTOM_ITEM_TEMPLATES[0].name);
+    const [templateMode, setTemplateMode] = useState(
+        CUSTOM_ITEM_TEMPLATES[0].name
+    );
 
     const [itemState, setItemState] = useState(initialState);
-    const dispatch = (action) => (
-        setItemState(customItemStateReducer(itemState, action))
-    );
+    const dispatch = action =>
+        setItemState(customItemStateReducer(itemState, action));
 
     const [fontsReady, setFontsReady] = useState();
     const [imageFile, setImageFile] = useState();
 
-    const [sheetItems, setSheetItems] = useLocalStorage('mausritter.sheet-items', []);
+    const [sheetItems, setSheetItems] = useLocalStorage(
+        'mausritter.sheet-items',
+        []
+    );
 
-    const selectedTemplate = CUSTOM_ITEM_TEMPLATES.find(({ name }) => name === templateMode);
-    const selectedImageMode = CUSTOM_ITEM_IMAGES.find(({ name }) => name === itemState.image);
+    const selectedTemplate = CUSTOM_ITEM_TEMPLATES.find(
+        ({ name }) => name === templateMode
+    );
+    const selectedImageMode = CUSTOM_ITEM_IMAGES.find(
+        ({ name }) => name === itemState.image
+    );
 
     const imageRes = itemState.resolution === 100 ? 100 : 150;
 
@@ -148,8 +172,8 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         if (!imageFile) return setImageUrl(null);
         const fileReader = new FileReader();
         fileReader.readAsDataURL(imageFile);
-        fileReader.onloadend = (event) => {
-            setImageUrl(event.target.result)
+        fileReader.onloadend = event => {
+            setImageUrl(event.target.result);
         };
     }, [imageFile]);
 
@@ -159,7 +183,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     const handleSaveImageButtonClick = () => {
         const canvas = canvasRef.current;
-        const image = canvas.toDataURL("img/png");
+        const image = canvas.toDataURL('img/png');
 
         const linkElement = document.createElement('a');
         linkElement.href = image;
@@ -174,7 +198,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         ]);
     };
 
-    const removeSheetItem = (itemId) => {
+    const removeSheetItem = itemId => {
         setSheetItems(sheetItems.filter(({ id }) => id !== itemId));
     };
 
@@ -182,7 +206,52 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         setSheetItems([]);
     };
 
-    const restoreSheetItem = (savedItemState) => {
+    const handleDownloadSheetData = () => {
+        const dataStr =
+            'data:text/json;charset=utf-8,' +
+            encodeURIComponent(JSON.stringify(sheetItems));
+
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute('href', dataStr);
+        downloadAnchorNode.setAttribute(
+            'download',
+            `mausritter-items-${nanoid(5)}.json`
+        );
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    };
+
+    const handleUploadSheetData = () => {
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'application/json';
+        fileInput.addEventListener('change', event => {
+            const file = event.target.files[0];
+            const fileReader = new FileReader();
+            fileReader.readAsText(file);
+            fileReader.onloadend = event => {
+                try {
+                    const sheetItems = JSON.parse(event.target.result);
+
+                    if (!Array.isArray(sheetItems)) {
+                        throw new Error('Not an array');
+                    }
+
+                    if (!sheetItems.every(item => typeof item === 'object')) {
+                        throw new Error('Not an array of objects');
+                    }
+
+                    setSheetItems(sheetItems);
+                } catch {
+                    alert('Could not load this file.');
+                }
+            };
+        });
+        fileInput.click();
+    };
+
+    const restoreSheetItem = savedItemState => {
         dispatch({
             type: 'set-template',
             template: savedItemState,
@@ -196,25 +265,25 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         Promise.all([
             new FontFaceObserver('Open Sans Condensed').load(),
             new FontFaceObserver('Open Sans Condensed', { weight: 700 }).load(),
-            new FontFaceObserver('Open Sans Condensed', { style: 'italic' }).load(),
+            new FontFaceObserver('Open Sans Condensed', {
+                style: 'italic',
+            }).load(),
             new FontFaceObserver('Texturina', { weight: 800 }).load(),
         ]).then(() => {
             setFontsReady(true);
 
-            drawItemCanvasToImage(
-                canvasRef.current,
-                imgRef.current,
-                { ...itemState, imageSource }
-            );
+            drawItemCanvasToImage(canvasRef.current, imgRef.current, {
+                ...itemState,
+                imageSource,
+            });
         });
     }, []);
 
     useEffect(() => {
-        drawItemCanvasToImage(
-            canvasRef.current,
-            imgRef.current,
-            { ...itemState, imageSource },
-        );
+        drawItemCanvasToImage(canvasRef.current, imgRef.current, {
+            ...itemState,
+            imageSource,
+        });
     }, [itemState, imageSource, bodyPrintMode]);
 
     useEffect(() => {
@@ -230,13 +299,16 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                 <CustomItemPrintableSheet
                     sheetItems={sheetItems}
                     restoreSheetItem={restoreSheetItem}
-                    removeSheetItem={removeSheetItem} />
+                    removeSheetItem={removeSheetItem}
+                />
                 <PrintModeInstructions>
                     <BodyText className="small">
                         <h1>Instructions (these won't print)</h1>
 
                         <p>
-                            Use your browser's <strong>Print</strong> or <strong>Export as PDF</strong> options. Make sure scale is set to 100%.
+                            Use your browser's <strong>Print</strong> or{' '}
+                            <strong>Export as PDF</strong> options. Make sure
+                            scale is set to 100%.
                         </p>
 
                         <br />
@@ -255,29 +327,33 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         <>
             <Helmet>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:wght@800&display=swap"
-                        rel="stylesheet" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:wght@800&display=swap"
+                    rel="stylesheet"
+                />
             </Helmet>
 
             <div style={{ display: 'none' }}>
-                <canvas ref={canvasRef}
-                        width={itemState.width * itemState.resolution}
-                        height={itemState.height * itemState.resolution} />
+                <canvas
+                    ref={canvasRef}
+                    width={itemState.width * itemState.resolution}
+                    height={itemState.height * itemState.resolution}
+                />
             </div>
 
             <ContentContainer>
                 <br />
-                <Title>
-                    Item card studio
-                </Title>
+                <Title>Item card studio</Title>
             </ContentContainer>
 
             <StudioContainer>
                 <ItemCreatorContainer>
                     <ItemContainer>
-                        <img ref={imgRef}
-                                width={itemState.width * imageRes}
-                                height={itemState.height * imageRes} />
+                        <img
+                            ref={imgRef}
+                            width={itemState.width * imageRes}
+                            height={itemState.height * imageRes}
+                        />
                     </ItemContainer>
 
                     <CustomItemControlPanel
@@ -289,26 +365,46 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                         setTemplateMode={setTemplateMode}
                         setImageFile={setImageFile}
                         handleSaveImageButtonClick={handleSaveImageButtonClick}
-                        handleSaveToSheetButtonClick={addSheetItem} />
+                        handleSaveToSheetButtonClick={addSheetItem}
+                    />
                 </ItemCreatorContainer>
 
                 <PrintableSheetStudioContainer>
-                    <div>
+                    <div className="sheet-area">
                         <CustomItemPrintableSheet
-                                key={fontsReady}
-                                interactive
-                                sheetItems={sheetItems}
-                                restoreSheetItem={restoreSheetItem}
-                                removeSheetItem={removeSheetItem} />
+                            key={fontsReady}
+                            interactive
+                            sheetItems={sheetItems}
+                            restoreSheetItem={restoreSheetItem}
+                            removeSheetItem={removeSheetItem}
+                        />
                     </div>
 
-                    <PrintableSheetPrintButton onClick={() => setBodyPrintMode(true)}>
+                    <PrintableSheetPrintButton
+                        onClick={() => setBodyPrintMode(true)}
+                    >
                         Print
                     </PrintableSheetPrintButton>
 
-                    <PrintableSheetClearButton onClick={clearSheetItems}>
-                        Clear sheet
-                    </PrintableSheetClearButton>
+                    <PrintableSheetToolsAreaLeft>
+                        <PrintableSheetClearButton
+                            onClick={handleDownloadSheetData}
+                        >
+                            Save item data
+                        </PrintableSheetClearButton>
+
+                        <PrintableSheetClearButton
+                            onClick={handleUploadSheetData}
+                        >
+                            Upload item data
+                        </PrintableSheetClearButton>
+                    </PrintableSheetToolsAreaLeft>
+
+                    <PrintableSheetToolsAreaRight>
+                        <PrintableSheetClearButton onClick={clearSheetItems}>
+                            Clear sheet
+                        </PrintableSheetClearButton>
+                    </PrintableSheetToolsAreaRight>
                 </PrintableSheetStudioContainer>
             </StudioContainer>
         </>
