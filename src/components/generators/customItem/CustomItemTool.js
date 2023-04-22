@@ -172,7 +172,6 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     );
 
     const [itemState, setItemState] = useState(initialState);
-    const [sheetName, setSheetName] = useState('');
 
     const dispatch = action =>
         setItemState(customItemStateReducer(itemState, action));
@@ -183,6 +182,11 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const [sheetItems, setSheetItems] = useLocalStorage(
         'mausritter.sheet-items',
         []
+    );
+
+    const [sheetName, setSheetName] = useLocalStorage(
+        'mausritter.sheet-name',
+        ''
     );
 
     const selectedTemplate = CUSTOM_ITEM_TEMPLATES.find(
@@ -268,17 +272,22 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
             fileReader.readAsText(file);
             fileReader.onloadend = event => {
                 try {
-                    const sheetItems = JSON.parse(event.target.result);
+                    const { name, items } = JSON.parse(event.target.result);
 
-                    if (!Array.isArray(sheetItems)) {
+                    if (typeof name !== 'string') {
+                        throw new Error('Name is not a string');
+                    }
+
+                    if (!Array.isArray(items)) {
                         throw new Error('Not an array');
                     }
 
-                    if (!sheetItems.every(item => typeof item === 'object')) {
+                    if (!items.every(item => typeof item === 'object')) {
                         throw new Error('Not an array of objects');
                     }
 
-                    setSheetItems(sheetItems);
+                    setSheetName(name);
+                    setSheetItems(items);
                 } catch {
                     alert('Could not load this file.');
                 }
