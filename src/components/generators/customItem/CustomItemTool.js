@@ -11,6 +11,7 @@ import media from '../../styles/media';
 import { ContentContainer } from '../../layout/ContentContainer';
 import { Title } from '../../styles/shared';
 import BodyText from '../../styles/BodyText';
+import font from '../../styles/font';
 
 import CustomItemControlPanel from './CustomItemControlPanel';
 import CustomItemPrintableSheet, {
@@ -82,6 +83,8 @@ const PrintableSheetStudioContainer = styled.div`
         box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
             0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 
+        z-index: 1;
+
         ${PrintableSheet} {
             position: absolute;
             top: 0;
@@ -117,7 +120,31 @@ const PrintableSheetToolsAreaLeft = styled.div`
     }
 `;
 
-const PrintableSheetClearButton = styled.button``;
+const PrintableSheetTitle = styled.div`
+    position: absolute;
+    top: 4.2rem;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    > input {
+        padding: 0.4rem;
+        width: 50%;
+        border: 0;
+        border-radius: 0.2rem;
+
+        ${font.display};
+        font-size: 1.2rem;
+        text-align: center;
+
+        letter-spacing: 0.05rem;
+
+        background: #eee;
+    }
+`;
+
+const PrintableSheetButton = styled.button``;
 
 const PrintModeInstructions = styled.div`
     position: absolute;
@@ -145,6 +172,8 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     );
 
     const [itemState, setItemState] = useState(initialState);
+    const [sheetName, setSheetName] = useState('');
+
     const dispatch = action =>
         setItemState(customItemStateReducer(itemState, action));
 
@@ -203,20 +232,27 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     };
 
     const clearSheetItems = () => {
+        setSheetName('');
         setSheetItems([]);
     };
 
     const handleDownloadSheetData = () => {
+        const saveData = {
+            name: sheetName,
+            items: sheetItems,
+        };
+
         const dataStr =
             'data:text/json;charset=utf-8,' +
-            encodeURIComponent(JSON.stringify(sheetItems));
+            encodeURIComponent(JSON.stringify(saveData));
+
+        const fileName = `mausritter-items-${
+            sheetName === '' ? nanoid(5) : sheetName
+        }.json`;
 
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute('href', dataStr);
-        downloadAnchorNode.setAttribute(
-            'download',
-            `mausritter-items-${nanoid(5)}.json`
-        );
+        downloadAnchorNode.setAttribute('download', fileName);
         document.body.appendChild(downloadAnchorNode); // required for firefox
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
@@ -387,23 +423,30 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                     </PrintableSheetPrintButton>
 
                     <PrintableSheetToolsAreaLeft>
-                        <PrintableSheetClearButton
+                        <PrintableSheetButton
+                            disabled={sheetItems.length === 0}
                             onClick={handleDownloadSheetData}
                         >
-                            Save item data
-                        </PrintableSheetClearButton>
+                            Save sheet
+                        </PrintableSheetButton>
 
-                        <PrintableSheetClearButton
-                            onClick={handleUploadSheetData}
-                        >
-                            Upload item data
-                        </PrintableSheetClearButton>
+                        <PrintableSheetButton onClick={handleUploadSheetData}>
+                            Upload sheet
+                        </PrintableSheetButton>
                     </PrintableSheetToolsAreaLeft>
 
+                    <PrintableSheetTitle>
+                        <input
+                            placeholder="Sheet name"
+                            value={sheetName}
+                            onChange={event => setSheetName(event.target.value)}
+                        />
+                    </PrintableSheetTitle>
+
                     <PrintableSheetToolsAreaRight>
-                        <PrintableSheetClearButton onClick={clearSheetItems}>
+                        <PrintableSheetButton onClick={clearSheetItems}>
                             Clear sheet
-                        </PrintableSheetClearButton>
+                        </PrintableSheetButton>
                     </PrintableSheetToolsAreaRight>
                 </PrintableSheetStudioContainer>
             </StudioContainer>
