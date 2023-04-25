@@ -163,6 +163,39 @@ const PrintModeInstructions = styled.div`
     }
 `;
 
+const acceptJsonFileUpload = onDataHandler => {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'application/json';
+    fileInput.addEventListener('change', event => {
+        const file = event.target.files[0];
+        const fileReader = new FileReader();
+        fileReader.readAsText(file);
+        fileReader.onloadend = event => {
+            try {
+                const { name, items } = JSON.parse(event.target.result);
+
+                if (typeof name !== 'string') {
+                    throw new Error('Name is not a string');
+                }
+
+                if (!Array.isArray(items)) {
+                    throw new Error('Not an array');
+                }
+
+                if (!items.every(item => typeof item === 'object')) {
+                    throw new Error('Not an array of objects');
+                }
+
+                onDataHandler({ name, items });
+            } catch {
+                alert('Could not load this file.');
+            }
+        };
+    });
+    fileInput.click();
+};
+
 const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const canvasRef = useRef();
     const imgRef = useRef();
@@ -263,37 +296,13 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     };
 
     const handleUploadSheetData = () => {
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = 'application/json';
-        fileInput.addEventListener('change', event => {
-            const file = event.target.files[0];
-            const fileReader = new FileReader();
-            fileReader.readAsText(file);
-            fileReader.onloadend = event => {
-                try {
-                    const { name, items } = JSON.parse(event.target.result);
+        acceptJsonFileUpload(({ name, items }) => {
+            setSheetItems([...sheetItems, ...items]);
 
-                    if (typeof name !== 'string') {
-                        throw new Error('Name is not a string');
-                    }
-
-                    if (!Array.isArray(items)) {
-                        throw new Error('Not an array');
-                    }
-
-                    if (!items.every(item => typeof item === 'object')) {
-                        throw new Error('Not an array of objects');
-                    }
-
-                    setSheetName(name);
-                    setSheetItems(items);
-                } catch {
-                    alert('Could not load this file.');
-                }
-            };
+            if (sheetName === '') {
+                setSheetName(name);
+            }
         });
-        fileInput.click();
     };
 
     const restoreSheetItem = savedItemState => {
@@ -440,7 +449,9 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                         </PrintableSheetButton>
 
                         <PrintableSheetButton onClick={handleUploadSheetData}>
-                            Upload sheet
+                            {sheetItems.length === 0
+                                ? 'Upload sheet'
+                                : 'Upload items'}
                         </PrintableSheetButton>
                     </PrintableSheetToolsAreaLeft>
 
