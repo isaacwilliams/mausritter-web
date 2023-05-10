@@ -1,25 +1,25 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import styled from 'styled-components'
-import media from '../../styles/media'
-import font from '../../styles/font'
+import styled from 'styled-components';
+import media from '../../styles/media';
+import font from '../../styles/font';
 
-import { FlexContainer } from '../../layout/ContentContainer'
+import { FlexContainer } from '../../layout/ContentContainer';
 
-import { Title, SubTitle } from '../../styles/shared'
+import { Title, SubTitle } from '../../styles/shared';
 
 const GetGameWrapper = styled.article`
     background: #eee;
     padding-top: 6rem;
     padding-bottom: 6rem;
-`
+`;
 
 const GetGameSection = styled(FlexContainer)`
     ${media.phone`
         display: block;
     `}
-`
+`;
 
 const OptionLink = styled.a`
     position: relative;
@@ -71,7 +71,7 @@ const OptionLink = styled.a`
         padding-bottom: 3rem;
         font-size: 3vw;
     `}
-`
+`;
 
 const OtherEditionsSection = styled(FlexContainer)`
     flex-direction: column;
@@ -91,7 +91,7 @@ const OtherEditionsSection = styled(FlexContainer)`
         align-items: center;
         justify-content: center;
     }
-`
+`;
 
 const CountryFlagLink = styled.a`
     display: block;
@@ -117,7 +117,7 @@ const CountryFlagLink = styled.a`
         background: yellow;
         text-decoration: underline;
     }
-`
+`;
 
 const SoldOutBanner = styled.div`
     position: absolute;
@@ -135,14 +135,14 @@ const SoldOutBanner = styled.div`
     white-space: nowrap;
 
     transform: translate(-50%, -50%) rotate(-30deg);
-`
+`;
 
 const GetGame = ({}) => (
     <GetGameWrapper id="get-mausritter">
         <Title>Get Mausritter</Title>
 
         <GetGameSection>
-            <OptionLink href="https://gamesomnivorous.com/collections/minimalist-rpgs">
+            <OptionLink href="https://www.exaltedfuneral.com/products/mausritter-boxed-set">
                 <img loading="lazy" src={require('./images/mockup-box.png')} />
 
                 <h3>Print edition</h3>
@@ -202,6 +202,6 @@ const GetGame = ({}) => (
             </div>
         </OtherEditionsSection>
     </GetGameWrapper>
-)
+);
 
-export default GetGame
+export default GetGame;
