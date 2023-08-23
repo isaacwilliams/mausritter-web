@@ -1,21 +1,21 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import { sortBy, slice } from 'lodash/fp'
+import React from 'react';
+import { Link } from 'gatsby';
+import { sortBy, slice } from 'lodash/fp';
 
-import styled from 'styled-components'
-import media from '../../styles/media'
-import font from '../../styles/font'
+import styled from 'styled-components';
+import media from '../../styles/media';
+import font from '../../styles/font';
 
-import { FlexContainer, ContentContainer } from '../../layout/ContentContainer'
+import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 
-import { Title, SubTitle } from '../../styles/shared'
-import BodyText from '../../styles/BodyText'
+import { Title, SubTitle } from '../../styles/shared';
+import BodyText from '../../styles/BodyText';
 
-import ResourceContainerSection from './ResourceContainerSection'
+import ResourceContainerSection from './ResourceContainerSection';
 
-import THIRD_PARTY_RESOURCES from '../../thirdPartyResources/thirdPartyResourcesData'
+import THIRD_PARTY_RESOURCES from '../../thirdPartyResources/thirdPartyResourcesData';
 
-const limitedArray = slice(0, 8)
+const limitedArray = slice(0, 8);
 
 const ResourcesWrapper = styled.div`
     padding-top: 6rem;
@@ -26,7 +26,7 @@ const ResourcesWrapper = styled.div`
         padding-left: 2rem;
         padding-right: 2rem;
     `}
-`
+`;
 
 const AllResourcesLink = styled(Link)`
     ${font.display}
@@ -41,12 +41,12 @@ const AllResourcesLink = styled(Link)`
     &:hover {
         background: yellow;
     }
-`
+`;
 
 const Resources = ({}) => {
     const thirdPartyResources = limitedArray(
         sortBy('releaseDate', THIRD_PARTY_RESOURCES).reverse()
-    )
+    );
 
     return (
         <ResourcesWrapper id="resources">
@@ -140,20 +140,32 @@ const Resources = ({}) => {
             <ResourceContainerSection
                 title="Third-party adventures and resources"
                 sortByField="releaseDate"
-                resources={thirdPartyResources}
                 itemClassName="shadow"
+                heroResources={[
+                    {
+                        name: 'Mausritter Library',
+                        link: 'https://library.mausritter.com',
+                        image: require('./images/library-website-promo.jpg'),
+                        imageOverlay: require('./images/library-website-promo-logo.png'),
+                    },
+                ]}
                 footer={
                     <>
                         <BodyText className="small center">
                             <p
                                 style={{
-                                    marginTop: '1rem',
+                                    marginTop: '-1rem',
                                     marginBottom: '1.5rem',
                                 }}
                             >
-                                <AllResourcesLink to="/third-party-resources">
-                                    View all third-party resources
+                                <AllResourcesLink to="https://library.mausritter.com">
+                                    Visit the Mausritter Library
                                 </AllResourcesLink>
+                            </p>
+                            <p>
+                                The Mausritter Library is a community-run
+                                collection of third-party adventures and
+                                resources.
                             </p>
                             <p>
                                 These works are created under the Mausritter
@@ -192,7 +204,7 @@ const Resources = ({}) => {
                 ]}
             />
         </ResourcesWrapper>
-    )
-}
+    );
+};
 
-export default Resources
+export default Resources;
