@@ -163,9 +163,8 @@ const Resources = ({}) => {
                                 </AllResourcesLink>
                             </p>
                             <p>
-                                The Mausritter Library is a community-run
-                                collection of third-party adventures and
-                                resources.
+                                The Mausritter Library is a living collection of
+                                third-party adventures and resources.
                             </p>
                             <p>
                                 These works are created under the Mausritter
