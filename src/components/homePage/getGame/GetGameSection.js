@@ -75,7 +75,6 @@ const OptionLink = styled.a`
 
 const OtherEditionsSection = styled(FlexContainer)`
     flex-direction: column;
-
     width: 90vw;
 
     margin-top: 2rem;
@@ -90,15 +89,17 @@ const OtherEditionsSection = styled(FlexContainer)`
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
     }
 `;
 
 const CountryFlagLink = styled.a`
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    width: 3rem;
-    padding: 1rem;
-    padding-bottom: 0.5vw;
+    width: 5rem;
+    padding: 1rem 0;
 
     color: black;
 
@@ -108,6 +109,7 @@ const CountryFlagLink = styled.a`
     img {
         display: block;
         width: 100%;
+        max-width: 3rem;
         margin-bottom: 0.5vw;
 
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
@@ -198,6 +200,14 @@ const GetGame = ({}) => (
                         src={require('./images/flag-czech.png')}
                     />
                     Cestina
+                </CountryFlagLink>
+
+                <CountryFlagLink href="https://www.mytago.cz/book/mausritter">
+                    <img
+                        loading="lazy"
+                        src={require('./images/flag-netherlands.png')}
+                    />
+                    Nederlands
                 </CountryFlagLink>
             </div>
         </OtherEditionsSection>
