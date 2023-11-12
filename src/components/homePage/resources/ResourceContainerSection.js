@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
-import { Link } from 'gatsby'
-import { sortBy, slice } from 'lodash/fp'
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
+import { sortBy, slice } from 'lodash/fp';
 
-import styled, { css } from 'styled-components'
-import media from '../../styles/media'
-import font from '../../styles/font'
+import styled, { css } from 'styled-components';
+import media from '../../styles/media';
+import font from '../../styles/font';
 
-import LazyLoad from 'react-lazyload'
+import LazyLoad from 'react-lazyload';
 
-import { FlexContainer, ContentContainer } from '../../layout/ContentContainer'
-import { SubTitle } from '../../styles/shared'
+import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
+import { SubTitle } from '../../styles/shared';
 
-const RESOURCES_LIMIT = 8
-const limitedArray = slice(0, RESOURCES_LIMIT)
+const RESOURCES_LIMIT = 8;
+const limitedArray = slice(0, RESOURCES_LIMIT);
 
 const ResourcesContainer = styled(FlexContainer)`
     flex-wrap: wrap;
@@ -22,7 +22,7 @@ const ResourcesContainer = styled(FlexContainer)`
     ${media.phone`
         display: block;
     `}
-`
+`;
 
 const linkStyle = css`
     display: flex;
@@ -94,7 +94,7 @@ const linkStyle = css`
             max-width: 5rem;
         }
     `}
-`
+`;
 
 const heroLinkStyle = css`
     position: relative;
@@ -148,26 +148,26 @@ const heroLinkStyle = css`
             background-size: auto 100%;
         }
     `}
-`
+`;
 
 const StyledGatsbyResourceLink = styled(Link)`
     ${linkStyle}
-`
+`;
 const StyledExternalResourceLink = styled.a`
     ${linkStyle}
-`
+`;
 
 const StyledGatsbyHeroResourceLink = styled(Link)`
     ${heroLinkStyle}
-`
+`;
 const StyledExternalHeroResourceLink = styled.a`
     ${heroLinkStyle}
-`
+`;
 
 const ResourcesSectionContainer = styled.div`
     margin-top: 1rem;
     margin-bottom: 4rem;
-`
+`;
 
 const ResourceSubTitle = styled(SubTitle)`
     padding-bottom: 0;
@@ -178,28 +178,28 @@ const ResourceSubTitle = styled(SubTitle)`
     text-align: left;
 
     border-bottom: 0.5rem solid black;
-`
+`;
 
 const ResourcesFooterContainer = styled.div`
     text-align: center;
     margin-top: 1rem;
-`
+`;
 
 const ResourceLink = ({ to, ...rest }) => {
     if (to.startsWith('http')) {
-        return <StyledExternalResourceLink href={to} {...rest} />
+        return <StyledExternalResourceLink href={to} {...rest} />;
     } else {
-        return <StyledGatsbyResourceLink to={to} {...rest} />
+        return <StyledGatsbyResourceLink to={to} {...rest} />;
     }
-}
+};
 
 const HeroResourceLink = ({ to, ...rest }) => {
     if (to.startsWith('http')) {
-        return <StyledExternalHeroResourceLink href={to} {...rest} />
+        return <StyledExternalHeroResourceLink href={to} {...rest} />;
     } else {
-        return <StyledGatsbyHeroResourceLink to={to} {...rest} />
+        return <StyledGatsbyHeroResourceLink to={to} {...rest} />;
     }
-}
+};
 
 const ResourcesSection = ({
     title,
@@ -211,7 +211,7 @@ const ResourcesSection = ({
 }) => {
     const sortedResources = sortByField
         ? sortBy(sortByField, resources).reverse()
-        : resources
+        : resources;
 
     return (
         <ResourcesSectionContainer>
@@ -276,7 +276,7 @@ const ResourcesSection = ({
                 </ResourcesFooterContainer>
             )}
         </ResourcesSectionContainer>
-    )
-}
+    );
+};
 
-export default ResourcesSection
+export default ResourcesSection;
