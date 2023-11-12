@@ -4,25 +4,25 @@ const sizes = {
     large: 1400,
     desktop: 992,
     phone: 672,
-}
+};
 
 export default {
     phone: (...args) => css`
-        @media (max-width: ${sizes.phone / 16}rem) {
+        @media (max-width: ${sizes.phone}px) {
             ${css(...args)}
         }
     `,
     desktop: (...args) => css`
-        @media (min-width: ${sizes.desktop / 16}rem) {
+        @media (min-width: ${sizes.desktop}px) {
             ${css(...args)}
         }
     `,
     large: (...args) => css`
-        @media (min-width: ${sizes.large / 16}rem) {
+        @media (min-width: ${sizes.large}px) {
             ${css(...args)}
         }
     `,
-    size: (breakpoint) => (...args) => css`
+    size: breakpoint => (...args) => css`
         @media (max-width: ${breakpoint}) {
             ${css(...args)}
         }
