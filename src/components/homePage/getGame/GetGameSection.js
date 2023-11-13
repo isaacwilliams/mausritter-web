@@ -202,7 +202,7 @@ const GetGame = ({}) => (
                     Cestina
                 </CountryFlagLink>
 
-                <CountryFlagLink href="https://www.mytago.cz/book/mausritter">
+                <CountryFlagLink href="https://wonderschouw.nl/mausritter/">
                     <img
                         loading="lazy"
                         src={require('./images/flag-netherlands.png')}
