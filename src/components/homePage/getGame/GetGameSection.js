@@ -119,6 +119,11 @@ const CountryFlagLink = styled.a`
         background: yellow;
         text-decoration: underline;
     }
+
+    &.cyrillic {
+        font-family: sans-serif;
+        font-size: 0.87rem;
+    }
 `;
 
 const SoldOutBanner = styled.div`
@@ -144,11 +149,20 @@ const GetGame = ({}) => (
         <Title>Get Mausritter</Title>
 
         <GetGameSection>
-            <OptionLink href="https://www.exaltedfuneral.com/products/mausritter-boxed-set">
+            <OptionLink href="https://www.exaltedfuneral.com/products/mausritter-boxed-set-1">
                 <img loading="lazy" src={require('./images/mockup-box.png')} />
 
-                <h3>Print edition</h3>
-                <span>From Games Omnivorous</span>
+                <h3>Box Set</h3>
+                <span>From Exalted Funeral</span>
+            </OptionLink>
+            <OptionLink href="https://www.exaltedfuneral.com/products/copy-of-mausritter-the-estate-adventure-collection">
+                <img
+                    loading="lazy"
+                    src={require('./images/mockup-estate.png')}
+                />
+
+                <h3>The Estate</h3>
+                <span>Adventure collection</span>
             </OptionLink>
             <OptionLink href="https://losing-games.itch.io/mausritter">
                 <img loading="lazy" src={require('./images/mockup-pdf.png')} />
@@ -169,7 +183,6 @@ const GetGame = ({}) => (
                     />
                     Español
                 </CountryFlagLink>
-
                 <CountryFlagLink href="https://electric-goat.net/mausritter">
                     <img
                         loading="lazy"
@@ -177,7 +190,6 @@ const GetGame = ({}) => (
                     />
                     Français
                 </CountryFlagLink>
-
                 <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg">
                     <img
                         loading="lazy"
@@ -185,7 +197,6 @@ const GetGame = ({}) => (
                     />
                     Polski
                 </CountryFlagLink>
-
                 <CountryFlagLink href="https://www.system-matters.de/shop/mausritter/">
                     <img
                         loading="lazy"
@@ -193,7 +204,6 @@ const GetGame = ({}) => (
                     />
                     Deutsch
                 </CountryFlagLink>
-
                 <CountryFlagLink href="https://www.mytago.cz/book/mausritter">
                     <img
                         loading="lazy"
@@ -201,13 +211,23 @@ const GetGame = ({}) => (
                     />
                     Cestina
                 </CountryFlagLink>
-
                 <CountryFlagLink href="https://wonderschouw.nl/mausritter/">
                     <img
                         loading="lazy"
                         src={require('./images/flag-netherlands.png')}
                     />
                     Nederlands
+                </CountryFlagLink>
+
+                <CountryFlagLink
+                    href="https://www.drivethrurpg.com/product/462557/Mausritter"
+                    className="cyrillic"
+                >
+                    <img
+                        loading="lazy"
+                        src={require('./images/flag-russia.png')}
+                    />
+                    русский
                 </CountryFlagLink>
             </div>
         </OtherEditionsSection>
