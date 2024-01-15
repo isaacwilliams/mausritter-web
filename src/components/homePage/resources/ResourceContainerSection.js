@@ -6,8 +6,6 @@ import styled, { css } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
-import LazyLoad from 'react-lazyload';
-
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 import { SubTitle } from '../../styles/shared';
 
@@ -245,27 +243,18 @@ const ResourcesSection = ({
             <ResourcesContainer>
                 {sortedResources.map(
                     ({ name, author, image, link, className }) => (
-                        <LazyLoad
-                            height={272}
-                            offset={100}
-                            key={`${name}${author}${link}`}
-                            once
+                        <ResourceLink
+                            to={(link || '').toString()}
+                            className={className || itemClassName}
                         >
-                            <ResourceLink
-                                to={link}
-                                className={className || itemClassName}
-                            >
-                                {image && (
-                                    <img src={image} alt="" loading="lazy" />
+                            {image && <img src={image} alt="" loading="lazy" />}
+                            <div className="info">
+                                <div className="name">{name}</div>
+                                {author && (
+                                    <div className="author">{author}</div>
                                 )}
-                                <div className="info">
-                                    <div className="name">{name}</div>
-                                    {author && (
-                                        <div className="author">{author}</div>
-                                    )}
-                                </div>
-                            </ResourceLink>
-                        </LazyLoad>
+                            </div>
+                        </ResourceLink>
                     )
                 )}
             </ResourcesContainer>

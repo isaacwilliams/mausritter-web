@@ -10,6 +10,8 @@ import KickstarterPromoSection from './KickstarterPromoSection';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
+import dividerStem from './divider-stem.jpg';
+import mausritterLogo from '../../navigation/logos/mausritter-logo.svg';
 
 const TitleSectionContainer = styled.section`
     position: relative;
@@ -17,7 +19,7 @@ const TitleSectionContainer = styled.section`
     width: 100vw;
     overflow: hidden;
 
-    background-image: url(${require('./divider-stem.jpg')});
+    background-image: url(${dividerStem});
     background-repeat: no-repeat;
     background-size: 250px;
     background-position: bottom -100px right 0;
@@ -26,7 +28,7 @@ const TitleSectionContainer = styled.section`
         background-image: none;
         min-height: 0;
     `}
-`
+`;
 const TitleSectionBody = styled.div`
     position: relative;
     margin: auto;
@@ -39,7 +41,7 @@ const TitleSectionBody = styled.div`
         padding-left: 2rem;
         padding-right: 2rem;
     `}
-`
+`;
 
 const TitleSectionNav = styled.div`
     position: absolute;
@@ -50,14 +52,14 @@ const TitleSectionNav = styled.div`
     ${media.phone`
         display: none;
     `}
-`
+`;
 
 const MausritterLogoTitle = styled.h1`
     display: block;
     max-width: 30rem;
     height: 8rem;
     font-size: 0;
-    background: url(${require('../../navigation/logos/mausritter-logo.svg')});
+    background: url(${mausritterLogo});
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -66,7 +68,7 @@ const MausritterLogoTitle = styled.h1`
 const Blurb = styled.div`
     padding: 1rem;
     background: white;
-`
+`;
 
 const KickstarterPromoBanner = () => {
     const [hidden, setHidden] = useState(true);
@@ -78,9 +80,11 @@ const KickstarterPromoBanner = () => {
     }, []);
 
     return (
-        <KickstarterPromoSection className={classNames({ hidden })}
-                href="https://www.kickstarter.com/projects/isaac-williams/mausritter-box-set-and-adventure-collection/"
-                target="_blank">
+        <KickstarterPromoSection
+            className={classNames({ hidden })}
+            href="https://www.kickstarter.com/projects/isaac-williams/mausritter-box-set-and-adventure-collection/"
+            target="_blank"
+        >
             <div className="background" />
             <div className="title">
                 <div>Explore further.</div>
@@ -88,21 +92,30 @@ const KickstarterPromoBanner = () => {
             </div>
         </KickstarterPromoSection>
     );
-}
+};
 
 const TitleSection = () => {
     return (
         <TitleSectionContainer>
             <TitleSectionBody>
-                <MausritterLogoTitle>
-                    Mausritter
-                </MausritterLogoTitle>
+                <MausritterLogoTitle>Mausritter</MausritterLogoTitle>
 
                 <Blurb>
                     <BodyText>
-                        <p>Take up the sword and don the whiskers of a brave mouse adventurer in <strong>Mausritter</strong>, the rules-light fantasy adventure roleplaying game.</p>
+                        <p>
+                            Take up the sword and don the whiskers of a brave
+                            mouse adventurer in <strong>Mausritter</strong>, the
+                            rules-light fantasy adventure roleplaying game.
+                        </p>
 
-                        <p style={{ fontStyle: 'italic' }}>It’s a huge and dangerous world out there, and it does not look kindly on a small mouse. But if you are very brave and very clever and just a bit lucky, you might be able to survive. And if you survive long enough, you might even become a hero amongst mice.</p>
+                        <p style={{ fontStyle: 'italic' }}>
+                            It’s a huge and dangerous world out there, and it
+                            does not look kindly on a small mouse. But if you
+                            are very brave and very clever and just a bit lucky,
+                            you might be able to survive. And if you survive
+                            long enough, you might even become a hero amongst
+                            mice.
+                        </p>
 
                         <br />
                         <p style={{ textAlign: 'center' }}>
@@ -117,6 +130,6 @@ const TitleSection = () => {
             </TitleSectionNav>
         </TitleSectionContainer>
     );
-}
+};
 
 export default TitleSection;
