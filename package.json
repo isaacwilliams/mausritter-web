@@ -6,6 +6,7 @@
   "author": "Isaac Williams <isaac@isaacwilliams.net>",
   "homepage": "https://mausritter.com",
   "dependencies": {
+    "@notionhq/client": "^2.2.14",
     "classnames": "^2.2.6",
     "fontfaceobserver": "^2.1.0",
     "gatsby": "^2.24.47",
