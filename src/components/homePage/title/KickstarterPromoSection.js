@@ -4,6 +4,8 @@ import styled, { keyframes } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
+import kickstarterBanner from './kickstarter-banner.jpg';
+
 const KickstarterPromoSection = styled.a`
     display: block;
     position: relative;
@@ -59,7 +61,7 @@ const KickstarterPromoSection = styled.a`
         right: 0;
         bottom: 0;
 
-        background-image: url(${require('./kickstarter-banner.jpg')});
+        background-image: url(${kickstarterBanner});
         background-size: 100% auto;
         background-position: center 35%;
 

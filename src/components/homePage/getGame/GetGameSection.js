@@ -9,6 +9,18 @@ import { FlexContainer } from '../../layout/ContentContainer';
 
 import { Title, SubTitle } from '../../styles/shared';
 
+import mockupBox from './images/mockup-box.png';
+import mockupEstate from './images/mockup-estate.png';
+import mockupPdf from './images/mockup-pdf.png';
+
+import flagSpain from './images/flag-spain.png';
+import flagFrance from './images/flag-france.png';
+import flagPoland from './images/flag-poland.png';
+import flagGermany from './images/flag-germany.png';
+import flagCzech from './images/flag-czech.png';
+import flagNetherlands from './images/flag-netherlands.png';
+import flagRussia from './images/flag-russia.png';
+
 const GetGameWrapper = styled.article`
     background: #eee;
     padding-top: 6rem;
@@ -150,22 +162,19 @@ const GetGame = ({}) => (
 
         <GetGameSection>
             <OptionLink href="https://www.exaltedfuneral.com/products/mausritter-boxed-set-1">
-                <img loading="lazy" src={require('./images/mockup-box.png')} />
+                <img loading="lazy" src={mockupBox} />
 
                 <h3>Box Set</h3>
                 <span>From Exalted Funeral</span>
             </OptionLink>
             <OptionLink href="https://www.exaltedfuneral.com/products/copy-of-mausritter-the-estate-adventure-collection">
-                <img
-                    loading="lazy"
-                    src={require('./images/mockup-estate.png')}
-                />
+                <img loading="lazy" src={mockupEstate} />
 
                 <h3>The Estate</h3>
                 <span>Adventure collection</span>
             </OptionLink>
             <OptionLink href="https://losing-games.itch.io/mausritter">
-                <img loading="lazy" src={require('./images/mockup-pdf.png')} />
+                <img loading="lazy" src={mockupPdf} />
 
                 <h3>Digital edition</h3>
                 <span>Pay what you want at Itch.io</span>
@@ -177,45 +186,27 @@ const GetGame = ({}) => (
 
             <div>
                 <CountryFlagLink href="https://www.elrefugioeditorial.com/mausritter">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-spain.png')}
-                    />
+                    <img loading="lazy" src={flagSpain} />
                     Español
                 </CountryFlagLink>
                 <CountryFlagLink href="https://electric-goat.net/mausritter">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-france.png')}
-                    />
+                    <img loading="lazy" src={flagFrance} />
                     Français
                 </CountryFlagLink>
                 <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-poland.png')}
-                    />
+                    <img loading="lazy" src={flagPoland} />
                     Polski
                 </CountryFlagLink>
                 <CountryFlagLink href="https://www.system-matters.de/shop/mausritter/">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-germany.png')}
-                    />
+                    <img loading="lazy" src={flagGermany} />
                     Deutsch
                 </CountryFlagLink>
                 <CountryFlagLink href="https://www.mytago.cz/book/mausritter">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-czech.png')}
-                    />
+                    <img loading="lazy" src={flagCzech} />
                     Cestina
                 </CountryFlagLink>
                 <CountryFlagLink href="https://wonderschouw.nl/mausritter/">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-netherlands.png')}
-                    />
+                    <img loading="lazy" src={flagNetherlands} />
                     Nederlands
                 </CountryFlagLink>
 
@@ -223,10 +214,7 @@ const GetGame = ({}) => (
                     href="https://www.drivethrurpg.com/product/462557/Mausritter"
                     className="cyrillic"
                 >
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-russia.png')}
-                    />
+                    <img loading="lazy" src={flagRussia} />
                     русский
                 </CountryFlagLink>
             </div>

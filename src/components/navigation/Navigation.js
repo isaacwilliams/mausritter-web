@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import font from '../styles/font';
 import media from '../styles/media';
 
+import { Link } from 'gatsby';
 
-import { Link } from 'gatsby'
+import mausritterLogo from '../navigation/logos/mausritter-logo.svg';
 
 const Nav = styled.nav`
     margin: auto;
@@ -18,7 +19,7 @@ const Nav = styled.nav`
     ${media.phone`
         padding: 0.5rem 1rem;
     `}
-`
+`;
 
 const NavSection = styled.div`
     display: flex;
@@ -49,7 +50,7 @@ const NavSection = styled.div`
             margin-right: 0;
         }
     `}
-`
+`;
 
 const NavItem = styled(Link)`
     ${font.display}
@@ -60,7 +61,7 @@ const NavItem = styled(Link)`
     letter-spacing: 0.025rem;
     white-space: nowrap;
 
-    background: ${({ transparent }) => transparent ? 'transparent' : 'white'};
+    background: ${({ transparent }) => (transparent ? 'transparent' : 'white')};
 
     &:hover {
         background: yellow;
@@ -75,7 +76,7 @@ const NavItem = styled(Link)`
         padding: 0.4rem 0.8rem;
         margin: 0;
     `}
-`
+`;
 
 const NavLogo = styled(Link)`
     margin-right: auto;
@@ -85,7 +86,7 @@ const NavLogo = styled(Link)`
 
     font-size: 0;
 
-    background: url(${require('../navigation/logos/mausritter-logo.svg')});
+    background: url(${mausritterLogo});
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -98,7 +99,7 @@ const NavLogo = styled(Link)`
         width: ${260 * 0.5}px;
         height: ${78 * 0.5}px;
     `}
-`
+`;
 
 const Divider = styled.div`
     height: 1rem;
@@ -107,14 +108,11 @@ const Divider = styled.div`
     border-right: 1px solid #ccc;
 `;
 
-
 const Navigation = ({ transparent }) => {
     return (
         <Nav>
             <NavSection className="left">
-                <NavLogo to="/">
-                    Mausritter
-                </NavLogo>
+                <NavLogo to="/">Mausritter</NavLogo>
             </NavSection>
 
             <NavSection className="center">
@@ -136,8 +134,6 @@ const Navigation = ({ transparent }) => {
                     Make a mouse
                 </NavItem>
             </NavSection>
-
-
         </Nav>
     );
 };
