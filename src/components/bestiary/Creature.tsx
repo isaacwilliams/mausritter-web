@@ -1,6 +1,57 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { CreatureData } from './bestiaryTypes';
+import BodyText from '../styles/BodyText';
+
+const CreatureContainer = styled.div`
+    background: white;
+    padding: 1rem 2rem;
+`;
+
+const StatBlockContainer = styled.div`
+    padding: 0.4rem 0.5rem;
+    margin-bottom: 0.5rem;
+
+    background: #f5f5f5;
+
+    font-weight: 500;
+
+    .special {
+        font-weight: normal;
+    }
+
+    .attack-special {
+        font-weight: normal;
+    }
+`;
+
+const CreatureWants = styled.div`
+    font-style: italic;
+
+    strong {
+        font-weight: bold;
+    }
+`;
+
+const styleAttack = (attack: string): React.ReactElement | string => {
+    if (attack.includes('(')) {
+        const before = attack.split('(')[0];
+        const after = attack.split(')')[1];
+
+        return (
+            <>
+                {before}
+                <span className="attack-special">
+                    ({attack.split('(')[1].split(')')[0]})
+                </span>
+                {after}
+            </>
+        );
+    }
+
+    return attack;
+};
 
 const Creature = ({ creature }: { creature: CreatureData }): any => {
     const {
@@ -37,45 +88,50 @@ const Creature = ({ creature }: { creature: CreatureData }): any => {
     ].filter(Boolean);
 
     return (
-        <div>
-            <h2>{name}</h2>
+        <CreatureContainer>
+            <BodyText className="small">
+                <h2>{name}</h2>
 
-            {description && <p>{description}</p>}
+                {description && <p>{description}</p>}
 
-            {warband_scale && <p>Warband Scale</p>}
+                <StatBlockContainer>
+                    {warband_scale && <div>Warband Scale</div>}
 
-            <div className="stat-block">
-                {hp}hp, STR {str}, DEX {dex}, WIL {wil}
-                {armour && `, Armour ${armour}`}
-            </div>
+                    <div className="stats">
+                        {hp}hp, STR {str}, DEX {dex}, WIL {wil}
+                        {armour && `, Armour ${armour}`}
+                    </div>
 
-            <div className="attacks">
-                Attacks: {attack_1} {attack_join} {attack_2}
-            </div>
+                    <div className="attacks">
+                        Attacks: {styleAttack(attack_1 || '')} {attack_join}{' '}
+                        {styleAttack(attack_2 || '')}
+                    </div>
 
-            {critical_damage && critical_damage.length && (
-                <div className="critical-damage">
-                    Critical damage: {critical_damage}
-                </div>
-            )}
+                    {critical_damage && critical_damage.length && (
+                        <div className="critical-damage">
+                            Critical damage: {critical_damage}
+                        </div>
+                    )}
 
-            <div className="special">{special}</div>
+                    <div className="special">{special}</div>
+                </StatBlockContainer>
 
-            <div className="wants">
-                <strong>Wants</strong> {wants}
-            </div>
+                <CreatureWants>
+                    <strong>Wants</strong> {wants}
+                </CreatureWants>
 
-            <h3>{variant_title}</h3>
+                <h3>{variant_title}</h3>
 
-            <ol>
-                {variants.map((variant, index) => (
-                    <li
-                        key={index}
-                        dangerouslySetInnerHTML={{ __html: variant }}
-                    />
-                ))}
-            </ol>
-        </div>
+                <ol>
+                    {variants.map((variant, index) => (
+                        <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: variant }}
+                        />
+                    ))}
+                </ol>
+            </BodyText>
+        </CreatureContainer>
     );
 };
 
