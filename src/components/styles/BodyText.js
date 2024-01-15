@@ -29,7 +29,7 @@ const BodyText = styled.div`
     }
 
     h3 {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
     h4 {

@@ -20,6 +20,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 equals: 'Done',
             },
         },
+        sorts: [
+            {
+                property: 'Name',
+                direction: 'ascending',
+            },
+        ],
     });
 
     const creatures = response.results.map(parseNotionPage);

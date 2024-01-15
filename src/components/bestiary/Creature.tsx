@@ -10,10 +10,14 @@ const CreatureContainer = styled.div`
 `;
 
 const StatBlockContainer = styled.div`
-    padding: 0.4rem 0.5rem;
+    --stat-block-background: #f5f5f5;
+
+    position: relative;
+
+    padding: 0.4rem 0.8rem;
     margin-bottom: 0.5rem;
 
-    background: #f5f5f5;
+    background: var(--stat-block-background);
 
     font-weight: 500;
 
@@ -23,6 +27,52 @@ const StatBlockContainer = styled.div`
 
     .attack-special {
         font-weight: normal;
+    }
+`;
+
+const Corner = styled.span`
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+
+    background: linear-gradient(
+        -45deg,
+        var(--stat-block-background) 0%,
+        var(--stat-block-background) 50%,
+        white 50%,
+        white 100%
+    );
+
+    &.top {
+        top: 0;
+    }
+
+    &.bottom {
+        bottom: 0;
+    }
+
+    &.left {
+        left: 0;
+    }
+
+    &.right {
+        right: 0;
+    }
+
+    &.top.left {
+        transform: rotate(0deg);
+    }
+
+    &.top.right {
+        transform: rotate(90deg);
+    }
+
+    &.bottom.left {
+        transform: rotate(270deg);
+    }
+
+    &.bottom.right {
+        transform: rotate(180deg);
     }
 `;
 
@@ -95,6 +145,11 @@ const Creature = ({ creature }: { creature: CreatureData }): any => {
                 {description && <p>{description}</p>}
 
                 <StatBlockContainer>
+                    <Corner className="top left" />
+                    <Corner className="top right" />
+                    <Corner className="bottom left" />
+                    <Corner className="bottom right" />
+
                     {warband_scale && <div>Warband Scale</div>}
 
                     <div className="stats">
