@@ -16,7 +16,11 @@ const FloatingNavDark = styled(Navigation)`
 const BestiaryContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 1px;
+`;
+
+const BestiaryContentContainer = styled(ContentContainer)`
+    margin-bottom: 8rem;
 `;
 
 type BestiaryTemplateProps = {
@@ -32,15 +36,17 @@ const BestiaryTemplate = ({ pageContext }: BestiaryTemplateProps) => {
         <SiteContainer dark>
             <FloatingNavDark transparent={true} />
 
-            <ContentContainer>
-                <Title>Mausritter Bestiary</Title>
+            <BestiaryContentContainer>
+                <br />
+
+                <Title>Mausritter Bestiary ({creatures.length})</Title>
 
                 <BestiaryContainer>
                     {creatures.map(creature => (
                         <Creature key={creature.id} creature={creature} />
                     ))}
                 </BestiaryContainer>
-            </ContentContainer>
+            </BestiaryContentContainer>
         </SiteContainer>
     );
 };

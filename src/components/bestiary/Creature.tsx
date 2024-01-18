@@ -6,7 +6,12 @@ import BodyText from '../styles/BodyText';
 
 const CreatureContainer = styled.div`
     background: white;
-    padding: 1rem 2rem;
+    padding: 0.4rem 2rem 2rem 2rem;
+    text-wrap: pretty;
+`;
+
+const CreatureDescription = styled.p`
+    font-style: italic;
 `;
 
 const StatBlockContainer = styled.div`
@@ -14,7 +19,7 @@ const StatBlockContainer = styled.div`
 
     position: relative;
 
-    padding: 0.4rem 0.8rem;
+    padding: 0.4rem 0.8rem 0.8rem;
     margin-bottom: 0.5rem;
 
     background: var(--stat-block-background);
@@ -27,6 +32,10 @@ const StatBlockContainer = styled.div`
 
     .attack-special {
         font-weight: normal;
+    }
+
+    .warband-scale {
+        font-weight: bold;
     }
 `;
 
@@ -84,7 +93,11 @@ const CreatureWants = styled.div`
     }
 `;
 
-const styleAttack = (attack: string): React.ReactElement | string => {
+const styleAttack = (
+    attack: string | undefined
+): React.ReactElement | string | undefined => {
+    if (!attack) return;
+
     if (attack.includes('(')) {
         const before = attack.split('(')[0];
         const after = attack.split(')')[1];
@@ -101,6 +114,12 @@ const styleAttack = (attack: string): React.ReactElement | string => {
     }
 
     return attack;
+};
+
+const styleJoin = (join: string | undefined): string | undefined => {
+    if (!join) return;
+
+    return join === 'and' ? ' and ' : ' or ';
 };
 
 const Creature = ({ creature }: { creature: CreatureData }): any => {
@@ -137,12 +156,20 @@ const Creature = ({ creature }: { creature: CreatureData }): any => {
         variant_6,
     ].filter(Boolean);
 
+    const attacks = [
+        styleAttack(attack_1),
+        styleJoin(attack_join),
+        styleAttack(attack_2),
+    ].filter(Boolean) as (string | React.ReactElement)[];
+
     return (
         <CreatureContainer>
             <BodyText className="small">
                 <h2>{name}</h2>
 
-                {description && <p>{description}</p>}
+                {description && (
+                    <CreatureDescription>{description}</CreatureDescription>
+                )}
 
                 <StatBlockContainer>
                     <Corner className="top left" />
@@ -150,7 +177,9 @@ const Creature = ({ creature }: { creature: CreatureData }): any => {
                     <Corner className="bottom left" />
                     <Corner className="bottom right" />
 
-                    {warband_scale && <div>Warband Scale</div>}
+                    {warband_scale && (
+                        <div className="warband-scale">Warband Scale</div>
+                    )}
 
                     <div className="stats">
                         {hp}hp, STR {str}, DEX {dex}, WIL {wil}
@@ -158,8 +187,10 @@ const Creature = ({ creature }: { creature: CreatureData }): any => {
                     </div>
 
                     <div className="attacks">
-                        Attacks: {styleAttack(attack_1 || '')} {attack_join}{' '}
-                        {styleAttack(attack_2 || '')}
+                        Attacks:{' '}
+                        {attacks.map((attack, index) => (
+                            <span key={index}>{attack}</span>
+                        ))}
                     </div>
 
                     {critical_damage && critical_damage.length && (
@@ -175,16 +206,22 @@ const Creature = ({ creature }: { creature: CreatureData }): any => {
                     <strong>Wants</strong> {wants}
                 </CreatureWants>
 
-                <h3>{variant_title}</h3>
+                {variants.length > 0 && (
+                    <>
+                        <h3>{variant_title}</h3>
 
-                <ol>
-                    {variants.map((variant, index) => (
-                        <li
-                            key={index}
-                            dangerouslySetInnerHTML={{ __html: variant }}
-                        />
-                    ))}
-                </ol>
+                        <ol>
+                            {variants.map((variant, index) => (
+                                <li
+                                    key={index}
+                                    dangerouslySetInnerHTML={{
+                                        __html: variant,
+                                    }}
+                                />
+                            ))}
+                        </ol>
+                    </>
+                )}
             </BodyText>
         </CreatureContainer>
     );

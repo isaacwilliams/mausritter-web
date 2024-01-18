@@ -8,7 +8,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions;
 
     const notion = new Client({
-        auth: process.env.NOTION_TOKEN,
+        auth: process.env.MAUSRITTER_NOTION_API_KEY,
     });
 
     const databaseId = '542dceff9af344b99327109f29cb309d';
