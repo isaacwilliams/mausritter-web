@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { groupBy, get } from 'lodash/fp';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
@@ -12,11 +12,11 @@ import font from '../components/styles/font';
 const FloatingNavDark = styled(Navigation)`
     background: #100113;
     color: white;
-`
+`;
 
 const BodyTextSmall = styled(BodyText)`
     font-size: 1rem;
-`
+`;
 
 const TOC = styled.nav`
     position: fixed;
@@ -69,13 +69,18 @@ const BodyContainer = styled.div`
     max-width: 30rem;
     padding-top: 6rem;
     padding-bottom: 4rem;
-`
+`;
 
 const SRDContainer = styled.div`
     position: relative;
-`
+`;
 
-const SRDTemplate = ({ data: { page: { html, frontmatter }, toc } }) => {
+const SRDTemplate = ({
+    data: {
+        page: { html, frontmatter },
+        toc,
+    },
+}) => {
     const tocPages = toc.edges.map(get('node.markdown.frontmatter'));
     const groupedPages = Object.entries(groupBy('section', tocPages));
 
@@ -91,11 +96,21 @@ const SRDTemplate = ({ data: { page: { html, frontmatter }, toc } }) => {
 
                             <ul>
                                 {entries.map((entry, index) => {
-                                    const currentPage = entry.slug === frontmatter.slug;
+                                    const currentPage =
+                                        entry.slug === frontmatter.slug;
 
                                     return (
-                                        <li key={index} className={currentPage ? 'current' : undefined}>
-                                            <Link to={`/srd/${entry.slug}`}>{entry.title}</Link>
+                                        <li
+                                            key={index}
+                                            className={
+                                                currentPage
+                                                    ? 'current'
+                                                    : undefined
+                                            }
+                                        >
+                                            <Link to={`/srd/${entry.slug}`}>
+                                                {entry.title}
+                                            </Link>
                                         </li>
                                     );
                                 })}
@@ -127,7 +142,7 @@ export const pageQuery = graphql`
 
         toc: allFile(
             sort: { fields: childMarkdownRemark___frontmatter___order }
-            filter: {sourceInstanceName: {eq: "srd-markdown"}}
+            filter: { sourceInstanceName: { eq: "srd-markdown" } }
         ) {
             edges {
                 node {
