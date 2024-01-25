@@ -27,9 +27,32 @@ const GetGameWrapper = styled.article`
     padding-bottom: 6rem;
 `;
 
-const GetGameSection = styled(FlexContainer)`
+const GetGameSection = styled.div`
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-auto-flow: column;
+
+    justify-items: center;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 90vw;
+
     ${media.phone`
-        display: block;
+        padding-left: 0;
+        padding-right: 0;
+        grid-template-rows: repeat(6, auto);
+        grid-template-columns: repeat(1, 1fr);
+    `}
+
+    ${media.large`
+        width: 70rem;
+        padding-left: 0;
+        padding-right: 0;
     `}
 `;
 
@@ -41,8 +64,9 @@ const OptionLink = styled.a`
     align-items: center;
     flex-direction: column;
 
-    width: 50%;
-    padding-bottom: 2vw;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
     text-decoration: none;
     color: black;
@@ -80,9 +104,16 @@ const OptionLink = styled.a`
     ${media.phone`
         width: auto;
         padding-top: 3rem;
-        padding-bottom: 3rem;
-        font-size: 3vw;
     `}
+`;
+
+const OptionLinkAlternate = styled(OptionLink)`
+    width: auto;
+    padding: 0.5rem 1rem;
+
+    span {
+        opacity: 0.5;
+    }
 `;
 
 const OtherEditionsSection = styled(FlexContainer)`
@@ -167,18 +198,29 @@ const GetGame = ({}) => (
                 <h3>Box Set</h3>
                 <span>From Exalted Funeral</span>
             </OptionLink>
+            <OptionLinkAlternate href="https://gamesomnivorous.com/collections/minimalist-rpgs/products/mausritter-boxed-set?variant=43123473973481">
+                <span>or Games Omnivorous (Europe)</span>
+            </OptionLinkAlternate>
+
             <OptionLink href="https://www.exaltedfuneral.com/products/copy-of-mausritter-the-estate-adventure-collection">
                 <img loading="lazy" src={mockupEstate} />
 
                 <h3>The Estate</h3>
-                <span>Adventure collection</span>
+                <span>Adventure collection from Exalted Funeral</span>
             </OptionLink>
+            <OptionLinkAlternate href="https://gamesomnivorous.com/collections/minimalist-rpgs/products/mausritter-the-estate-adventure-collection">
+                <span>or Games Omnivorous (Europe)</span>
+            </OptionLinkAlternate>
+
             <OptionLink href="https://losing-games.itch.io/mausritter">
                 <img loading="lazy" src={mockupPdf} />
 
                 <h3>Digital edition</h3>
                 <span>Pay what you want at Itch.io</span>
             </OptionLink>
+            <OptionLinkAlternate href="https://www.drivethrurpg.com/product/383482/Mausritter">
+                <span>or Drive Thru RPG</span>
+            </OptionLinkAlternate>
         </GetGameSection>
 
         <OtherEditionsSection>
