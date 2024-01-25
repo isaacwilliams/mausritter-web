@@ -6,13 +6,12 @@ import colors from '../../styles/colors';
 import media from '../../styles/media';
 
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
-import {
-    Title,
-    TitleWrapper,
-    RollButton,
-} from '../generatorComponents';
+import { Title, TitleWrapper, RollButton } from '../generatorComponents';
 
 import useAdventureSite from './useAdventureSite';
+
+import spiderFace from './spider-face.svg';
+import lockedChest from './locked-chest.svg';
 
 const Summary = styled.div`
     max-width: 50rem;
@@ -71,7 +70,8 @@ const RoomArray = styled.div`
 const Room = styled.div`
     position: relative;
     padding: 1rem;
-    border: ${({ creature }) => creature ? '1px solid #ccc' : '1px solid #ccc'};
+    border: ${({ creature }) =>
+        creature ? '1px solid #ccc' : '1px solid #ccc'};
 
     background: #eee;
 
@@ -106,12 +106,12 @@ const StatusIcon = styled.div`
 `;
 
 const CreatureIcon = styled(StatusIcon)`
-    background: url(${require('./spider-face.svg')});
+    background: url(${spiderFace});
     background-color: black;
 `;
 
 const TreasureIcon = styled(StatusIcon)`
-    background: url(${require('./locked-chest.svg')});
+    background: url(${lockedChest});
     background-color: black;
 `;
 
@@ -153,33 +153,30 @@ const Credits = styled.div`
 `;
 
 const AdventureSiteGenerator = () => {
-    const [{
-        summary: {
-            name,
-            construction,
-            ruinAction,
-            ruin,
-            inhabitant,
-            inhabitantAction,
-            goal,
-            secretHidden,
-            secret,
+    const [
+        {
+            summary: {
+                name,
+                construction,
+                ruinAction,
+                ruin,
+                inhabitant,
+                inhabitantAction,
+                goal,
+                secretHidden,
+                secret,
+            },
+            rooms,
         },
-        rooms,
-    },
-        rollSite
+        rollSite,
     ] = useAdventureSite();
 
     return (
         <ContentContainer>
             <TitleWrapper>
-                <Title>
-                    Delving into...
-                </Title>
+                <Title>Delving into...</Title>
 
-                <RollButton onClick={() => rollSite()}>
-                    Roll again
-                </RollButton>
+                <RollButton onClick={() => rollSite()}>Roll again</RollButton>
             </TitleWrapper>
 
             <Summary>
@@ -187,8 +184,7 @@ const AdventureSiteGenerator = () => {
                 {`, ${construction[0]} `}
                 <SummaryFeature>{construction[1]}</SummaryFeature>
                 {` ${ruinAction} `}
-                <SummaryFeature>{ruin}</SummaryFeature>.
-                {' '}
+                <SummaryFeature>{ruin}</SummaryFeature>.{' '}
                 <SummaryFeature>{inhabitant}</SummaryFeature>
                 {` ${inhabitantAction} `}
                 <SummaryFeature>{goal}</SummaryFeature>.
@@ -207,26 +203,42 @@ const AdventureSiteGenerator = () => {
                 </RoomsKey>
 
                 <RoomArray>
-                    {rooms.map(({ id, posX, posY, creature, treasure, type, description }) => (
-                        <Room key={id} posX={posX} posY={posY} creature={creature}>
-                            <RoomType>{type}</RoomType>
-                            {description}
-                            <StatusIconContainer>
-                                {creature && <CreatureIcon />}
-                                {treasure && <TreasureIcon />}
-                            </StatusIconContainer>
-                        </Room>
-                    ))}
+                    {rooms.map(
+                        ({
+                            id,
+                            posX,
+                            posY,
+                            creature,
+                            treasure,
+                            type,
+                            description,
+                        }) => (
+                            <Room
+                                key={id}
+                                posX={posX}
+                                posY={posY}
+                                creature={creature}
+                            >
+                                <RoomType>{type}</RoomType>
+                                {description}
+                                <StatusIconContainer>
+                                    {creature && <CreatureIcon />}
+                                    {treasure && <TreasureIcon />}
+                                </StatusIconContainer>
+                            </Room>
+                        )
+                    )}
                 </RoomArray>
             </RoomsContainer>
 
             <Credits>
                 Icons from <a href="https://game-icons.net/">game-icons.net</a>.
                 Chest by <a href="http://lorcblog.blogspot.com/">Lorc</a>.
-                Spider by <a href="https://twitter.com/unstoppableCarl">Carl Olsen</a>.
+                Spider by{' '}
+                <a href="https://twitter.com/unstoppableCarl">Carl Olsen</a>.
             </Credits>
         </ContentContainer>
-    )
+    );
 };
 
 export default AdventureSiteGenerator;

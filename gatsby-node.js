@@ -1,15 +1,14 @@
 const path = require(`path`);
 const { first } = require('lodash/fp');
-const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-    const { createPage } = actions
+    const { createPage } = actions;
 
     const result = await graphql(`
         {
             allFile(
                 sort: { fields: childMarkdownRemark___frontmatter___order }
-                filter: {sourceInstanceName: {eq: "srd-markdown"}}
+                filter: { sourceInstanceName: { eq: "srd-markdown" } }
             ) {
                 edges {
                     node {
@@ -32,8 +31,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     // Handle errors
     if (result.errors) {
-        reporter.panicOnBuild(`Error while running GraphQL query.`)
-        return
+        reporter.panicOnBuild(`Error while running GraphQL query.`);
+        return;
     }
 
     const SRDTemplate = require.resolve(`./src/templates/SRDTemplate.js`);
@@ -43,7 +42,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             path: `srd/${markdown.frontmatter.slug}`,
             component: SRDTemplate,
             context: markdown.frontmatter,
-        })
+        });
     });
 
     const firstPage = first(result.data.allFile.edges).node.markdown;
@@ -55,4 +54,4 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
 
     // first(result.data.allFile).node
-}
+};

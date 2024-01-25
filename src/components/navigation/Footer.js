@@ -18,12 +18,12 @@ const Footer = styled.footer`
 
 const LogoContainer = styled.div`
     padding-top: 3rem;
-`
+`;
 
 const FooterSection = () => (
     <Footer>
-        Mausritter ©2020 <a href="https://isaacwilliams.net">Isaac Williams</a> &amp; <a href="https://losing.games">Losing Games</a>
-
+        Mausritter ©2024 <a href="https://isaacwilliams.net">Isaac Williams</a>{' '}
+        &amp; <a href="https://losing.games">Losing Games</a>
         <LogoContainer>
             <LosingGamesLogo className="light" />
         </LogoContainer>

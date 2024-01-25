@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import logo from './losing-games-logo.svg';
+
 const LogoImage = styled.img`
     &.light {
         filter: invert(100%);
@@ -9,7 +11,7 @@ const LogoImage = styled.img`
 
 const LosingGamesLogo = ({ className }) => (
     <a href="https://losing.games">
-        <LogoImage src={require('./losing-games-logo.svg')} width="160" className={className} />
+        <LogoImage src={logo} width="160" className={className} />
     </a>
 );
 

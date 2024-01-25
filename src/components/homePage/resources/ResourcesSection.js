@@ -59,17 +59,17 @@ const Resources = ({}) => {
                 resources={[
                     {
                         name: 'Make a mouse',
-                        image: require('./images/make-mouse.png'),
+                        image: require('./images/make-mouse.png').default,
                         link: '/mouse',
                     },
                     {
                         name: 'Adventure site generator',
-                        image: require('./images/adventure-site.png'),
+                        image: require('./images/adventure-site.png').default,
                         link: '/adventure-site',
                     },
                     {
                         name: 'Item card studio',
-                        image: require('./images/tool-item-studio.png'),
+                        image: require('./images/tool-item-studio.png').default,
                         link: '/item-card-studio',
                     },
                 ]}
@@ -80,28 +80,34 @@ const Resources = ({}) => {
                 resources={[
                     {
                         name: 'Character & hireling sheets',
-                        image: require('./images/sheets-players.png'),
-                        link: require('./files/mausritter-character-sheets.pdf'),
+                        image: require('./images/sheets-players.png').default,
+                        link: require('./files/mausritter-character-sheets.pdf')
+                            .default,
                     },
                     {
                         name: 'Item & Condition cards',
-                        image: require('./images/sheets-items.png'),
-                        link: require('./files/mausritter-item-condition-sheets.pdf'),
+                        image: require('./images/sheets-items.png').default,
+                        link: require('./files/mausritter-item-condition-sheets.pdf')
+                            .default,
                     },
                     {
                         name: 'Game Master Session Tracking sheet',
-                        image: require('./images/sheets-gm.png'),
-                        link: require('./files/mausritter-gm-session-sheet.pdf'),
+                        image: require('./images/sheets-gm.png').default,
+                        link: require('./files/mausritter-gm-session-sheet.pdf')
+                            .default,
                     },
                     {
                         name: 'Hexcrawl template',
-                        image: require('./images/sheets-hexcrawl.png'),
-                        link: require('./files/mausritter-hexcrawl-template.pdf'),
+                        image: require('./images/sheets-hexcrawl.png').default,
+                        link: require('./files/mausritter-hexcrawl-template.pdf')
+                            .default,
                     },
                     {
                         name: 'Rules reference sheet',
-                        image: require('./images/sheets-rules-reference.png'),
-                        link: require('./files/mausritter-rules-reference.pdf'),
+                        image: require('./images/sheets-rules-reference.png')
+                            .default,
+                        link: require('./files/mausritter-rules-reference.pdf')
+                            .default,
                     },
                 ]}
                 footer={
@@ -124,15 +130,18 @@ const Resources = ({}) => {
                         name: 'The Estate Adventure Collection',
                         link:
                             'https://losing-games.itch.io/mausritter-the-estate-adventure-collection',
-                        image: require('./images/the-estate-promo.jpg'),
-                        imageOverlay: require('./images/the-estate-promo-logo.png'),
+                        image: require('./images/the-estate-promo.jpg').default,
+                        imageOverlay: require('./images/the-estate-promo-logo.png')
+                            .default,
                     },
                     {
                         name: 'Honey in the Rafters',
                         link:
                             'https://losing-games.itch.io/mausritter-honey-in-the-rafters',
-                        image: require('./images/honey-rafters-promo.jpg'),
-                        imageOverlay: require('./images/honey-rafters-promo-logo.png'),
+                        image: require('./images/honey-rafters-promo.jpg')
+                            .default,
+                        imageOverlay: require('./images/honey-rafters-promo-logo.png')
+                            .default,
                     },
                 ]}
             />
@@ -145,8 +154,10 @@ const Resources = ({}) => {
                     {
                         name: 'Mausritter Library',
                         link: 'https://library.mausritter.com',
-                        image: require('./images/library-website-promo.jpg'),
-                        imageOverlay: require('./images/library-website-promo-logo.png'),
+                        image: require('./images/library-website-promo.jpg')
+                            .default,
+                        imageOverlay: require('./images/library-website-promo-logo.png')
+                            .default,
                     },
                 ]}
                 footer={
@@ -188,14 +199,14 @@ const Resources = ({}) => {
                     {
                         name: 'Foundry VTT Module',
                         author: 'Futilrevenge',
-                        image: require('./images/online-foundry.jpg'),
+                        image: require('./images/online-foundry.jpg').default,
                         link: 'https://foundryvtt.com/packages/mausritter/',
                         className: 'shadow',
                     },
                     {
                         name: 'Tabletop Simulator Module',
                         author: 'Lei',
-                        image: require('./images/online-tts.jpg'),
+                        image: require('./images/online-tts.jpg').default,
                         link:
                             'https://steamcommunity.com/sharedfiles/filedetails/?id=2128571929',
                         className: 'shadow',

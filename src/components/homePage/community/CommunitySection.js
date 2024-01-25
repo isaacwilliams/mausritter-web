@@ -7,10 +7,11 @@ import font from '../../styles/font';
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 import Feature from '../features/Feature';
 
-import {
-    Title,
-    SubTitle,
-} from '../../styles/shared';
+import { Title, SubTitle } from '../../styles/shared';
+
+import linkButtonTwitter from './icon-twitter.svg';
+import linkButtonDiscord from './icon-discord.svg';
+import discordMouse from './discord-mouse.png';
 
 const CommunitySectionWrapper = styled.section`
     padding-top: 6rem;
@@ -59,7 +60,7 @@ const LinkButton = styled.a`
 const LinkButtonTwitter = styled(LinkButton)`
     margin-left: 1rem;
     margin-right: 1rem;
-    background-image: url(${require('./icon-twitter.svg')});
+    background-image: url(${linkButtonTwitter});
 
     ${media.phone`
         margin-bottom: 1rem;
@@ -67,7 +68,7 @@ const LinkButtonTwitter = styled(LinkButton)`
 `;
 
 const LinkButtonDiscord = styled(LinkButton)`
-    background-image: url(${require('./icon-discord.svg')});
+    background-image: url(${linkButtonDiscord});
 `;
 
 const TwitterLinksContainer = styled(FlexContainer)`
@@ -87,23 +88,22 @@ const CommunitySection = () => (
         <ContentContainer>
             <Title>Join the Mausritter community</Title>
 
-            <Feature image={<img src={require('./discord-mouse.png')} />}>
+            <Feature image={<img src={discordMouse} />}>
                 <DiscordDescription>
-                    Got questions?
-                    Looking for content for your game, or want to share your own?
-                    Want to find people to play with?
+                    Got questions? Looking for content for your game, or want to
+                    share your own? Want to find people to play with?
                 </DiscordDescription>
                 <DiscordDescription>
                     Join the friendly and helpful Discord community.
                 </DiscordDescription>
-                <LinkButtonDiscord href="https://discord.gg/v4wmKsv">Mausritter Discord</LinkButtonDiscord>
+                <LinkButtonDiscord href="https://discord.gg/v4wmKsv">
+                    Mausritter Discord
+                </LinkButtonDiscord>
             </Feature>
 
             <br />
 
-            <SubTitleCenter>
-                News and updates
-            </SubTitleCenter>
+            <SubTitleCenter>News and updates</SubTitleCenter>
 
             <TwitterLinksContainer>
                 <LinkButtonTwitter href="https://twitter.com/mausritter">

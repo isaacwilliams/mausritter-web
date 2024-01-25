@@ -9,15 +9,54 @@ import { FlexContainer } from '../../layout/ContentContainer';
 
 import { Title, SubTitle } from '../../styles/shared';
 
+import mockupBox from './images/mockup-box.png';
+import mockupEstate from './images/mockup-estate.png';
+import mockupPdf from './images/mockup-pdf.png';
+
+import flagSpain from './images/flag-spain.png';
+import flagFrance from './images/flag-france.png';
+import flagPoland from './images/flag-poland.png';
+import flagGermany from './images/flag-germany.png';
+import flagCzech from './images/flag-czech.png';
+import flagNetherlands from './images/flag-netherlands.png';
+import flagRussia from './images/flag-russia.png';
+
 const GetGameWrapper = styled.article`
     background: #eee;
     padding-top: 6rem;
     padding-bottom: 6rem;
 `;
 
-const GetGameSection = styled(FlexContainer)`
+const GetGameSection = styled.div`
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(3, 1fr);
+
+    justify-items: center;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 90vw;
+
     ${media.phone`
-        display: block;
+        padding-left: 0;
+        padding-right: 0;
+        grid-template-rows: repeat(6, auto);
+        grid-template-columns: repeat(1, 1fr);
+    `}
+
+    ${media.large`
+        width: 70rem;
+        padding-left: 0;
+        padding-right: 0;
+    `}
+`;
+
+const GameOption = styled.div`
+    ${media.phone`
+        padding-top: 1rem;
     `}
 `;
 
@@ -29,8 +68,9 @@ const OptionLink = styled.a`
     align-items: center;
     flex-direction: column;
 
-    width: 50%;
-    padding-bottom: 2vw;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
     text-decoration: none;
     color: black;
@@ -47,10 +87,6 @@ const OptionLink = styled.a`
         ${media.large`
             font-size: 1.7vw;
         `}
-
-        ${media.phone`
-            font-size: 4vw;
-        `}
     }
 
     span {
@@ -64,13 +100,24 @@ const OptionLink = styled.a`
             text-decoration: underline;
         }
     }
+`;
 
-    ${media.phone`
-        width: auto;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        font-size: 3vw;
-    `}
+const OptionLinkAlternates = styled.div`
+    width: auto;
+    padding: 0.5rem 1rem;
+
+    text-align: center;
+
+    color: grey;
+
+    a {
+        display: inline-block;
+        padding: 0.2rem 0.4rem;
+
+        &:hover {
+            background: yellow;
+        }
+    }
 `;
 
 const OtherEditionsSection = styled(FlexContainer)`
@@ -149,27 +196,61 @@ const GetGame = ({}) => (
         <Title>Get Mausritter</Title>
 
         <GetGameSection>
-            <OptionLink href="https://www.exaltedfuneral.com/products/mausritter-boxed-set-1">
-                <img loading="lazy" src={require('./images/mockup-box.png')} />
+            <GameOption>
+                <OptionLink href="https://www.exaltedfuneral.com/products/mausritter-boxed-set-1">
+                    <img loading="lazy" src={mockupBox} />
 
-                <h3>Box Set</h3>
-                <span>From Exalted Funeral</span>
-            </OptionLink>
-            <OptionLink href="https://www.exaltedfuneral.com/products/copy-of-mausritter-the-estate-adventure-collection">
-                <img
-                    loading="lazy"
-                    src={require('./images/mockup-estate.png')}
-                />
+                    <h3>Box Set</h3>
+                    <span>Complete game</span>
+                </OptionLink>
 
-                <h3>The Estate</h3>
-                <span>Adventure collection</span>
-            </OptionLink>
-            <OptionLink href="https://losing-games.itch.io/mausritter">
-                <img loading="lazy" src={require('./images/mockup-pdf.png')} />
+                <OptionLinkAlternates>
+                    <a href="https://www.exaltedfuneral.com/products/mausritter-boxed-set-1">
+                        Exalted Funeral
+                    </a>
+                    {' / '}
+                    <a href="https://gamesomnivorous.com/collections/minimalist-rpgs/products/mausritter-boxed-set?variant=43123473973481">
+                        Games Omnivorous
+                    </a>
+                </OptionLinkAlternates>
+            </GameOption>
 
-                <h3>Digital edition</h3>
-                <span>Pay what you want at Itch.io</span>
-            </OptionLink>
+            <GameOption>
+                <OptionLink href="https://www.exaltedfuneral.com/products/copy-of-mausritter-the-estate-adventure-collection">
+                    <img loading="lazy" src={mockupEstate} />
+
+                    <h3>The Estate</h3>
+                    <span>Adventure collection</span>
+                </OptionLink>
+                <OptionLinkAlternates>
+                    <a href="https://www.exaltedfuneral.com/products/copy-of-mausritter-the-estate-adventure-collection">
+                        Exalted Funeral
+                    </a>
+                    {' / '}
+                    <a href="https://gamesomnivorous.com/collections/minimalist-rpgs/products/mausritter-the-estate-adventure-collection">
+                        Games Omnivorous
+                    </a>
+                </OptionLinkAlternates>
+            </GameOption>
+
+            <GameOption>
+                <OptionLink href="https://losing-games.itch.io/mausritter">
+                    <img loading="lazy" src={mockupPdf} />
+
+                    <h3>Digital edition</h3>
+                    <span>Pay what you want</span>
+                </OptionLink>
+
+                <OptionLinkAlternates>
+                    <a href="https://losing-games.itch.io/mausritter">
+                        Itch.io
+                    </a>
+                    {' / '}
+                    <a href="https://www.drivethrurpg.com/product/383482/Mausritter">
+                        Drive Thru RPG
+                    </a>
+                </OptionLinkAlternates>
+            </GameOption>
         </GetGameSection>
 
         <OtherEditionsSection>
@@ -177,45 +258,27 @@ const GetGame = ({}) => (
 
             <div>
                 <CountryFlagLink href="https://www.elrefugioeditorial.com/mausritter">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-spain.png')}
-                    />
+                    <img loading="lazy" src={flagSpain} />
                     Español
                 </CountryFlagLink>
                 <CountryFlagLink href="https://electric-goat.net/mausritter">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-france.png')}
-                    />
+                    <img loading="lazy" src={flagFrance} />
                     Français
                 </CountryFlagLink>
                 <CountryFlagLink href="https://alisgames.pl/pl_PL/products/mausritter-rpg">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-poland.png')}
-                    />
+                    <img loading="lazy" src={flagPoland} />
                     Polski
                 </CountryFlagLink>
                 <CountryFlagLink href="https://www.system-matters.de/shop/mausritter/">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-germany.png')}
-                    />
+                    <img loading="lazy" src={flagGermany} />
                     Deutsch
                 </CountryFlagLink>
                 <CountryFlagLink href="https://www.mytago.cz/book/mausritter">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-czech.png')}
-                    />
+                    <img loading="lazy" src={flagCzech} />
                     Cestina
                 </CountryFlagLink>
                 <CountryFlagLink href="https://wonderschouw.nl/mausritter/">
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-netherlands.png')}
-                    />
+                    <img loading="lazy" src={flagNetherlands} />
                     Nederlands
                 </CountryFlagLink>
 
@@ -223,10 +286,7 @@ const GetGame = ({}) => (
                     href="https://www.drivethrurpg.com/product/462557/Mausritter"
                     className="cyrillic"
                 >
-                    <img
-                        loading="lazy"
-                        src={require('./images/flag-russia.png')}
-                    />
+                    <img loading="lazy" src={flagRussia} />
                     русский
                 </CountryFlagLink>
             </div>

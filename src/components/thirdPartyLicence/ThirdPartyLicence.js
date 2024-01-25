@@ -213,7 +213,10 @@ const ThirdPartyLicence = () => (
                         <p>
                             <LogoDownloadButton href="https://drive.google.com/drive/folders/16hFJkH4hbwuDO0EIb1nswMnz9Logh8nD">
                                 <img
-                                    src={require('./compatible-with-mausritter.svg')}
+                                    src={
+                                        require('./compatible-with-mausritter.svg')
+                                            .default
+                                    }
                                 />
                                 Download
                             </LogoDownloadButton>
