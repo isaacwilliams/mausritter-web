@@ -223,11 +223,11 @@ const GetGame = ({}) => (
                     <span>Adventure collection</span>
                 </OptionLink>
                 <OptionLinkAlternates>
-                    <a href="https://www.exaltedfuneral.com/products/mausritter-boxed-set-1">
+                    <a href="https://www.exaltedfuneral.com/products/copy-of-mausritter-the-estate-adventure-collection">
                         Exalted Funeral
                     </a>
                     {' / '}
-                    <a href="https://gamesomnivorous.com/collections/minimalist-rpgs/products/mausritter-boxed-set?variant=43123473973481">
+                    <a href="https://gamesomnivorous.com/collections/minimalist-rpgs/products/mausritter-the-estate-adventure-collection">
                         Games Omnivorous
                     </a>
                 </OptionLinkAlternates>
