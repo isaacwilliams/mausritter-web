@@ -26,5 +26,7 @@ export type CreatureData = {
         variant_6: string;
 
         status: string;
+
+        categories: string[];
     };
 };

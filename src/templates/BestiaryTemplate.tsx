@@ -1,4 +1,5 @@
 import React from 'react';
+import { uniq } from 'lodash';
 
 import { CreatureData } from '../components/bestiary/bestiaryTypes';
 import Creature from '../components/bestiary/Creature';
@@ -23,6 +24,10 @@ const BestiaryContentContainer = styled(ContentContainer)`
     margin-bottom: 8rem;
 `;
 
+const UtilsContainer = styled.div`
+    padding: 1rem;
+`;
+
 type BestiaryTemplateProps = {
     pageContext: {
         creatures: CreatureData[];
@@ -30,7 +35,31 @@ type BestiaryTemplateProps = {
 };
 
 const BestiaryTemplate = ({ pageContext }: BestiaryTemplateProps) => {
+    const [filter, setFilter] = React.useState('');
+
     const creatures = pageContext.creatures;
+
+    const categoryMap = creatures.reduce((acc, creature) => {
+        const categories = creature.properties.categories;
+
+        categories.forEach(category => {
+            if (!acc[category]) {
+                acc[category] = 0;
+            }
+
+            acc[category]++;
+        });
+
+        return acc;
+    }, {} as { string: number });
+
+    const filteredCreatures = creatures.filter(creature => {
+        if (!filter || filter === '') {
+            return true;
+        }
+
+        return creature.properties.categories.includes(filter);
+    });
 
     return (
         <SiteContainer dark>
@@ -39,10 +68,24 @@ const BestiaryTemplate = ({ pageContext }: BestiaryTemplateProps) => {
             <BestiaryContentContainer>
                 <br />
 
-                <Title>Mausritter Bestiary ({creatures.length})</Title>
+                <Title>Mausritter Bestiary</Title>
+
+                <UtilsContainer>
+                    Filter:{' '}
+                    <select onChange={event => setFilter(event.target.value)}>
+                        <option value="">All ({creatures.length})</option>
+                        {Object.entries(categoryMap).map(
+                            ([category, count]) => (
+                                <option key={category} value={category}>
+                                    {category} ({count})
+                                </option>
+                            )
+                        )}
+                    </select>
+                </UtilsContainer>
 
                 <BestiaryContainer>
-                    {creatures.map(creature => (
+                    {filteredCreatures.map(creature => (
                         <Creature key={creature.id} creature={creature} />
                     ))}
                 </BestiaryContainer>
