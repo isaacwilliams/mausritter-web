@@ -20,6 +20,8 @@ import flagGermany from './images/flag-germany.png';
 import flagCzech from './images/flag-czech.png';
 import flagNetherlands from './images/flag-netherlands.png';
 import flagRussia from './images/flag-russia.png';
+import flagItaly from './images/flag-italy.png';
+import flagBrazil from './images/flag-brazil.png';
 
 const GetGameWrapper = styled.article`
     background: #eee;
@@ -288,6 +290,16 @@ const GetGame = ({}) => (
                 >
                     <img loading="lazy" src={flagRussia} />
                     русский
+                </CountryFlagLink>
+
+                <CountryFlagLink href="https://www.needgames.it/giochi/mausritter/">
+                    <img loading="lazy" src={flagItaly} />
+                    Italiano
+                </CountryFlagLink>
+
+                <CountryFlagLink href="https://www.caramelojogos.com.br/mausritter-22884578">
+                    <img loading="lazy" src={flagBrazil} />
+                    Português
                 </CountryFlagLink>
             </div>
         </OtherEditionsSection>
