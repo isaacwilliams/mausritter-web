@@ -22,6 +22,7 @@ import flagNetherlands from './images/flag-netherlands.png';
 import flagRussia from './images/flag-russia.png';
 import flagItaly from './images/flag-italy.png';
 import flagBrazil from './images/flag-brazil.png';
+import flagUkraine from './images/flag-ukraine.png';
 
 const GetGameWrapper = styled.article`
     background: #eee;
@@ -300,6 +301,14 @@ const GetGame = ({}) => (
                 <CountryFlagLink href="https://www.caramelojogos.com.br/mausritter-22884578">
                     <img loading="lazy" src={flagBrazil} />
                     Português
+                </CountryFlagLink>
+
+                <CountryFlagLink
+                    href="https://m87games.com"
+                    className="cyrillic"
+                >
+                    <img loading="lazy" src={flagUkraine} />
+                    українська
                 </CountryFlagLink>
             </div>
         </OtherEditionsSection>
