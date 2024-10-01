@@ -12,6 +12,8 @@ import reset from '../styles/reset';
 import font from '../styles/font';
 import colors from '../styles/colors';
 
+import '../../i18n/initI18n';
+
 const GlobalStyle = createGlobalStyle`
     ${reset};
 

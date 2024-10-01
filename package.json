@@ -6,6 +6,7 @@
   "author": "Isaac Williams <isaac@isaacwilliams.net>",
   "homepage": "https://mausritter.com",
   "dependencies": {
+    "@types/react-helmet": "^6.1.11",
     "classnames": "^2.2.6",
     "fontfaceobserver": "^2.1.0",
     "gatsby": "^5.13.7",
@@ -21,6 +22,9 @@
     "gatsby-transformer-remark": "^6.13.0",
     "gatsby-transformer-sharp": "^5.13.0",
     "gh-pages": "^3.1.0",
+    "i18next": "^23.15.1",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-resources-to-backend": "^1.2.1",
     "install": "^0.13.0",
     "lodash": "^4.17.20",
     "nanoid": "^3.1.16",
@@ -28,6 +32,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-i18next": "^15.0.2",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
