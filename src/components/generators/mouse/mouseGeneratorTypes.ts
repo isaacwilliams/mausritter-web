@@ -17,6 +17,7 @@ export type MouseBirthsign = {
 };
 
 export type MouseGeneratorData = {
+    standardItems: Item[];
     backgrounds: MouseBackground[];
     firstNames: string[];
     familyNames: string[];

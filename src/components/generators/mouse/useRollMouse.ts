@@ -57,9 +57,7 @@ const rollCharacter = (generatorData: MouseGeneratorData): MouseCharacter => {
             background.items[1],
             statMax <= 9 ? consolationBackground.items[0] : null,
             statMax <= 7 ? consolationBackground.items[1] : null,
-            { name: 'Torches' },
-            { name: 'Rations' },
-            { name: 'Weapon of your choice', type: 'special' },
+            ...generatorData.standardItems,
         ]),
     };
 };

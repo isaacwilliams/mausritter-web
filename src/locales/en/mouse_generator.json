@@ -1,5 +1,6 @@
 {
     "title": "Brave mouse adventurer...",
+    "pageTitle": "Make a mouse",
     "ui": {
         "roll_button": "Roll again"
     },
@@ -21,6 +22,11 @@
         "pips": "Pips"
     },
     "data": {
+        "standardItems": [
+            { "name": "Rations" },
+            { "name": "Torch" },
+            { "name": "Weapon of your choice", "type": "special" }
+        ],
         "backgrounds": [
             {
                 "title": "Test subject",

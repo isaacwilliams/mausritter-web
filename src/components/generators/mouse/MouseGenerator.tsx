@@ -290,6 +290,7 @@ const MausritterCharacter = () => {
                     href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
                     rel="stylesheet"
                 />
+                <title>{t('pageTitle')}</title>
             </Helmet>
 
             <TitleWrapper>
