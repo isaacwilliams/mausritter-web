@@ -25,7 +25,7 @@
         "standardItems": [
             { "name": "Rations" },
             { "name": "Torch" },
-            { "name": "Weapon of your choice", "type": "special" }
+            { "name": "Weapon of your choice", "notCard": true }
         ],
         "backgrounds": [
             {
@@ -95,14 +95,14 @@
             {
                 "title": "Beetleherd",
                 "items": [
-                    { "name": "Hireling: Loyal beetle", "type": "special" },
+                    { "name": "Hireling: Loyal beetle", "notCard": true },
                     { "name": "Pole, 6\"" }
                 ]
             },
             {
                 "title": "Ale brewer",
                 "items": [
-                    { "name": "Hireling: Drunken torchbearer", "type": "special" },
+                    { "name": "Hireling: Drunken torchbearer", "notCard": true },
                     { "name": "Small barrel of ale" }
                 ]
             },
@@ -165,7 +165,7 @@
             {
                 "title": "Merchant",
                 "items": [
-                    { "name": "Hireling: Pack rat", "type": "special" },
+                    { "name": "Hireling: Pack rat", "notCard": true },
                     { "name": "20p IOU from a noblemouse" }
                 ]
             },

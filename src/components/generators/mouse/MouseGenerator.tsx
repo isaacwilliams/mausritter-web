@@ -370,7 +370,7 @@ const MausritterCharacter = () => {
 
                         <InventoryList>
                             {items
-                                .filter(({ type }) => type !== 'special')
+                                .filter(({ notCard }) => !notCard)
                                 .map((item, i) => (
                                     <InventoryItem
                                         key={`${id}${i}`}
@@ -385,7 +385,7 @@ const MausritterCharacter = () => {
 
                         <ExtraItemsList>
                             {items
-                                .filter(({ type }) => type === 'special')
+                                .filter(({ notCard }) => notCard)
                                 .map((item, i) => (
                                     <li key={`${id}${i}`}>{item.name}</li>
                                 ))}

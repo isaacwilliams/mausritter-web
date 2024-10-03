@@ -4,6 +4,7 @@ export type Item = {
     shape?: 'tall' | 'wide';
     attack?: string;
     def?: string;
+    notCard?: boolean;
 };
 
 export type MouseBackground = {
