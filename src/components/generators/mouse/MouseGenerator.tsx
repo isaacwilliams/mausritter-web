@@ -13,6 +13,7 @@ import InventoryItem from './InventoryItem';
 import useRollMouse from './useRollMouse';
 import { useTranslation } from 'react-i18next';
 import { MouseGeneratorData } from './mouseGeneratorTypes';
+import { useLanguage } from '../../../i18n/languageContext';
 
 const Attr = styled.div`
     display: grid;
@@ -250,9 +251,10 @@ const ExtraItemsList = styled.ul`
 `;
 
 const MausritterCharacter = () => {
+    const { language, setLanguage } = useLanguage();
     const { t } = useTranslation('mouse_generator');
 
-    const data = t('data', { returnObjects: true });
+    const data = t('data', { returnObjects: true }) as MouseGeneratorData;
 
     const [
         {
@@ -268,20 +270,7 @@ const MausritterCharacter = () => {
             items,
         },
         rollMouse,
-    ] = useRollMouse(data as MouseGeneratorData);
-
-    console.log({
-        id,
-        name,
-        coat,
-        physicalDetail,
-        birthsign,
-        stats,
-        hp,
-        pips,
-        background,
-        items,
-    });
+    ] = useRollMouse(data);
 
     return (
         <ContentContainer>

@@ -17,7 +17,7 @@ i18n
 
     // init i18next
     .init({
-        fallbackLng: 'en',
+        lng: window?.localStorage?.getItem('i18nextLng') || undefined,
         debug: process.env.NODE_ENV === 'development' ? true : false,
         load: 'languageOnly',
         react: {

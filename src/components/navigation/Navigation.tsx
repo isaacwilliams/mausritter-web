@@ -6,6 +6,7 @@ import media from '../styles/media';
 import { Link } from 'gatsby';
 
 import mausritterLogo from '../navigation/logos/mausritter-logo.svg';
+import LanguageSelect from './language/LanguageSelect';
 
 const Nav = styled.nav`
     margin: auto;
@@ -52,7 +53,9 @@ const NavSection = styled.div`
     `}
 `;
 
-const NavItem = styled(Link)`
+const NavItem = styled(Link)<{
+    transparent?: boolean;
+}>`
     ${font.display}
 
     padding: 0.5rem 1rem;
@@ -108,7 +111,7 @@ const Divider = styled.div`
     border-right: 1px solid #ccc;
 `;
 
-const Navigation = ({ transparent }) => {
+const Navigation = ({ transparent, showLanguage }) => {
     return (
         <Nav>
             <NavSection className="left">
@@ -133,6 +136,7 @@ const Navigation = ({ transparent }) => {
                 <NavItem to="/mouse" transparent={transparent}>
                     Make a mouse
                 </NavItem>
+                {showLanguage && <LanguageSelect />}
             </NavSection>
         </Nav>
     );
