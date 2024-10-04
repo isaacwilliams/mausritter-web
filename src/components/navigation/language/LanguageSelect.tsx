@@ -20,6 +20,7 @@ const HiddenSelect = styled.select`
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
     opacity: 0;
     cursor: pointer;
     z-index: 1;
