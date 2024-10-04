@@ -12,6 +12,9 @@ import reset from '../styles/reset';
 import font from '../styles/font';
 import colors from '../styles/colors';
 
+import '../../i18n/initI18n';
+import { LanguageProvider } from '../../i18n/languageContext';
+
 const GlobalStyle = createGlobalStyle`
     ${reset};
 
@@ -43,7 +46,7 @@ const SiteContainer = ({ children, dark }) => {
     `);
 
     return (
-        <>
+        <LanguageProvider>
             <Helmet
                 title={data.site.siteMetadata.title || ''}
                 meta={[
@@ -101,7 +104,7 @@ const SiteContainer = ({ children, dark }) => {
             </Helmet>
             <GlobalStyle dark={dark} />
             {children}
-        </>
+        </LanguageProvider>
     );
 };
 

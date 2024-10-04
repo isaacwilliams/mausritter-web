@@ -5,16 +5,15 @@ import font from '../../styles/font';
 import colors from '../../styles/colors';
 import media from '../../styles/media';
 
-import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
-import {
-    Title,
-    TitleWrapper,
-    RollButton,
-} from '../generatorComponents';
+import { ContentContainer } from '../../layout/ContentContainer';
+import { Title, TitleWrapper, RollButton } from '../generatorComponents';
 
 import InventoryItem from './InventoryItem';
 
 import useRollMouse from './useRollMouse';
+import { useTranslation } from 'react-i18next';
+import { MouseGeneratorData } from './mouseGeneratorTypes';
+import { useLanguage } from '../../../i18n/languageContext';
 
 const Attr = styled.div`
     display: grid;
@@ -117,17 +116,17 @@ const GridContainer = styled.div`
 `;
 
 const MouseColorGridContainer = styled(GridContainer)`
-    grid-template-areas: "name detail";
+    grid-template-areas: 'name detail';
 `;
 
 const MouseStatsGridContainer = styled(GridContainer)`
-    grid-template-areas: "attr inventory";
+    grid-template-areas: 'attr inventory';
     grid-template-columns: 2fr 4fr;
 `;
 
 const NameBackgroundContainer = styled.div`
     grid-area: name;
-`
+`;
 
 const CharacterDetailArea = styled.div`
     grid-area: detail;
@@ -252,47 +251,42 @@ const ExtraItemsList = styled.ul`
 `;
 
 const MausritterCharacter = () => {
-    const [{
-        id,
-        name,
-        coat,
-        physicalDetail,
-        birthsign,
-        disposition,
-        stats,
-        hp,
-        pips,
-        background,
-        items,
-    }, rollMouse] = useRollMouse();
+    const { language, setLanguage } = useLanguage();
+    const { t } = useTranslation('mouse_generator');
 
-    console.log({
-        id,
-        name,
-        coat,
-        physicalDetail,
-        birthsign,
-        disposition,
-        stats,
-        hp,
-        pips,
-        background,
-        items,
-    });
+    const data = t('data', { returnObjects: true }) as MouseGeneratorData;
+
+    const [
+        {
+            id,
+            name,
+            coat,
+            physicalDetail,
+            birthsign,
+            stats,
+            hp,
+            pips,
+            background,
+            items,
+        },
+        rollMouse,
+    ] = useRollMouse(data);
 
     return (
         <ContentContainer>
             <Helmet>
-                <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
+                    rel="stylesheet"
+                />
+                <title>{t('pageTitle')}</title>
             </Helmet>
 
             <TitleWrapper>
-                <Title>
-                    Brave mouse adventurer...
-                </Title>
+                <Title>{t('title')}</Title>
 
                 <RollButton onClick={() => rollMouse()}>
-                    Roll again
+                    {t('ui.roll_button')}
                 </RollButton>
             </TitleWrapper>
 
@@ -300,23 +294,25 @@ const MausritterCharacter = () => {
                 <MouseColorGridContainer>
                     <NameBackgroundContainer>
                         <NameAttr>
-                            <AttrName>Name</AttrName>
+                            <AttrName>{t('fields.name')}</AttrName>
                             <AttrVal>{name}</AttrVal>
                         </NameAttr>
                         <BackgroundAttr>
-                            <AttrNameSmall>Background</AttrNameSmall>
-                            <AttrValSmall>{background}</AttrValSmall>
+                            <AttrNameSmall>
+                                {t('fields.background')}
+                            </AttrNameSmall>
+                            <AttrValSmall>{background.title}</AttrValSmall>
                         </BackgroundAttr>
                     </NameBackgroundContainer>
 
                     <CharacterDetailArea>
-                        <DetailName>Birthsign:</DetailName>
-                        <DetailValue>{birthsign}</DetailValue>
-                        <DetailName>Disposition:</DetailName>
-                        <DetailValue>{disposition}</DetailValue>
-                        <DetailName>Coat:</DetailName>
+                        <DetailName>{t('fields.birthsign')}:</DetailName>
+                        <DetailValue>{birthsign.title}</DetailValue>
+                        <DetailName>{t('fields.disposition')}:</DetailName>
+                        <DetailValue>{birthsign.disposition}</DetailValue>
+                        <DetailName>{t('fields.coat')}:</DetailName>
                         <DetailValue>{coat}</DetailValue>
-                        <DetailName>Physical detail:</DetailName>
+                        <DetailName>{t('fields.physicalDetail')}:</DetailName>
                         <DetailValue>{physicalDetail}</DetailValue>
                     </CharacterDetailArea>
                 </MouseColorGridContainer>
@@ -325,27 +321,27 @@ const MausritterCharacter = () => {
                     <CharacterAttrArea>
                         <AttrInfo>
                             <span></span>
-                            <span>Max</span>
-                            <span>Current</span>
+                            <span>{t('fields.max')}</span>
+                            <span>{t('fields.current')}</span>
                         </AttrInfo>
                         <Attr>
-                            <AttrName>STR</AttrName>
+                            <AttrName>{t('fields.str')}</AttrName>
                             <AttrValMax>{stats.str}</AttrValMax>
                             <AttrValCurrent>{stats.str}</AttrValCurrent>
                         </Attr>
                         <Attr>
-                            <AttrName>DEX</AttrName>
+                            <AttrName>{t('fields.dex')}</AttrName>
                             <AttrValMax>{stats.dex}</AttrValMax>
                             <AttrValCurrent>{stats.dex}</AttrValCurrent>
                         </Attr>
                         <Attr>
-                            <AttrName>WIL</AttrName>
+                            <AttrName>{t('fields.wil')}</AttrName>
                             <AttrValMax>{stats.wil}</AttrValMax>
                             <AttrValCurrent>{stats.wil}</AttrValCurrent>
                         </Attr>
                         <br />
                         <Attr>
-                            <AttrName>HP</AttrName>
+                            <AttrName>{t('fields.hp')}</AttrName>
                             <AttrValMax>{hp}</AttrValMax>
                             <AttrValCurrent>{hp}</AttrValCurrent>
                         </Attr>
@@ -353,26 +349,35 @@ const MausritterCharacter = () => {
 
                     <CharacterInventoryArea>
                         <InventoryTitleWrapper>
-                            <InventoryTitle>Inventory</InventoryTitle>
-                            <InventoryPips>Pips: {pips}</InventoryPips>
+                            <InventoryTitle>
+                                {t('fields.inventory')}
+                            </InventoryTitle>
+                            <InventoryPips>
+                                {t('fields.pips')}: {pips}
+                            </InventoryPips>
                         </InventoryTitleWrapper>
 
                         <InventoryList>
-                            {items.filter(({ type }) => type !== 'special').map((item, i) => (
-                                <InventoryItem key={`${id}${i}`} item={item} />
-                            ))}
+                            {items
+                                .filter(({ notCard }) => !notCard)
+                                .map((item, i) => (
+                                    <InventoryItem
+                                        key={`${id}${i}`}
+                                        item={item}
+                                    />
+                                ))}
                         </InventoryList>
 
                         <ExtraItemsTitle>
-                            Additional items
+                            {t('fields.additionalItems')}
                         </ExtraItemsTitle>
 
                         <ExtraItemsList>
-                            {items.filter(({ type }) => type === 'special').map((item, i) => (
-                                <li key={`${id}${i}`}>
-                                    {item.name}
-                                </li>
-                            ))}
+                            {items
+                                .filter(({ notCard }) => notCard)
+                                .map((item, i) => (
+                                    <li key={`${id}${i}`}>{item.name}</li>
+                                ))}
                         </ExtraItemsList>
                     </CharacterInventoryArea>
                 </MouseStatsGridContainer>
