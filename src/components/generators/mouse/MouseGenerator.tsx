@@ -251,7 +251,6 @@ const ExtraItemsList = styled.ul`
 `;
 
 const MausritterCharacter = () => {
-    const { language, setLanguage } = useLanguage();
     const { t } = useTranslation('mouse_generator');
 
     const data = t('data', { returnObjects: true }) as MouseGeneratorData;
@@ -286,7 +285,7 @@ const MausritterCharacter = () => {
                 <Title>{t('title')}</Title>
 
                 <RollButton onClick={() => rollMouse()}>
-                    {t('ui.roll_button')}
+                    {t('ui.rollButton')}
                 </RollButton>
             </TitleWrapper>
 

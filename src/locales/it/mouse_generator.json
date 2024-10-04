@@ -2,7 +2,7 @@
     "title": "Un coraggioso topo avventuriero...",
     "pageTitle": "Crea un Topo",
     "ui": {
-        "roll_button": "Tira di nuovo"
+        "rollButton": "Tira di nuovo"
     },
     "fields": {
         "name": "Nome",

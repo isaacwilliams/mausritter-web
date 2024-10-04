@@ -2,7 +2,7 @@
     "title": "Brave mouse adventurer...",
     "pageTitle": "Make a mouse",
     "ui": {
-        "roll_button": "Roll again"
+        "rollButton": "Roll again"
     },
     "fields": {
         "name": "Name",
