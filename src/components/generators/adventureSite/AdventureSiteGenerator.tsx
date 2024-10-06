@@ -14,6 +14,7 @@ import spiderFace from './spider-face.svg';
 import lockedChest from './locked-chest.svg';
 
 import { AdventureSiteGeneratorData } from './adventureSiteGeneratorTypes';
+import { Helmet } from 'react-helmet';
 
 const Summary = styled.div`
     max-width: 50rem;
@@ -170,6 +171,10 @@ const AdventureSiteGenerator = () => {
 
     return (
         <ContentContainer>
+            <Helmet>
+                <title>{t('pageTitle')}</title>
+            </Helmet>
+
             <TitleWrapper>
                 <Title>{t('title')}</Title>
 

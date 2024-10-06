@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
 import Helmet from 'react-helmet';
 
-import { kebabCase, compact, lowerCase } from 'lodash/fp';
-import styled, { css } from 'styled-components';
+import { lowerCase } from 'lodash/fp';
+import styled from 'styled-components';
 import { nanoid } from 'nanoid';
 
 import media from '../../styles/media';
@@ -26,6 +26,7 @@ import useFetchImageSource from './useFetchImageSource';
 
 import CUSTOM_ITEM_TEMPLATES from './customItemTemplates';
 import CUSTOM_ITEM_IMAGES from './customItemImages';
+import { Trans, useTranslation } from 'react-i18next';
 
 const StudioContainer = styled.div`
     display: grid;
@@ -163,17 +164,28 @@ const PrintModeInstructions = styled.div`
     }
 `;
 
-const acceptJsonFileUpload = onDataHandler => {
+const acceptJsonFileUpload = (onDataHandler) => {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = 'application/json';
-    fileInput.addEventListener('change', event => {
-        const file = event.target.files[0];
+    fileInput.addEventListener('change', (event) => {
+        if (!event.target) return;
+
+        const files = (event.target as HTMLInputElement).files;
+        if (!files || files.length === 0) return;
+
+        const file = files[0];
         const fileReader = new FileReader();
         fileReader.readAsText(file);
-        fileReader.onloadend = event => {
+        fileReader.onloadend = (event) => {
+            const result = event.target?.result;
+            if (typeof result !== 'string') {
+                alert('Could not load this file.');
+                return;
+            }
+
             try {
-                const { name, items } = JSON.parse(event.target.result);
+                const { name, items } = JSON.parse(result);
 
                 if (typeof name !== 'string') {
                     throw new Error('Name is not a string');
@@ -183,7 +195,7 @@ const acceptJsonFileUpload = onDataHandler => {
                     throw new Error('Not an array');
                 }
 
-                if (!items.every(item => typeof item === 'object')) {
+                if (!items.every((item) => typeof item === 'object')) {
                     throw new Error('Not an array of objects');
                 }
 
@@ -197,20 +209,29 @@ const acceptJsonFileUpload = onDataHandler => {
 };
 
 const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
-    const canvasRef = useRef();
-    const imgRef = useRef();
+    const { t } = useTranslation('item_card_studio');
+
+    const itemTemplates = t('itemTemplates', { returnObjects: true }) as {
+        id: string;
+        name: string;
+        template: any;
+        controls: any;
+    }[];
+
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
 
     const [templateMode, setTemplateMode] = useState(
-        CUSTOM_ITEM_TEMPLATES[0].name
+        itemTemplates[0].id as string
     );
 
     const [itemState, setItemState] = useState(initialState);
 
-    const dispatch = action =>
+    const dispatch = (action) =>
         setItemState(customItemStateReducer(itemState, action));
 
-    const [fontsReady, setFontsReady] = useState();
-    const [imageFile, setImageFile] = useState();
+    const [fontsReady, setFontsReady] = useState<boolean>(false);
+    const [imageFile, setImageFile] = useState<Blob>();
 
     const [sheetItems, setSheetItems] = useLocalStorage(
         'mausritter.sheet-items',
@@ -222,8 +243,8 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         ''
     );
 
-    const selectedTemplate = CUSTOM_ITEM_TEMPLATES.find(
-        ({ name }) => name === templateMode
+    const selectedTemplate = itemTemplates.find(
+        ({ id }) => id === templateMode
     );
     const selectedImageMode = CUSTOM_ITEM_IMAGES.find(
         ({ name }) => name === itemState.image
@@ -231,15 +252,21 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     const imageRes = itemState.resolution === 100 ? 100 : 150;
 
-    const [imageUrl, setImageUrl] = useState();
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
     const imageSource = useFetchImageSource(imageUrl);
 
     useEffect(() => {
         if (!imageFile) return setImageUrl(null);
         const fileReader = new FileReader();
         fileReader.readAsDataURL(imageFile);
-        fileReader.onloadend = event => {
-            setImageUrl(event.target.result);
+        fileReader.onloadend = (event) => {
+            const result = event.target?.result;
+            if (typeof result !== 'string') {
+                alert('Could not load this file.');
+                return;
+            }
+
+            setImageUrl(result);
         };
     }, [imageFile]);
 
@@ -249,6 +276,8 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     const handleSaveImageButtonClick = () => {
         const canvas = canvasRef.current;
+        if (!canvas) return;
+
         const image = canvas.toDataURL('img/png');
 
         const linkElement = document.createElement('a');
@@ -264,7 +293,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         ]);
     };
 
-    const removeSheetItem = itemId => {
+    const removeSheetItem = (itemId) => {
         setSheetItems(sheetItems.filter(({ id }) => id !== itemId));
     };
 
@@ -305,13 +334,13 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         });
     };
 
-    const restoreSheetItem = savedItemState => {
+    const restoreSheetItem = (savedItemState) => {
         dispatch({
             type: 'set-template',
             template: savedItemState,
         });
 
-        setTemplateMode('Freeform');
+        setTemplateMode('freeform');
         setImageUrl(savedItemState.imageUrl);
     };
 
@@ -341,11 +370,13 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     }, [itemState, imageSource, bodyPrintMode]);
 
     useEffect(() => {
+        if (!selectedTemplate) return;
+
         dispatch({
             type: 'set-template',
-            template: selectedTemplate?.template,
+            template: selectedTemplate.template,
         });
-    }, [selectedTemplate]);
+    }, [selectedTemplate?.id]);
 
     if (bodyPrintMode) {
         return (
@@ -354,21 +385,26 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                     sheetItems={sheetItems}
                     restoreSheetItem={restoreSheetItem}
                     removeSheetItem={removeSheetItem}
+                    interactive={false}
                 />
                 <PrintModeInstructions>
                     <BodyText className="small">
-                        <h1>Instructions (these won't print)</h1>
+                        <h1>{t('printSheet.instructionsTitle')}</h1>
 
                         <p>
-                            Use your browser's <strong>Print</strong> or{' '}
-                            <strong>Export as PDF</strong> options. Make sure
-                            scale is set to 100%.
+                            <Trans
+                                t={t}
+                                i18nKey={'printSheet.instructions'}
+                                components={{
+                                    strong: <strong />,
+                                }}
+                            />
                         </p>
 
                         <br />
                         <p>
                             <button onClick={() => setBodyPrintMode(false)}>
-                                Return to Item Studio
+                                {t('printSheet.returnButton')}
                             </button>
                         </p>
                     </BodyText>
@@ -385,6 +421,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                     href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:wght@800&display=swap"
                     rel="stylesheet"
                 />
+                <title>{t('pageTitle')}</title>
             </Helmet>
 
             <div style={{ display: 'none' }}>
@@ -397,7 +434,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
             <ContentContainer>
                 <br />
-                <Title>Item card studio</Title>
+                <Title>{t('title')}</Title>
             </ContentContainer>
 
             <StudioContainer>
@@ -412,6 +449,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
                     <CustomItemControlPanel
                         templateMode={templateMode}
+                        itemTemplates={itemTemplates}
                         selectedTemplate={selectedTemplate}
                         selectedImageMode={selectedImageMode}
                         itemState={itemState}
@@ -426,7 +464,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                 <PrintableSheetStudioContainer>
                     <div className="sheet-area">
                         <CustomItemPrintableSheet
-                            key={fontsReady}
+                            key={`${fontsReady}-${sheetItems.length}`} // Force re-render when fonts are ready
                             interactive
                             sheetItems={sheetItems}
                             restoreSheetItem={restoreSheetItem}
@@ -437,7 +475,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                     <PrintableSheetPrintButton
                         onClick={() => setBodyPrintMode(true)}
                     >
-                        Print
+                        {t('sheet.printSheetButton')}
                     </PrintableSheetPrintButton>
 
                     <PrintableSheetToolsAreaLeft>
@@ -445,27 +483,29 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
                             disabled={sheetItems.length === 0}
                             onClick={handleDownloadSheetData}
                         >
-                            Save sheet
+                            {t('sheet.saveSheetButton')}
                         </PrintableSheetButton>
 
                         <PrintableSheetButton onClick={handleUploadSheetData}>
-                            {sheetItems.length === 0
-                                ? 'Upload sheet'
-                                : 'Upload items'}
+                            {t('sheet.loadSheetButton', {
+                                context: sheetItems.length > 0 && 'hasItems',
+                            })}
                         </PrintableSheetButton>
                     </PrintableSheetToolsAreaLeft>
 
                     <PrintableSheetTitle>
                         <input
-                            placeholder="Sheet name"
+                            placeholder={t('sheet.sheetNamePlaceholder')}
                             value={sheetName}
-                            onChange={event => setSheetName(event.target.value)}
+                            onChange={(event) =>
+                                setSheetName(event.target.value)
+                            }
                         />
                     </PrintableSheetTitle>
 
                     <PrintableSheetToolsAreaRight>
                         <PrintableSheetButton onClick={clearSheetItems}>
-                            Clear sheet
+                            {t('sheet.clearSheetButton')}
                         </PrintableSheetButton>
                     </PrintableSheetToolsAreaRight>
                 </PrintableSheetStudioContainer>

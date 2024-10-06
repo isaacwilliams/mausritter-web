@@ -3,6 +3,7 @@ import { useLanguage } from '../../../i18n/languageContext';
 import styled from 'styled-components';
 
 import globeIcon from './globe.svg';
+import { Helmet } from 'react-helmet';
 
 const LANGUAGE_OPTIONS = [
     { value: 'en', label: '🇬🇧 English' },
@@ -47,6 +48,10 @@ const LanguageSelect = () => {
 
     return (
         <Container>
+            <Helmet>
+                <html lang={language} />
+            </Helmet>
+
             <LanguageButton
                 onClick={() => {
                     selectRef.current?.focus();
@@ -57,11 +62,11 @@ const LanguageSelect = () => {
             <HiddenSelect
                 ref={selectRef}
                 value={language}
-                onChange={event => {
+                onChange={(event) => {
                     setLanguage(event.target.value);
                 }}
             >
-                {LANGUAGE_OPTIONS.map(option => (
+                {LANGUAGE_OPTIONS.map((option) => (
                     <option key={option.value} value={option.value}>
                         {option.label}
                     </option>
