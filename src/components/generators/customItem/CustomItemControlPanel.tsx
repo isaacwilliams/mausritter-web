@@ -361,7 +361,7 @@ const CustomItemControlPanel = ({
 
             <ControlPanelFooter>
                 <FooterInputContainer>
-                    <span>Resolution:</span>
+                    <span>{t('resolution')}:</span>
                     <select
                         value={itemState.resolution}
                         onChange={(event) =>
