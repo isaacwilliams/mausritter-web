@@ -1,8 +1,8 @@
-import React, { useMemo } from "react"
-import { Link } from "gatsby"
+import React, { useMemo } from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import SEO from "../components/layout/SEO"
+import SEO from '../components/layout/SEO';
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
 
@@ -21,11 +21,11 @@ const IndexPage = () => {
         <SiteContainer>
             <SEO title="Adventure site generator" />
 
-            <Navigation />
+            <Navigation showLanguage={true} />
 
             <AdventureSiteGenerator />
         </SiteContainer>
     );
-}
+};
 
-export default IndexPage
+export default IndexPage;
