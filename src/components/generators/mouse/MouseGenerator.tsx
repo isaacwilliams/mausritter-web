@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 import styled, { css } from 'styled-components';
 import font from '../../styles/font';
@@ -252,6 +252,7 @@ const ExtraItemsList = styled.ul`
 
 const MausritterCharacter = () => {
     const { t } = useTranslation('mouse_generator');
+    const { language } = useLanguage();
 
     const data = t('data', { returnObjects: true }) as MouseGeneratorData;
 
