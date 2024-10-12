@@ -30,7 +30,8 @@ const PrintableSheetStudioContainer = styled.div`
         width: ${210 / 2}mm;
         height: ${297 / 2}mm;
 
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1), 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+            0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 
         ${PrintableSheet} {
             position: absolute;
@@ -62,7 +63,7 @@ const PrintableSheetContent = styled.div`
     }
 `;
 
-const SavedCard = styled.div`
+const SavedCard = styled.div<{ interactive: boolean }>`
     position: relative;
     border: 1px dashed black;
 
@@ -74,28 +75,36 @@ const SavedCard = styled.div`
         right: 0;
     }
 
-    ${({ interactive }) => interactive && css`
-        cursor: pointer;
+    ${({ interactive }) =>
+        interactive &&
+        css`
+            cursor: pointer;
 
-        transition: 0.05s ease-out transform, 0.1s ease-out box-shadow;
+            transition: 0.05s ease-out transform, 0.1s ease-out box-shadow;
 
-        &:hover {
-            z-index: 10;
-            transform: scale(2.5);
-            border: 0;
+            &:hover {
+                z-index: 10;
+                transform: scale(2.5);
+                border: 0;
 
-            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1), 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+                box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+                    0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 
-            .remove-button {
-                display: block;
+                .remove-button {
+                    display: block;
+                }
             }
-        }
-    `}
+        `}
 `;
 
-const CustomItemSavedCard = ({ itemState, restoreSheetItem, removeSheetItem, interactive }) => {
-    const canvasRef = useRef();
-    const imgRef = useRef();
+const CustomItemSavedCard = ({
+    itemState,
+    restoreSheetItem,
+    removeSheetItem,
+    interactive,
+}) => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
     const imageSource = useFetchImageSource(itemState.imageUrl);
 
     const { id } = itemState;
@@ -113,11 +122,12 @@ const CustomItemSavedCard = ({ itemState, restoreSheetItem, removeSheetItem, int
     };
 
     useEffect(() => {
-        drawItemCanvasToImage(
-            canvasRef.current,
-            imgRef.current,
-            { ...itemState, imageSource, resolution: 300, border: false },
-        );
+        drawItemCanvasToImage(canvasRef.current, imgRef.current, {
+            ...itemState,
+            imageSource,
+            resolution: 300,
+            border: false,
+        });
     }, [imageSource]);
 
     const cardStyle = {
@@ -126,27 +136,48 @@ const CustomItemSavedCard = ({ itemState, restoreSheetItem, removeSheetItem, int
     };
 
     return (
-        <SavedCard interactive={interactive} style={cardStyle} onClick={handleRestoreButtonClick}>
-            <button className="remove-button" onClick={handleRemoveButtonClick}>X</button>
-            <canvas ref={canvasRef}
-                    width={itemState.width * 300}
-                    height={itemState.height * 300}
-                    style={{ display: 'none' }} />
+        <SavedCard
+            interactive={interactive}
+            style={cardStyle}
+            onClick={handleRestoreButtonClick}
+        >
+            <button className="remove-button" onClick={handleRemoveButtonClick}>
+                X
+            </button>
+            <canvas
+                ref={canvasRef}
+                width={itemState.width * 300}
+                height={itemState.height * 300}
+                style={{ display: 'none' }}
+            />
 
-            <img ref={imgRef} style={{ width: `${itemState.width}in`, height: `${itemState.height}in` }} />
+            <img
+                ref={imgRef}
+                style={{
+                    width: `${itemState.width}in`,
+                    height: `${itemState.height}in`,
+                }}
+            />
         </SavedCard>
     );
 };
 
-const CustomItemPrintableSheet = ({ sheetItems, restoreSheetItem, removeSheetItem, interactive }) => (
+const CustomItemPrintableSheet = ({
+    sheetItems,
+    restoreSheetItem,
+    removeSheetItem,
+    interactive,
+}) => (
     <PrintableSheet>
         <PrintableSheetContent>
             {sheetItems.map((sheetItem) => (
-                <CustomItemSavedCard key={sheetItem.id}
-                        interactive={interactive}
-                        itemState={sheetItem}
-                        restoreSheetItem={restoreSheetItem}
-                        removeSheetItem={removeSheetItem} />
+                <CustomItemSavedCard
+                    key={sheetItem.id}
+                    interactive={interactive}
+                    itemState={sheetItem}
+                    restoreSheetItem={restoreSheetItem}
+                    removeSheetItem={removeSheetItem}
+                />
             ))}
         </PrintableSheetContent>
     </PrintableSheet>

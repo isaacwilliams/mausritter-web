@@ -1,4 +1,3 @@
-
 const CUSTOM_ITEM_TEMPLATES = [
     {
         name: 'Item',

@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Trans, useTranslation } from 'react-i18next';
 
 import font from '../../styles/font';
-import colors from '../../styles/colors';
 import media from '../../styles/media';
 
-import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
+import { ContentContainer } from '../../layout/ContentContainer';
 import { Title, TitleWrapper, RollButton } from '../generatorComponents';
 
 import useAdventureSite from './useAdventureSite';
 
 import spiderFace from './spider-face.svg';
 import lockedChest from './locked-chest.svg';
+
+import { AdventureSiteGeneratorData } from './adventureSiteGeneratorTypes';
+import { Helmet } from 'react-helmet';
 
 const Summary = styled.div`
     max-width: 50rem;
@@ -67,7 +70,12 @@ const RoomArray = styled.div`
     `}
 `;
 
-const Room = styled.div`
+const Room = styled.div<{
+    posX: number;
+    posY: number;
+    creature: boolean;
+    treasure: boolean;
+}>`
     position: relative;
     padding: 1rem;
     border: ${({ creature }) =>
@@ -153,52 +161,50 @@ const Credits = styled.div`
 `;
 
 const AdventureSiteGenerator = () => {
-    const [
-        {
-            summary: {
-                name,
-                construction,
-                ruinAction,
-                ruin,
-                inhabitant,
-                inhabitantAction,
-                goal,
-                secretHidden,
-                secret,
-            },
-            rooms,
-        },
-        rollSite,
-    ] = useAdventureSite();
+    const { t } = useTranslation('adventure_site_generator');
+
+    const data = t('data', {
+        returnObjects: true,
+    }) as AdventureSiteGeneratorData;
+
+    const [{ name, summary, rooms }, rollSite] = useAdventureSite(data);
 
     return (
         <ContentContainer>
-            <TitleWrapper>
-                <Title>Delving into...</Title>
+            <Helmet>
+                <title>{t('pageTitle')}</title>
+            </Helmet>
 
-                <RollButton onClick={() => rollSite()}>Roll again</RollButton>
+            <TitleWrapper>
+                <Title>{t('title')}</Title>
+
+                <RollButton onClick={() => rollSite()}>
+                    {t('ui.rollButton')}
+                </RollButton>
             </TitleWrapper>
 
             <Summary>
                 <SummaryName>{name}</SummaryName>
-                {`, ${construction[0]} `}
-                <SummaryFeature>{construction[1]}</SummaryFeature>
-                {` ${ruinAction} `}
-                <SummaryFeature>{ruin}</SummaryFeature>.{' '}
-                <SummaryFeature>{inhabitant}</SummaryFeature>
-                {` ${inhabitantAction} `}
-                <SummaryFeature>{goal}</SummaryFeature>.
-                {` ${secretHidden} ${secret[0]} `}
-                <SummaryFeature>{secret[1]}</SummaryFeature>.
+                <Trans
+                    t={t}
+                    i18nKey="data.summary.format"
+                    values={summary}
+                    tOptions={{
+                        escapeValue: false,
+                    }}
+                    components={{
+                        b: <SummaryFeature />,
+                    }}
+                />
             </Summary>
 
             <RoomsContainer>
                 <RoomsKey>
                     <RoomsKeyEntry>
-                        <CreatureIcon /> Creature
+                        <CreatureIcon /> {t('labels.creature')}
                     </RoomsKeyEntry>
                     <RoomsKeyEntry>
-                        <TreasureIcon /> Treasure
+                        <TreasureIcon /> {t('labels.treasure')}
                     </RoomsKeyEntry>
                 </RoomsKey>
 
@@ -206,8 +212,7 @@ const AdventureSiteGenerator = () => {
                     {rooms.map(
                         ({
                             id,
-                            posX,
-                            posY,
+                            position,
                             creature,
                             treasure,
                             type,
@@ -215,9 +220,10 @@ const AdventureSiteGenerator = () => {
                         }) => (
                             <Room
                                 key={id}
-                                posX={posX}
-                                posY={posY}
+                                posX={position.x}
+                                posY={position.y}
                                 creature={creature}
+                                treasure={treasure}
                             >
                                 <RoomType>{type}</RoomType>
                                 {description}
@@ -232,10 +238,13 @@ const AdventureSiteGenerator = () => {
             </RoomsContainer>
 
             <Credits>
-                Icons from <a href="https://game-icons.net/">game-icons.net</a>.
-                Chest by <a href="http://lorcblog.blogspot.com/">Lorc</a>.
-                Spider by{' '}
-                <a href="https://twitter.com/unstoppableCarl">Carl Olsen</a>.
+                <Trans
+                    t={t}
+                    i18nKey={'other.credits'}
+                    components={{
+                        a: <a />,
+                    }}
+                />
             </Credits>
         </ContentContainer>
     );

@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import SEO from "../components/layout/SEO"
+import SEO from '../components/layout/SEO';
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
 
@@ -15,11 +15,14 @@ const IndexPage = () => {
         <SiteContainer dark={!bodyPrintMode}>
             <SEO title="Item card studio" />
 
-            {!bodyPrintMode && <Navigation />}
+            {!bodyPrintMode && <Navigation showLanguage={true} />}
 
-            <CustomItemTool bodyPrintMode={bodyPrintMode} setBodyPrintMode={setBodyPrintMode} />
+            <CustomItemTool
+                bodyPrintMode={bodyPrintMode}
+                setBodyPrintMode={setBodyPrintMode}
+            />
         </SiteContainer>
     );
-}
+};
 
-export default IndexPage
+export default IndexPage;
