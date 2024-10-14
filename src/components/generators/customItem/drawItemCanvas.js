@@ -1,8 +1,4 @@
-import {
-    drawStar,
-    drawWrappedText,
-    drawImageProp,
-} from './drawCanvasUtils';
+import { drawStar, drawWrappedText, drawImageProp } from './drawCanvasUtils';
 
 const FONT_TITLE = 'Texturina';
 const FONT_DISPLAY = 'Open Sans Condensed';
@@ -79,7 +75,7 @@ const drawItemCanvas = (canvas, ctx, item) => {
 
         ctx.strokeText(item.classDetail, px(6), canvas.height - px(8));
         ctx.fillText(item.classDetail, px(6), canvas.height - px(8));
-    }
+    };
 
     const drawMechanicDetail = () => {
         ctx.font = `italic ${px(10)}px ${FONT_DISPLAY}`;
@@ -98,7 +94,14 @@ const drawItemCanvas = (canvas, ctx, item) => {
             top += px(6);
         }
 
-        drawWrappedText(ctx, item.mechanicDetail, px(6), top, canvas.width - px(12), px(12));
+        drawWrappedText(
+            ctx,
+            item.mechanicDetail,
+            px(6),
+            top,
+            canvas.width - px(12),
+            px(12)
+        );
     };
 
     const drawUsage = () => {
@@ -145,8 +148,8 @@ const drawItemCanvas = (canvas, ctx, item) => {
 
         const scale = Math.min(width / img.width, height / img.height);
 
-        const x = (width / 2) - (img.width / 2) * scale + margin;
-        const y = (height / 2) - (img.height / 2) * scale + top;
+        const x = width / 2 - (img.width / 2) * scale + margin;
+        const y = height / 2 - (img.height / 2) * scale + top;
 
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
 
@@ -195,7 +198,7 @@ const drawItemCanvas = (canvas, ctx, item) => {
 
         if (item.divider) drawDividerLine(canvas, ctx);
         if (item.border) drawOuterBorder(canvas, ctx);
-    }
+    };
 
     return drawItem();
 };

@@ -222,10 +222,21 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const imgRef = useRef<HTMLImageElement>(null);
 
     const [templateMode, setTemplateMode] = useState(
-        itemTemplates[0].id as string
+        itemTemplates[0]?.id as string
     );
 
-    const [itemState, setItemState] = useState(initialState);
+    const [itemState, setItemState] = useState({
+        ...initialState,
+        ...itemTemplates[0]?.template,
+    });
+
+    useEffect(() => {
+        setTemplateMode(itemTemplates[0]?.id);
+        setItemState({
+            ...initialState,
+            ...itemTemplates[0]?.template,
+        });
+    }, [itemTemplates[0]?.id]);
 
     const dispatch = (action) =>
         setItemState(customItemStateReducer(itemState, action));
