@@ -11,7 +11,10 @@ const BodyText = styled.div`
         font-weight: bold;
     }
 
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
         ${font.display};
     }
 
@@ -19,7 +22,16 @@ const BodyText = styled.div`
         font-size: 2rem;
     }
 
-    p, ul {
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p,
+    ul {
         margin-top: 0.5em;
         margin-bottom: 0.5em;
     }
@@ -28,8 +40,35 @@ const BodyText = styled.div`
         width: auto;
     }
 
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 0.5em;
+    }
+
+    th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: left;
+        ${font.display};
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
     ul {
         list-style: disc;
+        margin-left: 1em;
+    }
+
+    ol {
+        list-style: roman;
         margin-left: 1em;
     }
 

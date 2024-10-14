@@ -6,6 +6,7 @@ import { Link, graphql } from 'gatsby';
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
 import BodyText from '../components/styles/BodyText';
+import ContentContainer from '../components/layout/ContentContainer';
 
 import font from '../components/styles/font';
 
@@ -15,21 +16,28 @@ const FloatingNavDark = styled(Navigation)`
 `;
 
 const BodyTextSmall = styled(BodyText)`
-    font-size: 1rem;
+    font-size: 1.2rem;
 `;
 
-const TOC = styled.nav`
-    position: fixed;
+const SRDContainer = styled(ContentContainer)`
+    display: grid;
+    grid-template-columns: 20rem 3fr;
+`;
 
-    width: 20rem;
-    height: 100%;
+const BodyContainer = styled.div``;
+
+const TOC = styled.nav`
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    align-self: start;
 
     padding-top: 4rem;
-    padding-right: 1rem;
-    margin-right: 2rem;
+    padding-right: 4rem;
 
     font-size: 1rem;
-    line-height: 1;
+    line-height: 1.4;
 
     a {
         ${font.body};
@@ -61,18 +69,8 @@ const TOC = styled.nav`
 
 const TOCSectionTitle = styled.div`
     ${font.display};
-    padding-bottom: 1rem;
-`;
-
-const BodyContainer = styled.div`
-    margin-left: 24rem;
-    max-width: 30rem;
-    padding-top: 6rem;
-    padding-bottom: 4rem;
-`;
-
-const SRDContainer = styled.div`
-    position: relative;
+    padding-top: 1.6rem;
+    padding-bottom: 0.4rem;
 `;
 
 const SRDTemplate = ({
@@ -90,8 +88,9 @@ const SRDTemplate = ({
 
             <SRDContainer>
                 <TOC>
+                    <h1>Mausritter SRD</h1>
                     {groupedPages.map(([sectionTitle, entries], index) => (
-                        <ul key={index}>
+                        <div key={index}>
                             <TOCSectionTitle>{sectionTitle}</TOCSectionTitle>
 
                             <ul>
@@ -115,7 +114,7 @@ const SRDTemplate = ({
                                     );
                                 })}
                             </ul>
-                        </ul>
+                        </div>
                     ))}
                 </TOC>
                 <BodyContainer>
@@ -124,8 +123,6 @@ const SRDTemplate = ({
             </SRDContainer>
         </SiteContainer>
     );
-
-    return null;
 };
 
 export default SRDTemplate;
