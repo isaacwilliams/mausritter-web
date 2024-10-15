@@ -23,16 +23,13 @@ i18n
     // init i18next
     .init({
         lng: getLocalStorageLanguage(),
+        fallbackLng: 'en',
         debug: process.env.NODE_ENV === 'development' ? true : false,
         load: 'languageOnly',
         react: {
             transSupportBasicHtmlNodes: false,
         },
         ns: ['mouse_generator'],
-        // order and from where user language should be detected, only using navigator for now
-        detection: {
-            order: ['navigator'],
-        },
     });
 
 export default i18n;
