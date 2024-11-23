@@ -1,0 +1,228 @@
+{
+    "title": "Gegenstandskarten-Studio",
+    "pageTitle": "Gegenstandskarten-Studio",
+    "controlPanel": {
+        "template": "Vorlage",
+        "name": "Name",
+        "damageOrDef": "Schaden/VTD",
+        "mechanic": "Effekt",
+        "clear": "Erholung",
+        "class": "Art",
+        "usage": "Anwendungen",
+        "star": "Stern",
+        "image": "Bild",
+        "width": "Breite",
+        "height": "Höhe",
+        "background": "Hintergrund",
+        "foreground": "Vordergrund",
+        "divider": "Trenner",
+        "border": "Rahmen",
+        "resolution": "Qualität",
+        "resolutionOptions": [
+            {
+                "dpi": 100,
+                "label": "Gering (geringe Auflösung)"
+            },
+            {
+                "dpi": 300,
+                "label": "Hoch (Druckqualität)"
+            },
+            {
+                "dpi": 600,
+                "label": "Extra Hoch"
+            }
+        ],
+        "saveToSheetButton": "Zum Blatt hinzufügen",
+        "saveImageButton": "Kärtchen speichern",
+        "cardImages": {
+            "None": "Keins",
+            "Custom...": "Eigenes...",
+            "Torch": "Fackel",
+            "Lantern": "Laterne",
+            "Electric lantern": "Elektrische Laterne",
+            "Pip purse": "Kernbeutel",
+            "Quiver": "Pfeile",
+            "Rations": "Rationen",
+            "Stones": "Steine",
+            "Branch": "Improvisiert",
+            "Dagger": "Dolch",
+            "Needle": "Nadel",
+            "Axe": "Axt",
+            "Sword": "Schwert",
+            "Mace": "Morgenstern",
+            "Warhammer": "Kriegshammer",
+            "Spear": "Speer",
+            "Hookarm": "Enterhaken",
+            "Bow": "Bogen",
+            "Sling": "Schleuder",
+            "Heavy armour": "Schwere Rüstung",
+            "Light armour": "Leichte Rüstung",
+            "Spell 1": "Zauber 1",
+            "Spell 2": "Zauber 2",
+            "Spell 3": "Zauber 3",
+            "Spell 4": "Zauber 4",
+            "Spell 5": "Zauber 5",
+            "Spell (blank)": "Zauber (leer)"
+        }
+    },
+    "sheet": {
+        "saveSheetButton": "Blatt speichern",
+        "loadSheetButton": "Blatt hochladen",
+        "loadSheetButton_hasItems": "Gegenstände hochladen",
+        "clearSheetButton": "Blatt leeren",
+        "printSheetButton": "Drucken",
+        "sheetNamePlaceholder": "Blattname"
+    },
+    "printSheet": {
+        "instructionsTitle": "Anleitung (diese wird nicht mitgedruckt)",
+        "instructions": "Benutze die Druckfunktion des Browsers mit der <strong>Drucken</strong> oder <strong>Export als PDF</strong> Option. Setze die Skalierung auf 100%.",
+        "returnButton": "Zurück zum Gegenstandskarten-Studio"
+    },
+    "itemTemplates": [
+        {
+            "id": "item",
+            "name": "Gegenstand",
+            "template": {
+                "name": "Neuer Gegenstand",
+                "usage": 3,
+                "damage": "",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "",
+                "image": "",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": true,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "image": true
+            }
+        },
+        {
+            "id": "weapon",
+            "name": "Waffe",
+            "template": {
+                "name": "Schwert",
+                "usage": 3,
+                "damage": "W6/W8",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "Mittelschwer",
+                "image": "Sword",
+                "__image_comment__": "Don't translate the image name in the templates, they're used as lookup keys",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": true,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "damage": true,
+                "classDetail": true,
+                "image": true
+            }
+        },
+        {
+            "id": "armour",
+            "name": "Rüstung",
+            "template": {
+                "name": "Schwere Rüstung",
+                "usage": 3,
+                "damage": "1 VTD",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "Schwer",
+                "image": "Heavy armour",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 2,
+                "divider": true,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "damage": true,
+                "classDetail": true,
+                "image": true
+            }
+        },
+        {
+            "id": "spell",
+            "name": "Zauber",
+            "template": {
+                "name": "Genesung",
+                "usage": 3,
+                "damage": "",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "",
+                "image": "Spell 1",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": true,
+                "border": true,
+                "star": true
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "image": true
+            }
+        },
+        {
+            "id": "condition",
+            "name": "Zustand",
+            "template": {
+                "name": "Verletzt",
+                "usage": 0,
+                "damage": "",
+                "mechanicDetail": "Nachteil bei STÄ- & GES-Proben",
+                "clearDetail": "Nach kompletter Rast",
+                "classDetail": "",
+                "image": "",
+                "backgroundColor": "#ff4444",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": false,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "mechanicDetail": true,
+                "clearDetail": true
+            }
+        },
+        {
+            "id": "freeform",
+            "name": "Freiform",
+            "template": {},
+            "controls": {
+                "name": true,
+                "usage": true,
+                "damage": true,
+                "mechanicDetail": true,
+                "clearDetail": true,
+                "classDetail": true,
+                "star": true,
+                "image": true
+            }
+        }
+    ]
+}
