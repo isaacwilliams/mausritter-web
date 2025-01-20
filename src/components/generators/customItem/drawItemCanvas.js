@@ -1,4 +1,5 @@
 import { drawStar, drawWrappedText, drawImageProp } from './drawCanvasUtils';
+import i18n from '../../../i18n/initI18n';
 
 const FONT_TITLE = 'Texturina';
 const FONT_DISPLAY = 'Open Sans Condensed';
@@ -58,7 +59,7 @@ const drawItemCanvas = (canvas, ctx, item) => {
         ctx.textAlign = 'left';
 
         ctx.font = `bold ${px(10)}px ${FONT_DISPLAY}`;
-        ctx.fillText('Clear:', px(6), canvas.height - px(8 + 11));
+		ctx.fillText(i18n.t('item_card_studio:controlPanel.clear') + ":", px(6), canvas.height - px(8 + 11));
 
         ctx.font = `${px(10)}px ${FONT_DISPLAY}`;
         ctx.fillText(item.clearDetail, px(6), canvas.height - px(8));
