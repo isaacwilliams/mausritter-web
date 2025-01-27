@@ -1,6 +1,7 @@
 import React, { createContext, useContext } from 'react';
 
 import { useTranslation } from 'react-i18next';
+import { navigate } from 'gatsby';
 
 const LanguageContext = createContext(
     {} as {
@@ -18,8 +19,8 @@ export const LanguageProvider = ({ children }) => {
                 language: i18n.language,
                 setLanguage: (language: string) => {
                     i18n.changeLanguage(language);
-                    window.localStorage.setItem('i18nextLng', language);
-                },
+                    navigate(`?lang=${language}`, { replace: true })
+                }
             }}
         >
             {children}
