@@ -1,0 +1,680 @@
+{
+    "title": "Chrabrý myší dobrodruh...",
+    "pageTitle": "Vytvoř myš",
+    "ui": {
+        "rollButton": "Hoď znovu"
+    },
+    "fields": {
+        "name": "Jméno",
+        "background": "Původ",
+        "birthsign": "Rodné znamení",
+        "disposition": "Povaha",
+        "coat": "Srst",
+        "physicalDetail": "Výrazný rys",
+        "str": "Síla",
+        "dex": "Mrš.",
+        "wil": "Vůle",
+        "hp": "BO",
+        "max": "Maximum",
+        "current": "Aktuální",
+        "inventory": "Inventář",
+        "additionalItems": "Další vybavení",
+        "pips": "Ďobky"
+    },
+    "data": {
+        "standardItems": [
+            {
+                "name": "Zásoby"
+            },
+            {
+                "name": "Pochodeň"
+            },
+            {
+                "name": "Zbraň dle tvého výběru",
+                "notCard": true
+            }
+        ],
+        "backgrounds": [
+            {
+                "title": "Test subject",
+                "items": [
+                    {
+                        "name": "Kouzelná střela",
+                        "type": "Kouzlo"
+                    },
+                    {
+                        "name": "Olověný plášť",
+                        "type": "Těžká zbroj",
+                        "shape": "tall",
+                        "def": "1 obr."
+                    }
+                ]
+            },
+            {
+                "title": "Kuchyňský slídil",
+                "items": [
+                    {
+                        "name": "Štít a kabátec",
+                        "type": "Lehká zbroj",
+                        "shape": "wide",
+                        "def": "1 obr."
+                    },
+                    {
+                        "name": "Hrnce"
+                    }
+                ]
+            },
+            {
+                "title": "Uprchlík z klece",
+                "items": [
+                    {
+                        "name": "Srozumitelnost",
+                        "type": "Kouzlo"
+                    },
+                    {
+                        "name": "Láhev mléka"
+                    }
+                ]
+            },
+            {
+                "title": "Čarodějnice",
+                "items": [
+                    {
+                        "name": "Zahojení",
+                        "type": "Kouzlo"
+                    },
+                    {
+                        "name": "Vonná tyčka"
+                    }
+                ]
+            },
+            {
+                "title": "Kožešník",
+                "items": [
+                    {
+                        "name": "Štít a kabátec",
+                        "type": "Lehká zbroj",
+                        "shape": "wide",
+                        "def": "1 obr."
+                    },
+                    {
+                        "name": "Silné nůžky"
+                    }
+                ]
+            },
+            {
+                "title": "Pouliční rváč",
+                "items": [
+                    {
+                        "name": "Dýka",
+                        "type": "Lehká",
+                        "attack": "k6"
+                    },
+                    {
+                        "name": "Láhev kávy"
+                    }
+                ]
+            },
+            {
+                "title": "Žebravý kněz",
+                "items": [
+                    {
+                        "name": "Zotavení",
+                        "type": "Kouzlo"
+                    },
+                    {
+                        "name": "Svatý symbol"
+                    }
+                ]
+            },
+            {
+                "title": "Honák brouků",
+                "items": [
+                    {
+                        "name": "Pomocník: Věrný brouk",
+                        "notCard": true
+                    },
+                    {
+                        "name": "Tyč, 15 cm"
+                    }
+                ]
+            },
+            {
+                "title": "Sládek",
+                "items": [
+                    {
+                        "name": "Pomocník: Opilý světlonoš",
+                        "notCard": true
+                    },
+                    {
+                        "name": "Soudek piva"
+                    }
+                ]
+            },
+            {
+                "title": "Rybář",
+                "items": [
+                    {
+                        "name": "Jehla",
+                        "type": "Lehká",
+                        "attack": "k6"
+                    },
+                    {
+                        "name": "Síť"
+                    }
+                ]
+            },
+            {
+                "title": "Kovář",
+                "items": [
+                    {
+                        "name": "Kladivo",
+                        "type": "Střední",
+                        "attack": "k6/k8"
+                    },
+                    {
+                        "name": "Pilník na železo"
+                    }
+                ]
+            },
+            {
+                "title": "Dráteník",
+                "items": [
+                    {
+                        "name": "Drát, klubko"
+                    },
+                    {
+                        "name": "Elektrická lampa",
+                        "usage": 6
+                    }
+                ]
+            },
+            {
+                "title": "Dřevorubec",
+                "items": [
+                    {
+                        "name": "Sekera",
+                        "type": "Střední",
+                        "attack": "k6/k8"
+                    },
+                    {
+                        "name": "Motouz, klubko"
+                    }
+                ]
+            },
+            {
+                "title": "Člen netopýřího kultu",
+                "items": [
+                    {
+                        "name": "Tma",
+                        "type": "Kouzlo"
+                    },
+                    {
+                        "name": "Pytlík netopýřích zubů"
+                    }
+                ]
+            },
+            {
+                "title": "Horník v cínovém dole",
+                "items": [
+                    {
+                        "name": "Krumpáč",
+                        "type": "Střední",
+                        "attack": "k6/k8"
+                    },
+                    {
+                        "name": "Lucerna"
+                    }
+                ]
+            },
+            {
+                "title": "Sběrač odpadků",
+                "items": [
+                    {
+                        "name": "Hák na odpadky",
+                        "type": "Těžká",
+                        "attack": "k10",
+                        "shape": "tall"
+                    },
+                    {
+                        "name": "Zrcátko"
+                    }
+                ]
+            },
+            {
+                "title": "Stěnolezec",
+                "items": [
+                    {
+                        "name": "Rybářský háček"
+                    },
+                    {
+                        "name": "Nit, cívka"
+                    }
+                ]
+            },
+            {
+                "title": "Kupec",
+                "items": [
+                    {
+                        "name": "Pomocník: Tažná krysa",
+                        "notCard": true
+                    },
+                    {
+                        "name": "Směnka od šlechtice na 20 ď"
+                    }
+                ]
+            },
+            {
+                "title": "Vorař",
+                "items": [
+                    {
+                        "name": "Kladivo",
+                        "type": "Střední",
+                        "attack": "k6/k8"
+                    },
+                    {
+                        "name": "Dřevěné klíny"
+                    }
+                ]
+            },
+            {
+                "title": "Honák žížal",
+                "items": [
+                    {
+                        "name": "Tyč, 15 cm"
+                    },
+                    {
+                        "name": "Mýdlo"
+                    }
+                ]
+            },
+            {
+                "title": "Vlaštovkář",
+                "items": [
+                    {
+                        "name": "Rybářský háček"
+                    },
+                    {
+                        "name": "Ochranné brýle"
+                    }
+                ]
+            },
+            {
+                "title": "Kanálník",
+                "items": [
+                    {
+                        "name": "Pilník na železo"
+                    },
+                    {
+                        "name": "Nit, cívka"
+                    }
+                ]
+            },
+            {
+                "title": "Žalářník",
+                "items": [
+                    {
+                        "name": "Kopí",
+                        "type": "Těžká",
+                        "attack": "k10",
+                        "shape": "tall"
+                    },
+                    {
+                        "name": "Řetěz, 15 cm"
+                    }
+                ]
+            },
+            {
+                "title": "Pěstitel hub",
+                "items": [
+                    {
+                        "name": "Sušené houby"
+                    },
+                    {
+                        "name": "Maska proti spórám"
+                    }
+                ]
+            },
+            {
+                "title": "Stavitel hrází",
+                "items": [
+                    {
+                        "name": "Lopata"
+                    },
+                    {
+                        "name": "Dřevěné klíny"
+                    }
+                ]
+            },
+            {
+                "title": "Kartograf",
+                "items": [
+                    {
+                        "name": "Brk a inkoust"
+                    },
+                    {
+                        "name": "Kompas"
+                    }
+                ]
+            },
+            {
+                "title": "Vykradač pastiček",
+                "items": [
+                    {
+                        "name": "Kus sýra"
+                    },
+                    {
+                        "name": "Lepidlo"
+                    }
+                ]
+            },
+            {
+                "title": "Tulák",
+                "items": [
+                    {
+                        "name": "Stan",
+                        "shape": "tall"
+                    },
+                    {
+                        "name": "Mapa k pokladu, pochybná"
+                    }
+                ]
+            },
+            {
+                "title": "Pěstitel obilí",
+                "items": [
+                    {
+                        "name": "Kopí",
+                        "type": "Těžká",
+                        "attack": "k10",
+                        "shape": "tall"
+                    },
+                    {
+                        "name": "Píšťalka"
+                    }
+                ]
+            },
+            {
+                "title": "Poslíček",
+                "items": [
+                    {
+                        "name": "Deka"
+                    },
+                    {
+                        "name": "Dokumenty, zapečetěné"
+                    }
+                ]
+            },
+            {
+                "title": "Trubadúr",
+                "items": [
+                    {
+                        "name": "Hudební nástroj"
+                    },
+                    {
+                        "name": "Maskovací sada"
+                    }
+                ]
+            },
+            {
+                "title": "Hazardní hráč",
+                "items": [
+                    {
+                        "name": "Zatížené kostky"
+                    },
+                    {
+                        "name": "Zrcátko"
+                    }
+                ]
+            },
+            {
+                "title": "Sběrač mízy",
+                "items": [
+                    {
+                        "name": "Vědro"
+                    },
+                    {
+                        "name": "Dřevěné klíny"
+                    }
+                ]
+            },
+            {
+                "title": "Včelař",
+                "items": [
+                    {
+                        "name": "Sklenice medu"
+                    },
+                    {
+                        "name": "Síť"
+                    }
+                ]
+            },
+            {
+                "title": "Knihovník",
+                "items": [
+                    {
+                        "name": "Útržek ze starodávné knihy"
+                    },
+                    {
+                        "name": "Brk a inkoust"
+                    }
+                ]
+            },
+            {
+                "title": "Zchudlý šlechtic",
+                "items": [
+                    {
+                        "name": "Plstěný klobouk"
+                    },
+                    {
+                        "name": "Parfém"
+                    }
+                ]
+            }
+        ],
+        "firstNames": [
+            "Ada",
+            "Agáta",
+            "Akácie",
+            "Aloe",
+            "Ambrož",
+            "Anežka",
+            "Anýz",
+            "Apríl",
+            "Astra",
+            "Augustín",
+            "Azalka",
+            "Bazalka",
+            "Berylie",
+            "Bobek",
+            "Bodlák",
+            "Bříz",
+            "Čedar",
+            "Čekanka",
+            "Devětsil",
+            "Edmund",
+            "Eidam",
+            "Elza",
+            "Emil",
+            "Erina",
+            "Estragon",
+            "Fenykl",
+            "Fialka",
+            "Filip",
+            "Františka",
+            "Gouda",
+            "Grácie",
+            "Gvendolína",
+            "Habrovec",
+            "Háta",
+            "Hložek",
+            "Horácio",
+            "Hyacint",
+            "Iris",
+            "Jalovec",
+            "Janek",
+            "Jasan",
+            "Jaspis",
+            "Jeřabinka",
+            "Jílovec",
+            "Jiřička",
+            "Karmína",
+            "Klára",
+            "Kmínek",
+            "Konrád",
+            "Kostřava",
+            "Krokus",
+            "Kuklík",
+            "Květa",
+            "Levandule",
+            "Lilie",
+            "Líska",
+            "Lorenz",
+            "Magnolie",
+            "Majoránka",
+            "Makovec",
+            "Máslena",
+            "Meduňka",
+            "Měsíček",
+            "Muškát",
+            "Myrta",
+            "Niva",
+            "Nora",
+            "Okřál",
+            "Oliver",
+            "Olivie",
+            "Olša",
+            "Opál",
+            "Otýlie",
+            "Pelyňka",
+            "Pepřík",
+            "Perla",
+            "Rípčíp",
+            "Rokfór",
+            "Routa",
+            "Rozmarín",
+            "Rulík",
+            "Řebřík",
+            "Sedmikráska",
+            "Slídie",
+            "Smaragd",
+            "Svízel",
+            "Šafrán",
+            "Šimon",
+            "Šípek",
+            "Šťavel",
+            "Tis",
+            "Vavřinec",
+            "Vilík",
+            "Višňa",
+            "Vlnka",
+            "Vrbena",
+            "Vřesena",
+            "Vřesík",
+            "Zuzanka",
+            "Žitmil"
+        ],
+        "familyNames": [
+            "Bílý/Bílá",
+            "Černý/Černá",
+            "Čihař/Čihařová",
+            "Darček/Darčeková",
+            "Durman/Durmanová",
+            "Hrabal/Hrabalová",
+            "Chalva/Chalvová",
+            "Jařinka/Jařinková",
+            "Jeleňák/Jeleňáková",
+            "Jeseň/Jeseňová",
+            "Katzenreiser/Katzenreiserová",
+            "Máselník/Máselníková",
+            "Píp/Pípová",
+            "Řešetlák/Řešetláková",
+            "Semínko/Semínková",
+            "Sníh/Sněhová",
+            "Strážný/Strážná",
+            "Trnka/Trnková",
+            "Urobil/Urobilová",
+            "Žvanil/Žvanilová"
+        ],
+        "birthSigns": [
+            {
+                "title": "Hvězda",
+                "disposition": "Statečná / zbrklá"
+            },
+            {
+                "title": "Kolo",
+                "disposition": "Pracovitá / nenápaditá"
+            },
+            {
+                "title": "Žalud",
+                "disposition": "Zvědavá / paličatá"
+            },
+            {
+                "title": "Bouřka",
+                "disposition": "Štědrá / popudlivá"
+            },
+            {
+                "title": "Měsíc",
+                "disposition": "Moudrá / záhadná"
+            },
+            {
+                "title": "Matka",
+                "disposition": "Pečující / ustaraná"
+            }
+        ],
+        "coatColors": [
+            "Čokoládová",
+            "Černá",
+            "Bílá",
+            "Světle hnědá",
+            "Šedá",
+            "Namodralá"
+        ],
+        "coatPatterns": [
+            "jednolitá",
+            "mourovatá",
+            "strakatá",
+            "pruhovaná",
+            "tečkovaná",
+            "skvrnitá"
+        ],
+        "physicalDetail": [
+            "Tělo plné jizev",
+            "Korpulentní tělo",
+            "Vychrtlé tělo",
+            "Klackovité tělo",
+            "Drobné tělíčko",
+            "Rozložité tělo",
+            "Válečné malování",
+            "Cizokrajné oblečení",
+            "Elegantní oblečení",
+            "Záplatované oblečení",
+            "Módní oblečení",
+            "Neprané oblečení",
+            "Useknuté ucho",
+            "Neforemný obličej",
+            "Krásný obličej",
+            "Baculatý obličej",
+            "Jemné rysy v obličeji",
+            "Protáhlý obličej",
+            "Načesaná srst",
+            "Dredy",
+            "Nabarvená srst",
+            "Oholená srst",
+            "Kudrnatá srst",
+            "Sametová srst",
+            "Oči temné jako noc",
+            "Páska přes oko",
+            "Krvavě rudé oči",
+            "Moudrý pohled",
+            "Pronikavý pohled",
+            "Blyštivé oči",
+            "Zastřižený ocásek",
+            "Ocásek jako bič",
+            "Chocholatý ocásek",
+            "Pahýl ocásku",
+            "Chápavý ocásek",
+            "Zakroucený ocásek"
+        ]
+    }
+}
