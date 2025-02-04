@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 const LANGUAGE_OPTIONS = [
     { value: 'en', label: '🇬🇧 English' },
     { value: 'it', label: '🇮🇹 Italiano' },
-	{ value: 'cs', label: '🇨🇿 Čeština' }
+    { value: 'cs', label: '🇨🇿 Čeština' }
 ];
 
 const Container = styled.div`

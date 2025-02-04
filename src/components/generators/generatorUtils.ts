@@ -2,10 +2,12 @@ import { isEmpty } from 'lodash';
 import { sum, times, get, split, toPairs, isString, isObject, isArray, includes } from 'lodash/fp';
 
 export const resolveWithContext = (input: any, key: string, context: Map<string, string[]>) => {
+    // If input value is simple string, return it's value directly since it doesn't use context 
     if (isString(input)) {
         return input;
     }
 
+    // Ensure that input value is string or object 
     if (!isObject(input)) {
         console.error("Expected string or object as input!", input)
         return '[error]';
@@ -16,17 +18,17 @@ export const resolveWithContext = (input: any, key: string, context: Map<string,
     // Try to lookup matching translation
     for (const [property, value] of toPairs(input)) {
 
-        const parts = split('_', property);
-
         // If property name is exactly the key without any conditions eg: "familyName"
         // use it as fallback translation, when no other matching property is found
-        if (parts.length == 1 && property == key) {
+        if (property == key) {
             if (result == null) {
                 result = value;
             }
 
             continue;
         }
+
+        const parts = split('_', property);
 
         // Property name must begin with key or it's not a translation
         // eg: "familyName_"
@@ -35,7 +37,7 @@ export const resolveWithContext = (input: any, key: string, context: Map<string,
         }
 
         // Go trough declared conditions for this translation:
-        // eg: "familyName_firstName:male"
+        // eg: "familyName_firstName=male"
         for (let i = 1; i < parts.length; i++) {
             // Get current condition from parts
             const conditionValue = parts[i];
@@ -60,6 +62,7 @@ export const resolveWithContext = (input: any, key: string, context: Map<string,
 
     }
 
+    // Display error, if no translation was matched
     if (result == null) {
         console.error("Unable to resolve value with given context!", input, key, context);
         return '[error]';
@@ -67,6 +70,7 @@ export const resolveWithContext = (input: any, key: string, context: Map<string,
 
     const contextValue = get('context', input);
 
+    // Store custom context under resolution key, if resolved input specifies any
     if (!isEmpty(contextValue)) {
         context.set(key, isArray(contextValue) ? contextValue : [contextValue]);
     }
@@ -74,9 +78,8 @@ export const resolveWithContext = (input: any, key: string, context: Map<string,
     return result;
 }
 
-export const pickWithContext = <T>(array: T[], key: string, context: Map<string, string[]>) => {
-    return resolveWithContext(pick(array), key, context);
-}
+export const pickWithContext = <T>(array: T[], key: string, context: Map<string, string[]>) =>
+    resolveWithContext(pick(array), key, context);
 
 export const pick = <T>(array: T[]) =>
     array[Math.floor(Math.random() * array.length)];
