@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { sum, times, drop, max, compact } from 'lodash/fp';
 import { nanoid } from 'nanoid';
 
-import { pick, rollDice, weightedPick } from '../generatorUtils';
+import { pick, pickWithContext, rollDice, weightedPick } from '../generatorUtils';
 
 import { ROOM_LAYOUTS } from './adventureSiteConstants';
 import {
@@ -13,19 +12,21 @@ import {
 const createAdventureSiteData = (
     generatorData: AdventureSiteGeneratorData
 ): AdventureSite => {
-    const name = `${pick(generatorData.siteName.partA)} ${pick(
-        generatorData.siteName.partB
-    )}`;
+    const context = new Map();
+
+    const location = pickWithContext(generatorData.siteName.location, 'location', context);
+    const modifier = pickWithContext(generatorData.siteName.modifier, 'modifier', context);
+    const name = `${modifier} ${location}`;
 
     const summary = {
-        construction: pick(generatorData.summary.construction),
-        ruinAction: pick(generatorData.summary.ruinAction),
-        ruin: pick(generatorData.summary.ruin),
-        inhabitant: pick(generatorData.summary.inhabitant),
-        inhabitantAction: pick(generatorData.summary.inhabitantAction),
-        inhabitantGoal: pick(generatorData.summary.inhabitantGoal),
-        secretHidden: pick(generatorData.summary.secretHidden),
-        secret: pick(generatorData.summary.secret),
+        construction: pickWithContext(generatorData.summary.construction, 'construction', context),
+        ruinAction: pickWithContext(generatorData.summary.ruinAction, 'ruinAction', context),
+        ruin: pickWithContext(generatorData.summary.ruin, 'ruin', context),
+        inhabitant: pickWithContext(generatorData.summary.inhabitant, 'inhabitant', context),
+        inhabitantAction: pickWithContext(generatorData.summary.inhabitantAction, 'inhabitantAction', context),
+        inhabitantGoal: pickWithContext(generatorData.summary.inhabitantGoal, 'inhabitantGoal', context),
+        secretHidden: pickWithContext(generatorData.summary.secretHidden, 'secretHidden', context),
+        secret: pickWithContext(generatorData.summary.secret, 'secret', context)
     };
 
     const rooms = pick(ROOM_LAYOUTS).map((position) => {

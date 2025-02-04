@@ -8,8 +8,8 @@ export type RoomTypeData = {
 
 export type AdventureSiteGeneratorData = {
     siteName: {
-        partA: string[];
-        partB: string[];
+        modifier: string[];
+        location: string[];
     };
     summary: {
         format: string;
