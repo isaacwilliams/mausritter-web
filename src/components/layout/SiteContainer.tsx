@@ -18,12 +18,7 @@ import colors from '../styles/colors';
 
 import '../../i18n/initI18n';
 
-const LANG_CSS = {
-    cz: font.bodyOpenSans,
-    default: '',
-};
-
-const GlobalStyle = createGlobalStyle<{ $dark: boolean; $language: string }>`
+const GlobalStyle = createGlobalStyle<{ $dark: boolean }>`
     ${reset};
 
     body {
@@ -35,19 +30,15 @@ const GlobalStyle = createGlobalStyle<{ $dark: boolean; $language: string }>`
 
         background: ${({ $dark: dark }) => (dark ? '#eeeeee' : 'white')};
 
-        ${({ $language: language }) => LANG_CSS[language] || LANG_CSS.default}
-
         a {
             color: ${colors.body};
         }
+
+        &:lang(cs) {
+            ${font.bodyOpenSans}
+        }
 }
 `;
-
-const GlobalStyleContainer = ({ dark }: { dark: boolean }) => {
-    const { language } = useLanguage();
-
-    return <GlobalStyle $dark={dark} $language={language} />;
-};
 
 const SiteContainer = ({ children, dark }) => {
     const data = useStaticQuery(graphql`
@@ -129,7 +120,7 @@ const SiteContainer = ({ children, dark }) => {
                     rel="stylesheet"
                 />
             </Helmet>
-            <GlobalStyleContainer dark={dark} />
+            <GlobalStyle $dark={dark} />
             {children}
         </LanguageProvider>
     );
