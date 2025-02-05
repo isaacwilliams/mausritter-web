@@ -13,7 +13,7 @@
     },
     "data": {
         "siteName": {
-            "partA": [
+            "modifier": [
                 "Ceppo",
                 "Albero",
                 "Quercia",
@@ -50,7 +50,7 @@
                 "Nido",
                 "Antro"
             ],
-            "partB": [
+            "location": [
                 "d’Ebano",
                 "d’Avorio",
                 "Verde",
