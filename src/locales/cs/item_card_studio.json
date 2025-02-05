@@ -5,7 +5,7 @@
         "template": "Šablona",
         "name": "Název",
         "damageOrDef": "Zranění/Obrana",
-        "mechanic": "Mechanic",
+        "mechanic": "Mechanika",
         "clear": "Odstranění",
         "class": "Třída",
         "usage": "Použití",
@@ -47,9 +47,9 @@
             "Branch": "Větev",
             "Dagger": "Dýka",
             "Needle": "Jehla",
-            "Axe": "Sekera",
+            "Axe": "Sekyrka",
             "Sword": "Meč",
-            "Mace": "Palcát",
+            "Mace": "Řemdich",
             "Warhammer": "Válečné kladivo",
             "Spear": "Kopí",
             "Hookarm": "Hákopí",
@@ -74,9 +74,9 @@
         "sheetNamePlaceholder": "Název stránky"
     },
     "printSheet": {
-        "instructionsTitle": "Instrukce (these won't print)",
-        "instructions": "Ve svém prohlížeči vyberte možnost <strong>Tisk</strong> nebo <strong>Exportovat jako PDF</strong>. Ujistěte se, že je přiblížení nastaveno na 100 %.",
-        "returnButton": "Vrátit se ke tvorbě kartiček vybavení"
+        "instructionsTitle": "Instrukce (nejsou součástí tisku)",
+        "instructions": "Ve svém prohlížeči vyberte možnost <strong>Tisk</strong> nebo <strong>Exportovat jako PDF</strong>. Ujistěte se, že je přiblížení nastaveno na 100%.",
+        "returnButton": "Vrátit se k tvorbě kartiček vybavení"
     },
     "itemTemplates": [
         {
