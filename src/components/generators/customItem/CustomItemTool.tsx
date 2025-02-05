@@ -241,7 +241,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const dispatch = (action) =>
         setItemState(customItemStateReducer(itemState, action));
 
-    const [fontsReady, setFontsReady] = useState<boolean>(false);
+    const [fontsReady, setFontsReady] = useState<number>(0);
     const [imageFile, setImageFile] = useState<Blob>();
 
     const [sheetItems, setSheetItems] = useLocalStorage(
@@ -357,19 +357,31 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     useEffect(() => {
         Promise.all([
-            new FontFaceObserver('Open Sans Condensed').load(),
-            new FontFaceObserver('Open Sans Condensed', { weight: 700 }).load(),
-            new FontFaceObserver('Open Sans Condensed', {
+            new FontFaceObserver('Open Sans').load(),
+            new FontFaceObserver('Open Sans', { weight: 700 }).load(),
+            new FontFaceObserver('Open Sans', {
                 style: 'italic',
             }).load(),
-            new FontFaceObserver('Texturina', { weight: 800 }).load(),
+            new FontFaceObserver('Texturina').load(),
         ]).then(() => {
-            setFontsReady(true);
+            setFontsReady(Date.now());
 
             drawItemCanvasToImage(canvasRef.current, imgRef.current, {
                 ...itemState,
                 imageSource,
             });
+
+            // bit of a hack, but I can't figure out why
+            // czech characters are not loaded on first render
+            // to get around this, we'll just re-render after a short delay
+            setTimeout(() => {
+                setFontsReady(Date.now());
+
+                drawItemCanvasToImage(canvasRef.current, imgRef.current, {
+                    ...itemState,
+                    imageSource,
+                });
+            }, 250);
         });
     }, []);
 
@@ -429,7 +441,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
             <Helmet>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:opsz,wght@12..72,800&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Texturina:opsz,wght@12..72,800&display=swap"
                     rel="stylesheet"
                 />
                 <title>{t('pageTitle')}</title>
