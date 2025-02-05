@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import media from '../styles/media';
+import font from '../styles/font';
 
-export const ContentContainer = styled.section`
+export const ContentContainer = styled.section<{ $language?: string }>`
     margin-left: auto;
     margin-right: auto;
 
@@ -29,6 +30,6 @@ export const FlexContainer = styled(ContentContainer)`
     justify-content: center;
 
     flex-direction: row;
-`
+`;
 
 export default ContentContainer;

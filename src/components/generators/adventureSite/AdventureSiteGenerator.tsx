@@ -10,7 +10,9 @@ import { Title, TitleWrapper, RollButton } from '../generatorComponents';
 
 import useAdventureSite from './useAdventureSite';
 
+// @ts-ignore — these do not exist, just not recognized by the TS compiler
 import spiderFace from './spider-face.svg';
+// @ts-ignore — these do not exist, just not recognized by the TS compiler
 import lockedChest from './locked-chest.svg';
 
 import { AdventureSiteGeneratorData } from './adventureSiteGeneratorTypes';
@@ -71,20 +73,20 @@ const RoomArray = styled.div`
 `;
 
 const Room = styled.div<{
-    posX: number;
-    posY: number;
-    creature: boolean;
-    treasure: boolean;
+    $posX: number;
+    $posY: number;
+    $creature: boolean;
+    $treasure: boolean;
 }>`
     position: relative;
     padding: 1rem;
-    border: ${({ creature }) =>
-        creature ? '1px solid #ccc' : '1px solid #ccc'};
+    border: ${({ $creature }) =>
+        $creature ? '1px solid #ccc' : '1px solid #ccc'};
 
     background: #eee;
 
-    grid-column: ${({ posX }) => posX};
-    grid-row: ${({ posY }) => posY};
+    grid-column: ${({ $posX }) => $posX};
+    grid-row: ${({ $posY }) => $posY};
 
     ${media.phone`
         padding: 0.8rem;
@@ -220,10 +222,10 @@ const AdventureSiteGenerator = () => {
                         }) => (
                             <Room
                                 key={id}
-                                posX={position.x}
-                                posY={position.y}
-                                creature={creature}
-                                treasure={treasure}
+                                $posX={position.x}
+                                $posY={position.y}
+                                $creature={creature}
+                                $treasure={treasure}
                             >
                                 <RoomType>{type}</RoomType>
                                 {description}

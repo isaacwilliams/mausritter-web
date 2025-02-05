@@ -429,7 +429,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
             <Helmet>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:wght@800&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:opsz,wght@12..72,800&display=swap"
                     rel="stylesheet"
                 />
                 <title>{t('pageTitle')}</title>

@@ -1,11 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
 
+import { LanguageProvider, useLanguage } from '../../i18n/languageContext';
+
+// @ts-ignore — these do not exist, just not recognized by the TS compiler
 import websiteShareImage from './website-share-image.jpg';
+// @ts-ignore
 import favicon32 from './favicon-32x32.png';
+// @ts-ignore
 import favicon16 from './favicon-16x16.png';
 
 import reset from '../styles/reset';
@@ -13,24 +17,37 @@ import font from '../styles/font';
 import colors from '../styles/colors';
 
 import '../../i18n/initI18n';
-import { LanguageProvider } from '../../i18n/languageContext';
 
-const GlobalStyle = createGlobalStyle`
+const LANG_CSS = {
+    cz: font.bodyOpenSans,
+    default: '',
+};
+
+const GlobalStyle = createGlobalStyle<{ $dark: boolean; $language: string }>`
     ${reset};
 
     body {
-        ${font.body}
+        ${font.fontRoot}
+
         font-size: 1rem;
         line-height: 1.33;
         color: ${colors.body};
 
-        background: ${({ dark }) => (dark ? '#eeeeee' : 'white')};
-    }
+        background: ${({ $dark: dark }) => (dark ? '#eeeeee' : 'white')};
 
-    a {
-        color: ${colors.body};
-    }
+        ${({ $language: language }) => LANG_CSS[language] || LANG_CSS.default}
+
+        a {
+            color: ${colors.body};
+        }
+}
 `;
+
+const GlobalStyleContainer = ({ dark }: { dark: boolean }) => {
+    const { language } = useLanguage();
+
+    return <GlobalStyle $dark={dark} $language={language} />;
+};
 
 const SiteContainer = ({ children, dark }) => {
     const data = useStaticQuery(graphql`
@@ -101,8 +118,18 @@ const SiteContainer = ({ children, dark }) => {
                     rel="stylesheet"
                     href="https://use.typekit.net/jcg4vha.css"
                 />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossOrigin="anonymous"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,80,300..800;1,80,300..800&display=swap"
+                    rel="stylesheet"
+                />
             </Helmet>
-            <GlobalStyle dark={dark} />
+            <GlobalStyleContainer dark={dark} />
             {children}
         </LanguageProvider>
     );

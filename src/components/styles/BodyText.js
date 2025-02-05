@@ -3,7 +3,8 @@ import media from './media';
 import font from './font';
 
 const BodyText = styled.div`
-    font-family: interstate-condensed, sans-serif;
+    ${font.body}
+
     font-size: 1.4rem;
     line-height: 1.4;
 

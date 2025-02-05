@@ -6,14 +6,12 @@ import styled from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
-import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
+import { FlexContainer } from '../../layout/ContentContainer';
 
-import { Title, SubTitle } from '../../styles/shared';
+import { Title } from '../../styles/shared';
 import BodyText from '../../styles/BodyText';
 
 import ResourceContainerSection from './ResourceContainerSection';
-
-import THIRD_PARTY_RESOURCES from '../../thirdPartyResources/thirdPartyResourcesData';
 
 const limitedArray = slice(0, 8);
 
@@ -44,10 +42,6 @@ const AllResourcesLink = styled(Link)`
 `;
 
 const Resources = ({}) => {
-    const thirdPartyResources = limitedArray(
-        sortBy('releaseDate', THIRD_PARTY_RESOURCES).reverse()
-    );
-
     return (
         <ResourcesWrapper id="resources">
             <FlexContainer>
