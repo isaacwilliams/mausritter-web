@@ -152,6 +152,12 @@ const CustomItemCheckboxInput = ({
     itemState,
     className,
     dispatch,
+}: {
+    fieldName: string;
+    title: string;
+    itemState: any;
+    className?: string;
+    dispatch: any;
 }) => (
     <StyledInputContainer className={className}>
         <span>{title}:</span>
