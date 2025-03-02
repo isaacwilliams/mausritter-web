@@ -89,6 +89,12 @@ const StyledInputContainer = styled.label`
             font-size: 1rem;
         `}
     }
+
+    &.wide {
+        span {
+            min-width: 10rem;
+        }
+    }
 `;
 
 const FooterInputContainer = styled(StyledInputContainer)`
@@ -125,7 +131,7 @@ const CustomItemInput = ({
     dispatch,
     fieldType = 'text',
 }) => (
-    <StyledInputContainer>
+    <StyledInputContainer className="wide">
         <span>{title}:</span>
         <input
             type={fieldType}
@@ -140,8 +146,14 @@ const CustomItemInput = ({
     </StyledInputContainer>
 );
 
-const CustomItemCheckboxInput = ({ fieldName, title, itemState, dispatch }) => (
-    <StyledInputContainer>
+const CustomItemCheckboxInput = ({
+    fieldName,
+    title,
+    itemState,
+    className,
+    dispatch,
+}) => (
+    <StyledInputContainer className={className}>
         <span>{title}:</span>
         <input
             type="checkbox"
@@ -255,6 +267,7 @@ const CustomItemControlPanel = ({
 
                     {selectedTemplate?.controls?.star && (
                         <CustomItemCheckboxInput
+                            className="wide"
                             itemState={itemState}
                             dispatch={dispatch}
                             title={t('star')}
@@ -263,7 +276,7 @@ const CustomItemControlPanel = ({
                     )}
 
                     {selectedTemplate?.controls?.image && (
-                        <StyledInputContainer>
+                        <StyledInputContainer className="wide">
                             <span>{t('image')}:</span>{' '}
                             <select
                                 value={itemState.image}
