@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import Navigation from '../../navigation/Navigation';
@@ -6,7 +5,6 @@ import BodyText from '../../styles/BodyText';
 import LosingGamesLogo from '../../navigation/logos/LosingGamesLogo';
 
 import media from '../../styles/media';
-import font from '../../styles/font';
 
 import dividerStem from './divider-stem.jpg';
 import mausritterLogo from '../../navigation/logos/mausritter-logo.svg';
@@ -52,12 +50,13 @@ const TitleSectionNav = styled.div`
     `}
 `;
 
+// prettier-ignore
 const MausritterLogoTitle = styled.h1`
     display: block;
     max-width: 30rem;
     height: 8rem;
     font-size: 0;
-    background: url(${mausritterLogo});
+    background: url("${mausritterLogo}");
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;

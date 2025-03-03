@@ -79,6 +79,7 @@ const NavItem = styled.a<{
     `}
 `;
 
+// prettier-ignore
 const NavLogo = styled.a`
     margin-right: auto;
 
@@ -87,7 +88,7 @@ const NavLogo = styled.a`
 
     font-size: 0;
 
-    background: url(${mausritterLogo});
+    background: url("${mausritterLogo}");
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;

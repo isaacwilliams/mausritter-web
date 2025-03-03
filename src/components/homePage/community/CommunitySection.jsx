@@ -9,7 +9,7 @@ import Feature from '../features/Feature';
 
 import { Title, SubTitle } from '../../styles/shared';
 
-import linkButtonTwitter from './icon-twitter.svg';
+import linkButtonBluesky from './icon-bluesky.svg';
 import linkButtonDiscord from './icon-discord.svg';
 import discordMouse from './discord-mouse.png';
 
@@ -57,18 +57,20 @@ const LinkButton = styled.a`
     }
 `;
 
+// prettier-ignore
 const LinkButtonTwitter = styled(LinkButton)`
     margin-left: 1rem;
     margin-right: 1rem;
-    background-image: url(${linkButtonTwitter});
+    background-image: url("${linkButtonBluesky}");
 
     ${media.phone`
         margin-bottom: 1rem;
     `}
 `;
 
+// prettier-ignore
 const LinkButtonDiscord = styled(LinkButton)`
-    background-image: url(${linkButtonDiscord});
+    background-image: url("${linkButtonDiscord}");
 `;
 
 const TwitterLinksContainer = styled(FlexContainer)`
@@ -106,12 +108,8 @@ const CommunitySection = () => (
             <SubTitleCenter>News and updates</SubTitleCenter>
 
             <TwitterLinksContainer>
-                <LinkButtonTwitter href="https://twitter.com/mausritter">
-                    @mausritter
-                </LinkButtonTwitter>
-
-                <LinkButtonTwitter href="https://twitter.com/isaacwilliams">
-                    @isaacwilliams
+                <LinkButtonTwitter href="https://bsky.app/profile/losing.games">
+                    @losing.games
                 </LinkButtonTwitter>
             </TwitterLinksContainer>
         </ContentContainer>

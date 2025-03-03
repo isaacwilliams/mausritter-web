@@ -27,10 +27,11 @@ const HiddenSelect = styled.select`
     z-index: 1;
 `;
 
+// prettier-ignore
 const LanguageButton = styled.button`
     position: relative;
 
-    background: url(${globeIcon}) no-repeat;
+    background: url("${globeIcon}") no-repeat;
     background-size: 1.2rem;
     border: none;
     cursor: pointer;

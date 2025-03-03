@@ -1,6 +1,6 @@
 import React from 'react';
+import { Head } from 'vike-react/Head';
 
-import SEO from '../../src/components/layout/SEO';
 import SiteContainer from '../../src/components/layout/SiteContainer';
 import Navigation from '../../src/components/navigation/Navigation';
 
@@ -9,9 +9,9 @@ import MouseGenerator from '../../src/components/generators/mouse/MouseGenerator
 const IndexPage = () => {
     return (
         <SiteContainer>
-            <header>
+            <Head>
                 <title>Make a mouse</title>
-            </header>
+            </Head>
 
             <Navigation showLanguage />
 

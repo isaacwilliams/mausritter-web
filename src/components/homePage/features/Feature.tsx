@@ -75,7 +75,15 @@ const FeatureTextBody = styled.article`
     `}
 `;
 
-const Feature = ({ image, children, className }) => (
+const Feature = ({
+    image,
+    children,
+    className,
+}: {
+    image?: React.ReactNode;
+    children: React.ReactNode;
+    className?: string;
+}) => (
     <FeaturePanel className={className}>
         <FeatureImage>{image}</FeatureImage>
         <FeatureText>
