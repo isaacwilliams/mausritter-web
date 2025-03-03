@@ -1,24 +1,24 @@
-import React from 'react';
-// import { Link } from 'gatsby';
-import lodash from 'lodash/fp';
-const { sortBy, slice } = lodash;
-
 import { styled } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
-import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
+import { FlexContainer } from '../../layout/ContentContainer';
 
-import { Title, SubTitle } from '../../styles/shared';
+import { Title } from '../../styles/shared';
 import BodyText from '../../styles/BodyText';
 
 import ResourceContainerSection from './ResourceContainerSection';
 
-import THIRD_PARTY_RESOURCES from '../../thirdPartyResources/thirdPartyResourcesData';
-
 import makeMouseImage from './images/make-mouse.png';
 import adventureSiteImage from './images/adventure-site.png';
 import itemCardStudioImage from './images/tool-item-studio.png';
+
+import characterSheetsImage from './images/sheets-players.png';
+import itemConditionSheetsImage from './images/sheets-items.png';
+import gmSessionSheetImage from './images/sheets-gm.png';
+import hexcrawlTemplateImage from './images/sheets-hexcrawl.png';
+import rulesReferenceImage from './images/sheets-rules-reference.png';
+
 import characterSheetsPDF from './files/mausritter-character-sheets.pdf';
 import itemConditionSheetsPDF from './files/mausritter-item-condition-sheets.pdf';
 import gmSessionSheetPDF from './files/mausritter-gm-session-sheet.pdf';
@@ -32,8 +32,6 @@ import libraryWebsitePromoImage from './images/library-website-promo.jpg';
 import libraryWebsitePromoLogo from './images/library-website-promo-logo.png';
 import onlineFoundryImage from './images/online-foundry.jpg';
 import onlineTTSImage from './images/online-tts.jpg';
-
-const limitedArray = slice(0, 8);
 
 const ResourcesWrapper = styled.div`
     padding-top: 6rem;
@@ -61,11 +59,7 @@ const AllResourcesLink = styled.a`
     }
 `;
 
-const Resources = ({}) => {
-    const thirdPartyResources = limitedArray(
-        sortBy('releaseDate', THIRD_PARTY_RESOURCES).reverse(),
-    );
-
+const Resources = () => {
     return (
         <ResourcesWrapper id="resources">
             <FlexContainer>
@@ -98,27 +92,27 @@ const Resources = ({}) => {
                 resources={[
                     {
                         name: 'Character & hireling sheets',
-                        image: characterSheetsPDF,
+                        image: characterSheetsImage,
                         link: characterSheetsPDF,
                     },
                     {
                         name: 'Item & Condition cards',
-                        image: itemConditionSheetsPDF,
+                        image: itemConditionSheetsImage,
                         link: itemConditionSheetsPDF,
                     },
                     {
                         name: 'Game Master Session Tracking sheet',
-                        image: gmSessionSheetPDF,
+                        image: gmSessionSheetImage,
                         link: gmSessionSheetPDF,
                     },
                     {
                         name: 'Hexcrawl template',
-                        image: hexcrawlTemplatePDF,
+                        image: hexcrawlTemplateImage,
                         link: hexcrawlTemplatePDF,
                     },
                     {
                         name: 'Rules reference sheet',
-                        image: rulesReferencePDF,
+                        image: rulesReferenceImage,
                         link: rulesReferencePDF,
                     },
                 ]}

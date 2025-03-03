@@ -212,14 +212,14 @@ const ResourcesSection = ({
 }: {
     title: string;
     itemClassName?: string;
-    resources: {
+    resources?: {
         name: string;
         author?: string;
         image?: string;
         link: string;
         className?: string;
     }[];
-    heroResources: {
+    heroResources?: {
         name: string;
         image: string;
         imageOverlay?: string;
