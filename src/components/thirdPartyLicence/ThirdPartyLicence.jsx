@@ -1,11 +1,13 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import media from '../../components/styles/media';
+import media from '../styles/media';
 
-import { ContentContainer } from '../../components/layout/ContentContainer';
-import BodyText from '../../components/styles/BodyText';
-import { Title, SubTitle } from '../../components/styles/shared';
+import { ContentContainer } from '../layout/ContentContainer';
+import BodyText from '../styles/BodyText';
+import { Title, SubTitle } from '../styles/shared';
+
+import image from './compatible-with-mausritter.svg';
 
 const LicencePageContainer = styled.div`
     margin-top: 3rem;
@@ -211,12 +213,7 @@ const ThirdPartyLicence = () => (
 
                         <p>
                             <LogoDownloadButton href="https://drive.google.com/drive/folders/16hFJkH4hbwuDO0EIb1nswMnz9Logh8nD">
-                                <img
-                                    src={
-                                        require('./compatible-with-mausritter.svg')
-                                            .default
-                                    }
-                                />
+                                <img src={image} />
                                 Download
                             </LogoDownloadButton>
                         </p>
