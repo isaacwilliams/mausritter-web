@@ -122,8 +122,8 @@ const InventoryItem = ({ item }: { item: Item }) => {
             </Name>
             <HeaderInfo>
                 <Usage>
-                    {usageArray.map(() => (
-                        <UsageDot />
+                    {usageArray.map((v, i) => (
+                        <UsageDot key={i} />
                     ))}
                 </Usage>
                 {(def || attack) && <MechInfo>{def || attack}</MechInfo>}

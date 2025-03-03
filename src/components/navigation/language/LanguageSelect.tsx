@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../../../i18n/languageContext';
 import { styled } from 'styled-components';
+import { Head } from 'vike-react/Head';
 
 import globeIcon from './globe.svg';
 
@@ -49,9 +50,9 @@ const LanguageSelect = () => {
 
     return (
         <Container>
-            <header>
+            <Head>
                 <html lang={language} />
-            </header>
+            </Head>
 
             <LanguageButton
                 onClick={() => {

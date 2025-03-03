@@ -1,5 +1,4 @@
-import { i18n } from 'i18next';
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { navigate } from 'vike/client/router';
@@ -16,14 +15,7 @@ export const LanguageProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [i18n, setI18n] = useState<i18n | null>(null);
-
-    useEffect(() => {
-        React.startTransition(() => {
-            const { i18n } = useTranslation();
-            setI18n(i18n);
-        });
-    }, []);
+    const { i18n } = useTranslation(undefined);
 
     if (!i18n) {
         return children; // or a loading indicator

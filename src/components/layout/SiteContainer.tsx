@@ -12,6 +12,7 @@ import colors from '../styles/colors';
 
 import '../../i18n/initI18n';
 import { LanguageProvider } from '../../i18n/languageContext';
+import SSRSafeLanguageProvider from '../../i18n/SSRSafeLanguageProvider';
 
 const GlobalStyle = createGlobalStyle<{
     $dark?: boolean;
@@ -40,7 +41,7 @@ const SiteContainer = ({
     dark?: boolean;
 }) => {
     return (
-        <LanguageProvider>
+        <>
             <Head
             // title={data.site.siteMetadata.title || ''}
             // meta={[
@@ -97,8 +98,8 @@ const SiteContainer = ({
                 />
             </Head>
             <GlobalStyle $dark={dark} />
-            {children}
-        </LanguageProvider>
+            <SSRSafeLanguageProvider>{children}</SSRSafeLanguageProvider>
+        </>
     );
 };
 
