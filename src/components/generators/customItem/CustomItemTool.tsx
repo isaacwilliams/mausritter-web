@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
-import Helmet from 'react-helmet';
 
-import { lowerCase } from 'lodash/fp';
-import styled from 'styled-components';
+import lodash from 'lodash/fp';
+const { lowerCase } = lodash;
+
+import { styled } from 'styled-components';
 import { nanoid } from 'nanoid';
 
 import media from '../../styles/media';
@@ -60,7 +61,8 @@ const ItemContainer = styled.div`
     min-height: 300px;
 
     img {
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+        box-shadow:
+            0 1rem 4rem rgba(0, 0, 0, 0.1),
             0 0.2rem 1rem rgba(0, 0, 0, 0.2);
     }
 `;
@@ -81,7 +83,8 @@ const PrintableSheetStudioContainer = styled.div`
         width: ${210 / 2}mm;
         height: ${297 / 2}mm;
 
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+        box-shadow:
+            0 1rem 4rem rgba(0, 0, 0, 0.1),
             0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 
         z-index: 1;
@@ -222,7 +225,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const imgRef = useRef<HTMLImageElement>(null);
 
     const [templateMode, setTemplateMode] = useState(
-        itemTemplates[0]?.id as string
+        itemTemplates[0]?.id as string,
     );
 
     const [itemState, setItemState] = useState({
@@ -246,19 +249,19 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     const [sheetItems, setSheetItems] = useLocalStorage(
         'mausritter.sheet-items',
-        []
+        [],
     );
 
     const [sheetName, setSheetName] = useLocalStorage(
         'mausritter.sheet-name',
-        ''
+        '',
     );
 
     const selectedTemplate = itemTemplates.find(
-        ({ id }) => id === templateMode
+        ({ id }) => id === templateMode,
     );
     const selectedImageMode = CUSTOM_ITEM_IMAGES.find(
-        ({ name }) => name === itemState.image
+        ({ name }) => name === itemState.image,
     );
 
     const imageRes = itemState.resolution === 100 ? 100 : 150;

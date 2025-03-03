@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import logo from './losing-games-logo.svg';
 
@@ -9,7 +9,7 @@ const LogoImage = styled.img`
     }
 `;
 
-const LosingGamesLogo = ({ className }) => (
+const LosingGamesLogo = ({ className }: { className?: string }) => (
     <a href="https://losing.games">
         <LogoImage src={logo} width="160" className={className} />
     </a>

@@ -1,9 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import font from '../styles/font';
 import media from '../styles/media';
-
-import { Link } from 'gatsby';
 
 import mausritterLogo from '../navigation/logos/mausritter-logo.svg';
 import LanguageSelect from './language/LanguageSelect';
@@ -53,7 +51,7 @@ const NavSection = styled.div`
     `}
 `;
 
-const NavItem = styled(Link)<{
+const NavItem = styled.a<{
     transparent?: boolean;
 }>`
     ${font.display}
@@ -81,7 +79,7 @@ const NavItem = styled(Link)<{
     `}
 `;
 
-const NavLogo = styled(Link)`
+const NavLogo = styled.a`
     margin-right: auto;
 
     width: ${260 * 0.7}px;
@@ -111,29 +109,35 @@ const Divider = styled.div`
     border-right: 1px solid #ccc;
 `;
 
-const Navigation = ({ transparent, showLanguage }) => {
+const Navigation = ({
+    transparent,
+    showLanguage,
+}: {
+    transparent?: boolean;
+    showLanguage?: boolean;
+}) => {
     return (
         <Nav>
             <NavSection className="left">
-                <NavLogo to="/">Mausritter</NavLogo>
+                <NavLogo href="/">Mausritter</NavLogo>
             </NavSection>
 
             <NavSection className="center">
-                <NavItem to="/#get-mausritter" transparent={transparent}>
+                <NavItem href="/#get-mausritter" transparent={transparent}>
                     Get the game
                 </NavItem>
 
-                <NavItem to="/#resources" transparent={transparent}>
+                <NavItem href="/#resources" transparent={transparent}>
                     Resources
                 </NavItem>
 
-                <NavItem to="/#community" transparent={transparent}>
+                <NavItem href="/#community" transparent={transparent}>
                     Community
                 </NavItem>
             </NavSection>
 
             <NavSection className="right">
-                <NavItem to="/mouse" transparent={transparent}>
+                <NavItem href="/mouse" transparent={transparent}>
                     Make a mouse
                 </NavItem>
                 {showLanguage && <LanguageSelect />}

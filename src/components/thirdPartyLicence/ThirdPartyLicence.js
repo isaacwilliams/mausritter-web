@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import media from '../../components/styles/media';
 

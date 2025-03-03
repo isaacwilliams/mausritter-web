@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
@@ -77,13 +77,9 @@ const FeatureTextBody = styled.article`
 
 const Feature = ({ image, children, className }) => (
     <FeaturePanel className={className}>
-        <FeatureImage>
-            {image}
-        </FeatureImage>
+        <FeatureImage>{image}</FeatureImage>
         <FeatureText>
-            <FeatureTextBody>
-                {children}
-            </FeatureTextBody>
+            <FeatureTextBody>{children}</FeatureTextBody>
         </FeatureText>
     </FeaturePanel>
 );

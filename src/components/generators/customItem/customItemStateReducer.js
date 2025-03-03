@@ -1,4 +1,5 @@
-import { clamp } from 'lodash/fp';
+import lodash from 'lodash/fp';
+const { clamp } = lodash;
 
 export const initialState = {
     name: 'New item',
@@ -81,7 +82,7 @@ const stateReducer = (state, action) => {
             return {
                 ...state,
                 backgroundColor: action.backgroundColor,
-            }
+            };
         case 'set-foreground-color':
             return {
                 ...state,

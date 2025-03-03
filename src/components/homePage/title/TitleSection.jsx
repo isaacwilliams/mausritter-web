@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import classNames from 'classnames';
+import { styled } from 'styled-components';
 
 import Navigation from '../../navigation/Navigation';
 import BodyText from '../../styles/BodyText';
 import LosingGamesLogo from '../../navigation/logos/LosingGamesLogo';
-import KickstarterPromoSection from './KickstarterPromoSection';
 
 import media from '../../styles/media';
 import font from '../../styles/font';
@@ -69,30 +67,6 @@ const Blurb = styled.div`
     padding: 1rem;
     background: white;
 `;
-
-const KickstarterPromoBanner = () => {
-    const [hidden, setHidden] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setHidden(false);
-        }, 25);
-    }, []);
-
-    return (
-        <KickstarterPromoSection
-            className={classNames({ hidden })}
-            href="https://www.kickstarter.com/projects/isaac-williams/mausritter-box-set-and-adventure-collection/"
-            target="_blank"
-        >
-            <div className="background" />
-            <div className="title">
-                <div>Explore further.</div>
-                <div className="kickstarter">Mausritter is on Kickstarter</div>
-            </div>
-        </KickstarterPromoSection>
-    );
-};
 
 const TitleSection = () => {
     return (

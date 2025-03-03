@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from 'styled-components';
+import React from 'react';
+import { Link } from 'gatsby';
+import { styled } from 'styled-components';
 
-import SEO from "../components/layout/SEO"
+import SEO from '../components/layout/SEO';
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/navigation/Footer';
@@ -21,6 +21,6 @@ const IndexPage = () => {
             <Footer />
         </SiteContainer>
     );
-}
+};
 
-export default IndexPage
+export default IndexPage;

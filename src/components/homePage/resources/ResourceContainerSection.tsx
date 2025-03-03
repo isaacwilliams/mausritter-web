@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
-import { sortBy, slice } from 'lodash/fp';
+// import { Link } from 'gatsby';
+import lodash from 'lodash/fp';
+const { sortBy, slice } = lodash;
 
 import styled, { css } from 'styled-components';
 import media from '../../styles/media';
-import font from '../../styles/font';
 
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 import { SubTitle } from '../../styles/shared';
@@ -64,7 +64,8 @@ const linkStyle = css`
 
     &.shadow {
         img {
-            box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3),
+            box-shadow:
+                0 0.2rem 0.5rem rgba(0, 0, 0, 0.3),
                 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
         }
     }
@@ -148,16 +149,10 @@ const heroLinkStyle = css`
     `}
 `;
 
-const StyledGatsbyResourceLink = styled(Link)`
-    ${linkStyle}
-`;
 const StyledExternalResourceLink = styled.a`
     ${linkStyle}
 `;
 
-const StyledGatsbyHeroResourceLink = styled(Link)`
-    ${heroLinkStyle}
-`;
 const StyledExternalHeroResourceLink = styled.a`
     ${heroLinkStyle}
 `;
@@ -183,20 +178,28 @@ const ResourcesFooterContainer = styled.div`
     margin-top: 1rem;
 `;
 
-const ResourceLink = ({ to, ...rest }) => {
-    if (to.startsWith('http')) {
-        return <StyledExternalResourceLink href={to} {...rest} />;
-    } else {
-        return <StyledGatsbyResourceLink to={to} {...rest} />;
-    }
+const ResourceLink = ({
+    href,
+    ...rest
+}: {
+    href: string;
+    className?: string;
+    children?: React.ReactNode;
+    style?: React.CSSProperties;
+}) => {
+    return <StyledExternalResourceLink href={href} {...rest} />;
 };
 
-const HeroResourceLink = ({ to, ...rest }) => {
-    if (to.startsWith('http')) {
-        return <StyledExternalHeroResourceLink href={to} {...rest} />;
-    } else {
-        return <StyledGatsbyHeroResourceLink to={to} {...rest} />;
-    }
+const HeroResourceLink = ({
+    href,
+    ...rest
+}: {
+    href: string;
+    className?: string;
+    children?: React.ReactNode;
+    style?: React.CSSProperties;
+}) => {
+    return <StyledExternalHeroResourceLink href={href} {...rest} />;
 };
 
 const ResourcesSection = ({
@@ -206,10 +209,33 @@ const ResourcesSection = ({
     heroResources = [],
     footer,
     sortByField,
+}: {
+    title: string;
+    itemClassName?: string;
+    resources: {
+        name: string;
+        author?: string;
+        image?: string;
+        link: string;
+        className?: string;
+    }[];
+    heroResources: {
+        name: string;
+        image: string;
+        imageOverlay?: string;
+        link: string;
+        className?: string;
+    }[];
+    footer?: React.ReactNode;
+    sortByField?: string;
 }) => {
-    const sortedResources = sortByField
-        ? sortBy(sortByField, resources).reverse()
-        : resources;
+    const sortedResources: {
+        name: string;
+        author?: string;
+        image?: string;
+        link: string;
+        className?: string;
+    }[] = sortByField ? sortBy(sortByField, resources).reverse() : resources;
 
     return (
         <ResourcesSectionContainer>
@@ -222,7 +248,7 @@ const ResourcesSection = ({
                     ({ name, image, imageOverlay, link, className }, i) => (
                         <HeroResourceLink
                             key={i}
-                            to={link}
+                            href={link}
                             style={{ backgroundImage: `url(${image})` }}
                             className={className}
                         >
@@ -236,7 +262,7 @@ const ResourcesSection = ({
                                 />
                             )}
                         </HeroResourceLink>
-                    )
+                    ),
                 )}
             </ContentContainer>
 
@@ -244,7 +270,8 @@ const ResourcesSection = ({
                 {sortedResources.map(
                     ({ name, author, image, link, className }) => (
                         <ResourceLink
-                            to={(link || '').toString()}
+                            key={name}
+                            href={(link || '').toString()}
                             className={className || itemClassName}
                         >
                             {image && <img src={image} alt="" loading="lazy" />}
@@ -255,7 +282,7 @@ const ResourcesSection = ({
                                 )}
                             </div>
                         </ResourceLink>
-                    )
+                    ),
                 )}
             </ResourcesContainer>
 

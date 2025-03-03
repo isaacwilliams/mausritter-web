@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import SEO from '../components/layout/SEO';
 import SiteContainer from '../components/layout/SiteContainer';

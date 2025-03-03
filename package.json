@@ -1,63 +1,40 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A website for the roleplaying game Mausritter",
-  "version": "0.1.0",
-  "author": "Isaac Williams <isaac@isaacwilliams.net>",
-  "homepage": "https://mausritter.com",
+  "scripts": {
+    "dev": "vike dev",
+    "build": "vike build",
+    "preview": "vike preview",
+    "lint": "eslint ."
+  },
   "dependencies": {
-    "@types/react-helmet": "^6.1.11",
-    "classnames": "^2.2.6",
-    "fontfaceobserver": "^2.1.0",
-    "gatsby": "^5.13.7",
-    "gatsby-image": "^3.11.0",
-    "gatsby-plugin-manifest": "^5.13.0",
-    "gatsby-plugin-offline": "^6.13.0",
-    "gatsby-plugin-react-helmet": "^6.13.0",
-    "gatsby-plugin-sharp": "^5.13.0",
-    "gatsby-plugin-styled-components": "^6.13.0",
-    "gatsby-remark-autolink-headers": "^6.13.0",
-    "gatsby-remark-table-of-contents": "^2.0.0",
-    "gatsby-source-filesystem": "^5.13.0",
-    "gatsby-transformer-remark": "^6.13.0",
-    "gatsby-transformer-sharp": "^5.13.0",
-    "gh-pages": "^3.1.0",
-    "i18next": "^23.15.1",
-    "i18next-browser-languagedetector": "^8.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "babel-plugin-styled-components": "^2.1.4",
+    "classnames": "^2.5.1",
+    "fontfaceobserver": "^2.3.0",
+    "i18next": "^24.2.2",
+    "i18next-browser-languagedetector": "^8.0.4",
     "i18next-resources-to-backend": "^1.2.1",
-    "install": "^0.13.0",
-    "lodash": "^4.17.20",
-    "nanoid": "^3.1.16",
-    "prop-types": "^15.7.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-i18next": "^15.0.2",
-    "styled-components": "^6.1.8"
+    "lodash": "^4.17.21",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.1",
+    "styled-components": "^6.1.15",
+    "vike": "^0.4.223",
+    "vike-react": "^0.5.13"
   },
   "devDependencies": {
-    "eslint-config-react-app": "^5.2.1",
-    "prettier": "2.0.5"
+    "@eslint/js": "^9.21.0",
+    "@types/lodash": "^4.17.16",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.1.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "type": "module"
 }

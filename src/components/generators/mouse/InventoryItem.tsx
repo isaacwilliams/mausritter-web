@@ -1,14 +1,17 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { repeat, times } from 'lodash/fp';
+import { styled, css } from 'styled-components';
+import lodash from 'lodash/fp';
+const { times } = lodash;
 
 import font from '../../styles/font';
-import colors from '../../styles/colors';
-import media from '../../styles/media';
+
+import { Item } from './mouseGeneratorTypes';
 
 const ITEM_SIZE = 1.2;
 
-const ItemContainer = styled.div`
+const ItemContainer = styled.div<{
+    $shape: Item['shape'];
+}>`
     display: flex;
     flex-direction: column;
 
@@ -21,27 +24,36 @@ const ItemContainer = styled.div`
     margin-right: 1rem;
     margin-bottom: 1rem;
 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.3),
+        0 3px 5px rgba(0, 0, 0, 0.1);
 
     background-color: #d4c5ae;
 
-    ${({ shape }) => shape === 'wide' &&  css`
-        width: ${ITEM_SIZE * 2}in;
-        height: ${ITEM_SIZE}in;
-    `}
+    ${({ $shape: shape }) =>
+        shape === 'wide' &&
+        css`
+            width: ${ITEM_SIZE * 2}in;
+            height: ${ITEM_SIZE}in;
+        `}
 
-    ${({ shape }) => shape === 'tall' &&  css`
-        width: ${ITEM_SIZE}in;
-        height: ${ITEM_SIZE * 2}in;
-    `}
+    ${({ $shape: shape }) =>
+        shape === 'tall' &&
+        css`
+            width: ${ITEM_SIZE}in;
+            height: ${ITEM_SIZE * 2}in;
+        `}
 `;
 
-const Name = styled.div`
+const Name = styled.div<{
+    $nameLength: number;
+}>`
     padding: 0.3rem;
     border-bottom: 1px solid black;
 
     ${font.display}
-    font-size: ${({ nameLength }) => nameLength > 12 ? '0.8rem' : '0.9rem'};
+    font-size: ${({ $nameLength: nameLength }) =>
+        nameLength > 12 ? '0.8rem' : '0.9rem'};
     height: 1.2rem;
 
     white-space: nowrap;
@@ -53,7 +65,7 @@ const Name = styled.div`
 const HeaderInfo = styled.div`
     display: flex;
     justify-content: space-between;
-`
+`;
 
 const Usage = styled.div`
     display: flex;
@@ -98,20 +110,13 @@ const ItemType = styled.div`
     color: #666;
 `;
 
-const InventoryItem = ({ item }) => {
-    const {
-        name,
-        type,
-        usage = 3,
-        def,
-        attack,
-        shape,
-    } = item;
-    const usageArray = times(String, usage);
+const InventoryItem = ({ item }: { item: Item }) => {
+    const { name, type, def, attack, shape } = item;
+    const usageArray = times(String, 3);
 
     return (
-        <ItemContainer shape={shape}>
-            <Name nameLength={name.length}>
+        <ItemContainer $shape={shape}>
+            <Name $nameLength={name.length}>
                 {type === 'Spell' && '★ '}
                 {name}
             </Name>
@@ -121,18 +126,10 @@ const InventoryItem = ({ item }) => {
                         <UsageDot />
                     ))}
                 </Usage>
-                {(def || attack) && (
-                    <MechInfo>
-                        {def || attack}
-                    </MechInfo>
-                )}
+                {(def || attack) && <MechInfo>{def || attack}</MechInfo>}
             </HeaderInfo>
 
-            {type && (
-                <ItemType>
-                    {type}
-                </ItemType>
-            )}
+            {type && <ItemType>{type}</ItemType>}
         </ItemContainer>
     );
 };

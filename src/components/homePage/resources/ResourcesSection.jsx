@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { sortBy, slice } from 'lodash/fp';
+// import { Link } from 'gatsby';
+import lodash from 'lodash/fp';
+const { sortBy, slice } = lodash;
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 
@@ -14,6 +15,23 @@ import BodyText from '../../styles/BodyText';
 import ResourceContainerSection from './ResourceContainerSection';
 
 import THIRD_PARTY_RESOURCES from '../../thirdPartyResources/thirdPartyResourcesData';
+
+import makeMouseImage from './images/make-mouse.png';
+import adventureSiteImage from './images/adventure-site.png';
+import itemCardStudioImage from './images/tool-item-studio.png';
+import characterSheetsPDF from './files/mausritter-character-sheets.pdf';
+import itemConditionSheetsPDF from './files/mausritter-item-condition-sheets.pdf';
+import gmSessionSheetPDF from './files/mausritter-gm-session-sheet.pdf';
+import hexcrawlTemplatePDF from './files/mausritter-hexcrawl-template.pdf';
+import rulesReferencePDF from './files/mausritter-rules-reference.pdf';
+import theEstatePromoImage from './images/the-estate-promo.jpg';
+import theEstatePromoLogo from './images/the-estate-promo-logo.png';
+import honeyRaftersPromoImage from './images/honey-rafters-promo.jpg';
+import honeyRaftersPromoLogo from './images/honey-rafters-promo-logo.png';
+import libraryWebsitePromoImage from './images/library-website-promo.jpg';
+import libraryWebsitePromoLogo from './images/library-website-promo-logo.png';
+import onlineFoundryImage from './images/online-foundry.jpg';
+import onlineTTSImage from './images/online-tts.jpg';
 
 const limitedArray = slice(0, 8);
 
@@ -28,7 +46,7 @@ const ResourcesWrapper = styled.div`
     `}
 `;
 
-const AllResourcesLink = styled(Link)`
+const AllResourcesLink = styled.a`
     ${font.display}
 
     padding: 0.5rem 1rem;
@@ -45,7 +63,7 @@ const AllResourcesLink = styled(Link)`
 
 const Resources = ({}) => {
     const thirdPartyResources = limitedArray(
-        sortBy('releaseDate', THIRD_PARTY_RESOURCES).reverse()
+        sortBy('releaseDate', THIRD_PARTY_RESOURCES).reverse(),
     );
 
     return (
@@ -59,17 +77,17 @@ const Resources = ({}) => {
                 resources={[
                     {
                         name: 'Make a mouse',
-                        image: require('./images/make-mouse.png').default,
+                        image: makeMouseImage,
                         link: '/mouse',
                     },
                     {
                         name: 'Adventure site generator',
-                        image: require('./images/adventure-site.png').default,
+                        image: adventureSiteImage,
                         link: '/adventure-site',
                     },
                     {
                         name: 'Item card studio',
-                        image: require('./images/tool-item-studio.png').default,
+                        image: itemCardStudioImage,
                         link: '/item-card-studio',
                     },
                 ]}
@@ -80,34 +98,28 @@ const Resources = ({}) => {
                 resources={[
                     {
                         name: 'Character & hireling sheets',
-                        image: require('./images/sheets-players.png').default,
-                        link: require('./files/mausritter-character-sheets.pdf')
-                            .default,
+                        image: characterSheetsPDF,
+                        link: characterSheetsPDF,
                     },
                     {
                         name: 'Item & Condition cards',
-                        image: require('./images/sheets-items.png').default,
-                        link: require('./files/mausritter-item-condition-sheets.pdf')
-                            .default,
+                        image: itemConditionSheetsPDF,
+                        link: itemConditionSheetsPDF,
                     },
                     {
                         name: 'Game Master Session Tracking sheet',
-                        image: require('./images/sheets-gm.png').default,
-                        link: require('./files/mausritter-gm-session-sheet.pdf')
-                            .default,
+                        image: gmSessionSheetPDF,
+                        link: gmSessionSheetPDF,
                     },
                     {
                         name: 'Hexcrawl template',
-                        image: require('./images/sheets-hexcrawl.png').default,
-                        link: require('./files/mausritter-hexcrawl-template.pdf')
-                            .default,
+                        image: hexcrawlTemplatePDF,
+                        link: hexcrawlTemplatePDF,
                     },
                     {
                         name: 'Rules reference sheet',
-                        image: require('./images/sheets-rules-reference.png')
-                            .default,
-                        link: require('./files/mausritter-rules-reference.pdf')
-                            .default,
+                        image: rulesReferencePDF,
+                        link: rulesReferencePDF,
                     },
                 ]}
                 footer={
@@ -128,20 +140,15 @@ const Resources = ({}) => {
                 heroResources={[
                     {
                         name: 'The Estate Adventure Collection',
-                        link:
-                            'https://losing-games.itch.io/mausritter-the-estate-adventure-collection',
-                        image: require('./images/the-estate-promo.jpg').default,
-                        imageOverlay: require('./images/the-estate-promo-logo.png')
-                            .default,
+                        link: 'https://losing-games.itch.io/mausritter-the-estate-adventure-collection',
+                        image: theEstatePromoImage,
+                        imageOverlay: theEstatePromoLogo,
                     },
                     {
                         name: 'Honey in the Rafters',
-                        link:
-                            'https://losing-games.itch.io/mausritter-honey-in-the-rafters',
-                        image: require('./images/honey-rafters-promo.jpg')
-                            .default,
-                        imageOverlay: require('./images/honey-rafters-promo-logo.png')
-                            .default,
+                        link: 'https://losing-games.itch.io/mausritter-honey-in-the-rafters',
+                        image: honeyRaftersPromoImage,
+                        imageOverlay: honeyRaftersPromoLogo,
                     },
                 ]}
             />
@@ -154,10 +161,8 @@ const Resources = ({}) => {
                     {
                         name: 'Mausritter Library',
                         link: 'https://library.mausritter.com',
-                        image: require('./images/library-website-promo.jpg')
-                            .default,
-                        imageOverlay: require('./images/library-website-promo-logo.png')
-                            .default,
+                        image: libraryWebsitePromoImage,
+                        imageOverlay: libraryWebsitePromoLogo,
                     },
                 ]}
                 footer={
@@ -169,7 +174,7 @@ const Resources = ({}) => {
                                     marginBottom: '1.5rem',
                                 }}
                             >
-                                <AllResourcesLink to="https://library.mausritter.com">
+                                <AllResourcesLink href="https://library.mausritter.com">
                                     Visit the Mausritter Library
                                 </AllResourcesLink>
                             </p>
@@ -184,9 +189,9 @@ const Resources = ({}) => {
                             </p>
                             <p>
                                 Learn about the{' '}
-                                <Link to="/third-party-licence">
+                                <a href="/third-party-licence">
                                     Mausritter Third Party Licence
-                                </Link>
+                                </a>
                             </p>
                         </BodyText>
                     </>
@@ -199,16 +204,15 @@ const Resources = ({}) => {
                     {
                         name: 'Foundry VTT Module',
                         author: 'Futilrevenge',
-                        image: require('./images/online-foundry.jpg').default,
+                        image: onlineFoundryImage,
                         link: 'https://foundryvtt.com/packages/mausritter/',
                         className: 'shadow',
                     },
                     {
                         name: 'Tabletop Simulator Module',
                         author: 'Lei',
-                        image: require('./images/online-tts.jpg').default,
-                        link:
-                            'https://steamcommunity.com/sharedfiles/filedetails/?id=2128571929',
+                        image: onlineTTSImage,
+                        link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=2128571929',
                         className: 'shadow',
                     },
                 ]}

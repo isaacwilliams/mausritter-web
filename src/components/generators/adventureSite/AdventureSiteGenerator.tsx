@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { Trans, useTranslation } from 'react-i18next';
 
 import font from '../../styles/font';
@@ -232,7 +232,7 @@ const AdventureSiteGenerator = () => {
                                     {treasure && <TreasureIcon />}
                                 </StatusIconContainer>
                             </Room>
-                        )
+                        ),
                     )}
                 </RoomArray>
             </RoomsContainer>

@@ -1,9 +1,8 @@
 import React from 'react';
 import { useLanguage } from '../../../i18n/languageContext';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import globeIcon from './globe.svg';
-import { Helmet } from 'react-helmet';
 
 const LANGUAGE_OPTIONS = [
     { value: 'en', label: '🇬🇧 English' },
@@ -49,9 +48,9 @@ const LanguageSelect = () => {
 
     return (
         <Container>
-            <Helmet>
+            <header>
                 <html lang={language} />
-            </Helmet>
+            </header>
 
             <LanguageButton
                 onClick={() => {

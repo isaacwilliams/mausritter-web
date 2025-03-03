@@ -1,7 +1,7 @@
 import React from 'react';
 import useScrollPosition from '../../hooks/useScrollPosition';
 import useWindowSize from '../../hooks/useWindowSize';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import mausritterSeperated1 from './mausritter-seperated-1.png';
 import mausritterSeperated2 from './mausritter-seperated-2.png';
@@ -25,7 +25,7 @@ const paralaxStyle = ({ transform = 0, multiplier = 0, offset = 0, top }) => ({
 const ParalaxSection = ({ scrollPosition, windowSize }) => {
     const transform = Math.min(
         (scrollPosition - windowSize.height / 2) / windowSize.height,
-        1
+        1,
     );
 
     return (

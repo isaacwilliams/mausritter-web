@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import media from '../../styles/media';
 import font from '../../styles/font';
 

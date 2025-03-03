@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { sum, times, drop, compact } from 'lodash/fp';
+import lodash from 'lodash/fp';
+const { sum, times, drop, compact } = lodash;
 import { nanoid } from 'nanoid';
 
 import { pick, roll, rollDice } from '../generatorUtils';
@@ -19,17 +20,17 @@ const rollCharacter = (generatorData: MouseGeneratorData): MouseCharacter => {
     const pips = rollPips();
 
     const name = `${pick(generatorData.firstNames)} ${pick(
-        generatorData.familyNames
+        generatorData.familyNames,
     )}`;
 
     const coat = `${pick(generatorData.coatColors)}, ${pick(
-        generatorData.coatPatterns
+        generatorData.coatPatterns,
     )}`;
 
     const physicalDetail = pick(generatorData.physicalDetail);
     const birthsign = pick(generatorData.birthSigns);
 
-    const getBackground = (hp, pips) =>
+    const getBackground = (hp: number, pips: number) =>
         generatorData.backgrounds[(hp - 1) * 6 + (pips - 1)];
 
     const background = getBackground(hp, pips);
@@ -63,7 +64,7 @@ const rollCharacter = (generatorData: MouseGeneratorData): MouseCharacter => {
 };
 
 const useRollMouse = (
-    generatorData: MouseGeneratorData
+    generatorData: MouseGeneratorData,
 ): [MouseCharacter, () => void] => {
     const [mouse, setMouse] = useState(rollCharacter(generatorData));
 

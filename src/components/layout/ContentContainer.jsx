@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import media from '../styles/media';
 
 export const ContentContainer = styled.section`
@@ -29,6 +29,6 @@ export const FlexContainer = styled(ContentContainer)`
     justify-content: center;
 
     flex-direction: row;
-`
+`;
 
 export default ContentContainer;

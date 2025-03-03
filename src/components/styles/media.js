@@ -22,9 +22,11 @@ export default {
             ${css(...args)}
         }
     `,
-    size: breakpoint => (...args) => css`
-        @media (max-width: ${breakpoint}) {
-            ${css(...args)}
-        }
-    `,
+    size:
+        (breakpoint) =>
+        (...args) => css`
+            @media (max-width: ${breakpoint}) {
+                ${css(...args)}
+            }
+        `,
 };

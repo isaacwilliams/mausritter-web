@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "module": "ESNext",
+    "noEmit": true,
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "allowJs": true,
+    "checkJs": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "types": [
+      "vite/client",
+      "vike-react"
+    ],
+    "jsx": "preserve",
+    "jsxImportSource": "react"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.jsx"
+  ],
+  "exclude": [
+    "dist"
+  ]
+}
