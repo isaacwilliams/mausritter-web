@@ -1,4 +1,10 @@
 {
+  "name": "Mausritter",
+  "private": true,
+  "description": "A website for the roleplaying game Mausritter",
+  "version": "1.5.0",
+  "author": "Isaac Williams <isaac@isaacwilliams.net>",
+  "homepage": "https://mausritter.com",
   "scripts": {
     "dev": "vike dev",
     "build": "vike build",
