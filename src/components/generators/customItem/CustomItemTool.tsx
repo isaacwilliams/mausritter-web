@@ -440,7 +440,7 @@ const CustomItemTool = ({
 
     return (
         <>
-            <Config title={t('pageTitle')} />
+            <Config title={`${t('pageTitle')} | Mausritter`} />
 
             <div style={{ display: 'none' }}>
                 <canvas

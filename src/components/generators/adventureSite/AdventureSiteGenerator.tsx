@@ -173,7 +173,7 @@ const AdventureSiteGenerator = () => {
 
     return (
         <ContentContainer>
-            <Config title="Adventure site generator | Mausritter" />
+            <Config title={`${t('pageTitle')} | Mausritter`} />
 
             <TitleWrapper>
                 <Title>{t('title')}</Title>

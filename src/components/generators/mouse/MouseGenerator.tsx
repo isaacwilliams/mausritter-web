@@ -11,6 +11,7 @@ import InventoryItem from './InventoryItem';
 import useRollMouse from './useRollMouse';
 import { useTranslation } from 'react-i18next';
 import { MouseGeneratorData } from './mouseGeneratorTypes';
+import { Config } from 'vike-react/Config';
 
 const Attr = styled.div`
     display: grid;
@@ -270,13 +271,7 @@ const MausritterCharacter = () => {
 
     return (
         <ContentContainer>
-            <header>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
-                    rel="stylesheet"
-                />
-                <title>{t('pageTitle')}</title>
-            </header>
+            <Config title={`${t('pageTitle')} | Mausritter`} />
 
             <TitleWrapper>
                 <Title>{t('title')}</Title>
