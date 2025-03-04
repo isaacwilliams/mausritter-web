@@ -1,14 +1,19 @@
-import { drawStar, drawWrappedText, drawImageProp } from './drawCanvasUtils';
+import { drawStar, drawWrappedText } from './drawCanvasUtils';
 import i18n from '../../../i18n/initI18n';
+import { ItemToolState } from './customItemStateReducer';
 
 const FONT_TITLE = 'Texturina';
 const FONT_DISPLAY = 'Open Sans Condensed';
 
-const drawItemCanvas = (canvas, ctx, item) => {
-    const px = (value) => value * (item.resolution / 100);
+const drawItemCanvas = (
+    canvas: HTMLCanvasElement,
+    ctx: CanvasRenderingContext2D,
+    item: ItemToolState,
+) => {
+    const px = (value: number) => value * (item.resolution / 100);
 
     const drawTitle = () => {
-        let fontSize = px(13);
+        const fontSize = px(13);
         ctx.font = `${fontSize}px ${FONT_TITLE}`;
         ctx.textAlign = 'left';
         ctx.fillStyle = item.foregroundColor;
@@ -38,13 +43,11 @@ const drawItemCanvas = (canvas, ctx, item) => {
         const left = canvas.width - width - px(5);
 
         ctx.beginPath();
-
         ctx.moveTo(left, top);
         ctx.lineTo(left + width, top);
         ctx.lineTo(left + width, top + height);
         ctx.lineTo(left, top + height);
         ctx.lineTo(left, top);
-
         ctx.closePath();
         ctx.stroke();
         ctx.fill();
@@ -55,12 +58,13 @@ const drawItemCanvas = (canvas, ctx, item) => {
         ctx.strokeStyle = item.backgroundColor;
         ctx.lineJoin = 'round';
         ctx.lineWidth = px(3);
-
         ctx.textAlign = 'left';
-
         ctx.font = `bold ${px(10)}px ${FONT_DISPLAY}`;
-		ctx.fillText(i18n.t('item_card_studio:controlPanel.clear') + ":", px(6), canvas.height - px(8 + 11));
-
+        ctx.fillText(
+            i18n.t('item_card_studio:controlPanel.clear') + ':',
+            px(6),
+            canvas.height - px(8 + 11),
+        );
         ctx.font = `${px(10)}px ${FONT_DISPLAY}`;
         ctx.fillText(item.clearDetail, px(6), canvas.height - px(8));
     };
@@ -70,10 +74,8 @@ const drawItemCanvas = (canvas, ctx, item) => {
         ctx.strokeStyle = item.backgroundColor;
         ctx.lineJoin = 'round';
         ctx.lineWidth = px(3);
-
         ctx.textAlign = 'left';
         ctx.font = `bold ${px(10)}px ${FONT_DISPLAY}`;
-
         ctx.strokeText(item.classDetail, px(6), canvas.height - px(8));
         ctx.fillText(item.classDetail, px(6), canvas.height - px(8));
     };
@@ -87,7 +89,7 @@ const drawItemCanvas = (canvas, ctx, item) => {
         if (item.damage.length || item.usage) {
             top += Math.max(
                 item.damage.length ? px(25) : 0,
-                px(Math.ceil(item.usage / 3) * 16)
+                px(Math.ceil(item.usage / 3) * 16),
             );
         }
 
@@ -101,7 +103,7 @@ const drawItemCanvas = (canvas, ctx, item) => {
             px(6),
             top,
             canvas.width - px(12),
-            px(12)
+            px(12),
         );
     };
 
@@ -140,7 +142,7 @@ const drawItemCanvas = (canvas, ctx, item) => {
     const drawImageSource = () => {
         ctx.globalCompositeOperation = 'multiply';
 
-        const img = item.imageSource;
+        const img = item.imageSource as HTMLImageElement;
         const top = px(35);
         const margin = px(10);
 
@@ -178,7 +180,6 @@ const drawItemCanvas = (canvas, ctx, item) => {
         }
 
         drawUsage();
-
         drawTitle();
 
         if (item.clearDetail.length) {
@@ -197,8 +198,8 @@ const drawItemCanvas = (canvas, ctx, item) => {
             drawSpellStar();
         }
 
-        if (item.divider) drawDividerLine(canvas, ctx);
-        if (item.border) drawOuterBorder(canvas, ctx);
+        if (item.divider) drawDividerLine();
+        if (item.border) drawOuterBorder();
     };
 
     return drawItem();

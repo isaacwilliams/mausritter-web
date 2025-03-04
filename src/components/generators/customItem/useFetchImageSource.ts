@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-const useFetchImageSource = (imageUrl) => {
-    const [imageSource, setImageSource] = useState();
+const useFetchImageSource = (imageUrl: string | undefined | null) => {
+    const [imageSource, setImageSource] = useState<HTMLImageElement | null>();
 
     useEffect(() => {
         if (!imageUrl) {
             setImageSource(null);
             return;
-        };
+        }
 
         const image = new Image();
         image.src = imageUrl;
@@ -20,4 +20,4 @@ const useFetchImageSource = (imageUrl) => {
     return imageSource;
 };
 
-export default useFetchImageSource
+export default useFetchImageSource;

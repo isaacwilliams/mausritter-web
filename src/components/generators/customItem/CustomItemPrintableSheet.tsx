@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import { useRef, useEffect } from 'react';
+import { styled, css } from 'styled-components';
 
 import drawItemCanvasToImage from './drawItemCanvasToImage';
 import useFetchImageSource from './useFetchImageSource';
+import { ItemToolState } from './customItemStateReducer';
 
 export const PrintableSheet = styled.div`
     width: 210mm;
@@ -13,39 +14,6 @@ export const PrintableSheet = styled.div`
         height: auto;
         width: auto;
     }
-`;
-
-const PrintableSheetStudioContainer = styled.div`
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    background: #ddd;
-
-    > div {
-        position: relative;
-        width: ${210 / 2}mm;
-        height: ${297 / 2}mm;
-
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
-            0 0.2rem 1rem rgba(0, 0, 0, 0.2);
-
-        ${PrintableSheet} {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            transform: scale(0.5);
-            transform-origin: 0% 0%;
-        }
-    }
-`;
-
-const PrintableSheetPrintButton = styled.button`
-    margin-top: 2rem;
 `;
 
 const PrintableSheetContent = styled.div`
@@ -63,7 +31,7 @@ const PrintableSheetContent = styled.div`
     }
 `;
 
-const SavedCard = styled.div<{ interactive: boolean }>`
+const SavedCard = styled.div<{ $interactive: boolean }>`
     position: relative;
     border: 1px dashed black;
 
@@ -75,19 +43,22 @@ const SavedCard = styled.div<{ interactive: boolean }>`
         right: 0;
     }
 
-    ${({ interactive }) =>
+    ${({ $interactive: interactive }) =>
         interactive &&
         css`
             cursor: pointer;
 
-            transition: 0.05s ease-out transform, 0.1s ease-out box-shadow;
+            transition:
+                0.05s ease-out transform,
+                0.1s ease-out box-shadow;
 
             &:hover {
                 z-index: 10;
                 transform: scale(2.5);
                 border: 0;
 
-                box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+                box-shadow:
+                    0 1rem 4rem rgba(0, 0, 0, 0.1),
                     0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 
                 .remove-button {
@@ -97,19 +68,28 @@ const SavedCard = styled.div<{ interactive: boolean }>`
         `}
 `;
 
+type CustomItemSavedCardProps = {
+    itemState: ItemToolState;
+    restoreSheetItem: (item: ItemToolState) => void;
+    removeSheetItem: (id: string) => void;
+    interactive: boolean;
+};
+
 const CustomItemSavedCard = ({
     itemState,
     restoreSheetItem,
     removeSheetItem,
     interactive,
-}) => {
+}: CustomItemSavedCardProps) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
     const imageSource = useFetchImageSource(itemState.imageUrl);
 
     const { id } = itemState;
 
-    const handleRemoveButtonClick = (event) => {
+    const handleRemoveButtonClick = (
+        event: React.MouseEvent<HTMLButtonElement>,
+    ) => {
         if (!interactive) return;
         event.preventDefault();
         event.stopPropagation();
@@ -137,7 +117,7 @@ const CustomItemSavedCard = ({
 
     return (
         <SavedCard
-            interactive={interactive}
+            $interactive={interactive}
             style={cardStyle}
             onClick={handleRestoreButtonClick}
         >
@@ -162,12 +142,19 @@ const CustomItemSavedCard = ({
     );
 };
 
+type CustomItemPrintableSheetProps = {
+    sheetItems: ItemToolState[];
+    restoreSheetItem: (item: ItemToolState) => void;
+    removeSheetItem: (id: string) => void;
+    interactive: boolean;
+};
+
 const CustomItemPrintableSheet = ({
     sheetItems,
     restoreSheetItem,
     removeSheetItem,
     interactive,
-}) => (
+}: CustomItemPrintableSheetProps) => (
     <PrintableSheet>
         <PrintableSheetContent>
             {sheetItems.map((sheetItem) => (
