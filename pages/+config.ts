@@ -7,7 +7,8 @@ import type { Config } from 'vike/types';
 export default {
     // https://vike.dev/head-tags
     title: 'Mausritter',
-    description: 'Demo showcasing Vike',
+    description:
+        'Take up the sword and don the whiskers of a brave mouse adventurer in Mausritter, the rules-light fantasy adventure roleplaying game.',
 
     extends: vikeReact,
     prerender: true,
