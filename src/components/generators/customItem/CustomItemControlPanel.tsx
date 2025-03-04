@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { kebabCase } from 'lodash/fp';
+import { styled } from 'styled-components';
+import lodash from 'lodash/fp';
+const { kebabCase } = lodash;
 
 import media from '../../styles/media';
 
@@ -303,7 +304,7 @@ const CustomItemControlPanel = ({
                                             );
 
                                         const translatedName = t(
-                                            `cardImages.${name}`
+                                            `cardImages.${name}`,
                                         );
 
                                         return (
@@ -311,7 +312,7 @@ const CustomItemControlPanel = ({
                                                 {translatedName}
                                             </option>
                                         );
-                                    }
+                                    },
                                 )}
                             </select>
                         </StyledInputContainer>

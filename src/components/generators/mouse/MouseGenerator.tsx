@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Helmet from 'react-helmet';
-import styled, { css } from 'styled-components';
+import { styled } from 'styled-components';
 import font from '../../styles/font';
 import colors from '../../styles/colors';
 import media from '../../styles/media';
@@ -13,7 +11,7 @@ import InventoryItem from './InventoryItem';
 import useRollMouse from './useRollMouse';
 import { useTranslation } from 'react-i18next';
 import { MouseGeneratorData } from './mouseGeneratorTypes';
-import { useLanguage } from '../../../i18n/languageContext';
+import { Config } from 'vike-react/Config';
 
 const Attr = styled.div`
     display: grid;
@@ -252,7 +250,6 @@ const ExtraItemsList = styled.ul`
 
 const MausritterCharacter = () => {
     const { t } = useTranslation('mouse_generator');
-    const { language } = useLanguage();
 
     const data = t('data', { returnObjects: true }) as MouseGeneratorData;
 
@@ -274,13 +271,7 @@ const MausritterCharacter = () => {
 
     return (
         <ContentContainer>
-            <Helmet>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
-                    rel="stylesheet"
-                />
-                <title>{t('pageTitle')}</title>
-            </Helmet>
+            <Config title={`${t('pageTitle')} | Mausritter`} />
 
             <TitleWrapper>
                 <Title>{t('title')}</Title>

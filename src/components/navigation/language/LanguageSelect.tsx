@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLanguage } from '../../../i18n/languageContext';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
+import { Head } from 'vike-react/Head';
 
 import globeIcon from './globe.svg';
-import { Helmet } from 'react-helmet';
 
 const LANGUAGE_OPTIONS = [
     { value: 'en', label: '🇬🇧 English' },
@@ -28,10 +28,11 @@ const HiddenSelect = styled.select`
     z-index: 1;
 `;
 
+// prettier-ignore
 const LanguageButton = styled.button`
     position: relative;
 
-    background: url(${globeIcon}) no-repeat;
+    background: url("${globeIcon}") no-repeat;
     background-size: 1.2rem;
     border: none;
     cursor: pointer;
@@ -49,9 +50,9 @@ const LanguageSelect = () => {
 
     return (
         <Container>
-            <Helmet>
+            <Head>
                 <html lang={language} />
-            </Helmet>
+            </Head>
 
             <LanguageButton
                 onClick={() => {

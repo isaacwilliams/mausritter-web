@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
-import Helmet from 'react-helmet';
 
-import { lowerCase } from 'lodash/fp';
-import styled from 'styled-components';
+import lodash from 'lodash/fp';
+const { lowerCase } = lodash;
+
+import { styled } from 'styled-components';
 import { nanoid } from 'nanoid';
 
 import media from '../../styles/media';
@@ -18,15 +19,18 @@ import CustomItemPrintableSheet, {
     PrintableSheet,
 } from './CustomItemPrintableSheet';
 
-import drawItemCanvas from './drawItemCanvas';
 import drawItemCanvasToImage from './drawItemCanvasToImage';
-import customItemStateReducer, { initialState } from './customItemStateReducer';
+import customItemStateReducer, {
+    initialState,
+    ItemToolState,
+    Action,
+} from './customItemStateReducer';
 import useLocalStorage from './useLocalStorage';
 import useFetchImageSource from './useFetchImageSource';
 
-import CUSTOM_ITEM_TEMPLATES from './customItemTemplates';
 import CUSTOM_ITEM_IMAGES from './customItemImages';
 import { Trans, useTranslation } from 'react-i18next';
+import { Config } from 'vike-react/Config';
 
 const StudioContainer = styled.div`
     display: grid;
@@ -60,7 +64,8 @@ const ItemContainer = styled.div`
     min-height: 300px;
 
     img {
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+        box-shadow:
+            0 1rem 4rem rgba(0, 0, 0, 0.1),
             0 0.2rem 1rem rgba(0, 0, 0, 0.2);
     }
 `;
@@ -81,7 +86,8 @@ const PrintableSheetStudioContainer = styled.div`
         width: ${210 / 2}mm;
         height: ${297 / 2}mm;
 
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1),
+        box-shadow:
+            0 1rem 4rem rgba(0, 0, 0, 0.1),
             0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 
         z-index: 1;
@@ -164,7 +170,9 @@ const PrintModeInstructions = styled.div`
     }
 `;
 
-const acceptJsonFileUpload = (onDataHandler) => {
+const acceptJsonFileUpload = (
+    onDataHandler: (args: { name: string; items: any[] }) => void,
+) => {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = 'application/json';
@@ -208,7 +216,13 @@ const acceptJsonFileUpload = (onDataHandler) => {
     fileInput.click();
 };
 
-const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
+const CustomItemTool = ({
+    bodyPrintMode,
+    setBodyPrintMode,
+}: {
+    bodyPrintMode: boolean;
+    setBodyPrintMode: (mode: boolean) => void;
+}) => {
     const { t } = useTranslation('item_card_studio');
 
     const itemTemplates = t('itemTemplates', { returnObjects: true }) as {
@@ -222,10 +236,10 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const imgRef = useRef<HTMLImageElement>(null);
 
     const [templateMode, setTemplateMode] = useState(
-        itemTemplates[0]?.id as string
+        itemTemplates[0]?.id as string,
     );
 
-    const [itemState, setItemState] = useState({
+    const [itemState, setItemState] = useState<ItemToolState>({
         ...initialState,
         ...itemTemplates[0]?.template,
     });
@@ -238,32 +252,32 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         });
     }, [itemTemplates[0]?.id]);
 
-    const dispatch = (action) =>
+    const dispatch = (action: Action) =>
         setItemState(customItemStateReducer(itemState, action));
 
     const [fontsReady, setFontsReady] = useState<boolean>(false);
     const [imageFile, setImageFile] = useState<Blob>();
 
-    const [sheetItems, setSheetItems] = useLocalStorage(
+    const [sheetItems, setSheetItems] = useLocalStorage<ItemToolState[]>(
         'mausritter.sheet-items',
-        []
+        [],
     );
 
-    const [sheetName, setSheetName] = useLocalStorage(
+    const [sheetName, setSheetName] = useLocalStorage<string>(
         'mausritter.sheet-name',
-        ''
+        '',
     );
 
     const selectedTemplate = itemTemplates.find(
-        ({ id }) => id === templateMode
+        ({ id }) => id === templateMode,
     );
     const selectedImageMode = CUSTOM_ITEM_IMAGES.find(
-        ({ name }) => name === itemState.image
+        ({ name }) => name === itemState.image,
     );
 
     const imageRes = itemState.resolution === 100 ? 100 : 150;
 
-    const [imageUrl, setImageUrl] = useState<string | null>(null);
+    const [imageUrl, setImageUrl] = useState<string | null | undefined>(null);
     const imageSource = useFetchImageSource(imageUrl);
 
     useEffect(() => {
@@ -300,11 +314,11 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
     const addSheetItem = () => {
         setSheetItems([
             ...sheetItems,
-            { id: nanoid(), ...itemState, imageUrl },
+            { ...itemState, id: nanoid(), imageUrl },
         ]);
     };
 
-    const removeSheetItem = (itemId) => {
+    const removeSheetItem = (itemId: string) => {
         setSheetItems(sheetItems.filter(({ id }) => id !== itemId));
     };
 
@@ -345,7 +359,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
         });
     };
 
-    const restoreSheetItem = (savedItemState) => {
+    const restoreSheetItem = (savedItemState: ItemToolState) => {
         dispatch({
             type: 'set-template',
             template: savedItemState,
@@ -426,14 +440,7 @@ const CustomItemTool = ({ bodyPrintMode, setBodyPrintMode }) => {
 
     return (
         <>
-            <Helmet>
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Texturina:wght@800&display=swap"
-                    rel="stylesheet"
-                />
-                <title>{t('pageTitle')}</title>
-            </Helmet>
+            <Config title={`${t('pageTitle')} | Mausritter`} />
 
             <div style={{ display: 'none' }}>
                 <canvas

@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import SEO from '../components/layout/SEO';
 import SiteContainer from '../components/layout/SiteContainer';
@@ -22,6 +21,8 @@ const IndexPage = () => {
             <SEO title="Make a mouse" />
 
             <Navigation showLanguage />
+
+            <a href="/some-path">Some Link</a>
 
             <MouseGenerator />
         </SiteContainer>

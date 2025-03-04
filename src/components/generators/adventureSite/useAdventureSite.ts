@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { sum, times, drop, max, compact } from 'lodash/fp';
 import { nanoid } from 'nanoid';
 
 import { pick, rollDice, weightedPick } from '../generatorUtils';
@@ -11,10 +10,10 @@ import {
 } from './adventureSiteGeneratorTypes';
 
 const createAdventureSiteData = (
-    generatorData: AdventureSiteGeneratorData
+    generatorData: AdventureSiteGeneratorData,
 ): AdventureSite => {
     const name = `${pick(generatorData.siteName.partA)} ${pick(
-        generatorData.siteName.partB
+        generatorData.siteName.partB,
     )}`;
 
     const summary = {
@@ -50,10 +49,10 @@ const createAdventureSiteData = (
 };
 
 const useRollAdventureSite = (
-    generatorData: AdventureSiteGeneratorData
+    generatorData: AdventureSiteGeneratorData,
 ): [AdventureSite, () => void] => {
     const [adventureSite, setAdventureSite] = useState(
-        createAdventureSiteData(generatorData)
+        createAdventureSiteData(generatorData),
     );
 
     const rollAdventureSite = () => {

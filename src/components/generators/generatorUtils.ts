@@ -1,10 +1,11 @@
-import { sum, times } from 'lodash/fp';
+import lodash from 'lodash/fp';
+const { sum, times } = lodash;
 
 export const pick = <T>(array: T[]) =>
     array[Math.floor(Math.random() * array.length)];
 
 export const weightedPick = <T extends { weight: number }>(array: T[]): T => {
-    const totalWeight = sum(array.map(item => item.weight));
+    const totalWeight = sum(array.map((item) => item.weight));
     const random = Math.random() * totalWeight;
 
     let total = 0;

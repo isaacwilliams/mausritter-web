@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { groupBy, get } from 'lodash/fp';
+import { styled } from 'styled-components';
+import lodash from 'lodash/fp';
+const { groupBy, get } = lodash;
 import { Link, graphql } from 'gatsby';
 
 import SiteContainer from '../components/layout/SiteContainer';
@@ -128,7 +129,7 @@ const SRDTemplate = ({
 export default SRDTemplate;
 
 export const pageQuery = graphql`
-    query($slug: String!) {
+    query ($slug: String!) {
         page: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
             html
             frontmatter {

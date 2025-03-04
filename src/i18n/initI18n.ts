@@ -8,11 +8,12 @@ i18n
     .use(initReactI18next)
     .use(LanguageDetector)
     .use(
-        resourcesToBackend((language: string, namespace: string) =>
-            import(
-                `../locales/${language}/${namespace}.json` /* webpackChunkName: "locales/[request]" */
-            )
-        )
+        resourcesToBackend(
+            (language: string, namespace: string) =>
+                import(
+                    `../locales/${language}/${namespace}.json` /* webpackChunkName: "locales/[request]" */
+                ),
+        ),
     )
 
     // init i18next
@@ -21,7 +22,7 @@ i18n
             order: ['querystring', 'localStorage'],
             caches: ['localStorage'],
             lookupQuerystring: 'lang',
-            lookupLocalStorage: 'i18nextLng'
+            lookupLocalStorage: 'i18nextLng',
         },
         fallbackLng: 'en',
         debug: process.env.NODE_ENV === 'development' ? true : false,
@@ -29,7 +30,7 @@ i18n
         react: {
             transSupportBasicHtmlNodes: false,
         },
-        ns: ['mouse_generator']
+        ns: ['mouse_generator'],
     });
 
 export default i18n;

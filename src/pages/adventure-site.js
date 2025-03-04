@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+// import { Link } from 'gatsby';
+import { styled } from 'styled-components';
 
 import SEO from '../components/layout/SEO';
 import SiteContainer from '../components/layout/SiteContainer';
@@ -22,6 +22,8 @@ const IndexPage = () => {
             <SEO title="Adventure site generator" />
 
             <Navigation showLanguage={true} />
+
+            <a href="/some-path">Some Link</a>
 
             <AdventureSiteGenerator />
         </SiteContainer>

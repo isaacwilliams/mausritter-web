@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import SiteContainer from '../components/layout/SiteContainer';
 import Navigation from '../components/navigation/Navigation';
