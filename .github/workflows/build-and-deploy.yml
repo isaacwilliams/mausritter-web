@@ -1,4 +1,4 @@
-name: Deploy vite
+name: Deploy Static Site
 on:
     push:
         # We only run this GitHub action upon new commits to `master`
@@ -8,15 +8,25 @@ on:
         paths:
             - src/**
             - pages/**
+
+    # Allows you to run this workflow manually from the Actions ta
+    workflow_dispatch:
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v4
+            - name: Set up Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 23
+                  cache: 'npm'
 
-            - run: pnpm install
-            - run: pnpm run build
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build
+              run: npm run build
 
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@4.1.4
