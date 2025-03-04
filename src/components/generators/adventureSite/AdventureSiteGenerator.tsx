@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Trans, useTranslation } from 'react-i18next';
+import { Config } from 'vike-react/Config';
 
 import font from '../../styles/font';
 import media from '../../styles/media';
@@ -14,7 +15,6 @@ import spiderFace from './spider-face.svg';
 import lockedChest from './locked-chest.svg';
 
 import { AdventureSiteGeneratorData } from './adventureSiteGeneratorTypes';
-import { Helmet } from 'react-helmet';
 
 const Summary = styled.div`
     max-width: 50rem;
@@ -71,20 +71,20 @@ const RoomArray = styled.div`
 `;
 
 const Room = styled.div<{
-    posX: number;
-    posY: number;
-    creature: boolean;
-    treasure: boolean;
+    $posX: number;
+    $posY: number;
+    $creature: boolean;
+    $treasure: boolean;
 }>`
     position: relative;
     padding: 1rem;
-    border: ${({ creature }) =>
+    border: ${({ $creature: creature }) =>
         creature ? '1px solid #ccc' : '1px solid #ccc'};
 
     background: #eee;
 
-    grid-column: ${({ posX }) => posX};
-    grid-row: ${({ posY }) => posY};
+    grid-column: ${({ $posX: posX }) => posX};
+    grid-row: ${({ $posY: posY }) => posY};
 
     ${media.phone`
         padding: 0.8rem;
@@ -113,13 +113,15 @@ const StatusIcon = styled.div`
     `}
 `;
 
+// prettier-ignore
 const CreatureIcon = styled(StatusIcon)`
-    background: url(${spiderFace});
+    background: url("${spiderFace}");
     background-color: black;
 `;
 
+// prettier-ignore
 const TreasureIcon = styled(StatusIcon)`
-    background: url(${lockedChest});
+    background: url("${lockedChest}");
     background-color: black;
 `;
 
@@ -171,9 +173,7 @@ const AdventureSiteGenerator = () => {
 
     return (
         <ContentContainer>
-            <Helmet>
-                <title>{t('pageTitle')}</title>
-            </Helmet>
+            <Config title="Adventure site generator | Mausritter" />
 
             <TitleWrapper>
                 <Title>{t('title')}</Title>
@@ -220,10 +220,10 @@ const AdventureSiteGenerator = () => {
                         }) => (
                             <Room
                                 key={id}
-                                posX={position.x}
-                                posY={position.y}
-                                creature={creature}
-                                treasure={treasure}
+                                $posX={position.x}
+                                $posY={position.y}
+                                $creature={creature}
+                                $treasure={treasure}
                             >
                                 <RoomType>{type}</RoomType>
                                 {description}

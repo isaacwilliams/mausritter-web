@@ -20,14 +20,19 @@ const LogoContainer = styled.div`
     padding-top: 3rem;
 `;
 
-const FooterSection = () => (
-    <Footer>
-        Mausritter ©2024 <a href="https://isaacwilliams.net">Isaac Williams</a>{' '}
-        &amp; <a href="https://losing.games">Losing Games</a>
-        <LogoContainer>
-            <LosingGamesLogo className="light" />
-        </LogoContainer>
-    </Footer>
-);
+const FooterSection = () => {
+    const currentYear = new Date().getFullYear();
+
+    return (
+        <Footer>
+            Mausritter ©{currentYear}{' '}
+            <a href="https://isaacwilliams.net">Isaac Williams</a> &amp;{' '}
+            <a href="https://losing.games">Losing Games</a>
+            <LogoContainer>
+                <LosingGamesLogo className="light" />
+            </LogoContainer>
+        </Footer>
+    );
+};
 
 export default FooterSection;
