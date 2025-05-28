@@ -1,1 +1,0 @@
-import{l}from"./chunk-6EimslaF.js";const{sum:a,times:c}=l,r=t=>t[Math.floor(Math.random()*t.length)],m=t=>{const s=a(t.map(o=>o.weight)),e=Math.random()*s;let n=0;for(const o of t)if(n+=o.weight,e<n)return o;return t[0]},h=t=>Math.floor(Math.random()*t)+1,d=t=>s=>a(c(()=>h(s),t));export{h as a,r as p,d as r,m as w};
