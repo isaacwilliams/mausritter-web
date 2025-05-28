@@ -24,8 +24,8 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
     "styled-components": "^6.1.15",
-    "vike": "^0.4.223",
-    "vike-react": "^0.5.13"
+    "vike": "^0.4.230",
+    "vike-react": "^0.6.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

@@ -131,21 +131,52 @@ const CustomItemInput = ({
     itemState,
     dispatch,
     fieldType = 'text',
-}) => (
-    <StyledInputContainer className="wide">
-        <span>{title}:</span>
-        <input
-            type={fieldType}
-            value={itemState[fieldName]}
-            onChange={(event) =>
-                dispatch({
-                    type: `set-${kebabCase(fieldName)}`,
-                    [fieldName]: event.target.value,
-                })
-            }
-        />
-    </StyledInputContainer>
-);
+    min,
+    max,
+    step,
+}: {
+    fieldName: string;
+    title: string;
+    itemState: any;
+    dispatch: any;
+    fieldType?: string;
+    min?: number;
+    max?: number;
+    step?: number;
+}) => {
+    return (
+        <StyledInputContainer className="wide">
+            <span>{title}:</span>
+            <input
+                type={fieldType}
+                value={itemState[fieldName]}
+                onFocus={(event) => {
+                    if (fieldType === 'number') {
+                        event.currentTarget.select();
+                    }
+                }}
+                onChange={(event) => {
+                    if (fieldType === 'number') {
+                        event.currentTarget.select();
+                    }
+
+                    if (!event.currentTarget.validity.valid) {
+                        event.currentTarget.value = itemState[fieldName];
+                        return;
+                    }
+
+                    dispatch({
+                        type: `set-${kebabCase(fieldName)}`,
+                        [fieldName]: event.currentTarget.value,
+                    });
+                }}
+                min={min}
+                max={max}
+                step={step}
+            />
+        </StyledInputContainer>
+    );
+};
 
 const CustomItemCheckboxInput = ({
     fieldName,
@@ -340,6 +371,8 @@ const CustomItemControlPanel = ({
                         title={t('width')}
                         fieldName="width"
                         fieldType="number"
+                        min={1}
+                        max={5}
                     />
                     <CustomItemInput
                         itemState={itemState}
@@ -347,6 +380,8 @@ const CustomItemControlPanel = ({
                         title={t('height')}
                         fieldName="height"
                         fieldType="number"
+                        min={1}
+                        max={2}
                     />
 
                     <CustomItemInput
