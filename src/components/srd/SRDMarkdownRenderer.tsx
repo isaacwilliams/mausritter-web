@@ -2,13 +2,19 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import { DiceTableWrapper } from './DiceTableWrapper';
+import remarkDirective from 'remark-directive';
+import rehypeDirective from 'remark-directive-rehype';
+import remarkStatblockDirective from './remarkStatblockDirective';
+import Statblock from './Statblock';
 
-// Custom table component to add class to headers containing dX
 const CustomTable: React.FC<React.TableHTMLAttributes<HTMLTableElement>> = (
     props,
-) => {
-    return <table {...props}>{props.children}</table>;
-};
+) => (
+    <DiceTableWrapper>
+        <table {...props}>{props.children}</table>
+    </DiceTableWrapper>
+);
 
 const CustomTH: React.FC<React.ThHTMLAttributes<HTMLTableCellElement>> = (
     props,
@@ -37,8 +43,12 @@ const SRDMarkdownRenderer: React.FC<{
 }> = ({ content }) => {
     return (
         <Markdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeSlug]}
+            remarkPlugins={[
+                remarkGfm,
+                remarkDirective,
+                remarkStatblockDirective,
+            ]}
+            rehypePlugins={[rehypeSlug, rehypeDirective]}
             components={{
                 table: CustomTable,
                 th: CustomTH,

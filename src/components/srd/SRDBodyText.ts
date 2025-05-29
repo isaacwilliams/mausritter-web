@@ -9,6 +9,7 @@ const SRDBodyText = styled.div`
     --srd-font-size: 1.2rem;
     --srd-line-height: 1.6;
     --srd-spacing: 0.9em;
+    --srd-grey-bg: #eee;
 
     font-size: var(--srd-font-size);
     line-height: var(--srd-line-height);
@@ -76,7 +77,7 @@ const SRDBodyText = styled.div`
         margin: calc(var(--srd-spacing) * 0.5) 0;
         padding: 0.2em 0.5em;
         color: #555;
-        background: #fafafa;
+        background: var(--srd-grey-bg);
         font-style: italic;
     }
 
@@ -85,7 +86,7 @@ const SRDBodyText = styled.div`
     pre {
         font-family: 'Fira Mono', 'Consolas', monospace;
         font-size: 0.9em;
-        background: #f5f5f5;
+        background: var(--srd-grey-bg);
         border-radius: 3px;
     }
     code {
@@ -110,11 +111,29 @@ const SRDBodyText = styled.div`
         text-align: left;
     }
     th {
-        background: #f0f0f0;
+        background: var(--srd-grey-bg);
         font-weight: bold;
     }
     tr:nth-child(even) {
-        background: #fafafa;
+        background: var(--srd-grey-bg);
+    }
+
+    /* Statblock */
+    .statblock {
+        padding: 0.25rem 1rem;
+        background: var(--srd-grey-bg);
+
+        /* Beveled corners using clip-path for 45deg angles */
+        clip-path: polygon(
+            8px 0%,
+            calc(100% - 8px) 0%,
+            100% 8px,
+            100% calc(100% - 8px),
+            calc(100% - 8px) 100%,
+            8px 100%,
+            0% calc(100% - 8px),
+            0% 8px
+        );
     }
 
     /* Dice header column fixed width */
