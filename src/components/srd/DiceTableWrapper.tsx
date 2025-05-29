@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { styled } from 'styled-components';
+// @ts-expect-error: rpg-dice-roller is a JavaScript library, not TypeScript
+import { DiceRoll } from 'rpg-dice-roller';
 
 const TableWrapper = styled.div`
     position: relative;
@@ -32,18 +34,29 @@ const Overlay = styled.div<{ show: boolean }>`
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.92);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5em;
-    font-weight: bold;
+    flex-direction: column;
+
     z-index: 10;
     pointer-events: none;
     opacity: ${(props) => (props.show ? 1 : 0)};
     transition: opacity 0.4s;
+
+    .roll {
+        font-size: 1.4em;
+    }
+
+    .result {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
 `;
 
-// Utility to get text from ReactNode
+// --- Utility Functions ---
+
 function getNodeText(node: React.ReactNode): string {
     if (typeof node === 'string' || typeof node === 'number') {
         return String(node);
@@ -62,19 +75,15 @@ function getNodeText(node: React.ReactNode): string {
     return '';
 }
 
-// Custom table component to add class to headers containing dX and add roll functionality
-const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
-    children,
-}) => {
-    // Find thead and tbody from children
+function extractTableParts(children: React.ReactNode) {
     let headerCells: string[] = [];
     let bodyRows: React.ReactElement[] = [];
 
-    // Find table, thead, tbody, tr, th, td
     const table = React.Children.toArray(children).find(
         (c): c is React.ReactElement =>
             React.isValidElement(c) && c.type === 'table',
     ) as React.ReactElement | undefined;
+
     const tableChildren = table
         ? React.Children.toArray(
               (table.props as { children?: React.ReactNode }).children,
@@ -90,7 +99,6 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
             React.isValidElement(c) && c.type === 'tbody',
     );
 
-    // Get header cells
     if (thead && React.isValidElement(thead)) {
         const tr = React.Children.toArray(
             (thead.props as { children?: React.ReactNode }).children,
@@ -110,7 +118,6 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
                 );
         }
     } else {
-        // Fallback: first tr in tableChildren
         const firstTr = tableChildren.find(
             (c): c is React.ReactElement =>
                 React.isValidElement(c) && c.type === 'tr',
@@ -128,13 +135,11 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
         }
     }
 
-    // Get body rows (all tr except the first if no tbody)
     if (tbody && React.isValidElement(tbody)) {
         bodyRows = React.Children.toArray(
             (tbody.props as { children?: React.ReactNode }).children,
         ).filter(React.isValidElement);
     } else {
-        // Fallback: all tr in tableChildren except the first
         const allTrs = tableChildren.filter(
             (c): c is React.ReactElement =>
                 React.isValidElement(c) && c.type === 'tr',
@@ -142,38 +147,117 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
         bodyRows = allTrs.slice(1);
     }
 
-    const diceRegex = /d\d+/i;
-    const hasDiceHeader = headerCells.some((cell) => diceRegex.test(cell));
+    return { headerCells, bodyRows, table };
+}
+
+function parseDiceNotation(headerCells: string[]): string | null {
+    const diceRegex = /\b(\d*)d(\d+)\b/i;
+    const diceHeader = headerCells.find((cell) => diceRegex.test(cell));
+    if (!diceHeader) return null;
+    const match = diceHeader.match(diceRegex);
+    if (!match) return null;
+    return (match[1] ? match[1] : '1') + 'd' + match[2];
+}
+
+function findRowForRoll(
+    bodyRows: React.ReactElement[],
+    rolledValue: number,
+): number {
+    for (let i = 0; i < bodyRows.length; i++) {
+        const row = bodyRows[i];
+        const cells = React.Children.toArray(
+            (row.props as { children?: React.ReactNode }).children,
+        ).filter(React.isValidElement);
+        if (cells.length === 0) continue;
+        const firstCellText = getNodeText(
+            (cells[0].props as { children?: React.ReactNode }).children,
+        ).trim();
+        const rangeMatch = firstCellText.match(
+            /^(\d+)(?:\s*-\s*(\d+))?\s*(\+)?/,
+        );
+        if (rangeMatch) {
+            const min = parseInt(rangeMatch[1], 10);
+            const max = rangeMatch[2]
+                ? parseInt(rangeMatch[2], 10)
+                : rangeMatch[3]
+                  ? Infinity
+                  : min;
+            if (rolledValue >= min && rolledValue <= max) {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
+
+function getOverlayDuration(text: string) {
+    return Math.min(4000, 1200 + text.length * 40);
+}
+
+function getResultText(row: React.ReactElement): string {
+    const rowCells = React.Children.toArray(
+        (row.props as { children?: React.ReactNode }).children,
+    ).filter(React.isValidElement);
+    return rowCells
+        .slice(1)
+        .map((cell) =>
+            getNodeText(
+                (cell.props as { children?: React.ReactNode }).children,
+            ),
+        )
+        .filter((text) => text.trim() !== '')
+        .join(' | ');
+}
+
+// --- Main Component ---
+
+const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
+    children,
+}) => {
+    const { headerCells, bodyRows, table } = extractTableParts(children);
+    const diceNotation = parseDiceNotation(headerCells);
+    const hasDiceHeader = !!diceNotation;
+
     const [showOverlay, setShowOverlay] = useState(false);
     const [overlayText, setOverlayText] = useState('');
-
-    // Store timeout id to clear on reroll
-    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-
-    const getOverlayDuration = (text: string) => {
-        // 1.2s base + 40ms per character, max 4s
-        return Math.min(4000, 1200 + text.length * 40);
-    };
+    const [overlayRoll, setOverlayRoll] = useState('');
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     const handleRoll = () => {
         if (bodyRows.length === 0) return;
-        const idx = Math.floor(Math.random() * bodyRows.length);
-        // Prepare overlay text
-        const result = React.Children.toArray(
-            (bodyRows[idx].props as { children?: React.ReactNode }).children,
-        )
-            .filter(React.isValidElement)
-            .map((cell) =>
-                getNodeText(
-                    (cell.props as { children?: React.ReactNode }).children,
-                ),
-            )
-            .filter((text) => text.trim() !== '')
-            .join(' | ');
 
-        setOverlayText(`🎲 ${result}`);
+        let rollIdx = 0;
+        let rollDesc = '';
+
+        if (diceNotation) {
+            try {
+                const roll = new DiceRoll(diceNotation);
+                const rolledValue = roll.total;
+                rollDesc = roll.output;
+                const foundIdx = findRowForRoll(bodyRows, rolledValue);
+                rollIdx =
+                    foundIdx !== -1
+                        ? foundIdx
+                        : Math.max(
+                              0,
+                              Math.min(bodyRows.length - 1, rolledValue - 1),
+                          );
+            } catch {
+                rollIdx = Math.floor(Math.random() * bodyRows.length);
+                rollDesc = '';
+            }
+        } else {
+            rollIdx = Math.floor(Math.random() * bodyRows.length);
+        }
+
+        if (rollIdx < 0) rollIdx = 0;
+        if (rollIdx >= bodyRows.length) rollIdx = bodyRows.length - 1;
+
+        const result = getResultText(bodyRows[rollIdx]);
+        setOverlayText(result);
+        setOverlayRoll(rollDesc);
         setShowOverlay(true);
-        // Reset previous timeout if exists
+
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         timeoutRef.current = setTimeout(
             () => setShowOverlay(false),
@@ -181,7 +265,6 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
         );
     };
 
-    // Render the table with the Roll button floating in the top-right
     let tableWithButton = children;
     if (hasDiceHeader && table) {
         tableWithButton = (
@@ -197,7 +280,10 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
     return (
         <TableWrapper>
             {tableWithButton}
-            <Overlay show={showOverlay}>{overlayText}</Overlay>
+            <Overlay show={showOverlay}>
+                <div className="roll">{overlayRoll}</div>
+                <div className="result">{overlayText}</div>
+            </Overlay>
         </TableWrapper>
     );
 };

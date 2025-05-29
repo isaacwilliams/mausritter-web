@@ -31,6 +31,7 @@
     "remark-directive": "^4.0.0",
     "remark-directive-rehype": "^0.4.2",
     "remark-gfm": "^4.0.1",
+    "rpg-dice-roller": "^5.0.0",
     "styled-components": "^6.1.15",
     "vike": "^0.4.230",
     "vike-react": "^0.6.3"
