@@ -9,6 +9,8 @@ title: Make a mouse
 
 The world is very big and very dangerous for a small mouse adventurer. You will need to be very brave, and always keep your wits about you.
 
+Use these procedures to roll a new mouse adventurer, or use the [instant mouse generator](/mouse).
+
 ## 1. Attributes
 
 Your mouse has three attribute scores. These measure their basic strengths and weaknesses.
@@ -102,14 +104,26 @@ Choose a **name** appropriate for a brave mouse.
 
 ## Coat
 
-|   d6  |   Color      |   d6  |   Pattern  |
-|-------|--------------|-------|------------|
-|   1   |   Chocolate  |   1   |   Solid    |
-|   2   |   Black      |   2   |   Brindle  |
-|   3   |   White      |   3   |   Patchy   |
-|   4   |   Tan        |   4   |   Banded   |
-|   5   |   Grey       |   5   |   Marbled  |
-|   6   |   Blue       |   6   |   Flecked  |
+### Color
+
+|   d6  |   Color      |
+|-------|--------------|
+|   1   |   Chocolate  |
+|   2   |   Black      |
+|   3   |   White      |
+|   4   |   Tan        |
+|   5   |   Grey       |
+|   6   |   Blue       |
+
+### Pattern
+|   d6  |   Pattern    |
+|-------|--------------|
+|   1   |   Solid      |
+|   2   |   Brindle    |
+|   3   |   Patchy     |
+|   4   |   Banded     |
+|   5   |   Marbled    |
+|   6   |   Flecked    |
 
 ## Detail
 

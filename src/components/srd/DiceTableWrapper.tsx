@@ -156,6 +156,8 @@ function parseDiceNotation(headerCells: string[]): string | null {
     if (!diceHeader) return null;
     const match = diceHeader.match(diceRegex);
     if (!match) return null;
+    // Special case for d66
+    if (match[1] === '' && match[2] === '66') return 'd66';
     return (match[1] ? match[1] : '1') + 'd' + match[2];
 }
 
@@ -231,9 +233,18 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
 
         if (diceNotation) {
             try {
-                const roll = new DiceRoll(diceNotation);
-                const rolledValue = roll.total;
-                rollDesc = roll.output;
+                let rolledValue: number;
+                if (diceNotation === 'd66') {
+                    // Roll d6 twice: first is tens, second is ones
+                    const tens = new DiceRoll('1d6').total;
+                    const ones = new DiceRoll('1d6').total;
+                    rolledValue = tens * 10 + ones;
+                    rollDesc = `d66: [${tens}, ${ones}] = ${rolledValue}`;
+                } else {
+                    const roll = new DiceRoll(diceNotation);
+                    rolledValue = roll.total;
+                    rollDesc = roll.output;
+                }
                 const foundIdx = findRowForRoll(bodyRows, rolledValue);
                 rollIdx =
                     foundIdx !== -1

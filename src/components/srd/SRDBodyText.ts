@@ -149,13 +149,13 @@ const SRDBodyText = styled.div`
 
     /* Links */
     a {
-        color: #0074d9;
+        /* color: #0074d9; */
         text-decoration: underline;
         word-break: break-word;
+
         &:hover,
         &:focus {
-            color: #005fa3;
-            text-decoration: underline wavy;
+            background-color: yellow;
         }
     }
 
@@ -181,7 +181,7 @@ const SRDBodyText = styled.div`
   `}
 
     /* Utility classes for scaling */
-  &.small {
+    &.small {
         --srd-font-size: 1rem;
     }
     &.large {
