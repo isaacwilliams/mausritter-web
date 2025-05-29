@@ -150,15 +150,19 @@ function extractTableParts(children: React.ReactNode) {
     return { headerCells, bodyRows, table };
 }
 
-function parseDiceNotation(headerCells: string[]): string | null {
-    const diceRegex = /\b(\d*)d(\d+)\b/i;
-    const diceHeader = headerCells.find((cell) => diceRegex.test(cell));
-    if (!diceHeader) return null;
-    const match = diceHeader.match(diceRegex);
-    if (!match) return null;
-    // Special case for d66
-    if (match[1] === '' && match[2] === '66') return 'd66';
-    return (match[1] ? match[1] : '1') + 'd' + match[2];
+function parseDiceNotations(headerCells: string[]): string[] {
+    // Return all dice notations found in the header row, in order
+    const diceRegex = /\b(\d*)d(\d+)\b/gi;
+    return headerCells
+        .map((cell) => {
+            const match = diceRegex.exec(cell);
+            diceRegex.lastIndex = 0; // reset for next cell
+            if (!match) return null;
+            // Special case for d66
+            if (match[1] === '' && match[2] === '66') return 'd66';
+            return (match[1] ? match[1] : '1') + 'd' + match[2];
+        })
+        .filter(Boolean) as string[];
 }
 
 function findRowForRoll(
@@ -192,6 +196,70 @@ function findRowForRoll(
     return -1;
 }
 
+function findRowForRollMulti(
+    bodyRows: React.ReactElement[],
+    rolledValues: number[],
+): number {
+    // For multi-dice: first roll narrows to a section, second roll finds the row within that section
+    if (rolledValues.length < 2) {
+        return findRowForRoll(bodyRows, rolledValues[0]);
+    }
+    // First pass: find all rows matching the first roll in the first column
+    const firstMatches: number[] = [];
+    for (let i = 0; i < bodyRows.length; i++) {
+        const row = bodyRows[i];
+        const cells = React.Children.toArray(
+            (row.props as { children?: React.ReactNode }).children,
+        ).filter(React.isValidElement);
+        if (cells.length === 0) continue;
+        const firstCellText = getNodeText(
+            (cells[0].props as { children?: React.ReactNode }).children,
+        ).trim();
+        const rangeMatch = firstCellText.match(
+            /^(\d+)(?:\s*-\s*(\d+))?\s*(\+)?/,
+        );
+        if (rangeMatch) {
+            const min = parseInt(rangeMatch[1], 10);
+            const max = rangeMatch[2]
+                ? parseInt(rangeMatch[2], 10)
+                : rangeMatch[3]
+                  ? Infinity
+                  : min;
+            if (rolledValues[0] >= min && rolledValues[0] <= max) {
+                firstMatches.push(i);
+            }
+        }
+    }
+    if (firstMatches.length === 0) return -1;
+    // Second pass: within the matched rows, check the second column for the second roll
+    for (const i of firstMatches) {
+        const row = bodyRows[i];
+        const cells = React.Children.toArray(
+            (row.props as { children?: React.ReactNode }).children,
+        ).filter(React.isValidElement);
+        if (cells.length < 2) continue;
+        const secondCellText = getNodeText(
+            (cells[1].props as { children?: React.ReactNode }).children,
+        ).trim();
+        const rangeMatch = secondCellText.match(
+            /^(\d+)(?:\s*-\s*(\d+))?\s*(\+)?/,
+        );
+        if (rangeMatch) {
+            const min = parseInt(rangeMatch[1], 10);
+            const max = rangeMatch[2]
+                ? parseInt(rangeMatch[2], 10)
+                : rangeMatch[3]
+                  ? Infinity
+                  : min;
+            if (rolledValues[1] >= min && rolledValues[1] <= max) {
+                return i;
+            }
+        }
+    }
+    // If no match, just return the first match
+    return firstMatches[0];
+}
+
 function getOverlayDuration(text: string) {
     return Math.min(4000, 1200 + text.length * 40);
 }
@@ -200,15 +268,21 @@ function getResultText(row: React.ReactElement): string {
     const rowCells = React.Children.toArray(
         (row.props as { children?: React.ReactNode }).children,
     ).filter(React.isValidElement);
-    return rowCells
-        .slice(1)
-        .map((cell) =>
-            getNodeText(
-                (cell.props as { children?: React.ReactNode }).children,
-            ),
-        )
-        .filter((text) => text.trim() !== '')
-        .join(' | ');
+    return (
+        rowCells
+            .map((cell) =>
+                getNodeText(
+                    (cell.props as { children?: React.ReactNode }).children,
+                ),
+            )
+            // remove cells that are just a number
+            .map((text) => text.trim())
+            // filter out cells that are just numbers (e.g. 1, 2, etc.)
+            .filter((text) => isNaN(Number(text)))
+            // remove empty cells
+            .filter((text) => text !== '')
+            .join(' | ')
+    );
 }
 
 // --- Main Component ---
@@ -217,8 +291,8 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
     const { headerCells, bodyRows, table } = extractTableParts(children);
-    const diceNotation = parseDiceNotation(headerCells);
-    const hasDiceHeader = !!diceNotation;
+    const diceNotations = parseDiceNotations(headerCells);
+    const hasDiceHeader = diceNotations.length > 0;
 
     const [showOverlay, setShowOverlay] = useState(false);
     const [overlayText, setOverlayText] = useState('');
@@ -229,34 +303,35 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
         if (bodyRows.length === 0) return;
 
         let rollIdx = 0;
-        let rollDesc = '';
+        const rollDescs: string[] = [];
+        const rolledValues: number[] = [];
 
-        if (diceNotation) {
-            try {
-                let rolledValue: number;
-                if (diceNotation === 'd66') {
-                    // Roll d6 twice: first is tens, second is ones
-                    const tens = new DiceRoll('1d6').total;
-                    const ones = new DiceRoll('1d6').total;
-                    rolledValue = tens * 10 + ones;
-                    rollDesc = `d66: [${tens}, ${ones}] = ${rolledValue}`;
-                } else {
-                    const roll = new DiceRoll(diceNotation);
-                    rolledValue = roll.total;
-                    rollDesc = roll.output;
-                }
-                const foundIdx = findRowForRoll(bodyRows, rolledValue);
-                rollIdx =
-                    foundIdx !== -1
-                        ? foundIdx
-                        : Math.max(
-                              0,
-                              Math.min(bodyRows.length - 1, rolledValue - 1),
-                          );
-            } catch {
-                rollIdx = Math.floor(Math.random() * bodyRows.length);
-                rollDesc = '';
+        for (const notation of diceNotations) {
+            if (notation === 'd66') {
+                const tens = new DiceRoll('1d6').total;
+                const ones = new DiceRoll('1d6').total;
+                rolledValues.push(tens * 10 + ones);
+                rollDescs.push(`d66: [${tens}, ${ones}] = ${tens * 10 + ones}`);
+            } else {
+                const roll = new DiceRoll(notation);
+                rolledValues.push(roll.total);
+                rollDescs.push(roll.output);
             }
+        }
+
+        if (diceNotations.length > 1) {
+            // Multi-dice: use both rolls to find the row
+            const foundIdx = findRowForRollMulti(bodyRows, rolledValues);
+            rollIdx = foundIdx !== -1 ? foundIdx : 0;
+        } else if (diceNotations.length === 1) {
+            const foundIdx = findRowForRoll(bodyRows, rolledValues[0]);
+            rollIdx =
+                foundIdx !== -1
+                    ? foundIdx
+                    : Math.max(
+                          0,
+                          Math.min(bodyRows.length - 1, rolledValues[0] - 1),
+                      );
         } else {
             rollIdx = Math.floor(Math.random() * bodyRows.length);
         }
@@ -266,7 +341,7 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
 
         const result = getResultText(bodyRows[rollIdx]);
         setOverlayText(result);
-        setOverlayRoll(rollDesc);
+        setOverlayRoll(rollDescs.join(' | '));
         setShowOverlay(true);
 
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
