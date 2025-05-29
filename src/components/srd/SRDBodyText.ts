@@ -117,6 +117,17 @@ const SRDBodyText = styled.div`
         background: #fafafa;
     }
 
+    /* Dice header column fixed width */
+    --srd-dice-header-width: 3rem;
+
+    th.dice-header,
+    td.dice-header {
+        width: var(--srd-dice-header-width);
+        min-width: var(--srd-dice-header-width);
+        max-width: var(--srd-dice-header-width);
+        text-align: left;
+    }
+
     /* Links */
     a {
         color: #0074d9;

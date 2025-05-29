@@ -11,6 +11,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import SRDBodyText from './SRDBodyText';
+import SRDMarkdownRenderer from './SRDMarkdownRenderer';
 
 const FloatingNavDark = styled(Navigation)`
     background: #100113;
@@ -135,19 +136,7 @@ const SRDTemplate = () => {
             <BodyContainer>
                 {currentPage && (
                     <SRDBodyText>
-                        <Markdown
-                            remarkPlugins={[remarkGfm]}
-                            rehypePlugins={[rehypeSlug]}
-                            components={{
-                                table: (props) => {
-                                    const { children, ...rest } = props;
-
-                                    return <table>{children}</table>;
-                                },
-                            }}
-                        >
-                            {currentPage.content}
-                        </Markdown>
+                        <SRDMarkdownRenderer content={currentPage.content} />
                     </SRDBodyText>
                 )}
             </BodyContainer>
