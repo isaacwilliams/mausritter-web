@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 11
 section: GM rules and resources
 slug: useful-tables
 title: Useful tables

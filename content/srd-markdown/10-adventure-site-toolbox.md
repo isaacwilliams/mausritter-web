@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 section: GM rules and resources
 slug: adventure-site-toolbox
 title: Adventure site toolbox

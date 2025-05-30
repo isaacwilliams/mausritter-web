@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 section: GM rules and resources
 slug: running-mausritter
 title: Running Mausritter
