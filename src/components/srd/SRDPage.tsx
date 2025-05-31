@@ -25,6 +25,7 @@ const BodyTextSmall = styled(BodyText)`
 const SRDContainer = styled(ContentContainer)`
     display: grid;
     grid-template-columns: 20rem 3fr;
+    margin-bottom: 20rem;
 `;
 
 const BodyContainer = styled.div``;
