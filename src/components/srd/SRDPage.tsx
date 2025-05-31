@@ -5,7 +5,7 @@ import BodyText from '../styles/BodyText';
 import ContentContainer from '../layout/ContentContainer';
 import font from '../styles/font';
 
-import { SRDPage, SRDPageFrontmatter } from './srdTypes';
+import { SRDIndex, SRDPage, SRDPageFrontmatter } from './srdTypes';
 import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
@@ -51,9 +51,14 @@ const TOC = styled.nav`
 
     ul {
         list-style: none;
+    }
 
-        ul {
-            margin: 0;
+    ul.subtitles {
+        margin-left: 1.2rem;
+
+        a {
+            color: #777;
+            font-weight: normal;
         }
     }
 
@@ -78,56 +83,54 @@ const TOCSectionTitle = styled.div`
 `;
 
 const SRDTemplate = () => {
-    const { pages, currentPage } = useData() as {
-        pages: SRDPageFrontmatter[];
+    const { index, currentPage } = useData() as {
+        index: SRDIndex;
         currentPage?: SRDPage;
     };
-
-    const pagesMapBySection = pages.reduce<{
-        [section: string]: SRDPageFrontmatter[];
-    }>((acc, page) => {
-        const section = page.section || 'Uncategorized';
-        if (!acc[section]) {
-            acc[section] = [];
-        }
-        acc[section].push(page);
-        return acc;
-    }, {});
-
-    const groupedPages = Object.entries(pagesMapBySection)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .sort(([sectionA], [sectionB]) => {
-            // Sort sections by a predefined order
-            const order = ['Player rules', 'GM rules and resources'];
-            const indexA = order.indexOf(sectionA);
-            const indexB = order.indexOf(sectionB);
-            return indexA - indexB;
-        });
 
     return (
         <SRDContainer>
             <TOC>
                 <h1>Mausritter SRD</h1>
 
-                {groupedPages.map(([sectionTitle, entries], index) => (
+                {index.sections.map(({ title, pages }, index) => (
                     <div key={index}>
-                        <TOCSectionTitle>{sectionTitle}</TOCSectionTitle>
+                        <TOCSectionTitle>{title}</TOCSectionTitle>
 
                         <ul>
-                            {entries.map((entry, index) => {
+                            {pages.map((entry, index) => {
                                 const isCurrent =
                                     currentPage?.frontmatter.slug ===
                                     entry.slug;
 
                                 return (
-                                    <li
-                                        key={index}
-                                        className={isCurrent ? 'current' : ''}
-                                    >
-                                        <a href={`/srd/${entry.slug}`}>
-                                            {entry.title}
-                                        </a>
-                                    </li>
+                                    <>
+                                        <li
+                                            key={index}
+                                            className={
+                                                isCurrent ? 'current' : ''
+                                            }
+                                        >
+                                            <a href={`/srd/${entry.slug}`}>
+                                                {entry.title}
+                                            </a>
+                                        </li>
+                                        {entry.subtitles && (
+                                            <ul className="subtitles">
+                                                {entry.subtitles.map(
+                                                    (subtitle, subIndex) => (
+                                                        <li key={subIndex}>
+                                                            <a
+                                                                href={`/srd/${entry.slug}#${subtitle.slug}`}
+                                                            >
+                                                                {subtitle.title}
+                                                            </a>
+                                                        </li>
+                                                    ),
+                                                )}
+                                            </ul>
+                                        )}
+                                    </>
                                 );
                             })}
                         </ul>

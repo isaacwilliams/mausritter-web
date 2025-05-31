@@ -1,9 +1,9 @@
-import { fetchSRDPages } from '../srdDataUtils';
+import { createSRDPageIndex, fetchSRDPages } from '../srdDataUtils';
 
 export async function data() {
     const pages = await fetchSRDPages();
 
-    const pageFrontmatters = pages.map((page) => page.frontmatter);
+    const index = createSRDPageIndex(pages);
 
-    return { pages: pageFrontmatters };
+    return { index };
 }

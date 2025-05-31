@@ -31,7 +31,7 @@ When a spell’s usage dots are filled, it is **depleted** and cannot be cast. E
 
 ### Miscasts
 
-Whenever **one or more 6s** are rolled when casting a spell, the caster takes **d6 damage to WIL** for each 6 rolled. Then make a WIL save. If failed, take the **Mad** Condition.
+Whenever **one or more 6s** are rolled when casting a spell, the caster takes **d6 damage to WIL** for each 6 rolled. Then make a WIL save. If failed, take the **Drained** Condition.
 
 ## List of spells
 
