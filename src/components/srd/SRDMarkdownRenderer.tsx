@@ -7,6 +7,7 @@ import remarkDirective from 'remark-directive';
 import rehypeDirective from 'remark-directive-rehype';
 import remarkStatblockDirective from './remarkStatblockDirective';
 import Statblock from './Statblock';
+import { getCellText, kebabCase } from './tableUtils';
 
 const CustomTable: React.FC<React.TableHTMLAttributes<HTMLTableElement>> = (
     props,
@@ -21,15 +22,11 @@ const CustomTH: React.FC<React.ThHTMLAttributes<HTMLTableCellElement>> = (
 ) => {
     const { children, ...rest } = props;
 
-    const text =
-        typeof children === 'string'
-            ? children
-            : Array.isArray(children)
-              ? children.join('')
-              : '';
+    // @ts-expect-error-next-line
+    const text = getCellText(children);
 
     const diceRegex = /d\d+/i;
-    const className = diceRegex.test(text) ? 'dice-header' : undefined;
+    const className = diceRegex.test(text) ? 'die' : kebabCase(text);
 
     return (
         <th className={className} {...rest}>

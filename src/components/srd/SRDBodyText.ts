@@ -139,8 +139,10 @@ const SRDBodyText = styled.div`
     /* Dice header column fixed width */
     --srd-dice-header-width: 3rem;
 
-    th.dice-header,
-    td.dice-header {
+    th.die,
+    th.price,
+    th.hp,
+    th.pips {
         width: var(--srd-dice-header-width);
         min-width: var(--srd-dice-header-width);
         max-width: var(--srd-dice-header-width);
