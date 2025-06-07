@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 11
 section: Player rules
 slug: make-a-mouse
 title: Make a mouse

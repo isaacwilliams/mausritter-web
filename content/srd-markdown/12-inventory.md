@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 12
 section: Player rules
 slug: inventory
 title: Inventory

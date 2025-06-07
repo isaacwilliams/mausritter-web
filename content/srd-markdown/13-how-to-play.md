@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 13
 section: Player rules
 slug: how-to-play
 title: How to play

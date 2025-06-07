@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 15
 section: Player rules
 slug: recruiting-help
 title: Recruiting help

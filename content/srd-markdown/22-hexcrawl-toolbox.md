@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 22
 section: GM rules and resources
 slug: hexcrawl-toolbox
 title: Hexcrawl toolbox

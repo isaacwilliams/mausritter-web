@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 21
 section: GM rules and resources
 slug: creatures
 title: Creatures

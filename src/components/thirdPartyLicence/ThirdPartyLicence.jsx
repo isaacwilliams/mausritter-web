@@ -131,7 +131,12 @@ const ThirdPartyLicence = () => (
                         <ul>
                             <li>
                                 Copy or translate the art or text of the
-                                Mausritter book
+                                Mausritter book (except for uses covered under
+                                the{' '}
+                                <a href="/srd/terms">
+                                    terms of the Mausritter SRD
+                                </a>
+                                )
                             </li>
                             <li>
                                 Use the Losing Games, Games Omnivorous or

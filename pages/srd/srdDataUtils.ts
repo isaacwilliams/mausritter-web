@@ -93,16 +93,23 @@ export const createSRDPageIndex = (
         pagesMapBySection[section].push(page.frontmatter);
     });
 
-    const sections: SRDIndex['sections'] = Object.entries(pagesMapBySection)
-        .sort(([a], [b]) => a.localeCompare(b) * -1)
-        .map(([section, pages]) => ({
-            title: section,
-            pages: pages.sort(
-                (a, b) =>
-                    (a.order ?? 0) - (b.order ?? 0) ||
-                    a.title.localeCompare(b.title),
-            ),
-        }));
+    const sections: SRDIndex['sections'] = Object.entries(
+        pagesMapBySection,
+    ).map(([section, pages]) => ({
+        title: section,
+        pages: pages.sort(
+            (a, b) =>
+                (a.order ?? 0) - (b.order ?? 0) ||
+                a.title.localeCompare(b.title),
+        ),
+    }));
+
+    // sort the sections by the order of the first page in each section
+    sections.sort((a, b) => {
+        const orderA = a.pages[0]?.order ?? 0;
+        const orderB = b.pages[0]?.order ?? 0;
+        return orderA - orderB || a.title.localeCompare(b.title);
+    });
 
     return { sections };
 };

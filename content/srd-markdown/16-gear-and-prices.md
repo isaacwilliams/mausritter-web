@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 16
 section: Player rules
 slug: gear-and-prices
 title: Gear and prices
