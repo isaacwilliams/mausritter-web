@@ -235,7 +235,7 @@ const ThirdPartyLicence = () => (
                         <p>
                             Mausritter is about small-scale adventurers in a
                             huge world. Mouse adventurers who take on big
-                            challanges and face down grave danger.
+                            challenges and face down grave danger.
                         </p>
 
                         <p>
