@@ -9,7 +9,7 @@ title: Terms of use
 
 ## Mausritter SRD Licence
 
-The text of the Mausritter System Reference Document (SRD) is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). This means you can use, copy, and modify the rules, mechanics, and text of the Mausritter SRD in your own works, as long as you follow the terms outlined below.
+The text of the **Mausritter System Reference Document** (SRD) is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). This means you can use, copy, and modify the rules, mechanics, and text of the Mausritter SRD in your own works, as long as you follow the terms outlined below.
 
 
 ### Compatibility with Mausritter

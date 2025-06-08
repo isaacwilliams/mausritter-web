@@ -138,7 +138,7 @@ const Navigation = ({
                 </NavItem>
 
                 <NavItem href="/srd" transparent={transparent}>
-                    SRD
+                    Game Rules (SRD)
                 </NavItem>
             </NavSection>
 

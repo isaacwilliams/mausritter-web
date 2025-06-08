@@ -11,6 +11,12 @@ import colors from '../styles/colors';
 
 import srdLogo from './srd-logo.svg';
 
+const SRDTitleLink = styled.a`
+    text-decoration: none;
+    color: inherit;
+    display: block;
+`;
+
 const SRDTitle = styled.h1`
     font-size: 0;
     color: transparent;
@@ -89,7 +95,9 @@ const SRDTemplate = () => {
     return (
         <SRDContainer>
             <TOC>
-                <SRDTitle>Mausritter System Reference Document</SRDTitle>
+                <SRDTitleLink href="/srd">
+                    <SRDTitle>Mausritter System Reference Document</SRDTitle>
+                </SRDTitleLink>
 
                 {index.sections.map(({ title, pages }, index) => (
                     <div key={index}>
