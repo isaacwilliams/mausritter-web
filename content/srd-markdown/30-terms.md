@@ -16,7 +16,7 @@ The text of the Mausritter System Reference Document (SRD) is licensed under [Cr
 
 You can create content that is compatible with Mausritter, such as adventures, supplements, and other materials, as long as you follow the terms outlined in the [Mausritter Third Party Licence](/third-party-licence).
 
-If you do so, you can use the "Compatible with Mausritter" logo in your work.
+If you do so, you may use the "Compatible with Mausritter" logo in your work (but are not required to do so).
 
 ### Copying
 
