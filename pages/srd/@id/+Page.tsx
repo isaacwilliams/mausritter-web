@@ -5,13 +5,6 @@ import Navigation from '../../../src/components/navigation/Navigation';
 import Footer from '../../../src/components/navigation/Footer';
 
 import SRDTemplate from '../../../src/components/srd/SRDPage';
-import { useData } from 'vike-react/useData';
-import { styled } from 'styled-components';
-import BodyText from '../../../src/components/styles/BodyText';
-
-const BodyTextSmall = styled(BodyText)`
-    font-size: 1.2rem;
-`;
 
 const IndexPage = () => {
     return (
