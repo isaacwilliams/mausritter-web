@@ -9,13 +9,20 @@ on:
             - src/**
             - pages/**
 
-    # Allows you to run this workflow manually from the Actions ta
+    # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
+        inputs:
+            deploy_branch:
+                description: 'Branch to deploy (default: master)'
+                required: false
+                default: 'master'
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.inputs.deploy_branch || github.ref_name }}
             - name: Set up Node
               uses: actions/setup-node@v4
               with:
