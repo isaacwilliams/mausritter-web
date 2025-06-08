@@ -11,12 +11,13 @@ title: Terms of use
 
 The text of the **Mausritter System Reference Document** (SRD) is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). This means you can use, copy, and modify the rules, mechanics, and text of the Mausritter SRD in your own works, as long as you follow the terms outlined below.
 
+### Attribution
 
-### Compatibility with Mausritter
+When using the Mausritter SRD text, you must include the following attribution in your work:
 
-You can create content that is compatible with Mausritter, such as adventures, supplements, and other materials, as long as you follow the terms outlined in the [Mausritter Third Party Licence](/third-party-licence).
+> This work is based on Mausritter, a product of Losing Games and Isaac Williams, and is licensed for use under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) licence.
 
-If you do so, you may use the "Compatible with Mausritter" logo in your work (but are not required to do so).
+The attribution must be included in a prominent location, such as the credits or introduction of your work.
 
 ### Copying
 
@@ -28,13 +29,12 @@ This licence allows you to translate the Mausritter SRD text into other language
 
 The Mausritter book, illustrations and other materials that are not part of the SRD are **not covered by this licence**. You may not copy or translate them for publication without explicit permission from Losing Games. Contact [Isaac Williams](https://isaacwilliams.net) for details on licensing Mausritter for translation.
 
-### Attribution
+### Compatibility with Mausritter
 
-When using the Mausritter SRD text, you must include the following attribution in your work:
+You can create content that is compatible with Mausritter, such as adventures, supplements, and other materials, as long as you follow the terms outlined in the [Mausritter Third Party Licence](/third-party-licence).
 
-> This work is based on Mausritter, a product of Losing Games and Isaac Williams, and is licensed for use under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) licence.
+If you do so, you may use the "Compatible with Mausritter" logo in your work (but are not required to do so).
 
-The attribution must be included in a prominent location, such as the credits or introduction of your work.
 
 ### Endorsement
 
