@@ -31,9 +31,7 @@ Items in these slots take time to retrieve when under pressure. While in combat,
 
 ## Conditions
 
-Conditions are **negative effects** suffered by your mouse.
-
-Each Condition must be placed in an **inventory slot**. Mice may have multiple copies of the same condition.
+Conditions are **negative effects** suffered by your mouse. Each Condition must be placed in an **inventory slot**. Mice may have multiple copies of the same condition.
 
 Some Conditions have additional effects, which apply as long as the Condition remains in your inventory.
 
@@ -47,6 +45,18 @@ Most items have three **usage dots**. When all three dots are marked on an item 
 - **Torches/lanterns:** mark usage every 6 Turns.
 - **Rations:** mark usage after a meal.
 - **Other gear:** if used in a way that could break or deplete it, the GM may ask you to mark usage.
+
+## Encumbrance
+
+If your mouse is carrying more items or Conditions than available inventory slots, they are **encumbered**.
+
+While encumbered, your mouse cannot **run**, and makes all saves with **Disadvantage**.
+
+## Banking
+
+In a mouse settlement, pips and items can be stored in a bank or safebox.
+
+Your mouse must pay a fee of 1% of the value when retrieving the stored pips or items.
 
 ## Weapons
 
@@ -62,23 +72,25 @@ Special rule: Always mark usage after a fight.
 
 **d6 damage**  
 Wielded in: Main paw/off paw  
-Special rule: If attacking with two weapons, roll both dice and use the best result.
+Special rule: If attacking with two weapons, roll both dice and use the best result.    
+Example: Needle, dagger, hatchet
 
 Cost: 10p
 
 #### Medium
 
-**d10 damage**   
-Wielded in: Main paw/both paws
-
-Special rule: Does d6 damage in one paw, d8 wielded in both.
+**d6/d8 damage**   
+Wielded in: Main paw/both paws  
+Special rule: Does d6 damage in one paw, d8 wielded in both.   
+Example: Sword, axe, staff
 
 Cost: 20p
 
 #### Heavy
 
 **d10 damage**   
-Wielded in: Both paws
+Wielded in: Both paws   
+Example: Trashhook, spear, heavy hammer
 
 Cost: 40p
 
@@ -87,7 +99,8 @@ Cost: 40p
 #### Light ranged
 
 **d6 damage**  
-Wielded in: Main paw  
+Wielded in: Main paw   
+Example: Sling, light crossbow
 
 Cost: 10p
 
@@ -95,6 +108,7 @@ Cost: 10p
 
 **d8 damage**  
 Wielded in: Both paws  
+Example: Bow, heavy crossbow
 
 Cost: 40p
 
