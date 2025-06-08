@@ -35,7 +35,7 @@ const FloatingRollButton = styled.button`
     }
 `;
 
-const Overlay = styled.div<{ show: boolean }>`
+const Overlay = styled.div<{ $show: boolean }>`
     position: absolute;
     top: 0;
     left: 0;
@@ -50,7 +50,7 @@ const Overlay = styled.div<{ show: boolean }>`
 
     z-index: 10;
     pointer-events: none;
-    opacity: ${(props) => (props.show ? 1 : 0)};
+    opacity: ${(props) => (props.$show ? 1 : 0)};
     transition: opacity 0.4s;
 
     .roll {
@@ -114,7 +114,7 @@ const DiceTableWrapper: React.FC<{ children: React.ReactNode }> = ({
     return (
         <TableWrapper>
             {tableWithButton}
-            <Overlay show={showOverlay}>
+            <Overlay $show={showOverlay}>
                 <div className="roll">{overlayRoll}</div>
                 <div className="result">{overlayText}</div>
             </Overlay>

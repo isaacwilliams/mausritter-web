@@ -6,8 +6,6 @@ import { visit } from 'unist-util-visit';
 export default function remarkStatblockDirective() {
     return (tree) => {
         visit(tree, (node) => {
-            console.log(node.type);
-
             if (
                 node.type === 'containerDirective' &&
                 node.name === 'statblock'
