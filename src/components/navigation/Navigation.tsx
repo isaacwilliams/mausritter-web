@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import font from '../styles/font';
 import media from '../styles/media';
@@ -23,7 +23,6 @@ const Nav = styled.nav`
 
 const NavSection = styled.div`
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -38,16 +37,13 @@ const NavSection = styled.div`
     }
 
     ${media.phone`
-        &.left {
-            margin-left: 0;
-        }
-
-        &.center {
+        &.center,
+        &.right {
             display: none;
         }
 
-        &.right {
-            margin-right: 0;
+        &.left {
+            margin-left: 0;
         }
     `}
 `;
@@ -111,44 +107,206 @@ const Divider = styled.div`
     border-right: 1px solid #ccc;
 `;
 
-const Navigation = ({
-    transparent,
-    showLanguage,
-}: {
+const HamburgerButton = styled.button`
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    z-index: 1002;
+    width: 30px;
+    height: 30px;
+
+    @media (max-width: 700px) {
+        display: block;
+    }
+
+    span {
+        display: block;
+        width: 22px;
+        height: 3px;
+        margin: 4px 0;
+        background: #222;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+`;
+
+const MobileMenu = styled.div<{
+    open: boolean;
+}>`
+    display: none;
+    @media (max-width: 700px) {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 80vw;
+        max-width: 320px;
+        background: white;
+        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+        padding: 2rem 1.5rem;
+        z-index: 1001;
+        transform: ${({ open }) =>
+            open ? 'translateX(0)' : 'translateX(100%)'};
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+`;
+
+const Overlay = styled.div<{
+    open: boolean;
+}>`
+    display: ${({ open }) => (open ? 'block' : 'none')};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+`;
+
+// Simple hook to detect mobile
+function useIsMobile(breakpoint: number = 700): boolean {
+    const [isMobile, setIsMobile] = React.useState(
+        typeof window !== 'undefined' ? window.innerWidth <= breakpoint : false,
+    );
+    React.useEffect(() => {
+        function handleResize() {
+            setIsMobile(window.innerWidth <= breakpoint);
+        }
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [breakpoint]);
+    return isMobile;
+}
+
+type NavigationProps = {
     transparent?: boolean;
     showLanguage?: boolean;
-}) => {
+};
+
+const DesktopNavigation = ({ transparent, showLanguage }: NavigationProps) => (
+    <Nav>
+        <NavSection className="left">
+            <NavLogo href="/">Mausritter</NavLogo>
+        </NavSection>
+        <NavSection className="center">
+            <NavItem href="/#get-mausritter" transparent={transparent}>
+                Get the game
+            </NavItem>
+            <NavItem href="/#resources" transparent={transparent}>
+                Resources
+            </NavItem>
+            <NavItem href="/#community" transparent={transparent}>
+                Community
+            </NavItem>
+            {/* <NavItem href="/srd" transparent={transparent}>
+                Game Rules (SRD)
+            </NavItem> */}
+        </NavSection>
+        <NavSection className="right">
+            <NavItem href="/mouse" transparent={transparent}>
+                Make a mouse
+            </NavItem>
+            {showLanguage && <LanguageSelect />}
+        </NavSection>
+    </Nav>
+);
+
+const MobileNavigation = ({ transparent, showLanguage }: NavigationProps) => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    React.useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [menuOpen]);
+
     return (
         <Nav>
             <NavSection className="left">
                 <NavLogo href="/">Mausritter</NavLogo>
             </NavSection>
-
-            <NavSection className="center">
-                <NavItem href="/#get-mausritter" transparent={transparent}>
+            <HamburgerButton
+                aria-label="Open menu"
+                onClick={() => setMenuOpen((v) => !v)}
+            >
+                <span
+                    style={{
+                        transform: menuOpen
+                            ? 'rotate(45deg) translate(4px, 4px)'
+                            : undefined,
+                    }}
+                />
+                <span style={{ opacity: menuOpen ? 0 : 1 }} />
+                <span
+                    style={{
+                        transform: menuOpen
+                            ? 'rotate(-45deg) translate(6px, -6px)'
+                            : undefined,
+                    }}
+                />
+            </HamburgerButton>
+            <Overlay open={menuOpen} onClick={() => setMenuOpen(false)} />
+            <MobileMenu open={menuOpen}>
+                <NavItem
+                    href="/#get-mausritter"
+                    transparent={transparent}
+                    onClick={() => setMenuOpen(false)}
+                >
                     Get the game
                 </NavItem>
-
-                <NavItem href="/#resources" transparent={transparent}>
+                <NavItem
+                    href="/#resources"
+                    transparent={transparent}
+                    onClick={() => setMenuOpen(false)}
+                >
                     Resources
                 </NavItem>
-
-                <NavItem href="/#community" transparent={transparent}>
+                <NavItem
+                    href="/#community"
+                    transparent={transparent}
+                    onClick={() => setMenuOpen(false)}
+                >
                     Community
                 </NavItem>
-
-                {/* <NavItem href="/srd" transparent={transparent}>
+                {/* <NavItem href="/srd" transparent={transparent} onClick={() => setMenuOpen(false)}>
                     Game Rules (SRD)
                 </NavItem> */}
-            </NavSection>
-
-            <NavSection className="right">
-                <NavItem href="/mouse" transparent={transparent}>
+                <Divider />
+                <NavItem
+                    href="/mouse"
+                    transparent={transparent}
+                    onClick={() => setMenuOpen(false)}
+                >
                     Make a mouse
                 </NavItem>
                 {showLanguage && <LanguageSelect />}
-            </NavSection>
+            </MobileMenu>
         </Nav>
+    );
+};
+
+const Navigation = ({ transparent, showLanguage }: NavigationProps) => {
+    const isMobile = useIsMobile(700);
+    return isMobile ? (
+        <MobileNavigation
+            transparent={transparent}
+            showLanguage={showLanguage}
+        />
+    ) : (
+        <DesktopNavigation
+            transparent={transparent}
+            showLanguage={showLanguage}
+        />
     );
 };
 
