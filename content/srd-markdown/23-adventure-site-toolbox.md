@@ -140,15 +140,37 @@ Encounters can be dangerous, but are not necessarily hostile to the player mice.
 
 To randomly stock a room in an adventure site, roll d6 three times; the first result shows the room type, the second shows if a creature is present, and the third shows if treasure can be found here.
 
-|        |   Room type  |   d6 Creature                           ||   d6 Treasure                            ||
-|--------|--------------|-------|------|------|------|------|------|--------|------|------|------|------|------|
-|   d6   |   Type       |   1   |   2  |   3  |   4  |   5  |   6  |   1    |   2  |   3  |   4  |   5  |   6  |
-|   1-2  |   Empty      |   X   |   X  |   X  |      |      |      |   X    |      |      |      |      |      |
-|   3    |   Obstacle   |   X   |   X  |      |      |      |      |   X    |      |      |      |      |      |
-|   4    |   Trap       |   X   |      |      |      |      |      |   X    |   X  |      |      |      |      |
-|   5    |   Puzzle     |   X   |      |      |      |      |      |   X    |   X  |   X  |   X  |   X  |      |
-|   6    |   Lair       |   X   |   X  |   X  |   X  |   X  |      |   X    |   X  |   X  |   X  |      |      |
+### Room type
 
+|   d6   |   Type       |
+|--------|--------------|
+|   1-2  |   Empty      |
+|   3    |   Obstacle   |
+|   4    |   Trap       |
+|   5    |   Puzzle     |
+|   6    |   Lair       |
+
+### Room has a creature?
+
+|   d6  | Empty | Obstacle | Trap | Puzzle | Lair |
+|-------|-------|----------|------|--------|------|
+|   1   |   X   |    X     |  X   |   X    |  X   |
+|   2   |   X   |    X     |      |        |  X   |
+|   3   |   X   |          |      |        |  X   |
+|   4   |       |          |      |        |  X   |
+|   5   |       |          |      |        |  X   |
+|   6   |       |          |      |        |      |
+
+### Room has treasure?
+
+|   d6  | Empty | Obstacle | Trap | Puzzle | Lair |
+|-------|-------|----------|------|--------|------|
+|   1   |   X   |    X     |  X   |   X    |  X   |
+|   2   |       |          |  X   |   X    |  X   |
+|   3   |       |          |      |   X    |  X   |
+|   4   |       |          |      |   X    |  X   |
+|   5   |       |          |      |   X    |      |
+|   6   |       |          |      |        |      |
 ### Creatures and lairs
 
 The creatures used in your adventure site should be populated from the factions you’ve already chosen, but don’t be afraid to include some other creatures too. Creatures not in a lair should have a reason for being the room where they are found.
