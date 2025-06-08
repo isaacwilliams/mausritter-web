@@ -1,26 +1,23 @@
 import { styled } from 'styled-components';
 import { useData } from 'vike-react/useData';
-import Navigation from '../navigation/Navigation';
-import BodyText from '../styles/BodyText';
 import ContentContainer from '../layout/ContentContainer';
 import font from '../styles/font';
 
-import { SRDIndex, SRDPage, SRDPageFrontmatter } from './srdTypes';
-import Markdown from 'react-markdown';
+import { SRDIndex, SRDPage } from './srdTypes';
 
-import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
 import SRDBodyText from './SRDBodyText';
 import SRDMarkdownRenderer from './SRDMarkdownRenderer';
 import colors from '../styles/colors';
 
-const FloatingNavDark = styled(Navigation)`
-    background: #100113;
-    color: white;
-`;
+import srdLogo from './srd-logo.svg';
 
-const BodyTextSmall = styled(BodyText)`
-    font-size: 1.2rem;
+const SRDTitle = styled.h1`
+    font-size: 0;
+    color: transparent;
+    background: url(${srdLogo}) no-repeat center;
+    background-size: contain;
+    width: 100%;
+    height: 6rem;
 `;
 
 const SRDContainer = styled(ContentContainer)`
@@ -92,7 +89,7 @@ const SRDTemplate = () => {
     return (
         <SRDContainer>
             <TOC>
-                <h1>Mausritter SRD</h1>
+                <SRDTitle>Mausritter System Reference Document</SRDTitle>
 
                 {index.sections.map(({ title, pages }, index) => (
                     <div key={index}>
