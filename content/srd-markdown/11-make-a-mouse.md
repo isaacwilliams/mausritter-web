@@ -9,7 +9,7 @@ title: Make a mouse
 
 The world is very big and very dangerous for a small mouse adventurer. You will need to be very brave, and always keep your wits about you.
 
-Use these procedures to roll a new mouse adventurer, or use the [instant mouse generator](/mouse).
+Use these procedures to create a new mouse adventurer, or use the [instant mouse generator](/mouse) for even faster character creation.
 
 ## 1. Attributes
 
