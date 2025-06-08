@@ -7,25 +7,40 @@ title: Terms of use
 
 # Terms of use
 
-## SRD License
+## Mausritter SRD Licence
 
-The text of the Mausritter System Reference Document (SRD) is licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+The text of the Mausritter System Reference Document (SRD) is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). This means you can use, copy, and modify the rules, mechanics, and text of the Mausritter SRD in your own works, as long as you follow the terms outlined below.
 
-You are free to use, reference, and modify the rules, mechanics and text of the SRD for your own projects, including both free and commercial works, provided you follow these terms.
 
-You **must**:
+### Compatibility with Mausritter
 
-- Provide attribution to the Mausritter SRD in your work, including a link to the Mausritter website.
-- Include a copy of the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/) with your work.
+You can create content that is compatible with Mausritter, such as adventures, supplements, and other materials, as long as you follow the terms outlined in the [Mausritter Third Party Licence](/third-party-licence).
 
-You **may not**:
+If you do so, you can use the "Compatible with Mausritter" logo in your work.
 
-- State or imply that your work is an official Mausritter product.
-- Use the Mausritter, Losing Games, or Games Omnivorous logos without explicit permission.
-- Use the Mausritter name, Losing Games, or Games Omnivorous in a way that implies endorsement or official status without explicit permission.
+### Copying
 
-Images, illustrations any other content not explicitly part of the Mausritter SRD are not covered by this license.
+You can copy and use the Mausritter SRD text in your own works, including commercial products, as long as you provide proper attribution. 
 
-## Third Party License
+### Translation
 
-Creating adventures, supplements, and other content for Mausritter is allowed under the [Mausritter Third Party License](/third-party-licence). This license allows you to create and sell your own Mausritter content while adhering to the terms outlined in that page.
+This licence allows you to translate the Mausritter SRD text into other languages.
+
+The Mausritter book, illustrations and other materials that are not part of the SRD are **not covered by this licence**. You may not copy or translate them for publication without explicit permission from Losing Games. Contact [Isaac Williams](https://isaacwilliams.net) for details on licensing Mausritter for translation.
+
+### Attribution
+
+When using the Mausritter SRD text, you must include the following attribution in your work:
+
+> This work is based on Mausritter, a product of Losing Games and Isaac Williams, and is licensed for use under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) licence.
+
+The attribution must be included in a prominent location, such as the credits or introduction of your work.
+
+### Endorsement
+
+You must not state or imply that your work is an official Mausritter product, or that it is endorsed by Losing Games or Games Omnivorous, unless you have explicit permission to do so.
+
+## Third Party Licence
+
+Creating adventures, supplements, and other content for Mausritter is allowed under the [Mausritter Third Party Licence](/third-party-licence). This licence allows you to create and sell your own Mausritter content while adhering to the terms outlined on that page.
+
