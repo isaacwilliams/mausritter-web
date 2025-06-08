@@ -4,6 +4,6 @@ export default {
     body: '#001122',
     bodyLight: '#555555',
 
-    highlight: '#ffcc00',
+    highlight: '#80cbbb',
     highlightAlt: 'red',
 };
