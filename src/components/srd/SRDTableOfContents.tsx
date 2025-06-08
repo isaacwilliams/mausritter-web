@@ -6,6 +6,7 @@ import font from '../styles/font';
 import srdLogo from './srd-logo.svg';
 import { useData } from 'vike-react/useData';
 import { SRDIndex, SRDPage } from './srdTypes';
+import TableOfContentsItem from './SRDTableOfContentsItem';
 
 const SRDTitleLink = styled.a`
     text-decoration: none;
@@ -96,31 +97,11 @@ const SRDTableOfContents = () => {
                                 currentPage?.frontmatter.slug === entry.slug;
 
                             return (
-                                <>
-                                    <li
-                                        key={index}
-                                        className={isCurrent ? 'current' : ''}
-                                    >
-                                        <a href={`/srd/${entry.slug}`}>
-                                            {entry.title}
-                                        </a>
-                                    </li>
-                                    {entry.subtitles && (
-                                        <ul className="subtitles">
-                                            {entry.subtitles.map(
-                                                (subtitle, subIndex) => (
-                                                    <li key={subIndex}>
-                                                        <a
-                                                            href={`/srd/${entry.slug}#${subtitle.slug}`}
-                                                        >
-                                                            {subtitle.title}
-                                                        </a>
-                                                    </li>
-                                                ),
-                                            )}
-                                        </ul>
-                                    )}
-                                </>
+                                <TableOfContentsItem
+                                    key={index}
+                                    entry={entry}
+                                    isCurrent={isCurrent}
+                                />
                             );
                         })}
                     </ul>
