@@ -5,6 +5,7 @@ import media from '../styles/media';
 
 import mausritterLogo from '../navigation/logos/mausritter-logo.svg';
 import LanguageSelect from './language/LanguageSelect';
+import colors from '../styles/colors';
 
 const Nav = styled.nav`
     margin: auto;
@@ -65,7 +66,7 @@ const NavItem = styled.a<{
     background: ${({ transparent }) => (transparent ? 'transparent' : 'white')};
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
     }
 
     ${media.size('1100px')`
@@ -94,7 +95,7 @@ const NavLogo = styled.a`
     background-repeat: no-repeat;
 
     &:hover {
-        background-color: yellow;
+        background-color: ${colors.highlight};
     }
 
     ${media.phone`
@@ -134,6 +135,10 @@ const Navigation = ({
 
                 <NavItem href="/#community" transparent={transparent}>
                     Community
+                </NavItem>
+
+                <NavItem href="/srd" transparent={transparent}>
+                    SRD
                 </NavItem>
             </NavSection>
 

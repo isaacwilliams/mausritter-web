@@ -12,6 +12,7 @@ import { Title, SubTitle } from '../../styles/shared';
 import linkButtonBluesky from './icon-bluesky.svg';
 import linkButtonDiscord from './icon-discord.svg';
 import discordMouse from './discord-mouse.png';
+import colors from '../../styles/colors';
 
 const CommunitySectionWrapper = styled.section`
     padding-top: 6rem;
@@ -52,7 +53,7 @@ const LinkButton = styled.a`
     white-space: nowrap;
 
     &:hover {
-        background-color: yellow;
+        background-color: ${colors.highlight};
         color: black;
     }
 `;

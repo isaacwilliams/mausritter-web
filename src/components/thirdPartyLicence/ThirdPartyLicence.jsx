@@ -8,6 +8,7 @@ import BodyText from '../styles/BodyText';
 import { Title, SubTitle } from '../styles/shared';
 
 import image from './compatible-with-mausritter.svg';
+import colors from '../styles/colors';
 
 const LicencePageContainer = styled.div`
     margin-top: 3rem;
@@ -92,7 +93,7 @@ const LogoDownloadButton = styled.a`
     }
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
     }
 `;
 

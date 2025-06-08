@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import BodyText from '../styles/BodyText';
 import media from '../styles/media';
 import font from '../styles/font';
+import colors from '../styles/colors';
 
 // CSS variables for scalable typography
 const SRDBodyText = styled.div`
@@ -157,7 +158,7 @@ const SRDBodyText = styled.div`
 
         &:hover,
         &:focus {
-            background-color: yellow;
+            background-color: ${colors.highlight};
         }
     }
 

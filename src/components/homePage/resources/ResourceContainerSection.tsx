@@ -8,6 +8,7 @@ import media from '../../styles/media';
 
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 import { SubTitle } from '../../styles/shared';
+import colors from '../../styles/colors';
 
 const RESOURCES_LIMIT = 8;
 const limitedArray = slice(0, RESOURCES_LIMIT);
@@ -55,7 +56,7 @@ const linkStyle = css`
     }
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
 
         img {
             transform: scale(1.04);

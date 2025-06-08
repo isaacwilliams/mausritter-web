@@ -23,6 +23,7 @@ import flagRussia from './images/flag-russia.png';
 import flagItaly from './images/flag-italy.png';
 import flagBrazil from './images/flag-brazil.png';
 import flagUkraine from './images/flag-ukraine.png';
+import colors from '../../styles/colors';
 
 const GetGameWrapper = styled.article`
     background: #eee;
@@ -97,7 +98,7 @@ const OptionLink = styled.a`
     }
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
 
         h3 {
             text-decoration: underline;
@@ -118,7 +119,7 @@ const OptionLinkAlternates = styled.div`
         padding: 0.2rem 0.4rem;
 
         &:hover {
-            background: yellow;
+            background: ${colors.highlight};
         }
     }
 `;
@@ -166,7 +167,7 @@ const CountryFlagLink = styled.a`
     }
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
         text-decoration: underline;
     }
 
@@ -194,7 +195,7 @@ const SoldOutBanner = styled.div`
     transform: translate(-50%, -50%) rotate(-30deg);
 `;
 
-const GetGame = ({}) => (
+const GetGame = () => (
     <GetGameWrapper id="get-mausritter">
         <Title>Get Mausritter</Title>
 

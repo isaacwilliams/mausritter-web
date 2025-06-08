@@ -12,6 +12,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import SRDBodyText from './SRDBodyText';
 import SRDMarkdownRenderer from './SRDMarkdownRenderer';
+import colors from '../styles/colors';
 
 const FloatingNavDark = styled(Navigation)`
     background: #100113;
@@ -68,7 +69,7 @@ const TOC = styled.nav`
     }
 
     li.current {
-        background: yellow;
+        background: ${colors.highlight};
 
         a {
             color: black;
