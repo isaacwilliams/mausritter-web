@@ -137,9 +137,9 @@ const Navigation = ({
                     Community
                 </NavItem>
 
-                <NavItem href="/srd" transparent={transparent}>
+                {/* <NavItem href="/srd" transparent={transparent}>
                     Game Rules (SRD)
-                </NavItem>
+                </NavItem> */}
             </NavSection>
 
             <NavSection className="right">
