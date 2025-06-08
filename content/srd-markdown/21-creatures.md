@@ -11,9 +11,9 @@ title: Creatures
 
 As a general rule of thumb, the more closely related two creatures are, the more likely they are to understand each other. Magical or highly intelligent creatures may break these rules.
 
-- Other mice: Can easily communicate.
-- Other rodents: Can speak and communicate, with some difficulty and difference of custom.
-- Other mammals: Make a WIL save to see if  communication is possible.
+- Other **mice**: Can easily communicate.
+- Other **rodents**: Can speak and communicate, with some difficulty and difference of custom.
+- Other **mammals**: Make a WIL save to see if  communication is possible.
 - Otherwise: Can’t directly communicate.
 
 

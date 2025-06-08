@@ -67,7 +67,7 @@ If an incapacitated creature is left untended for 6 exploration **Turns**, they 
 
 ### Attribute score loss and death
 
-If a creature has their **STR** reduced to zero, they are **dead**. If **DEX** is reduced to zero, they are **unable to move**. If **WIL** is reduced to zero, they are reduced to **madness**.
+If a creature has their **STR** reduced to zero, they are **dead**. If **DEX** is reduced to zero, they are **unable to move**. If **WIL** is reduced to zero, they are reduced to **insensibility**.
 
 When your mouse **dies**, roll up a new one. The GM should introduce them as soon as possible. Getting back into the game quickly is more important than realism.
 
