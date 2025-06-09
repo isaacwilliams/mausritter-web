@@ -72,7 +72,7 @@ const NavItem = styled.a<{
     `}
 
     ${media.phone`
-        padding: 0.4rem 0.8rem;
+        padding: 0.4rem 0rem;
         margin: 0;
     `}
 `;
@@ -108,6 +108,13 @@ const Divider = styled.div`
     border-right: 1px solid #ccc;
 `;
 
+const MobileNavDivider = styled(Divider)`
+    height: 1px;
+    width: 100%;
+    margin: 1rem 0;
+    border-top: 1px solid #ccc;
+`;
+
 const HamburgerButton = styled.button`
     display: none;
     background: none;
@@ -134,26 +141,30 @@ const HamburgerButton = styled.button`
 `;
 
 const MobileMenu = styled.div<{
-    open: boolean;
+    $open: boolean;
 }>`
-    display: none;
-    @media (max-width: 700px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80vw;
+    /* max-width: 320px; */
+    background: white;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+
+    transform: ${({ $open }) => ($open ? 'translateX(0)' : 'translateX(100%)')};
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    > div {
         display: flex;
         flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 80vw;
-        max-width: 320px;
-        background: white;
-        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
         padding: 2rem 1.5rem;
-        z-index: 1001;
-        transform: ${({ open }) =>
-            open ? 'translateX(0)' : 'translateX(100%)'};
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    /* Make menu fixed width and scrollable if content overflows */
+    overflow-y: auto;
+    overflow-x: hidden;
 `;
 
 const Overlay = styled.div<{
@@ -203,11 +214,7 @@ const DesktopNavigation = ({ transparent, showLanguage }: NavigationProps) => (
     </Nav>
 );
 
-const MobileNavigation = ({
-    transparent,
-    showLanguage,
-    extraItems,
-}: NavigationProps) => {
+const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     React.useEffect(() => {
@@ -247,44 +254,47 @@ const MobileNavigation = ({
                 />
             </HamburgerButton>
             <Overlay open={menuOpen} onClick={() => setMenuOpen(false)} />
-            <MobileMenu open={menuOpen}>
-                <NavItem
-                    href="/#get-mausritter"
-                    transparent={transparent}
-                    onClick={() => setMenuOpen(false)}
-                >
-                    Get the game
-                </NavItem>
-                <NavItem
-                    href="/#resources"
-                    transparent={transparent}
-                    onClick={() => setMenuOpen(false)}
-                >
-                    Resources
-                </NavItem>
-                <NavItem
-                    href="/#community"
-                    transparent={transparent}
-                    onClick={() => setMenuOpen(false)}
-                >
-                    Community
-                </NavItem>
-                <NavItem
-                    href="/srd"
-                    transparent={transparent}
-                    onClick={() => setMenuOpen(false)}
-                >
-                    Game Rules (SRD)
-                </NavItem>
-                <Divider />
-                <NavItem
-                    href="/mouse"
-                    transparent={transparent}
-                    onClick={() => setMenuOpen(false)}
-                >
-                    Make a mouse
-                </NavItem>
-                {showLanguage && <LanguageSelect />}
+            <MobileMenu $open={menuOpen}>
+                <div>
+                    <NavItem
+                        href="/#get-mausritter"
+                        transparent={transparent}
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Get the game
+                    </NavItem>
+                    <NavItem
+                        href="/#resources"
+                        transparent={transparent}
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Resources
+                    </NavItem>
+                    <NavItem
+                        href="/#community"
+                        transparent={transparent}
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Community
+                    </NavItem>
+                    <MobileNavDivider />
+                    <NavItem
+                        href="/srd"
+                        transparent={transparent}
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Game Rules (SRD)
+                    </NavItem>
+                    {extraItems}
+                    <MobileNavDivider />
+                    <NavItem
+                        href="/mouse"
+                        transparent={transparent}
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Make a mouse
+                    </NavItem>
+                </div>
             </MobileMenu>
         </Nav>
     );

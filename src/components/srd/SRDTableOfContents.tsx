@@ -1,12 +1,9 @@
 import { styled } from 'styled-components';
 
-import colors from '../styles/colors';
-import font from '../styles/font';
-
 import srdLogo from './srd-logo.svg';
 import { useData } from 'vike-react/useData';
 import { SRDIndex, SRDPage } from './srdTypes';
-import TableOfContentsItem from './SRDTableOfContentsItem';
+import SRDTableOfContentsList from './SRDTableOfContentsList';
 
 const SRDTitleLink = styled.a`
     text-decoration: none;
@@ -32,81 +29,18 @@ const TOC = styled.nav`
 
     padding-top: 4rem;
     padding-right: 4rem;
-
-    font-size: 1rem;
-    line-height: 1.4;
-
-    a {
-        ${font.body};
-        color: black;
-        font-weight: bold;
-    }
-
-    ul {
-        list-style: none;
-    }
-
-    ul.subtitles {
-        margin-left: 1.2rem;
-
-        a {
-            color: #777;
-            font-weight: normal;
-        }
-    }
-
-    li {
-        margin: 0;
-        padding: 0.2rem;
-    }
-
-    li.current {
-        background: ${colors.highlight};
-
-        a {
-            color: black;
-        }
-    }
 `;
 
-const TOCSectionTitle = styled.div`
-    ${font.display};
-    padding-top: 1.6rem;
-    padding-bottom: 0.4rem;
-`;
-
-const SRDTableOfContents = () => {
-    const { index, currentPage } = useData() as {
-        index: SRDIndex;
-        currentPage?: SRDPage;
-    };
-
+const SRDTableOfContents: React.FC<{
+    index: SRDIndex;
+    currentPage?: SRDPage;
+}> = ({ index, currentPage }) => {
     return (
         <TOC>
             <SRDTitleLink href="/srd">
                 <SRDTitle>Mausritter System Reference Document</SRDTitle>
             </SRDTitleLink>
-
-            {index.sections.map(({ title, pages }, index) => (
-                <div key={index}>
-                    <TOCSectionTitle>{title}</TOCSectionTitle>
-
-                    <ul>
-                        {pages.map((entry, index) => {
-                            const isCurrent =
-                                currentPage?.frontmatter.slug === entry.slug;
-
-                            return (
-                                <TableOfContentsItem
-                                    key={index}
-                                    entry={entry}
-                                    isCurrent={isCurrent}
-                                />
-                            );
-                        })}
-                    </ul>
-                </div>
-            ))}
+            <SRDTableOfContentsList index={index} currentPage={currentPage} />
         </TOC>
     );
 };

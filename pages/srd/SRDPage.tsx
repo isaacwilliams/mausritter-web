@@ -11,22 +11,34 @@ import SRDBodyText from '../../src/components/srd/SRDBodyText';
 import SRDMarkdownRenderer from '../../src/components/srd/SRDMarkdownRenderer';
 import { SRDIndex, SRDPage } from '../../src/components/srd/srdTypes';
 import useIsMobile from '../../src/components/hooks/useIsMobile';
+import SRDTableOfContentsList from '../../src/components/srd/SRDTableOfContentsList';
 
 const IndexPage = () => {
-    const { currentPage } = useData() as {
-        index: SRDIndex;
+    const { index, currentPage } = useData() as {
         currentPage?: SRDPage;
+        index: SRDIndex;
     };
 
-    const tableOfContents = <SRDTableOfContents />;
     const isMobile = useIsMobile();
 
     return (
         <SiteContainer>
-            <Navigation />
+            <Navigation
+                extraItems={
+                    <SRDTableOfContentsList
+                        index={index}
+                        currentPage={currentPage}
+                    />
+                }
+            />
 
             <SRDContainer>
-                {!isMobile && tableOfContents}
+                {!isMobile && (
+                    <SRDTableOfContents
+                        index={index}
+                        currentPage={currentPage}
+                    />
+                )}
 
                 {currentPage && (
                     <SRDBodyText>
