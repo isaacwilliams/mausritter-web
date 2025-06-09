@@ -5,7 +5,7 @@ export async function data() {
 
     const currentPage = pages[0];
 
-    const index = createSRDPageIndex(pages, currentPage);
+    const index = createSRDPageIndex(pages);
 
     return { index, currentPage };
 }

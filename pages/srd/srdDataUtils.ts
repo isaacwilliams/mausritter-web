@@ -71,19 +71,13 @@ const createSubTitlesForPage = (
     return subtitles;
 };
 
-export const createSRDPageIndex = (
-    pages: SRDPage[],
-    currentPage?: SRDPage,
-): SRDIndex => {
+export const createSRDPageIndex = (pages: SRDPage[]): SRDIndex => {
     const pagesMapBySection: { [section: string]: SRDPageFrontmatter[] } = {};
 
     // Create subtitles for each page
-    pages.forEach((page) => {
-        if (page.frontmatter.subtitles) return;
-        if (page !== currentPage) return;
-
-        page.frontmatter.subtitles = createSubTitlesForPage(page);
-    });
+    // pages.forEach((page) => {
+    //     page.frontmatter.subtitles = createSubTitlesForPage(page);
+    // });
 
     pages.forEach((page) => {
         const section = page.frontmatter.section || 'Uncategorized';

@@ -1,24 +1,35 @@
 import { css } from 'styled-components';
 
-const sizes = {
+export const mediaSizes = {
     large: 1400,
     desktop: 992,
     phone: 672,
 };
 
-export default {
+type MediaFunction = (
+    ...args: Parameters<typeof css>
+) => ReturnType<typeof css>;
+
+type Media = {
+    phone: MediaFunction;
+    desktop: MediaFunction;
+    large: MediaFunction;
+    size: (breakpoint: number | string) => MediaFunction;
+};
+
+const media: Media = {
     phone: (...args) => css`
-        @media (max-width: ${sizes.phone}px) {
+        @media (max-width: ${mediaSizes.phone}px) {
             ${css(...args)}
         }
     `,
     desktop: (...args) => css`
-        @media (min-width: ${sizes.desktop}px) {
+        @media (min-width: ${mediaSizes.desktop}px) {
             ${css(...args)}
         }
     `,
     large: (...args) => css`
-        @media (min-width: ${sizes.large}px) {
+        @media (min-width: ${mediaSizes.large}px) {
             ${css(...args)}
         }
     `,
@@ -30,3 +41,5 @@ export default {
             }
         `,
 };
+
+export default media;

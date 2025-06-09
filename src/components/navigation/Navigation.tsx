@@ -6,6 +6,7 @@ import media from '../styles/media';
 import mausritterLogo from '../navigation/logos/mausritter-logo.svg';
 import LanguageSelect from './language/LanguageSelect';
 import colors from '../styles/colors';
+import useIsMobile from '../hooks/useIsMobile';
 
 const Nav = styled.nav`
     margin: auto;
@@ -168,24 +169,10 @@ const Overlay = styled.div<{
     z-index: 1000;
 `;
 
-// Simple hook to detect mobile
-function useIsMobile(breakpoint: number = 700): boolean {
-    const [isMobile, setIsMobile] = React.useState(
-        typeof window !== 'undefined' ? window.innerWidth <= breakpoint : false,
-    );
-    React.useEffect(() => {
-        function handleResize() {
-            setIsMobile(window.innerWidth <= breakpoint);
-        }
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, [breakpoint]);
-    return isMobile;
-}
-
 type NavigationProps = {
     transparent?: boolean;
     showLanguage?: boolean;
+    extraItems?: React.ReactNode;
 };
 
 const DesktopNavigation = ({ transparent, showLanguage }: NavigationProps) => (
@@ -216,7 +203,11 @@ const DesktopNavigation = ({ transparent, showLanguage }: NavigationProps) => (
     </Nav>
 );
 
-const MobileNavigation = ({ transparent, showLanguage }: NavigationProps) => {
+const MobileNavigation = ({
+    transparent,
+    showLanguage,
+    extraItems,
+}: NavigationProps) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     React.useEffect(() => {
@@ -278,9 +269,13 @@ const MobileNavigation = ({ transparent, showLanguage }: NavigationProps) => {
                 >
                     Community
                 </NavItem>
-                {/* <NavItem href="/srd" transparent={transparent} onClick={() => setMenuOpen(false)}>
+                <NavItem
+                    href="/srd"
+                    transparent={transparent}
+                    onClick={() => setMenuOpen(false)}
+                >
                     Game Rules (SRD)
-                </NavItem> */}
+                </NavItem>
                 <Divider />
                 <NavItem
                     href="/mouse"
@@ -295,12 +290,18 @@ const MobileNavigation = ({ transparent, showLanguage }: NavigationProps) => {
     );
 };
 
-const Navigation = ({ transparent, showLanguage }: NavigationProps) => {
-    const isMobile = useIsMobile(700);
+const Navigation = ({
+    transparent,
+    showLanguage,
+    extraItems,
+}: NavigationProps) => {
+    const isMobile = useIsMobile();
+
     return isMobile ? (
         <MobileNavigation
             transparent={transparent}
             showLanguage={showLanguage}
+            extraItems={extraItems}
         />
     ) : (
         <DesktopNavigation
