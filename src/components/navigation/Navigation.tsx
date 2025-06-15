@@ -186,27 +186,42 @@ type NavigationProps = {
     extraItems?: React.ReactNode;
 };
 
+// DesktopNavigation
 const DesktopNavigation = ({ transparent, showLanguage }: NavigationProps) => (
-    <Nav>
-        <NavSection className="left">
-            <NavLogo href="/">Mausritter</NavLogo>
+    <Nav role="navigation" aria-label="Main navigation">
+        <NavSection className="left" role="presentation">
+            <NavLogo href="/" aria-label="Mausritter Home" role="link">
+                Mausritter
+            </NavLogo>
         </NavSection>
-        <NavSection className="center">
-            <NavItem href="/#get-mausritter" transparent={transparent}>
+        <NavSection className="center" role="menubar">
+            <NavItem
+                href="/#get-mausritter"
+                transparent={transparent}
+                role="menuitem"
+            >
                 Get the game
             </NavItem>
-            <NavItem href="/#resources" transparent={transparent}>
+            <NavItem
+                href="/#resources"
+                transparent={transparent}
+                role="menuitem"
+            >
                 Resources
             </NavItem>
-            <NavItem href="/#community" transparent={transparent}>
+            <NavItem
+                href="/#community"
+                transparent={transparent}
+                role="menuitem"
+            >
                 Community
             </NavItem>
-            {/* <NavItem href="/srd" transparent={transparent}>
+            <NavItem href="/srd" transparent={transparent} role="menuitem">
                 Game Rules (SRD)
-            </NavItem> */}
+            </NavItem>
         </NavSection>
-        <NavSection className="right">
-            <NavItem href="/mouse" transparent={transparent}>
+        <NavSection className="right" role="presentation">
+            <NavItem href="/mouse" transparent={transparent} role="menuitem">
                 Make a mouse
             </NavItem>
             {showLanguage && <LanguageSelect />}
@@ -214,6 +229,7 @@ const DesktopNavigation = ({ transparent, showLanguage }: NavigationProps) => (
     </Nav>
 );
 
+// MobileNavigation
 const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -229,12 +245,16 @@ const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
     }, [menuOpen]);
 
     return (
-        <Nav>
-            <NavSection className="left">
-                <NavLogo href="/">Mausritter</NavLogo>
+        <Nav role="navigation" aria-label="Mobile navigation">
+            <NavSection className="left" role="presentation">
+                <NavLogo href="/" aria-label="Mausritter Home" role="link">
+                    Mausritter
+                </NavLogo>
             </NavSection>
             <HamburgerButton
                 aria-label="Open menu"
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
                 onClick={() => setMenuOpen((v) => !v)}
             >
                 <span
@@ -254,12 +274,13 @@ const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
                 />
             </HamburgerButton>
             <Overlay open={menuOpen} onClick={() => setMenuOpen(false)} />
-            <MobileMenu $open={menuOpen}>
+            <MobileMenu $open={menuOpen} id="mobile-menu" role="menu">
                 <div>
                     <NavItem
                         href="/#get-mausritter"
                         transparent={transparent}
                         onClick={() => setMenuOpen(false)}
+                        role="menuitem"
                     >
                         Get the game
                     </NavItem>
@@ -267,6 +288,7 @@ const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
                         href="/#resources"
                         transparent={transparent}
                         onClick={() => setMenuOpen(false)}
+                        role="menuitem"
                     >
                         Resources
                     </NavItem>
@@ -274,6 +296,7 @@ const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
                         href="/#community"
                         transparent={transparent}
                         onClick={() => setMenuOpen(false)}
+                        role="menuitem"
                     >
                         Community
                     </NavItem>
@@ -282,6 +305,7 @@ const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
                         href="/srd"
                         transparent={transparent}
                         onClick={() => setMenuOpen(false)}
+                        role="menuitem"
                     >
                         Game Rules (SRD)
                     </NavItem>
@@ -291,6 +315,7 @@ const MobileNavigation = ({ transparent, extraItems }: NavigationProps) => {
                         href="/mouse"
                         transparent={transparent}
                         onClick={() => setMenuOpen(false)}
+                        role="menuitem"
                     >
                         Make a mouse
                     </NavItem>
