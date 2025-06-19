@@ -6,7 +6,7 @@ import type { Config } from 'vike/types';
 
 export default {
     // https://vike.dev/head-tags
-    title: 'Mausritter Game Rules',
+    title: 'Game Rules | Mausritter',
     description: `The Mausritter SRD is a complete, free, and open-source reference for the Mausritter, the sword-and-whiskers roleplaying game.`,
 
     extends: vikeReact,
