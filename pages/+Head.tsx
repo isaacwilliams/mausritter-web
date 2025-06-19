@@ -6,12 +6,12 @@ import favicon32 from './index/assets/favicon-32x32.png';
 import favicon16 from './index/assets/favicon-16x16.png';
 import shareImage from './index/assets/website-share-image.jpg';
 
-const DESCRIPTION =
-    'Take up the sword and don the whiskers of a brave mouse adventurer in Mausritter, the rules-light fantasy adventure roleplaying game.';
 const URL = 'https://mausritter.com';
 const AUTHOR = `@isaacwilliams`;
 
-export default function HeadDefault() {
+export default function HeadDefault(pageContext) {
+    const { title, description } = pageContext;
+
     return (
         <>
             <html lang="en" />
@@ -19,9 +19,9 @@ export default function HeadDefault() {
             <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
             <link rel="stylesheet" href="https://use.typekit.net/jcg4vha.css" />
 
-            <meta name="description" content={DESCRIPTION} />
-            <meta property="og:title" content="Mausritter" />
-            <meta property="og:description" content={DESCRIPTION} />
+            <meta name="description" content={description} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={URL} />
             <meta property="og:image" content={`${URL}/${shareImage}`} />
@@ -35,8 +35,8 @@ export default function HeadDefault() {
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content={AUTHOR} />
             <meta name="twitter:creator" content={AUTHOR} />
-            <meta name="twitter:title" content="Mausritter" />
-            <meta name="twitter:description" content={DESCRIPTION} />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={`${URL}/${shareImage}`} />
         </>
     );
