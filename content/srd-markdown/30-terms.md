@@ -21,14 +21,13 @@ The attribution must be included in a prominent location, such as the credits or
 
 ### Copying
 
-You can copy and use the Mausritter SRD text in your own works, including commercial products, as long as you provide proper attribution. 
+You can copy and use the Mausritter SRD text in your own works, including commercial products, as long as you provide proper attribution.
 
 ### Translation
 
 This licence allows you to translate the Mausritter SRD text into other languages.
 
 The Mausritter book, illustrations and other materials that are not part of the SRD are **not covered by this licence**. You may not copy or translate them for publication without explicit permission from Losing Games. Contact [Isaac Williams](https://isaacwilliams.net) for details on licensing Mausritter for translation.
-
 
 ### Endorsement
 

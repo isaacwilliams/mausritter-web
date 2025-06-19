@@ -72,24 +72,24 @@ Special rule: Always mark usage after a fight.
 
 **d6 damage**  
 Wielded in: Main paw/off paw  
-Special rule: If attacking with two weapons, roll both dice and use the best result.    
+Special rule: If attacking with two weapons, roll both dice and use the best result.  
 Example: Needle, dagger, hatchet
 
 Cost: 10p
 
 #### Medium
 
-**d6/d8 damage**   
+**d6/d8 damage**  
 Wielded in: Main paw/both paws  
-Special rule: Does d6 damage in one paw, d8 wielded in both.   
+Special rule: Does d6 damage in one paw, d8 wielded in both.  
 Example: Sword, axe, staff
 
 Cost: 20p
 
 #### Heavy
 
-**d10 damage**   
-Wielded in: Both paws   
+**d10 damage**  
+Wielded in: Both paws  
 Example: Trashhook, spear, heavy hammer
 
 Cost: 40p
@@ -99,7 +99,7 @@ Cost: 40p
 #### Light ranged
 
 **d6 damage**  
-Wielded in: Main paw   
+Wielded in: Main paw  
 Example: Sling, light crossbow
 
 Cost: 10p
@@ -116,13 +116,13 @@ Cost: 40p
 
 #### Stones, pouch
 
-Carried in: Body slot   
+Carried in: Body slot
 
 Cost: 1p
 
 #### Arrows, quiver
 
-Carried in: Body slot   
+Carried in: Body slot
 
 Cost: 5p
 

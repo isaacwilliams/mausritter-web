@@ -13,9 +13,8 @@ As a general rule of thumb, the more closely related two creatures are, the more
 
 - Other **mice**: Can easily communicate.
 - Other **rodents**: Can speak and communicate, with some difficulty and difference of custom.
-- Other **mammals**: Make a WIL save to see if  communication is possible.
+- Other **mammals**: Make a WIL save to see if communication is possible.
 - Otherwise: Can’t directly communicate.
-
 
 ## List of creatures
 
@@ -137,7 +136,7 @@ Only harmed by silver or magic weapons
 1. Shimmer — Create d3 illusions of itself
 2. Poltergeist — Throws a creature/object d6 x 6"
 3. Entrap — Pull a creature into the spirit realm for a Round
-4. Doom — Give Frightened Condition to a creature  
+4. Doom — Give Frightened Condition to a creature
 5. Rot — Destroys all rations carried by a creature
 6. Incorporeal — Float into wall/floor, reappear elsewhere
 
