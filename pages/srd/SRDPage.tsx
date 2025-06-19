@@ -14,9 +14,10 @@ import useIsMobile from '../../src/components/hooks/useIsMobile';
 import SRDTableOfContentsList from '../../src/components/srd/SRDTableOfContentsList';
 
 const IndexPage = () => {
-    const { index, currentPage } = useData() as {
+    const { index, currentPage, downloadUrl } = useData() as {
         currentPage?: SRDPage;
         index: SRDIndex;
+        downloadUrl?: string;
     };
 
     const isMobile = useIsMobile();
@@ -37,6 +38,7 @@ const IndexPage = () => {
                     <SRDTableOfContents
                         index={index}
                         currentPage={currentPage}
+                        downloadUrl={downloadUrl}
                     />
                 )}
 

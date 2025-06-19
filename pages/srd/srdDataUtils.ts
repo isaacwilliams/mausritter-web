@@ -62,7 +62,7 @@ const createSubTitlesForPage = (
             title = title.replace(/^#+\s*/, '');
             const slug = title
                 .toLowerCase()
-                .replace(/[.,]/g, '') // remove "." and ","
+                .replace(/[.,?]/g, '') // remove ".", ", "?", etc.
                 .replace(/\s+/g, '-');
             subtitles.push({ title, slug });
         }

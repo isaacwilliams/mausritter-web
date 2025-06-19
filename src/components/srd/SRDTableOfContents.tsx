@@ -20,6 +20,10 @@ const SRDTitle = styled.h1`
     height: 6rem;
 `;
 
+const DownloadLink = styled.a`
+    color: gray;
+`;
+
 const TOC = styled.nav`
     position: sticky;
     top: 0;
@@ -34,13 +38,20 @@ const TOC = styled.nav`
 const SRDTableOfContents: React.FC<{
     index: SRDIndex;
     currentPage?: SRDPage;
-}> = ({ index, currentPage }) => {
+    downloadUrl?: string;
+}> = ({ index, currentPage, downloadUrl }) => {
     return (
         <TOC>
             <SRDTitleLink href="/srd">
                 <SRDTitle>Mausritter System Reference Document</SRDTitle>
             </SRDTitleLink>
             <SRDTableOfContentsList index={index} currentPage={currentPage} />
+
+            {downloadUrl && (
+                <DownloadLink href={downloadUrl} download>
+                    Download as Markdown file
+                </DownloadLink>
+            )}
         </TOC>
     );
 };

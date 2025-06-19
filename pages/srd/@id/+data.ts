@@ -9,5 +9,8 @@ export async function data(pageContext) {
 
     const index = createSRDPageIndex(pages);
 
-    return { index, currentPage };
+    const metaPage = pages.find((page) => page.frontmatter.title === 'meta');
+    const downloadUrl = `/srd/mausritter-srd-${metaPage?.frontmatter.version}.md`;
+
+    return { index, currentPage, downloadUrl };
 }
