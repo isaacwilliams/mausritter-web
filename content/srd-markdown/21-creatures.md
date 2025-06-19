@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 21
 section: GM rules and resources
 slug: creatures
 title: Creatures
@@ -11,11 +11,10 @@ title: Creatures
 
 As a general rule of thumb, the more closely related two creatures are, the more likely they are to understand each other. Magical or highly intelligent creatures may break these rules.
 
-- Other mice: Can easily communicate.
-- Other rodents: Can speak and communicate, with some difficulty and difference of custom.
-- Other mammals: Make a WIL save to see if  communication is possible.
+- Other **mice**: Can easily communicate.
+- Other **rodents**: Can speak and communicate, with some difficulty and difference of custom.
+- Other **mammals**: Make a WIL save to see if communication is possible.
 - Otherwise: Can’t directly communicate.
-
 
 ## List of creatures
 
@@ -27,9 +26,11 @@ When a creature lists critical damage in its stat block, this occurs instead of 
 
 ### Cat
 
+:::statblock
 **Warband scale**  
 15hp, STR 15, DEX 15, WIL 10, Armour 1  
 Attacks: d6 swipe, d8 bite
+:::
 
 **Wants** to be served. If mice pledge fealty and give bribes, they may be allowed to live
 
@@ -44,9 +45,11 @@ Attacks: d6 swipe, d8 bite
 
 ### Centipede
 
+:::statblock
 8hp, STR 10, DEX 12, WIL 8, Armour 1  
 Attacks: d6 venomous bite (damages DEX instead of STR)  
 Critical damage: Venom takes effect, d12 damage to STR  
+:::
 
 **Wants** to wander and devour
 
@@ -61,9 +64,11 @@ Critical damage: Venom takes effect, d12 damage to STR
 
 ### Crow
 
+:::statblock
 12hp, STR 12, DEX 15, WIL 15, Armour 1  
 Attacks: d8 peck  
 Flys 3x normal speed, knows two songs  
+:::
 
 **Wants** to protect the secret hallowed places from those that would do them harm
 
@@ -78,9 +83,11 @@ Flys 3x normal speed, knows two songs
 
 ### Faerie
 
+:::statblock
 6hp, STR 10, DEX 15, WIL 15  
 Attacks: d8 silver rapier  
 Knows one spell  
+:::
 
 **Wants** to further the Faerie Queen’s strange agenda
 
@@ -95,10 +102,12 @@ Knows one spell
 
 ### Frog
 
+:::statblock
 6hp, STR 12, DEX 15, WIL 8, Armour 1  
 Attacks: d10 spear or d6 tongue  
 Critical damage: Leap out of reach  
 Always goes first unless surprised, leaps 2x normal speed  
+:::
 
 **Wants** to gallantly complete their quest
 
@@ -113,10 +122,12 @@ Always goes first unless surprised, leaps 2x normal speed
 
 ### Ghost
 
+:::statblock
 9hp, STR 5, DEX 10, WIL 10  
 Attacks: ghostly power, d8 chilling touch (damages WIL)  
 Critical damage: Possess the creature  
 Only harmed by silver or magic weapons  
+:::
 
 **Wants** freedom from the pain that binds them to the mortal realm
 
@@ -125,14 +136,16 @@ Only harmed by silver or magic weapons
 1. Shimmer — Create d3 illusions of itself
 2. Poltergeist — Throws a creature/object d6 x 6"
 3. Entrap — Pull a creature into the spirit realm for a Round
-4. Doom — Give Frightened Condition to a creature  
+4. Doom — Give Frightened Condition to a creature
 5. Rot — Destroys all rations carried by a creature
 6. Incorporeal — Float into wall/floor, reappear elsewhere
 
 ### Mouse
 
+:::statblock
 3hp, STR 9, DEX 9, WIL 9  
 Attacks: d6 sword or d6 bow  
+:::
 
 **Wants** to feel safe
 
@@ -147,9 +160,11 @@ Attacks: d6 sword or d6 bow
 
 ### Owl
 
+:::statblock
 15hp, STR 15, DEX 15, WIL 15, Armour 1  
 Attacks: d10 bite  
 Flys 3x normal speed. Knows two spells  
+:::
 
 **Wants** to collect rare knowledge and spells
 
@@ -164,8 +179,10 @@ Flys 3x normal speed. Knows two spells
 
 ### Rat
 
+:::statblock
 3hp, STR 12, DEX 8, WIL 8  
 Attacks: d6 cleaver  
+:::
 
 **Wants** easy wealth, to take from the weak
 
@@ -180,9 +197,11 @@ Attacks: d6 cleaver
 
 ### Snake
 
+:::statblock
 12hp, STR 12, DEX 10, WIL 10, Armour 2  
 Attacks: d8 bite  
 Critical damage: Swallow whole, d4 STR damage per Round until rescued or escape  
+:::
 
 **Wants** to sleep undisturbed
 
@@ -197,9 +216,11 @@ Critical damage: Swallow whole, d4 STR damage per Round until rescued or escape
 
 ### Spider
 
+:::statblock
 6hp, STR 8, DEX 15, WIL 10, Armour 1  
 Attacks: d6 poison bite (damages DEX instead of STR)  
 Critical damage: Carry away in web  
+:::
 
 **Wants** to feed its babies
 

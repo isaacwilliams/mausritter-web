@@ -1,6 +1,4 @@
 import React from 'react';
-import useScrollPosition from '../../hooks/useScrollPosition';
-import useWindowSize from '../../hooks/useWindowSize';
 import { styled } from 'styled-components';
 
 import mausritterSeperated1 from './mausritter-seperated-1.png';
@@ -15,28 +13,59 @@ const ParalaxContainer = styled.section`
     z-index: 1;
 `;
 
-const paralaxStyle = ({ transform = 0, multiplier = 0, offset = 0, top }) => ({
+interface ParalaxStyleProps {
+    transform: number;
+    multiplier?: number;
+    offset?: number;
+    top?: string | number;
+}
+
+const paralaxStyle = ({
+    transform = 0,
+    multiplier = 0,
+    offset = 0,
+    top,
+}: ParalaxStyleProps): React.CSSProperties => ({
     position: 'absolute',
     transform: `translate(0px, ${transform * multiplier + offset}%)`,
     width: '100%',
     top,
 });
 
-const ParalaxSection = ({ scrollPosition, windowSize }) => {
+interface ParalaxSectionProps {
+    scrollPosition: number;
+    windowSize: {
+        width?: number;
+        height?: number;
+    };
+}
+
+const ParalaxSection: React.FC<ParalaxSectionProps> = ({
+    scrollPosition,
+    windowSize,
+}) => {
     const transform = Math.min(
-        (scrollPosition - windowSize.height / 2) / windowSize.height,
+        (scrollPosition - (windowSize.height || 0) / 2) /
+            (windowSize.height || 1),
         1,
     );
 
     return (
-        <ParalaxContainer>
+        <ParalaxContainer
+            role="img"
+            aria-label="Three mouse adventurers climbing up a tree stump. A number of autumnal trees in the background. A cat perched on a fencepost watches them from a distance."
+        >
             <img
                 src={mausritterSeperated4}
                 style={paralaxStyle({ transform })}
+                alt=""
+                aria-hidden="true"
             />
             <img
                 src={mausritterSeperated3}
                 style={paralaxStyle({ transform, multiplier: -8, offset: 0 })}
+                alt=""
+                aria-hidden="true"
             />
             <img
                 src={mausritterSeperated2}
@@ -45,10 +74,14 @@ const ParalaxSection = ({ scrollPosition, windowSize }) => {
                     multiplier: -12,
                     offset: -20,
                 })}
+                alt=""
+                aria-hidden="true"
             />
             <img
                 src={mausritterSeperated1}
                 style={paralaxStyle({ transform, multiplier: -22, offset: 8 })}
+                alt=""
+                aria-hidden="true"
             />
         </ParalaxContainer>
     );

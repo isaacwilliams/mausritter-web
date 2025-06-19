@@ -12,10 +12,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@types/node": "^22.15.23",
     "@vitejs/plugin-react": "^4.3.4",
     "babel-plugin-styled-components": "^2.1.4",
     "classnames": "^2.5.1",
     "fontfaceobserver": "^2.3.0",
+    "front-matter": "^4.0.2",
     "i18next": "^24.2.2",
     "i18next-browser-languagedetector": "^8.0.4",
     "i18next-resources-to-backend": "^1.2.1",
@@ -23,6 +25,13 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
+    "react-markdown": "^10.1.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-directive": "^4.0.0",
+    "remark-directive-rehype": "^0.4.2",
+    "remark-gfm": "^4.0.1",
+    "rpg-dice-roller": "^5.0.0",
     "styled-components": "^6.1.15",
     "vike": "^0.4.230",
     "vike-react": "^0.6.3"

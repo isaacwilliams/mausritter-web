@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from 'react';
 
-const useScroll = () => {
-    const [scroll, setScroll] = useState(0);
+const useScrollPosition = (): number => {
+    const [scroll, setScroll] = useState<number>(0);
 
-    const scrollHandler = () => {
+    const scrollHandler = (): void => {
         setScroll(window.scrollY);
     };
 
@@ -14,9 +13,9 @@ const useScroll = () => {
         return () => {
             window.removeEventListener('scroll', scrollHandler);
         };
-    });
+    }, []); // Added dependency array to prevent unnecessary re-renders
 
     return scroll;
 };
 
-export default useScroll;
+export default useScrollPosition;

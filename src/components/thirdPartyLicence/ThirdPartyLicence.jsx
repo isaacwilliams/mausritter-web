@@ -8,6 +8,7 @@ import BodyText from '../styles/BodyText';
 import { Title, SubTitle } from '../styles/shared';
 
 import image from './compatible-with-mausritter.svg';
+import colors from '../styles/colors';
 
 const LicencePageContainer = styled.div`
     margin-top: 3rem;
@@ -92,7 +93,7 @@ const LogoDownloadButton = styled.a`
     }
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
     }
 `;
 
@@ -131,7 +132,12 @@ const ThirdPartyLicence = () => (
                         <ul>
                             <li>
                                 Copy or translate the art or text of the
-                                Mausritter book
+                                Mausritter book (except for uses covered under
+                                the{' '}
+                                <a href="/srd/terms">
+                                    terms of the Mausritter SRD
+                                </a>
+                                )
                             </li>
                             <li>
                                 Use the Losing Games, Games Omnivorous or
@@ -229,7 +235,7 @@ const ThirdPartyLicence = () => (
                         <p>
                             Mausritter is about small-scale adventurers in a
                             huge world. Mouse adventurers who take on big
-                            challanges and face down grave danger.
+                            challenges and face down grave danger.
                         </p>
 
                         <p>

@@ -45,7 +45,7 @@ export const RollButton = styled.button`
     outline: none;
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
         color: black;
     }
 `;

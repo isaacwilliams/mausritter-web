@@ -32,6 +32,7 @@ import libraryWebsitePromoImage from './images/library-website-promo.jpg';
 import libraryWebsitePromoLogo from './images/library-website-promo-logo.png';
 import onlineFoundryImage from './images/online-foundry.jpg';
 import onlineTTSImage from './images/online-tts.jpg';
+import colors from '../../styles/colors';
 
 const ResourcesWrapper = styled.div`
     padding-top: 6rem;
@@ -55,7 +56,7 @@ const AllResourcesLink = styled.a`
     white-space: nowrap;
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
     }
 `;
 

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 15
 section: Player rules
 slug: recruiting-help
 title: Recruiting help
@@ -22,17 +22,17 @@ d6 hp, STR 2d6, DEX 2d6, WIL 2d6
 
 Hirelings have 6 inventory slots: two paw, two body, two pack.
 
-|   Hireling             |   Number  |   Wages/day  |
-|------------------------|-----------|--------------|
-|   Torchbearer          |   d6      |   1p         |
-|   Labourer             |   d6      |   2p         |
-|   Tunnel digger        |   d4      |   5p         |
-|   Armourer/blacksmith  |   d2      |   8p         |
-|   Local guide          |   d4      |   10p        |
-|   Mouse-at-arms        |   d6      |   10p        |
-|   Scholar              |   d2      |   20p        |
-|   Knight               |   d3      |   25p        |
-|   Interpreter          |   d2      |   30p        |
+| Hireling            | Number | Wages/day |
+| ------------------- | ------ | --------- |
+| Torchbearer         | d6     | 1p        |
+| Labourer            | d6     | 2p        |
+| Tunnel digger       | d4     | 5p        |
+| Armourer/blacksmith | d2     | 8p        |
+| Local guide         | d4     | 10p       |
+| Mouse-at-arms       | d6     | 10p       |
+| Scholar             | d2     | 20p       |
+| Knight              | d3     | 25p       |
+| Interpreter         | d2     | 30p       |
 
 ### Hireling morale
 
@@ -61,7 +61,7 @@ A warband is formed by 20 or more fighting mice, plus one follower (luggage port
 
 Your mouse can form a warband under their command. In a town or city, spend a week recruiting. Make a WIL save or pay 1000p.
 
-Warbands start with:   
+Warbands start with:  
 d6 hp, STR 10, DEX 10, WIL 10  
 Damage: d6 clubs and axes
 
@@ -92,7 +92,7 @@ A team of three tunnel diggers can excavate one 6" cube of soil per day. Other m
 Rooms can be of any size — the following is the cost of materials and fittings per 6" cube constructed. Labourers and diggers must be paid separately.
 
 | Room                       | Cost  |
-|----------------------------|-------|
+| -------------------------- | ----- |
 | Tunnel, per 6"             | 10p   |
 | Poor room, per 6" cube     | 100p  |
 | Standard room, per 6" cube | 500p  |

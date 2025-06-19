@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 10
 section: Player rules
 slug: brave-mice-dangerous-world
 title: Brave mice in a dangerous world

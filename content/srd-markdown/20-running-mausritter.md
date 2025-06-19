@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 20
 section: GM rules and resources
 slug: running-mausritter
 title: Running Mausritter
@@ -89,13 +89,13 @@ Roll 2d6 for weather each day.
 
 Weather that is highlighted are poor conditions for travel. For each Watch spent traveling under these conditions, a mouse must make a STR save or gain an Exhausted Condition.
 
-|   2d6   |   Spring            |   Summer            |   Autumn           |   Winter           |
-|---------|---------------------|---------------------|--------------------|--------------------|
-|   2     |   Rain  storm       |   Thunder  storm    |   Wild winds       |   Snow  storm      |
-|   3-5   |   Drizzle           |   Very hot          |   Heavy rain       |   Sleet            |
-|   6-8   |   Overcast          |   Clear, hot        |   Cool             |   Bitter  cold     |
-|   9-11  |   Bright and sunny  |   Pleasantly sunny  |   Patchy rain      |   Overcast         |
-|   12    |   Clear and warm    |   Beautifully warm  |   Clear and crisp  |   Clear and crisp  |
+| 2d6  | Spring           | Summer           | Autumn          | Winter          |
+| ---- | ---------------- | ---------------- | --------------- | --------------- |
+| 2    | Rain storm       | Thunder storm    | Wild winds      | Snow storm      |
+| 3-5  | Drizzle          | Very hot         | Heavy rain      | Sleet           |
+| 6-8  | Overcast         | Clear, hot       | Cool            | Bitter cold     |
+| 9-11 | Bright and sunny | Pleasantly sunny | Patchy rain     | Overcast        |
+| 12   | Clear and warm   | Beautifully warm | Clear and crisp | Clear and crisp |
 
 ## Encounters
 
@@ -118,7 +118,7 @@ For each major area, prepare a table of d6 encounters that express the theme of 
 When the mice encounter a creature whose reaction to the party is not obvious, you may roll on the following table for their disposition.
 
 | 2d6  | Reaction                                     |
-|------|----------------------------------------------|
+| ---- | -------------------------------------------- |
 | 2    | **Hostile.** How have the mice angered them? |
 | 3-5  | **Unfriendly.** How can they be appeased?    |
 | 6-8  | **Unsure.** What could win them over?        |

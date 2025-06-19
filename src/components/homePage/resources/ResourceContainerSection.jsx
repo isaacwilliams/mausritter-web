@@ -8,6 +8,7 @@ import media from '../../styles/media';
 
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 import { SubTitle } from '../../styles/shared';
+import colors from '../../styles/colors';
 
 const ResourcesContainer = styled(FlexContainer)`
     flex-wrap: wrap;
@@ -52,7 +53,7 @@ const linkStyle = css`
     }
 
     &:hover {
-        background: yellow;
+        background: ${colors.highlight};
 
         img {
             transform: scale(1.04);

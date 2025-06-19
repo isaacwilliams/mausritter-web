@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 13
 section: Player rules
 slug: how-to-play
 title: How to play
@@ -67,7 +67,7 @@ If an incapacitated creature is left untended for 6 exploration **Turns**, they 
 
 ### Attribute score loss and death
 
-If a creature has their **STR** reduced to zero, they are **dead**. If **DEX** is reduced to zero, they are **unable to move**. If **WIL** is reduced to zero, they are reduced to **madness**.
+If a creature has their **STR** reduced to zero, they are **dead**. If **DEX** is reduced to zero, they are **unable to move**. If **WIL** is reduced to zero, they are reduced to **insensibility**.
 
 When your mouse **dies**, roll up a new one. The GM should introduce them as soon as possible. Getting back into the game quickly is more important than realism.
 
@@ -111,18 +111,18 @@ Mice start at Level 1.
 
 The following table shows the total XP required to advance each Level.
 
-|   Level  |   Hit Dice  |   Grit  |   Experience points  |
-|----------|-------------|---------|----------------------|
-|   1      |   1d6       |   0     |   0                  |
-|   2      |   2d6       |   1     |   1000               |
-|   3      |   3d6       |   2     |   3000               |
-|   4      |   4d6       |   2     |   6000               |
-|   5+     |   4d6       |   3     |   +5000              |
+| Level | Hit Dice | Grit | Experience points |
+| ----- | -------- | ---- | ----------------- |
+| 1     | 1d6      | 0    | 0                 |
+| 2     | 2d6      | 1    | 1000              |
+| 3     | 3d6      | 2    | 3000              |
+| 4     | 4d6      | 2    | 6000              |
+| 5+    | 4d6      | 3    | +5000             |
 
 When your mouse earns enough XP to advance to each Level, use the following procedure.
 
 - **Roll for attribute increase:** roll d20 once for each of your mouse’s STR, DEX and WIL. If a result is higher than the attribute’s current value, increase it by one.
-- **Roll Hit Dice:** roll the dice listed for the new Level’s Hit Dice. If the value is higher than your mouse’s current HP,  replace your HP with the rolled value. Otherwise, increase your mouse’s HP by 1.
+- **Roll Hit Dice:** roll the dice listed for the new Level’s Hit Dice. If the value is higher than your mouse’s current HP, replace your HP with the rolled value. Otherwise, increase your mouse’s HP by 1.
 
 ### Grit
 
