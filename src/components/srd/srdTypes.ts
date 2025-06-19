@@ -12,6 +12,7 @@ export type SRDPageFrontmatter = {
     slug: string;
     section?: string;
     order?: number;
+    version?: string;
     subtitles?: {
         title: string;
         slug: string;

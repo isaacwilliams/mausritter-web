@@ -80,7 +80,9 @@ export const createSRDPageIndex = (pages: SRDPage[]): SRDIndex => {
     });
 
     pages.forEach((page) => {
-        const section = page.frontmatter.section || 'Uncategorized';
+        const section = page.frontmatter.section;
+        if (!section) return;
+
         if (!pagesMapBySection[section]) {
             pagesMapBySection[section] = [];
         }
