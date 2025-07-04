@@ -15,7 +15,10 @@ const MausritterMonthBanner: React.FC = () => {
             href="https://www.backerkit.com/c/collections/mausritter-month"
         >
             <LogoImage src={logo} alt="Mausritter Month Logo" />
-            <span>Launching 4th November 2025</span>
+            <div>
+                Join the month-long adventure!
+                <br /> Launching 4th November 2025
+            </div>
         </Banner>
     );
 };

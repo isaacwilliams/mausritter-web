@@ -43,7 +43,7 @@ const PromoToastContent = styled.a`
     width: 100%;
     height: 100%;
 
-    text-align: center;
+    text-align: right;
     color: black;
     font-size: 1rem;
     font-weight: 500;
