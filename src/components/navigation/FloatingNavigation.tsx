@@ -4,6 +4,8 @@ import classNames from 'classnames';
 
 import Navigation from './Navigation';
 
+import MausritterMonthPromo from './banner/MausritterMonthPromo';
+
 const FloatingTop = styled.div<{
     $transparent?: boolean;
     $hide?: boolean;
@@ -28,9 +30,11 @@ const FloatingNavigation = ({
     transparent?: boolean;
 }) => {
     return (
-        <FloatingTop $transparent={transparent} $hide={hide}>
-            <Navigation transparent={transparent} />
-        </FloatingTop>
+        <>
+            <FloatingTop $transparent={transparent} $hide={hide}>
+                <Navigation transparent={transparent} />
+            </FloatingTop>
+        </>
     );
 };
 
