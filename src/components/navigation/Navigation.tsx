@@ -190,7 +190,6 @@ type NavigationProps = {
 // DesktopNavigation
 const DesktopNavigation = ({ transparent, showLanguage }: NavigationProps) => (
     <Nav role="navigation" aria-label="Main navigation">
-        <MausritterMonthPromo />
         <NavSection className="left" role="presentation">
             <NavLogo href="/" aria-label="Mausritter Home" role="link">
                 Mausritter

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
+import media from '../../styles/media';
 
 const PromoToast = styled.div<{ $visible: boolean }>`
     display: flex;
@@ -33,6 +34,15 @@ const PromoToast = styled.div<{ $visible: boolean }>`
             transform: translateX(0);
             opacity: 1;
         `}
+
+    ${media.phone`
+        bottom: 2rem;
+        right: 50%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        min-width: 90vw;
+
+    `}
 `;
 
 const PromoToastContent = styled.a`

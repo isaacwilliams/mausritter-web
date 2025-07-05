@@ -7,6 +7,7 @@ import colors from '../styles/colors';
 
 import '../../i18n/initI18n';
 import SSRSafeLanguageProvider from '../../i18n/SSRSafeLanguageProvider';
+import MausritterMonthBanner from '../navigation/banner/MausritterMonthPromo';
 
 const GlobalStyle = createGlobalStyle<{
     $dark?: boolean;
@@ -38,6 +39,7 @@ const SiteContainer = ({
         <>
             <GlobalStyle $dark={dark} />
             <SSRSafeLanguageProvider>{children}</SSRSafeLanguageProvider>
+            <MausritterMonthBanner />
         </>
     );
 };
