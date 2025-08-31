@@ -4,6 +4,7 @@ import SiteContainer from '../../src/components/layout/SiteContainer';
 
 import TitleSection from '../../src/components/homePage/title/TitleSection';
 import ParalaxSection from '../../src/components/homePage/paralax/ParalaxSection';
+import WhatIsMausritterSection from '../../src/components/homePage/whatIsMausritter/WhatIsMausritterSection';
 import FeaturesSection from '../../src/components/homePage/features/FeaturesSection';
 import GetGameSection from '../../src/components/homePage/getGame/GetGameSection';
 import ResourcesSection from '../../src/components/homePage/resources/ResourcesSection';
@@ -29,6 +30,7 @@ const IndexPage = () => {
                 scrollPosition={scrollPosition}
                 windowSize={windowSize}
             />
+            <WhatIsMausritterSection />
             <FeaturesSection />
             <GetGameSection />
             <ResourcesSection />
