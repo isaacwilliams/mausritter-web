@@ -1,4 +1,4 @@
-import{v as $x,d as it,m as bv,C as Ix,r as ra,j as ar,g as fl,f as pl,h as ki,z as _x,R as gr,A as Rx,S as zx,N as Px}from"./chunk-01DkDK6j.js";import{F as Lx}from"./chunk-C3gHeZie.js";function qx(){return $x()?.data}const Ux=it(Ix).withConfig({displayName:"SRDContainer",componentId:"sc-1iait15-0"})(["display:grid;grid-template-columns:20rem 3fr;margin-bottom:20rem;",""],bv.phone`
+import{v as $x,d as it,m as bv,C as Ix,r as ra,j as ar,g as fl,f as pl,h as ki,z as _x,R as gr,A as Rx,S as zx,N as Px}from"./chunk-BfD6dUzU.js";import{F as Lx}from"./chunk-CpgMmD48.js";function qx(){return $x()?.data}const Ux=it(Ix).withConfig({displayName:"SRDContainer",componentId:"sc-1iait15-0"})(["display:grid;grid-template-columns:20rem 3fr;margin-bottom:20rem;",""],bv.phone`
         grid-template-columns: 1fr;
         margin-bottom: 10rem;
         margin-left: 1rem;
