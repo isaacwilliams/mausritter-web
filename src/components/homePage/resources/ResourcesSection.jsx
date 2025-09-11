@@ -32,6 +32,7 @@ import libraryWebsitePromoImage from './images/library-website-promo.jpg';
 import libraryWebsitePromoLogo from './images/library-website-promo-logo.png';
 import onlineFoundryImage from './images/online-foundry.jpg';
 import onlineTTSImage from './images/online-tts.jpg';
+import onlineTTSImage2 from './images/online-tts-2.webp';
 import colors from '../../styles/colors';
 
 const ResourcesWrapper = styled.div`
@@ -201,6 +202,13 @@ const Resources = () => {
                         author: 'Futilrevenge',
                         image: onlineFoundryImage,
                         link: 'https://foundryvtt.com/packages/mausritter/',
+                        className: 'shadow',
+                    },
+                    {
+                        name: 'Tabletop Simulator (with scripts)',
+                        author: 'Marum',
+                        image: onlineTTSImage2,
+                        link: 'https://steamcommunity.com/sharedfiles/filedetails/?id=3310630224',
                         className: 'shadow',
                     },
                     {

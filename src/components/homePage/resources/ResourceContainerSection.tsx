@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-// import { Link } from 'gatsby';
 import lodash from 'lodash/fp';
-const { sortBy, slice } = lodash;
+const { sortBy } = lodash;
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import media from '../../styles/media';
 
 import { FlexContainer, ContentContainer } from '../../layout/ContentContainer';
 import { SubTitle } from '../../styles/shared';
 import colors from '../../styles/colors';
-
-const RESOURCES_LIMIT = 8;
-const limitedArray = slice(0, RESOURCES_LIMIT);
 
 const ResourcesContainer = styled(FlexContainer)`
     flex-wrap: wrap;
@@ -40,6 +36,7 @@ const linkStyle = css`
     img {
         max-width: 100%;
         max-height: 11rem;
+        object-fit: contain;
 
         transition: transform 0.3s ease-in-out;
     }
@@ -203,7 +200,7 @@ const HeroResourceLink = ({
     return <StyledExternalHeroResourceLink href={href} {...rest} />;
 };
 
-const ResourcesSection = ({
+const ResourcesContainerSection = ({
     title,
     itemClassName,
     resources = [],
@@ -296,4 +293,4 @@ const ResourcesSection = ({
     );
 };
 
-export default ResourcesSection;
+export default ResourcesContainerSection;
