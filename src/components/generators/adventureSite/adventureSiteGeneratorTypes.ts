@@ -1,3 +1,25 @@
+export type NounGender = 'masc' | 'fem' | 'neut' | 'plural';
+
+export type SiteNamePartB = {
+    name: string;
+    gender: NounGender;
+};
+
+export type AdjectiveForms = {
+    masc: string;
+    fem: string;
+    neut: string;
+};
+
+export type SiteNamePartA = AdjectiveForms[];
+
+export type NamedWithGender = {
+    name: string;
+    gender: NounGender;
+};
+
+export type FormVariants = Record<NounGender, string>;
+
 export type RoomTypeData = {
     weight: number;
     typeName: string;
@@ -8,16 +30,16 @@ export type RoomTypeData = {
 
 export type AdventureSiteGeneratorData = {
     siteName: {
-        partA: string[];
-        partB: string[];
+        partA: SiteNamePartA | string[];
+        partB: SiteNamePartB[] | string[];
     };
     summary: {
         format: string;
-        construction: string[];
-        ruinAction: string[];
+        construction: NamedWithGender[];
+        ruinAction: FormVariants[];
         ruin: string[];
-        inhabitant: string[];
-        inhabitantAction: string[];
+        inhabitant: NamedWithGender[];
+        inhabitantAction: FormVariants[];
         inhabitantGoal: string[];
         secretHidden: string[];
         secret: string[];

@@ -1,0 +1,541 @@
+{
+  "title": "Delving into...",
+  "pageTitle": "Adventure Site Generator",
+  "ui": {
+    "rollButton": "Roll again"
+  },
+  "labels": {
+    "creature": "Creature",
+    "treasure": "Treasure"
+  },
+  "other": {
+    "credits": "Icons from <a href=\"https://game-icons.net/\">game-icons.net</a>. Chest by <a href=\"http://lorcblog.blogspot.com/\">Lorc</a>. Spider by <a href=\"https://twitter.com/unstoppableCarl\">Carl Olsen</a>."
+  },
+  "data": {
+    "siteName": {
+      "partA": [
+        {
+          "masc": "Чёрный",
+          "fem": "Чёрная",
+          "neut": "Чёрное"
+        },
+        {
+          "masc": "Белый",
+          "fem": "Белая",
+          "neut": "Белое"
+        },
+        {
+          "masc": "Зелёный",
+          "fem": "Зелёная",
+          "neut": "Зелёное"
+        },
+        {
+          "masc": "Голубой",
+          "fem": "Голубая",
+          "neut": "Голубое"
+        },
+        {
+          "masc": "Красный",
+          "fem": "Красная",
+          "neut": "Красное"
+        },
+        {
+          "masc": "Каменный",
+          "fem": "Каменная",
+          "neut": "Каменное"
+        },
+        {
+          "masc": "Изумрудный",
+          "fem": "Изумрудная",
+          "neut": "Изумрудное"
+        },
+        {
+          "masc": "Заросший",
+          "fem": "Заросшая",
+          "neut": "Заросшее"
+        },
+        {
+          "masc": "Спрятанный",
+          "fem": "Спрятанная",
+          "neut": "Спрятанное"
+        },
+        {
+          "masc": "Угольный",
+          "fem": "Угольная",
+          "neut": "Угольное"
+        },
+        {
+          "masc": "Горелый",
+          "fem": "Горелая",
+          "neut": "Горелое"
+        },
+        {
+          "masc": "Затеряный",
+          "fem": "Затеряная",
+          "neut": "Затеряное"
+        },
+        {
+          "masc": "Сломаный",
+          "fem": "Сломаная",
+          "neut": "Сломаное"
+        },
+        {
+          "masc": "Золотой",
+          "fem": "Золотая",
+          "neut": "Золотое"
+        },
+        {
+          "masc": "Кровавый",
+          "fem": "Кровавая",
+          "neut": "Кровавое"
+        },
+        {
+          "masc": "Вдовий",
+          "fem": "Вдовая",
+          "neut": "Вдовое"
+        },
+        {
+          "masc": "Виноградный",
+          "fem": "Виноградная",
+          "neut": "Виноградное"
+        },
+        {
+          "masc": "Костяной",
+          "fem": "Костяная",
+          "neut": "Костяное"
+        },
+        {
+          "masc": "Сухой",
+          "fem": "Сухая",
+          "neut": "Сухое"
+        },
+        {
+          "masc": "Сырой",
+          "fem": "Сырая",
+          "neut": "Сырое"
+        }
+      ],
+      "partB": [
+        {
+          "name": "Пень",
+          "gender": "masc"
+        },
+        {
+          "name": "Дерево",
+          "gender": "neut"
+        },
+        {
+          "name": "Дуб",
+          "gender": "masc"
+        },
+        {
+          "name": "Сосна",
+          "gender": "fem"
+        },
+        {
+          "name": "Шпиль",
+          "gender": "masc"
+        },
+        {
+          "name": "Башня",
+          "gender": "fem"
+        },
+        {
+          "name": "Замок",
+          "gender": "masc"
+        },
+        {
+          "name": "Форт",
+          "gender": "masc"
+        },
+        {
+          "name": "Крепость",
+          "gender": "fem"
+        },
+        {
+          "name": "Дворец",
+          "gender": "masc"
+        },
+        {
+          "name": "Могила",
+          "gender": "fem"
+        },
+        {
+          "name": "Гробница",
+          "gender": "fem"
+        },
+        {
+          "name": "Тайник",
+          "gender": "masc"
+        },
+        {
+          "name": "Склеп",
+          "gender": "masc"
+        },
+        {
+          "name": "Кладбище",
+          "gender": "neut"
+        },
+        {
+          "name": "Яма",
+          "gender": "fem"
+        },
+        {
+          "name": "Логово",
+          "gender": "neut"
+        },
+        {
+          "name": "Нора",
+          "gender": "fem"
+        },
+        {
+          "name": "Дыра",
+          "gender": "fem"
+        },
+        {
+          "name": "Пещера",
+          "gender": "fem"
+        },
+        {
+          "name": "Дупло",
+          "gender": "neut"
+        },
+        {
+          "name": "Приют",
+          "gender": "masc"
+        },
+        {
+          "name": "Храм",
+          "gender": "masc"
+        },
+        {
+          "name": "Святилище",
+          "gender": "neut"
+        },
+        {
+          "name": "Часовня",
+          "gender": "fem"
+        }
+      ]
+    },
+    "summary": {
+      "format": ", {{- construction}} {{- ruinAction}} <b>{{- ruin}}</b>. <b>{{- inhabitant}}</b> {{- inhabitantAction}} <b>{{- inhabitantGoal}}</b>. {{- secretHidden}} <b>{{- secret}}</b>",
+      "construction": [
+        {
+          "name": "<b>древний храмт культа летучей мыши</b>",
+          "gender": "masc"
+        },
+        {
+          "name": "<b>давно заброшенная сторожевая башня</b>",
+          "gender": "fem"
+        },
+        {
+          "name": "<b>загородное поместье мыши дворянина</b>",
+          "gender": "neut"
+        },
+        {
+          "name": "<b>тайный склад зимних запасов</b>",
+          "gender": "masc"
+        },
+        {
+          "name": "<b>погребальное место древних мышей</b>",
+          "gender": "neut"
+        },
+        {
+          "name": "<b>нора, вырытая кроликами или лисами</b>",
+          "gender": "fem"
+        },
+        {
+          "name": "<b>человеческий дом или другое строение</b>",
+          "gender": "masc"
+        },
+        {
+          "name": "<b>канализационные или дренажные трубы</b>",
+          "gender": "plural"
+        },
+        {
+          "name": "<b>узкие туннели, вырытые муравьями и вызывающие клаустрофобию,</b>",
+          "gender": "plural"
+        },
+        {
+          "name": "<b>огромное дерево, выпиленное мышами</b>",
+          "gender": "neut"
+        },
+        {
+          "name": "<b>башня волшебника</b>",
+          "gender": "fem"
+        },
+        {
+          "name": "<b>зерновая мельница местного селения</b>",
+          "gender": "fem"
+        },
+        {
+          "name": "<b>гнездо крсиного короля</b>",
+          "gender": "neut"
+        },
+        {
+          "name": "<b>скелет огромного зверя</b>",
+          "gender": "masc"
+        },
+        {
+          "name": "<b>ведьмовская академия</b>",
+          "gender": "fem"
+        },
+        {
+          "name": "<b>портал в царство фей</b>",
+          "gender": "masc"
+        },
+        {
+          "name": "<b>глубокая шахта</b>",
+          "gender": "fem"
+        },
+        {
+          "name": "<b>бандитское убежище</b>",
+          "gender": "neut"
+        },
+        {
+          "name": "<b>естественная пещера</b>",
+          "gender": "fem"
+        },
+        {
+          "name": "<b>мышиное поселение</b>",
+          "gender": "neut"
+        }
+      ],
+      "ruinAction": [
+        {
+          "fem": "разрушенная",
+          "masc": "разрушенный",
+          "neut": "разрушенное",
+          "plural": "разрушенные"
+        },
+        {
+          "fem": "превращённая в руины",
+          "masc": "превращённый в руины",
+          "neut": "превращённое в руины",
+          "plural": "превращённые в руины"
+        },
+        {
+          "fem": "осквернённая",
+          "masc": "осквернённый",
+          "neut": "осквернённое",
+          "plural": "осквернённые"
+        },
+        {
+          "fem": "оставленная разрушаться",
+          "masc": "оставленный разрушаться",
+          "neut": "оставленное разрушаться",
+          "plural": "оставленные разрушаться"
+        },
+        {
+          "fem": "почти уничтоженная",
+          "masc": "почти уничтоженный",
+          "neut": "почти уничтоженное",
+          "plural": "почти уничтоженные"
+        },
+        {
+          "fem": "превращённая в ветхие обломки",
+          "masc": "превращённый в ветхие обломки",
+          "neut": "превращённое в ветхие обломки",
+          "plural": "превращённые в ветхие обломки"
+        }
+      ],
+      "ruin": [
+        "наводнением",
+        "магическим инцидентом",
+        "от времени",
+        "человеческими действиями",
+        "плесенью",
+        "перемещением между реальностями",
+        "атакой огромного зверя",
+        "разрушительной грозой",
+        "злыми духами",
+        "таинственным исчезновением",
+        "междусобной войной",
+        "болезнью"
+      ],
+      "inhabitant": [
+        {
+          "name": "Мыши, безумные или в отчаянии",
+          "gender": "plural"
+        },
+        {
+          "name": "Мыши, магически изменённые",
+          "gender": "plural"
+        },
+        {
+          "name": "Крысы-бандиты",
+          "gender": "plural"
+        },
+        {
+          "name": "Существа из дальних земель",
+          "gender": "plural"
+        },
+        {
+          "name": "Первоначальные жители, странно изменённые",
+          "gender": "plural"
+        },
+        {
+          "name": "Призраки",
+          "gender": "plural"
+        },
+        {
+          "name": "Передовой отряд фей",
+          "gender": "masc"
+        },
+        {
+          "name": "Злобная змея",
+          "gender": "fem"
+        },
+        {
+          "name": "Нашествие насекомых",
+          "gender": "neut"
+        },
+        {
+          "name": "Кошачий владыка со своими слугами",
+          "gender": "masc"
+        }
+      ],
+      "inhabitantAction": [
+        {
+          "fem": "ищет",
+          "masc": "ищет",
+          "neut": "ищет",
+          "plural": "ищут"
+        },
+        {
+          "fem": "защищает",
+          "masc": "защищает",
+          "neut": "защищает",
+          "plural": "защищают"
+        },
+        {
+          "fem": "охраняет",
+          "masc": "охраняет",
+          "neut": "охраняет",
+          "plural": "охраняют"
+        },
+        {
+          "fem": "охотится на",
+          "masc": "охотится на",
+          "neut": "охотится на",
+          "plural": "охотятся на"
+        }
+      ],
+      "inhabitantGoal": [
+        "безопасное место, чтобы укрыться и жить",
+        "тайник с изысканной едой",
+        "потерянного родственника или друга",
+        "древние ценные предметы искусства",
+        "последние остатки в разграбленных руинах",
+        "редкие алхимические грибы",
+        "странное и могущественное заклинание",
+        "огромную гору зёрнышек"
+      ],
+      "secretHidden": [
+        "Глубоко внутри",
+        "Вдали от посторних глаз",
+        "Втайне от всех",
+        "Под этим всем"
+      ],
+      "secret": [
+        "существует <b>монолит, гудящий от магической энергии</b>",
+        "живёт <b>сохранившийся доиторический зверь</b>",
+        "присутствуют <b>следы эквпериментов людей</b>",
+        "находится <b>забытая могила древней королевы</b>",
+        "лежит <b>путь в жилы земли</b>",
+        "открыт <b>портал в королевство фей</b>"
+      ]
+    },
+    "roomTypes": [
+      {
+        "typeName": "Empty",
+        "weight": 2,
+        "creatureChance": 3,
+        "treasureChance": 1,
+        "descriptions": [
+          "Abandoned insect nest",
+          "Cluster of mushrooms",
+          "Collapsed wall or ceiling",
+          "Dried bug shells on the walls",
+          "Furniture made of repurposed trash",
+          "Huge drawing of bat face on wall",
+          "Mess of tables and chairs",
+          "Newspaper clipping wallpaper",
+          "Overgrown with moss",
+          "Painted mural, now faded",
+          "Platforms hanging over rapidly flowing water",
+          "Roots bursting out of walls/floor/ceiling",
+          "Rotting pile of acorns",
+          "Scattering of animal teeth",
+          "Shiny candy-wrapper banners ",
+          "Snake skull doorway",
+          "Steady drip of water from ceiling",
+          "Stern statue of an ancient mouse",
+          "Uneven and deeply cracked floor",
+          "White quartz altar"
+        ]
+      },
+      {
+        "typeName": "Obstacle",
+        "weight": 1,
+        "creatureChance": 2,
+        "treasureChance": 1,
+        "descriptions": [
+          "Locked door. Key can be found in another room. Knocking the door down takes time and makes noise.",
+          "Steep climb. Without special equipment, mice risk exhaustion or falling.",
+          "Room with an exit in the centre of the roof, 6\" away from any wall.",
+          "Device that creates an high-pitched scream. Each Turn spent here or in adjacent rooms gives Frightened Condition.",
+          "Caved-in section of tunnel, leaving a gap too small to crawl through.",
+          "Tunnel completely filled with water.",
+          "Wide, deep puddle of mud blocking the way. Gives an Exhausted Condition per 6\" traveled.",
+          "Long, smooth, upwards sloping metal or plastic tube."
+        ]
+      },
+      {
+        "typeName": "Trap",
+        "weight": 1,
+        "creatureChance": 1,
+        "treasureChance": 2,
+        "descriptions": [
+          "Large stone door, chiseled loose from frame. Device behind the door tips it forward when handle is turned.",
+          "Long hallway flooded with water, electrified by large battery in an alcove.",
+          "Dark room filled with noxious, explosive gas. Distinct smell of rotten eggs. d20 damage if ignited.",
+          "Thin thread stretched across deadly fall. Safe if traveling slowly, one at a time.",
+          "Pit blocking the way. A snake is asleep at the bottom.",
+          "Door with three handles in the shape of mushrooms, one safe, the others poison. Poison handles deal d12 magical damage.",
+          "Circle of enchanted mushrooms, with a young mouse inside. Those within try desperately to get others to enter.",
+          "Floor is covered in sticky glue. Requires a STR save to break a foot loose."
+        ]
+      },
+      {
+        "typeName": "Puzzle",
+        "weight": 1,
+        "creatureChance": 1,
+        "treasureChance": 5,
+        "descriptions": [
+          "Room with a floor made of an electrified copper plate. A piece of valuable treasure sits in the centre.",
+          "Three feeding bottles with different-colored liquid inside. Each is inert individually but powerful/dangerous when mixed.",
+          "A crystal, a magic sword embedded inside. The crystal is very hard, but will dissolve in stomach acid.",
+          "Treasure is at the bottom of deep well. ",
+          "Large smooth steel bowl, upside down. Treasure taped to the inside ceiling of the bowl.",
+          "Baited mousetrap. The lever is wired to a stone in the wall and will collapse the corridor if triggered"
+        ]
+      },
+      {
+        "typeName": "Lair",
+        "weight": 1,
+        "creatureChance": 5,
+        "treasureChance": 4,
+        "descriptions": [
+          "Temporary encampment",
+          "Recently taken from another creature",
+          "Built by mice to hold the creature",
+          "Protecting young",
+          "Permanent home, newly settled",
+          "Permanent home, comfortably appointed"
+        ]
+      }
+    ]
+  }
+}
