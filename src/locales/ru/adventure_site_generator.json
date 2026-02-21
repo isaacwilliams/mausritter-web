@@ -1,15 +1,15 @@
 {
-  "title": "Delving into...",
-  "pageTitle": "Adventure Site Generator",
+  "title": "Погружаемся в...",
+  "pageTitle": "Генератор Точек Интереса",
   "ui": {
-    "rollButton": "Roll again"
+    "rollButton": "Перебросить кубики"
   },
   "labels": {
-    "creature": "Creature",
-    "treasure": "Treasure"
+    "creature": "Существо",
+    "treasure": "Сокровище"
   },
   "other": {
-    "credits": "Icons from <a href=\"https://game-icons.net/\">game-icons.net</a>. Chest by <a href=\"http://lorcblog.blogspot.com/\">Lorc</a>. Spider by <a href=\"https://twitter.com/unstoppableCarl\">Carl Olsen</a>."
+    "credits": "Иконки от <a href=\"https://game-icons.net/\">game-icons.net</a>. Сундук от <a href=\"http://lorcblog.blogspot.com/\">Lorc</a>. Паук от <a href=\"https://twitter.com/unstoppableCarl\">Carl Olsen</a>."
   },
   "data": {
     "siteName": {
@@ -356,11 +356,11 @@
       ],
       "inhabitant": [
         {
-          "name": "Мыши, безумные или в отчаянии",
+          "name": "Мыши, безумные или в отчаянии,",
           "gender": "plural"
         },
         {
-          "name": "Мыши, магически изменённые",
+          "name": "Магически изменённые мыши",
           "gender": "plural"
         },
         {
@@ -449,91 +449,91 @@
     },
     "roomTypes": [
       {
-        "typeName": "Empty",
+        "typeName": "Пустая",
         "weight": 2,
         "creatureChance": 3,
         "treasureChance": 1,
         "descriptions": [
-          "Abandoned insect nest",
-          "Cluster of mushrooms",
-          "Collapsed wall or ceiling",
-          "Dried bug shells on the walls",
-          "Furniture made of repurposed trash",
-          "Huge drawing of bat face on wall",
-          "Mess of tables and chairs",
-          "Newspaper clipping wallpaper",
-          "Overgrown with moss",
-          "Painted mural, now faded",
-          "Platforms hanging over rapidly flowing water",
-          "Roots bursting out of walls/floor/ceiling",
-          "Rotting pile of acorns",
-          "Scattering of animal teeth",
-          "Shiny candy-wrapper banners ",
-          "Snake skull doorway",
-          "Steady drip of water from ceiling",
-          "Stern statue of an ancient mouse",
-          "Uneven and deeply cracked floor",
-          "White quartz altar"
+          "Заброшенное гнездо насекомых",
+          "Скопление грибов",
+          "Обрушенные потолок или стена",
+          "Засохшие панцири насекомых на стенах",
+          "Мебель, сделанная из мусора",
+          "Огромный рисунок на стене — морда летучей мыши",
+          "Нагромождение столов и стульев",
+          "Обои из газетных вырезок",
+          "Заросли мха",
+          "Выцветшая фреска",
+          "Платформы, нависающие над бурным потоком",
+          "Корни, пробившие стену/пол/потолок",
+          "Куча гниющих желудей",
+          "Россыпь звериных зубов",
+          "Дверной портал из черепа змеи",
+          "Сверкающие флаги из конфетных фантиков",
+          "Постоянно капающая с потолка вода",
+          "Грозная статуя древней мыши",
+          "Неровный пол с глубокими трещинами",
+          "Алтарь из белого кварца"
         ]
       },
       {
-        "typeName": "Obstacle",
+        "typeName": "Препятствие",
         "weight": 1,
         "creatureChance": 2,
         "treasureChance": 1,
         "descriptions": [
-          "Locked door. Key can be found in another room. Knocking the door down takes time and makes noise.",
-          "Steep climb. Without special equipment, mice risk exhaustion or falling.",
-          "Room with an exit in the centre of the roof, 6\" away from any wall.",
-          "Device that creates an high-pitched scream. Each Turn spent here or in adjacent rooms gives Frightened Condition.",
-          "Caved-in section of tunnel, leaving a gap too small to crawl through.",
-          "Tunnel completely filled with water.",
-          "Wide, deep puddle of mud blocking the way. Gives an Exhausted Condition per 6\" traveled.",
-          "Long, smooth, upwards sloping metal or plastic tube."
+          "Запертая дверь. Ключ можно найти в другой комнате. Выбивать дверь долго и шумно",
+          "Крутой подъём. Без специального оборудования мыши рискуют свалиться или получить карточку состояния «Изнурён»",
+          "Комната с выходом в центре крыши в 6 дюймах от любой стены",
+          "Устройство, издающее пронзительный визг. За каждый ход, проведённый здесь или в смежных комнатах, персонажи получают карточку состояния «Испуган»",
+          "Обвалившийся участок тоннеля. Через оставшийся проём не протиснуться",
+          "Тоннель, полностью залитый водой",
+          "Широкая и глубокая лужа грязи, преграждающая путь. За каждые пройденные по ней 6 дюймов герои получают состояние «Изнурён»",
+          "Длинная гладкая металлическая или пластиковая труба под наклоном, ведущая вверх"
         ]
       },
       {
-        "typeName": "Trap",
+        "typeName": "Ловушка",
         "weight": 1,
         "creatureChance": 1,
         "treasureChance": 2,
         "descriptions": [
-          "Large stone door, chiseled loose from frame. Device behind the door tips it forward when handle is turned.",
-          "Long hallway flooded with water, electrified by large battery in an alcove.",
-          "Dark room filled with noxious, explosive gas. Distinct smell of rotten eggs. d20 damage if ignited.",
-          "Thin thread stretched across deadly fall. Safe if traveling slowly, one at a time.",
-          "Pit blocking the way. A snake is asleep at the bottom.",
-          "Door with three handles in the shape of mushrooms, one safe, the others poison. Poison handles deal d12 magical damage.",
-          "Circle of enchanted mushrooms, with a young mouse inside. Those within try desperately to get others to enter.",
-          "Floor is covered in sticky glue. Requires a STR save to break a foot loose."
+          "Большая каменная дверь, отделённая от рамы. Когда ручка поворачивается, устройство за дверью толкает её вперёд",
+          "Длинный затопленный коридор. В нише находится батарейка, поэтому любой, кто прикоснётся к воде, получит удар током",
+          "Тёмная комната, заполненная ядовитым взрывоопасным газом. Отчётливо ощущается запах тухлых яиц. Если загорится, нанесёт урон d20",
+          "Тонкая нить, протянутая над глубокой пропастью. Безопасна, если мыши переправляются медленно и поодиночке",
+          "Яма, преграждающая путь. На дне спит змея",
+          "Дверь с тремя ручками в форме мухоморов: одна безопасна, другие отравлены. Яд наносит d12 магического урона",
+          "Круг зачарованных грибов, в центре которого молодой мышонок. Тот, кто внутри, отчаянно пытается заставить других пересечь границу",
+          "Пол, покрытый липким клеем. Чтобы освободить ногу, понадобится спасбросок силы"
         ]
       },
       {
-        "typeName": "Puzzle",
+        "typeName": "Головоломка",
         "weight": 1,
         "creatureChance": 1,
         "treasureChance": 5,
         "descriptions": [
-          "Room with a floor made of an electrified copper plate. A piece of valuable treasure sits in the centre.",
-          "Three feeding bottles with different-colored liquid inside. Each is inert individually but powerful/dangerous when mixed.",
-          "A crystal, a magic sword embedded inside. The crystal is very hard, but will dissolve in stomach acid.",
-          "Treasure is at the bottom of deep well. ",
-          "Large smooth steel bowl, upside down. Treasure taped to the inside ceiling of the bowl.",
-          "Baited mousetrap. The lever is wired to a stone in the wall and will collapse the corridor if triggered"
+          "Комната, где пол сделан из медной пластины, находящейся под напряжением. В центре — частичка ценного сокровища",
+          "Три бутылочки с разноцветной жидкостью. Каждая по отдельности ничего не даёт, но смесь опасна или имеет мощный эффект",
+          "Магический меч, заключённый внутри кристалла. Кристалл очень твёрдый, но отлично растворяется в желудочном соке",
+          "Сокровище на дне глубокого колодца",
+          "Большая и гладкая чаша из стали, перевёрнутая вверх дном. Сокровище прикреплено ко дну чаши",
+          "Мышеловка с наживкой. Рычаг подключён к камню на стене и при срабатывании обрушивает коридор"
         ]
       },
       {
-        "typeName": "Lair",
+        "typeName": "Логово",
         "weight": 1,
         "creatureChance": 5,
         "treasureChance": 4,
         "descriptions": [
-          "Temporary encampment",
-          "Recently taken from another creature",
-          "Built by mice to hold the creature",
-          "Protecting young",
-          "Permanent home, newly settled",
-          "Permanent home, comfortably appointed"
+          "Временное убежище",
+          "Недавно отнято у другого существа",
+          "Построено мышами, чтобы удерживать существо",
+          "Для защиты молодняка",
+          "Недавно заселённое постоянное жилище",
+          "Комфортно обустроенное постоянное жилище"
         ]
       }
     ]
