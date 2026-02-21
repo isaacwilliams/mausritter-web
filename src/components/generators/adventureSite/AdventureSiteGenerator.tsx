@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { Trans, useTranslation } from 'react-i18next';
 import { Config } from 'vike-react/Config';
 
-import font from '../../styles/font';
+import adventureSiteFont from '../../styles/adventureSiteFonts';
 import media from '../../styles/media';
 
 import { ContentContainer } from '../../layout/ContentContainer';
@@ -31,7 +31,7 @@ const Summary = styled.div`
 `;
 
 const SummaryName = styled.span`
-    ${font.display}
+    ${adventureSiteFont.display}
     font-size: 2.4rem;
 
     ${media.phone`
@@ -40,7 +40,7 @@ const SummaryName = styled.span`
 `;
 
 const SummaryFeature = styled.span`
-    ${font.display};
+    ${adventureSiteFont.display};
 `;
 
 const RoomsContainer = styled.div`
