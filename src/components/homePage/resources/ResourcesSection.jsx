@@ -30,6 +30,8 @@ import honeyRaftersPromoImage from './images/honey-rafters-promo.jpg';
 import honeyRaftersPromoLogo from './images/honey-rafters-promo-logo.png';
 import libraryWebsitePromoImage from './images/library-website-promo.jpg';
 import libraryWebsitePromoLogo from './images/library-website-promo-logo.png';
+import junkCityPromoImage from './images/junk-city-promo.jpg';
+import junkCityPromoLogo from './images/junk-city-promo-logo.png';
 import onlineFoundryImage from './images/online-foundry.jpg';
 import onlineTTSImage from './images/online-tts.jpg';
 import onlineTTSImage2 from './images/online-tts-2.webp';
@@ -134,6 +136,12 @@ const Resources = () => {
             <ResourceContainerSection
                 title="Companion adventures"
                 heroResources={[
+                    {
+                        name: 'Junk City',
+                        link: 'https://www.backerkit.com/c/projects/exalted-funeral/mausritter-junk-city',
+                        image: junkCityPromoImage,
+                        imageOverlay: junkCityPromoLogo,
+                    },
                     {
                         name: 'The Estate Adventure Collection',
                         link: 'https://losing-games.itch.io/mausritter-the-estate-adventure-collection',
