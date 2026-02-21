@@ -7,7 +7,6 @@ import mausritterLogo from '../navigation/logos/mausritter-logo.svg';
 import LanguageSelect from './language/LanguageSelect';
 import colors from '../styles/colors';
 import useIsMobile from '../hooks/useIsMobile';
-import MausritterMonthPromo from './banner/MausritterMonthPromo';
 
 const Nav = styled.nav`
     margin: auto;

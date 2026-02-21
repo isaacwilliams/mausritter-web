@@ -1,10 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import classNames from 'classnames';
 
 import Navigation from './Navigation';
-
-import MausritterMonthPromo from './banner/MausritterMonthPromo';
 
 const FloatingTop = styled.div<{
     $transparent?: boolean;
