@@ -1,7 +1,7 @@
 # Mausritter
 
-Mausritter SRD Version 2.3
-SRD Last Updated 2025/06/19
+Mausritter SRD Version 2.3.1
+SRD Last Updated 2026/02/21
 
 Copyright 2025 Isaac Williams
 
@@ -9,6 +9,12 @@ The text of the **Mausritter System Reference Document** (SRD) is licensed under
 
 
 # Brave mice in a dangerous world
+
+> The mouse kingdoms survive on the edge of collapse. A harsh winter or heartless cat could spell the end for all. The settled mice huddle together, hidden in their settlements in trees and burrows and walls, scraping and saving. A tenuous existence.
+> But you are not like those settled mice.
+> By choice or by necessity you are an adventurer. You live by your luck, your smarts, your bravery. With your friends by your side, you will abandon the warmth and safety of the mouse settlements and venture forth into the dark and dangerous places where other mice do not dare to tread.
+> There is great wealth to be found by those that are willing to take it. The world is old. Great empires of mouse and beast have risen and fallen.
+> It's a huge and dangerous world out there. It does not look kindly on a small mouse. But if you are very brave and very clever and just a bit lucky, you might be able to survive. And if you survive long enough, you might even become a hero amongst mice.
 
 ## What is Mausritter?
 
@@ -230,7 +236,7 @@ Worn items can be swapped with paw slots as a free action.
 
 ### Pack slots
 
-Your mouse has six body slots.
+Your mouse has six pack slots.
 
 Items in these slots take time to retrieve when under pressure. While in combat, your mouse must use an action (instead of attacking) to find an item in their pack.
 
@@ -347,7 +353,7 @@ Cost: 150p
 **Prevents 1 damage**  
 Worn in: Two body slots
 
-Cost: 150p
+Cost: 500p
 
 ## Essential items
 
@@ -418,13 +424,13 @@ Combat is dangerous business for mice, even brave adventurers. But sometimes it 
 
 If you attack **unsuspecting** foes, your mouse and any allies aware of the plan **go first**. Otherwise, make a **DEX save** to act before your opponents. In following combat rounds, maintain this order.
 
-On your turn in a combat Round, your mouse can **move** up to 12" and perform an **action**. Actions can anything from negotiating, attacking, fleeing or performing a risky gambit (like tripping or disarming an opponent).
+On your turn in a combat Round, your mouse can **move** up to 12" and perform an **action**. Actions can be anything from negotiating, attacking, fleeing or performing a risky gambit (like tripping or disarming an opponent).
 
 ### Attacks
 
 **Attacks always hit.** Roll your weapon’s die and do that much damage to an opponent, minus their armour.
 
-When an attack is **impaired**, such is firing into cover, or fighting while grappled, roll **d4** for damage regardless of weapon. When an attack is **enhanced** by a gambit or vulnerable opponent, roll **d12**.
+When an attack is **impaired**, such as when firing into cover, or fighting while grappled, roll **d4** for damage regardless of weapon. When an attack is **enhanced** by a gambit or vulnerable opponent, roll **d12**.
 
 ### Hit Protection and damage
 
@@ -833,7 +839,7 @@ Saves should only be asked for as the result of a player’s action or choice. M
 
 ### Consequences of failure
 
-The consequences of a failed Save should obvious and telegraphed. Remember that Saves should only occur when a player wants to avoid a negative outcome.
+The consequences of a failed Save should be obvious and telegraphed. Remember that Saves should only occur when a player wants to avoid a negative outcome.
 
 Some options for consequences are:
 
@@ -980,7 +986,7 @@ Critical damage: Venom takes effect, d12 damage to STR
 :::statblock
 12hp, STR 12, DEX 15, WIL 15, Armour 1  
 Attacks: d8 peck  
-Flys 3x normal speed, knows two songs  
+Flies 3x normal speed, knows two songs  
 :::
 
 **Wants** to protect the secret hallowed places from those that would do them harm
@@ -1076,7 +1082,7 @@ Attacks: d6 sword or d6 bow
 :::statblock
 15hp, STR 15, DEX 15, WIL 15, Armour 1  
 Attacks: d10 bite  
-Flys 3x normal speed. Knows two spells  
+Flies 3x normal speed. Knows two spells  
 :::
 
 **Wants** to collect rare knowledge and spells
@@ -1988,6 +1994,12 @@ Roll d20 twice on the **Treasure** table, plus an additional d20 for each of the
 Magic swords only **mark usage** when a 6 is rolled.
 
 They can be **repaired** by a **highly skilled blacksmith**, or by an unusually **practically minded wizard**, a service that will require payment greater than simply pips.
+
+| d6  | Weapon class                       |
+| --- | ---------------------------------- |
+| 1-4 | Medium (d6 one paw/d8 both paws)  |
+| 5   | Light (d6 one paw, can be dual-wielded) |
+| 6   | Heavy (d10 both paws)             |
 
 | d10 | Sword                | Power                                                                         |
 | --- | -------------------- | ----------------------------------------------------------------------------- |

@@ -1,4 +1,4 @@
-import{d as t,f as e,m as o}from"./chunk-BfD6dUzU.js";const n=t.h2.withConfig({displayName:"shared__Title",componentId:"sc-1bgudxk-0"})([""," padding-bottom:2rem;font-size:2.5rem;text-align:center;",""],e.display,o.phone`
+import{d as t,f as e,m as o}from"./chunk-Biahkf2M.js";const n=t.h2.withConfig({displayName:"shared__Title",componentId:"sc-1bgudxk-0"})([""," padding-bottom:2rem;font-size:2.5rem;text-align:center;",""],e.display,o.phone`
         font-size: 2rem;
     `),s=t.h3.withConfig({displayName:"shared__SubTitle",componentId:"sc-1bgudxk-1"})([""," padding-bottom:1rem;font-size:2rem;",""],e.display,o.phone`
         font-size: 1.4rem;
