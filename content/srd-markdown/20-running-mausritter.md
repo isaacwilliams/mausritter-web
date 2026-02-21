@@ -49,7 +49,7 @@ Saves should only be asked for as the result of a player’s action or choice. M
 
 ### Consequences of failure
 
-The consequences of a failed Save should obvious and telegraphed. Remember that Saves should only occur when a player wants to avoid a negative outcome.
+The consequences of a failed Save should be obvious and telegraphed. Remember that Saves should only occur when a player wants to avoid a negative outcome.
 
 Some options for consequences are:
 

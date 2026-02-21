@@ -7,6 +7,12 @@ title: Brave mice in a dangerous world
 
 # Brave mice in a dangerous world
 
+> The mouse kingdoms survive on the edge of collapse. A harsh winter or heartless cat could spell the end for all. The settled mice huddle together, hidden in their settlements in trees and burrows and walls, scraping and saving. A tenuous existence.
+> But you are not like those settled mice.
+> By choice or by necessity you are an adventurer. You live by your luck, your smarts, your bravery. With your friends by your side, you will abandon the warmth and safety of the mouse settlements and venture forth into the dark and dangerous places where other mice do not dare to tread.
+> There is great wealth to be found by those that are willing to take it. The world is old. Great empires of mouse and beast have risen and fallen.
+> It's a huge and dangerous world out there. It does not look kindly on a small mouse. But if you are very brave and very clever and just a bit lucky, you might be able to survive. And if you survive long enough, you might even become a hero amongst mice.
+
 ## What is Mausritter?
 
 Mausritter is a role-playing game. You and between two and five friends play make-believe to create a shared world. The rules help keep the story you tell consistent, interesting and challenging.

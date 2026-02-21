@@ -337,6 +337,12 @@ Magic swords only **mark usage** when a 6 is rolled.
 
 They can be **repaired** by a **highly skilled blacksmith**, or by an unusually **practically minded wizard**, a service that will require payment greater than simply pips.
 
+| d6  | Weapon class                       |
+| --- | ---------------------------------- |
+| 1-4 | Medium (d6 one paw/d8 both paws)  |
+| 5   | Light (d6 one paw, can be dual-wielded) |
+| 6   | Heavy (d10 both paws)             |
+
 | d10 | Sword                | Power                                                                         |
 | --- | -------------------- | ----------------------------------------------------------------------------- |
 | 1   | Wrought iron         | While wielded: You roll critical damage Saves with Advantage                  |

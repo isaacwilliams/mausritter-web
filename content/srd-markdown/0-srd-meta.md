@@ -3,11 +3,11 @@ order: 0
 section:
 slug:
 title: meta
-version: 2.3
+version: 2.3.1
 ---
 
-Mausritter SRD Version 2.3
-SRD Last Updated 2025/06/19
+Mausritter SRD Version 2.3.1
+SRD Last Updated 2026/02/21
 
 Copyright 2025 Isaac Williams
 

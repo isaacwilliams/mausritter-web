@@ -67,7 +67,7 @@ Critical damage: Venom takes effect, d12 damage to STR
 :::statblock
 12hp, STR 12, DEX 15, WIL 15, Armour 1  
 Attacks: d8 peck  
-Flys 3x normal speed, knows two songs  
+Flies 3x normal speed, knows two songs  
 :::
 
 **Wants** to protect the secret hallowed places from those that would do them harm
@@ -163,7 +163,7 @@ Attacks: d6 sword or d6 bow
 :::statblock
 15hp, STR 15, DEX 15, WIL 15, Armour 1  
 Attacks: d10 bite  
-Flys 3x normal speed. Knows two spells  
+Flies 3x normal speed. Knows two spells  
 :::
 
 **Wants** to collect rare knowledge and spells

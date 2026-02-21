@@ -45,13 +45,13 @@ Combat is dangerous business for mice, even brave adventurers. But sometimes it 
 
 If you attack **unsuspecting** foes, your mouse and any allies aware of the plan **go first**. Otherwise, make a **DEX save** to act before your opponents. In following combat rounds, maintain this order.
 
-On your turn in a combat Round, your mouse can **move** up to 12" and perform an **action**. Actions can anything from negotiating, attacking, fleeing or performing a risky gambit (like tripping or disarming an opponent).
+On your turn in a combat Round, your mouse can **move** up to 12" and perform an **action**. Actions can be anything from negotiating, attacking, fleeing or performing a risky gambit (like tripping or disarming an opponent).
 
 ### Attacks
 
 **Attacks always hit.** Roll your weapon’s die and do that much damage to an opponent, minus their armour.
 
-When an attack is **impaired**, such is firing into cover, or fighting while grappled, roll **d4** for damage regardless of weapon. When an attack is **enhanced** by a gambit or vulnerable opponent, roll **d12**.
+When an attack is **impaired**, such as when firing into cover, or fighting while grappled, roll **d4** for damage regardless of weapon. When an attack is **enhanced** by a gambit or vulnerable opponent, roll **d12**.
 
 ### Hit Protection and damage
 

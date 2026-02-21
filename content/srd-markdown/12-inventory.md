@@ -25,7 +25,7 @@ Worn items can be swapped with paw slots as a free action.
 
 ### Pack slots
 
-Your mouse has six body slots.
+Your mouse has six pack slots.
 
 Items in these slots take time to retrieve when under pressure. While in combat, your mouse must use an action (instead of attacking) to find an item in their pack.
 
@@ -142,7 +142,7 @@ Cost: 150p
 **Prevents 1 damage**  
 Worn in: Two body slots
 
-Cost: 150p
+Cost: 500p
 
 ## Essential items
 
