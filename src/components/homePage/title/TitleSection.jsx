@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 
 import Navigation from '../../navigation/Navigation';
 import BodyText from '../../styles/BodyText';
@@ -15,18 +15,85 @@ const TitleSectionContainer = styled.section`
     width: 100vw;
     overflow: hidden;
 
-    background-image: url(${dividerStem});
-    background-repeat: no-repeat;
-    background-size: 250px;
-    background-position: bottom -100px right 0;
-
     ${media.phone`
-        background-image: none;
         min-height: 0;
     `}
 `;
+
+const grassBaseSway = keyframes`
+    0% {
+        transform: rotate(-0.9deg) skewX(0.2deg);
+    }
+
+    50% {
+        transform: rotate(0.9deg) skewX(-0.2deg);
+    }
+
+    100% {
+        transform: rotate(-0.7deg) skewX(0.2deg);
+    }
+`;
+
+const grassTipSway = keyframes`
+    0% {
+        transform: rotate(-1.6deg) skewX(0.35deg);
+    }
+
+    50% {
+        transform: rotate(2.1deg) skewX(-0.55deg);
+    }
+
+    100% {
+        transform: rotate(-1.3deg) skewX(0.35deg);
+    }
+`;
+
+const GrassStem = styled.div`
+    position: absolute;
+    right: 0;
+    bottom: -100px;
+    width: 250px;
+    height: 786px;
+    pointer-events: none;
+    transform-origin: 50% 100%;
+    animation: ${grassBaseSway} 8s ease-in-out infinite;
+    will-change: transform;
+
+    ${media.phone`
+        display: none;
+    `}
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+`;
+
+const GrassLayer = styled.div`
+    position: absolute;
+    inset: 0;
+    background-image: url(${dividerStem});
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+`;
+
+const GrassBase = styled(GrassLayer)`
+    clip-path: inset(61% 0 0 0);
+`;
+
+const GrassTip = styled(GrassLayer)`
+    clip-path: inset(0 0 37% 0);
+    transform-origin: 50% 63%;
+    animation: ${grassTipSway} 5.8s ease-in-out infinite;
+    will-change: transform;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+`;
+
 const TitleSectionBody = styled.div`
     position: relative;
+    z-index: 1;
     margin: auto;
     width: 500px;
     padding-top: 20vh;
@@ -41,6 +108,7 @@ const TitleSectionBody = styled.div`
 
 const TitleSectionNav = styled.div`
     position: absolute;
+    z-index: 1;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -70,6 +138,11 @@ const Blurb = styled.div`
 const TitleSection = () => {
     return (
         <TitleSectionContainer>
+            <GrassStem aria-hidden="true">
+                <GrassBase />
+                <GrassTip />
+            </GrassStem>
+
             <TitleSectionBody>
                 <MausritterLogoTitle>Mausritter</MausritterLogoTitle>
 
