@@ -8,7 +8,7 @@ import {
     AdventureSite,
     AdventureSiteGeneratorData,
     FormVariants,
-    NamedWithGender,
+    NamedWithContext,
 } from './adventureSiteGeneratorTypes';
 
 const isStringArray = (arr: unknown): arr is string[] => {
@@ -25,16 +25,16 @@ const createSiteName = (generatorData: AdventureSiteGeneratorData): string => {
         return `${partA} ${partB}`;
     }
 
-    const partB = pick(partBArray) as NamedWithGender | undefined;
+    const partB = pick(partBArray) as NamedWithContext | undefined;
     if (!partB) {
         return '';
     }
 
-    const { name: noun, gender } = partB;
+    const { name: noun, context } = partB;
     const pickedAdjective = pick(
         generatorData.siteName.partA as FormVariants[],
     );
-    const adjective = selectForm(pickedAdjective, gender);
+    const adjective = selectForm(pickedAdjective, context);
     return `${adjective} ${noun}`;
 };
 
@@ -52,12 +52,15 @@ export const createAdventureSiteData = (
 
     const summary = {
         construction: selectedConstruction.name,
-        ruinAction: selectForm(selectedRuinAction, selectedConstruction.gender),
+        ruinAction: selectForm(
+            selectedRuinAction,
+            selectedConstruction.context,
+        ),
         ruin: pick(generatorData.summary.ruin),
         inhabitant: selectedInhabitant.name,
         inhabitantAction: selectForm(
             selectedInhabitantAction,
-            selectedInhabitant.gender,
+            selectedInhabitant.context,
         ),
         inhabitantGoal: pick(generatorData.summary.inhabitantGoal),
         secretHidden: pick(generatorData.summary.secretHidden),

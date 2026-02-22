@@ -138,103 +138,103 @@
       "partB": [
         {
           "name": "Пень",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Дерево",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "Дуб",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Сосна",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Шпиль",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Башня",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Замок",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Форт",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Крепость",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Дворец",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Могила",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Гробница",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Тайник",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Склеп",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Кладбище",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "Яма",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Логово",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "Нора",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Дыра",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Пещера",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Дупло",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "Приют",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Храм",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Святилище",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "Часовня",
-          "gender": "fem"
+          "context": "fem"
         }
       ]
     },
@@ -243,83 +243,83 @@
       "construction": [
         {
           "name": "<b>древний храм культа Летучей мыши</b>",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "<b>давно заброшенная дозорная башня</b>",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "<b>загородное поместье мыши-дворянина</b>",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "<b>тайный склад зимних запасов</b>",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "<b>захоронения древних мышей</b>",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "<b>лабиринт, вырытый кроликом или лисой</b>",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "<b>человеческий дом или другое строение</b>",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "<b>канализационные или дренажные трубы</b>",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "<b>муравьиные тоннели, способные вызывать приступ клаустрофобии,</b>",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "<b>залы и комнаты внутри массивного дерева, созданные мышами,</b>",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "<b>башня волшебника</b>",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "<b>мельница местного селения</b>",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "<b>гнездо крсиного короля</b>",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "<b>скелет огромного зверя</b>",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "<b>школа ведьм</b>",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "<b>врата в Царство фей</b>",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "<b>глубокая шахта</b>",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "<b>бандитское убежище</b>",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "<b>естественная пещера</b>",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "<b>мышиное поселение</b>",
-          "gender": "neut"
+          "context": "neut"
         }
       ],
       "ruinAction": [
@@ -377,43 +377,43 @@
       "inhabitant": [
         {
           "name": "Мыши, доведённые до безумия или отчаяния,",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "Мыши, изменённые магией,",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "Крысы-бандиты",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "Существа из дальних земель",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "Первоначальные жители, странно изменённые",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "Призраки",
-          "gender": "plural"
+          "context": "plural"
         },
         {
           "name": "Передовой отряд фей",
-          "gender": "masc"
+          "context": "masc"
         },
         {
           "name": "Злобная змея",
-          "gender": "fem"
+          "context": "fem"
         },
         {
           "name": "Полчище насекомых",
-          "gender": "neut"
+          "context": "neut"
         },
         {
           "name": "Кошачий владыка со своими слугами",
-          "gender": "masc"
+          "context": "masc"
         }
       ],
       "inhabitantAction": [

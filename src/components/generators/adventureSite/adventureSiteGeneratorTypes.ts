@@ -1,11 +1,11 @@
-export type NounGender = 'masc' | 'fem' | 'neut' | 'plural';
+export type NounContext = 'masc' | 'fem' | 'neut' | 'plural';
 
-export type NamedWithGender = {
+export type NamedWithContext = {
     name: string;
-    gender: NounGender;
+    context: NounContext;
 };
 
-export type FormVariants = Record<NounGender, string>;
+export type FormVariants = Record<NounContext, string>;
 
 export type RoomTypeData = {
     weight: number;
@@ -18,14 +18,14 @@ export type RoomTypeData = {
 export type AdventureSiteGeneratorData = {
     siteName: {
         partA: FormVariants[] | string[];
-        partB: NamedWithGender[] | string[];
+        partB: NamedWithContext[] | string[];
     };
     summary: {
         format: string;
-        construction: NamedWithGender[];
+        construction: NamedWithContext[];
         ruinAction: FormVariants[];
         ruin: string[];
-        inhabitant: NamedWithGender[];
+        inhabitant: NamedWithContext[];
         inhabitantAction: FormVariants[];
         inhabitantGoal: string[];
         secretHidden: string[];

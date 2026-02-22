@@ -1,4 +1,4 @@
-import { FormVariants, NamedWithGender } from '../adventureSiteGeneratorTypes';
+import { FormVariants, NamedWithContext } from '../adventureSiteGeneratorTypes';
 
 export const legacySiteName = {
     partA: ['Black', 'White'],
@@ -7,42 +7,42 @@ export const legacySiteName = {
 
 export const russianSiteNameMasc: {
     partA: FormVariants[];
-    partB: NamedWithGender[];
+    partB: NamedWithContext[];
 } = {
     partA: [
         { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное', plural: 'Чёрные' },
         { masc: 'Белый', fem: 'Белая', neut: 'Белое', plural: 'Белые' },
     ],
     partB: [
-        { name: 'Пень', gender: 'masc' },
-        { name: 'Дом', gender: 'masc' },
+        { name: 'Пень', context: 'masc' },
+        { name: 'Дом', context: 'masc' },
     ],
 };
 
 export const russianSiteNameFem: {
     partA: FormVariants[];
-    partB: NamedWithGender[];
+    partB: NamedWithContext[];
 } = {
     partA: [
         { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное', plural: 'Чёрные' },
         { masc: 'Белый', fem: 'Белая', neut: 'Белое', plural: 'Белые' },
     ],
     partB: [
-        { name: 'Башня', gender: 'fem' },
-        { name: 'Пещера', gender: 'fem' },
+        { name: 'Башня', context: 'fem' },
+        { name: 'Пещера', context: 'fem' },
     ],
 };
 
 export const russianSiteNameNeut: {
     partA: FormVariants[];
-    partB: NamedWithGender[];
+    partB: NamedWithContext[];
 } = {
     partA: [
         { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное', plural: 'Чёрные' },
         { masc: 'Белый', fem: 'Белая', neut: 'Белое', plural: 'Белые' },
     ],
     partB: [
-        { name: 'Дупло', gender: 'neut' },
-        { name: 'Озеро', gender: 'neut' },
+        { name: 'Дупло', context: 'neut' },
+        { name: 'Озеро', context: 'neut' },
     ],
 };

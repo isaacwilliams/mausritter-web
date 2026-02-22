@@ -7,21 +7,21 @@ import {
 } from '../__fixtures__/siteName';
 import {
     AdventureSiteGeneratorData,
-    NamedWithGender,
+    NamedWithContext,
     FormVariants,
 } from '../adventureSiteGeneratorTypes';
 
 vi.mock('react-i18next', () => ({
     useTranslation: () => ({
-        t: (key: string, options?: { gender?: string }) => {
+        t: (key: string, options?: { context?: string }) => {
             if (key === 'adventureSiteGenerator.siteName.partA') {
-                if (options?.gender === 'masc') {
+                if (options?.context === 'masc') {
                     return russianSiteNameMasc.partA;
                 }
-                if (options?.gender === 'fem') {
+                if (options?.context === 'fem') {
                     return russianSiteNameFem.partA;
                 }
-                if (options?.gender === 'neut') {
+                if (options?.context === 'neut') {
                     return russianSiteNameNeut.partA;
                 }
                 return legacySiteName.partA;
@@ -34,8 +34,8 @@ vi.mock('react-i18next', () => ({
     }),
 }));
 
-const mockConstruction: NamedWithGender[] = [
-    { name: '<b>строение1</b>', gender: 'neut' },
+const mockConstruction: NamedWithContext[] = [
+    { name: '<b>строение1</b>', context: 'neut' },
 ];
 
 const mockRuinAction: FormVariants[] = [
@@ -47,7 +47,9 @@ const mockRuinAction: FormVariants[] = [
     },
 ];
 
-const mockInhabitant: NamedWithGender[] = [{ name: 'Мыши', gender: 'plural' }];
+const mockInhabitant: NamedWithContext[] = [
+    { name: 'Мыши', context: 'plural' },
+];
 
 const mockInhabitantAction: FormVariants[] = [
     { masc: 'ищет', fem: 'ищет', neut: 'ищет', plural: 'ищут' },
@@ -103,7 +105,7 @@ describe('createSiteName — согласование по родам', async ()
         ]);
     });
 
-    test('feminine: gender=fem → "Чёрная Башня"', () => {
+    test('feminine: context=fem → "Чёрная Башня"', () => {
         const data = buildGeneratorData(russianSiteNameFem);
         const name = createAdventureSiteData(data).name;
         expect(name).toBeOneOf([
@@ -114,7 +116,7 @@ describe('createSiteName — согласование по родам', async ()
         ]);
     });
 
-    test('masculine: gender=masc → "Чёрный Пень"', () => {
+    test('masculine: context=masc → "Чёрный Пень"', () => {
         const data = buildGeneratorData(russianSiteNameMasc);
         const name = createAdventureSiteData(data).name;
         expect(name).toBeOneOf([
@@ -125,7 +127,7 @@ describe('createSiteName — согласование по родам', async ()
         ]);
     });
 
-    test('neutral: gender=neut → "Чёрное Дупло"', () => {
+    test('neutral: context=neut → "Чёрное Дупло"', () => {
         const data = buildGeneratorData(russianSiteNameNeut);
         const name = createAdventureSiteData(data).name;
         expect(name).toBeOneOf([
