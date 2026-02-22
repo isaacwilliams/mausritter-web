@@ -7,34 +7,9 @@ import { ROOM_LAYOUTS } from './adventureSiteConstants';
 import {
     AdventureSite,
     AdventureSiteGeneratorData,
-    AdjectiveForms,
-    NounGender,
-    SiteNamePartA,
-    SiteNamePartB,
+    FormVariants,
+    NamedWithGender,
 } from './adventureSiteGeneratorTypes';
-
-const pickAdjective = (
-    partA: SiteNamePartA | string[],
-    gender: NounGender,
-): string => {
-    if (Array.isArray(partA) && typeof partA[0] === 'string') {
-        return pick(partA as string[]) ?? '';
-    }
-
-    if (!Array.isArray(partA)) {
-        return '';
-    }
-
-    const first = partA[0] as Record<string, unknown>;
-
-    if (typeof first === 'object') {
-        const newFormat = partA as AdjectiveForms[];
-        const adjective = pick(newFormat);
-        return adjective ? adjective[gender as keyof AdjectiveForms] : '';
-    }
-
-    return '';
-};
 
 const isStringArray = (arr: unknown): arr is string[] => {
     return Array.isArray(arr) && typeof arr[0] === 'string';
@@ -50,16 +25,16 @@ const createSiteName = (generatorData: AdventureSiteGeneratorData): string => {
         return `${partA} ${partB}`;
     }
 
-    const partB = pick(partBArray) as SiteNamePartB | undefined;
+    const partB = pick(partBArray) as NamedWithGender | undefined;
     if (!partB) {
         return '';
     }
 
     const { name: noun, gender } = partB;
-    const adjective = pickAdjective(
-        generatorData.siteName.partA as SiteNamePartA,
-        gender,
+    const pickedAdjective = pick(
+        generatorData.siteName.partA as FormVariants[],
     );
+    const adjective = selectForm(pickedAdjective, gender);
     return `${adjective} ${noun}`;
 };
 

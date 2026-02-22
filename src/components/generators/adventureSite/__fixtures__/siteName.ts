@@ -1,8 +1,4 @@
-import {
-    NounGender,
-    SiteNamePartA,
-    SiteNamePartB,
-} from '../adventureSiteGeneratorTypes';
+import { FormVariants, NamedWithGender } from '../adventureSiteGeneratorTypes';
 
 export const legacySiteName = {
     partA: ['Black', 'White'],
@@ -10,43 +6,43 @@ export const legacySiteName = {
 };
 
 export const russianSiteNameMasc: {
-    partA: SiteNamePartA;
-    partB: SiteNamePartB[];
+    partA: FormVariants[];
+    partB: NamedWithGender[];
 } = {
     partA: [
-        { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное' },
-        { masc: 'Белый', fem: 'Белая', neut: 'Белое' },
+        { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное', plural: 'Чёрные' },
+        { masc: 'Белый', fem: 'Белая', neut: 'Белое', plural: 'Белые' },
     ],
     partB: [
-        { name: 'Пень', gender: 'masc' as NounGender },
-        { name: 'Дом', gender: 'masc' as NounGender },
+        { name: 'Пень', gender: 'masc' },
+        { name: 'Дом', gender: 'masc' },
     ],
 };
 
 export const russianSiteNameFem: {
-    partA: SiteNamePartA;
-    partB: SiteNamePartB[];
+    partA: FormVariants[];
+    partB: NamedWithGender[];
 } = {
     partA: [
-        { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное' },
-        { masc: 'Белый', fem: 'Белая', neut: 'Белое' },
+        { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное', plural: 'Чёрные' },
+        { masc: 'Белый', fem: 'Белая', neut: 'Белое', plural: 'Белые' },
     ],
     partB: [
-        { name: 'Башня', gender: 'fem' as NounGender },
-        { name: 'Пещера', gender: 'fem' as NounGender },
+        { name: 'Башня', gender: 'fem' },
+        { name: 'Пещера', gender: 'fem' },
     ],
 };
 
 export const russianSiteNameNeut: {
-    partA: SiteNamePartA;
-    partB: SiteNamePartB[];
+    partA: FormVariants[];
+    partB: NamedWithGender[];
 } = {
     partA: [
-        { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное' },
-        { masc: 'Белый', fem: 'Белая', neut: 'Белое' },
+        { masc: 'Чёрный', fem: 'Чёрная', neut: 'Чёрное', plural: 'Чёрные' },
+        { masc: 'Белый', fem: 'Белая', neut: 'Белое', plural: 'Белые' },
     ],
     partB: [
-        { name: 'Дупло', gender: 'neut' as NounGender },
-        { name: 'Озеро', gender: 'neut' as NounGender },
+        { name: 'Дупло', gender: 'neut' },
+        { name: 'Озеро', gender: 'neut' },
     ],
 };

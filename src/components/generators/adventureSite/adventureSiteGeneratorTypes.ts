@@ -1,18 +1,5 @@
 export type NounGender = 'masc' | 'fem' | 'neut' | 'plural';
 
-export type SiteNamePartB = {
-    name: string;
-    gender: NounGender;
-};
-
-export type AdjectiveForms = {
-    masc: string;
-    fem: string;
-    neut: string;
-};
-
-export type SiteNamePartA = AdjectiveForms[];
-
 export type NamedWithGender = {
     name: string;
     gender: NounGender;
@@ -30,8 +17,8 @@ export type RoomTypeData = {
 
 export type AdventureSiteGeneratorData = {
     siteName: {
-        partA: SiteNamePartA | string[];
-        partB: SiteNamePartB[] | string[];
+        partA: FormVariants[] | string[];
+        partB: NamedWithGender[] | string[];
     };
     summary: {
         format: string;

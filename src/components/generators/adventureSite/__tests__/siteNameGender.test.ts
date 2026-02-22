@@ -86,47 +86,53 @@ const buildGeneratorData = (
 describe('createSiteName — согласование по родам', async () => {
     const { createAdventureSiteData } = await import('../useAdventureSite');
 
-    test('обратная совместимость: массив строк → "Black Tower"', () => {
+    test('name does not contain [object Object]', () => {
+        const data = buildGeneratorData(russianSiteNameMasc);
+        const name = createAdventureSiteData(data).name;
+        expect(name).not.toContain('[object Object]');
+    });
+
+    test('backward compatibility: string array → "Black Tower"', () => {
         const data = buildGeneratorData(legacySiteName);
         const name = createAdventureSiteData(data).name;
-        expect([
+        expect(name).toBeOneOf([
             'Black Tower',
             'Black Tree',
             'White Tower',
             'White Tree',
-        ]).toContain(name);
+        ]);
     });
 
-    test('женский род: gender=fem → "Чёрная Башня"', () => {
+    test('feminine: gender=fem → "Чёрная Башня"', () => {
         const data = buildGeneratorData(russianSiteNameFem);
         const name = createAdventureSiteData(data).name;
-        expect([
+        expect(name).toBeOneOf([
             'Чёрная Башня',
             'Чёрная Пещера',
             'Белая Башня',
             'Белая Пещера',
-        ]).toContain(name);
+        ]);
     });
 
-    test('мужской род: gender=masc → "Чёрный Пень"', () => {
+    test('masculine: gender=masc → "Чёрный Пень"', () => {
         const data = buildGeneratorData(russianSiteNameMasc);
         const name = createAdventureSiteData(data).name;
-        expect([
+        expect(name).toBeOneOf([
             'Чёрный Пень',
             'Чёрный Дом',
             'Белый Пень',
             'Белый Дом',
-        ]).toContain(name);
+        ]);
     });
 
-    test('средний род: gender=neut → "Чёрное Дупло"', () => {
+    test('neutral: gender=neut → "Чёрное Дупло"', () => {
         const data = buildGeneratorData(russianSiteNameNeut);
         const name = createAdventureSiteData(data).name;
-        expect([
+        expect(name).toBeOneOf([
             'Чёрное Дупло',
             'Чёрное Озеро',
             'Белое Дупло',
             'Белое Озеро',
-        ]).toContain(name);
+        ]);
     });
 });
