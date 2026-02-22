@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import font from '../styles/adventureSiteFonts';
+import font from '../styles/font';
 import colors from '../styles/colors';
 import media from '../styles/media';
 
