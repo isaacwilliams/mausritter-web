@@ -38,7 +38,7 @@ describe('pick utility', () => {
     test('returns element from array', () => {
         const arr = ['a', 'b', 'c'];
         const result = pick(arr);
-        expect(arr).toContain(result);
+        expect(result).toBeOneOf(arr);
     });
 
     test('returns undefined for empty array', () => {
@@ -67,13 +67,35 @@ describe('createAdventureSiteData', async () => {
     test('summary contains all fields', () => {
         const result = createAdventureSiteData(mockGeneratorData);
         expect(result.summary).toHaveProperty('construction');
+        expect(result.summary.construction).toBeOneOf(
+            mockGeneratorData.summary.construction,
+        );
         expect(result.summary).toHaveProperty('ruinAction');
+        expect(result.summary.ruinAction).toBeOneOf(
+            mockGeneratorData.summary.ruinAction,
+        );
         expect(result.summary).toHaveProperty('ruin');
+        expect(result.summary.ruin).toBeOneOf(mockGeneratorData.summary.ruin);
         expect(result.summary).toHaveProperty('inhabitant');
+        expect(result.summary.inhabitant).toBeOneOf(
+            mockGeneratorData.summary.inhabitant,
+        );
         expect(result.summary).toHaveProperty('inhabitantAction');
+        expect(result.summary.inhabitantAction).toBeOneOf(
+            mockGeneratorData.summary.inhabitantAction,
+        );
         expect(result.summary).toHaveProperty('inhabitantGoal');
+        expect(result.summary.inhabitantGoal).toBeOneOf(
+            mockGeneratorData.summary.inhabitantGoal,
+        );
         expect(result.summary).toHaveProperty('secretHidden');
+        expect(result.summary.secretHidden).toBeOneOf(
+            mockGeneratorData.summary.secretHidden,
+        );
         expect(result.summary).toHaveProperty('secret');
+        expect(result.summary.secret).toBeOneOf(
+            mockGeneratorData.summary.secret,
+        );
     });
 
     test('rooms is an array', () => {

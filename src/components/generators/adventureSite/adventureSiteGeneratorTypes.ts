@@ -15,18 +15,21 @@ export type RoomTypeData = {
     treasureChance: number;
 };
 
+export type Name = NamedWithContext | string;
+export type Modifier = FormVariants | string;
+
 export type AdventureSiteGeneratorData = {
     siteName: {
-        partA: FormVariants[] | string[];
-        partB: NamedWithContext[] | string[];
+        partA: Modifier[];
+        partB: Name[];
     };
     summary: {
         format: string;
-        construction: NamedWithContext[];
-        ruinAction: FormVariants[];
+        construction: Name[];
+        ruinAction: Modifier[];
         ruin: string[];
-        inhabitant: NamedWithContext[];
-        inhabitantAction: FormVariants[];
+        inhabitant: Name[];
+        inhabitantAction: Modifier[];
         inhabitantGoal: string[];
         secretHidden: string[];
         secret: string[];

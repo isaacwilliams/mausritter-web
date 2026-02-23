@@ -8,35 +8,9 @@ import {
     AdventureSite,
     AdventureSiteGeneratorData,
     FormVariants,
+    Name,
     NamedWithContext,
 } from './adventureSiteGeneratorTypes';
-
-const isStringArray = (arr: unknown): arr is string[] => {
-    return Array.isArray(arr) && typeof arr[0] === 'string';
-};
-
-const createSiteName = (generatorData: AdventureSiteGeneratorData): string => {
-    const partBArray = generatorData.siteName.partB;
-    const isSimpleFormat = isStringArray(partBArray);
-
-    if (isSimpleFormat) {
-        const partA = pick(generatorData.siteName.partA as string[]) ?? '';
-        const partB = pick(partBArray) ?? '';
-        return `${partA} ${partB}`;
-    }
-
-    const partB = pick(partBArray) as NamedWithContext | undefined;
-    if (!partB) {
-        return '';
-    }
-
-    const { name: noun, context } = partB;
-    const pickedAdjective = pick(
-        generatorData.siteName.partA as FormVariants[],
-    );
-    const adjective = selectForm(pickedAdjective, context);
-    return `${adjective} ${noun}`;
-};
 
 export const createAdventureSiteData = (
     generatorData: AdventureSiteGeneratorData,
@@ -50,17 +24,23 @@ export const createAdventureSiteData = (
         generatorData.summary.inhabitantAction,
     );
 
+    console.log(`selectedConstruction >> `, selectedConstruction);
+    console.log(
+        `selectedConstruction.name >> `,
+        getNameString(selectedConstruction),
+    );
+
     const summary = {
-        construction: selectedConstruction.name,
+        construction: getNameString(selectedConstruction),
         ruinAction: selectForm(
             selectedRuinAction,
-            selectedConstruction.context,
+            getNameContext(selectedConstruction),
         ),
         ruin: pick(generatorData.summary.ruin),
-        inhabitant: selectedInhabitant.name,
+        inhabitant: getNameString(selectedInhabitant),
         inhabitantAction: selectForm(
             selectedInhabitantAction,
-            selectedInhabitant.context,
+            getNameContext(selectedInhabitant),
         ),
         inhabitantGoal: pick(generatorData.summary.inhabitantGoal),
         secretHidden: pick(generatorData.summary.secretHidden),
@@ -100,6 +80,47 @@ const useRollAdventureSite = (
     };
 
     return [adventureSite, rollAdventureSite];
+};
+
+const isStringArray = (arr: unknown): arr is string[] => {
+    return Array.isArray(arr) && typeof arr[0] === 'string';
+};
+
+const getNameString = (name: Name): string => {
+    if (typeof name === 'string') {
+        return name;
+    }
+    return name.name;
+};
+
+const getNameContext = (name: Name): string => {
+    if (typeof name === 'string') {
+        return '';
+    }
+    return name.context;
+};
+
+const createSiteName = (generatorData: AdventureSiteGeneratorData): string => {
+    const partBArray = generatorData.siteName.partB;
+    const isSimpleFormat = isStringArray(partBArray);
+
+    if (isSimpleFormat) {
+        const partA = pick(generatorData.siteName.partA as string[]) ?? '';
+        const partB = pick(partBArray) ?? '';
+        return `${partA} ${partB}`;
+    }
+
+    const partB = pick(partBArray) as NamedWithContext | undefined;
+    if (!partB) {
+        return '';
+    }
+
+    const { name: noun, context } = partB;
+    const pickedAdjective = pick(
+        generatorData.siteName.partA as FormVariants[],
+    );
+    const adjective = selectForm(pickedAdjective, context);
+    return `${adjective} ${noun}`;
 };
 
 export default useRollAdventureSite;
