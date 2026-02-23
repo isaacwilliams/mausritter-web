@@ -20,8 +20,8 @@ export type Modifier = FormVariants | string;
 
 export type AdventureSiteGeneratorData = {
     siteName: {
-        partA: Modifier[];
-        partB: Name[];
+        modifier: Modifier[];
+        location: Name[];
     };
     summary: {
         format: string;

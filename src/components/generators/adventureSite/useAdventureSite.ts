@@ -24,12 +24,6 @@ export const createAdventureSiteData = (
         generatorData.summary.inhabitantAction,
     );
 
-    console.log(`selectedConstruction >> `, selectedConstruction);
-    console.log(
-        `selectedConstruction.name >> `,
-        getNameString(selectedConstruction),
-    );
-
     const summary = {
         construction: getNameString(selectedConstruction),
         ruinAction: selectForm(
@@ -101,11 +95,11 @@ const getNameContext = (name: Name): string => {
 };
 
 const createSiteName = (generatorData: AdventureSiteGeneratorData): string => {
-    const partBArray = generatorData.siteName.partB;
+    const partBArray = generatorData.siteName.location;
     const isSimpleFormat = isStringArray(partBArray);
 
     if (isSimpleFormat) {
-        const partA = pick(generatorData.siteName.partA as string[]) ?? '';
+        const partA = pick(generatorData.siteName.modifier as string[]) ?? '';
         const partB = pick(partBArray) ?? '';
         return `${partA} ${partB}`;
     }
@@ -117,7 +111,7 @@ const createSiteName = (generatorData: AdventureSiteGeneratorData): string => {
 
     const { name: noun, context } = partB;
     const pickedAdjective = pick(
-        generatorData.siteName.partA as FormVariants[],
+        generatorData.siteName.modifier as FormVariants[],
     );
     const adjective = selectForm(pickedAdjective, context);
     return `${adjective} ${noun}`;

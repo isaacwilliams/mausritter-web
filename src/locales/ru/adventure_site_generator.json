@@ -13,7 +13,7 @@
   },
   "data": {
     "siteName": {
-      "partA": [
+      "modifier": [
         {
           "masc": "Чёрный",
           "fem": "Чёрная",
@@ -135,7 +135,7 @@
           "plural": "Сырые"
         }
       ],
-      "partB": [
+      "location": [
         {
           "name": "Пень",
           "context": "masc"
@@ -290,7 +290,7 @@
           "context": "fem"
         },
         {
-          "name": "<b>гнездо крсиного короля</b>",
+          "name": "<b>гнездо крысиного короля</b>",
           "context": "neut"
         },
         {

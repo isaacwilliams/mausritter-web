@@ -1,33 +1,34 @@
 import { describe, expect, test, vi } from 'vitest';
 import {
-    legacySiteName,
-    russianSiteNameMasc,
-    russianSiteNameFem,
-    russianSiteNameNeut,
+    simpleSiteName,
+    complexSiteNameMasc,
+    complexSiteNameFem,
+    complexSiteNameNeut,
 } from '../__fixtures__/siteName';
 import {
     AdventureSiteGeneratorData,
     NamedWithContext,
     FormVariants,
 } from '../adventureSiteGeneratorTypes';
+import { createAdventureSiteData } from '../useAdventureSite';
 
 vi.mock('react-i18next', () => ({
     useTranslation: () => ({
         t: (key: string, options?: { context?: string }) => {
-            if (key === 'adventureSiteGenerator.siteName.partA') {
+            if (key === 'adventureSiteGenerator.siteName.modifier') {
                 if (options?.context === 'masc') {
-                    return russianSiteNameMasc.partA;
+                    return complexSiteNameMasc.modifier;
                 }
                 if (options?.context === 'fem') {
-                    return russianSiteNameFem.partA;
+                    return complexSiteNameFem.modifier;
                 }
                 if (options?.context === 'neut') {
-                    return russianSiteNameNeut.partA;
+                    return complexSiteNameNeut.modifier;
                 }
-                return legacySiteName.partA;
+                return simpleSiteName.modifier;
             }
-            if (key === 'adventureSiteGenerator.siteName.partB') {
-                return legacySiteName.partB;
+            if (key === 'adventureSiteGenerator.siteName.location') {
+                return simpleSiteName.location;
             }
             return key;
         },
@@ -85,17 +86,15 @@ const buildGeneratorData = (
     roomTypes: mockRoomTypes,
 });
 
-describe('createSiteName — согласование по родам', async () => {
-    const { createAdventureSiteData } = await import('../useAdventureSite');
-
+describe('createSiteName — gender agreement', async () => {
     test('name does not contain [object Object]', () => {
-        const data = buildGeneratorData(russianSiteNameMasc);
+        const data = buildGeneratorData(complexSiteNameMasc);
         const name = createAdventureSiteData(data).name;
         expect(name).not.toContain('[object Object]');
     });
 
     test('backward compatibility: string array → "Black Tower"', () => {
-        const data = buildGeneratorData(legacySiteName);
+        const data = buildGeneratorData(simpleSiteName);
         const name = createAdventureSiteData(data).name;
         expect(name).toBeOneOf([
             'Black Tower',
@@ -106,7 +105,7 @@ describe('createSiteName — согласование по родам', async ()
     });
 
     test('feminine: context=fem → "Чёрная Башня"', () => {
-        const data = buildGeneratorData(russianSiteNameFem);
+        const data = buildGeneratorData(complexSiteNameFem);
         const name = createAdventureSiteData(data).name;
         expect(name).toBeOneOf([
             'Чёрная Башня',
@@ -117,7 +116,7 @@ describe('createSiteName — согласование по родам', async ()
     });
 
     test('masculine: context=masc → "Чёрный Пень"', () => {
-        const data = buildGeneratorData(russianSiteNameMasc);
+        const data = buildGeneratorData(complexSiteNameMasc);
         const name = createAdventureSiteData(data).name;
         expect(name).toBeOneOf([
             'Чёрный Пень',
@@ -128,7 +127,7 @@ describe('createSiteName — согласование по родам', async ()
     });
 
     test('neutral: context=neut → "Чёрное Дупло"', () => {
-        const data = buildGeneratorData(russianSiteNameNeut);
+        const data = buildGeneratorData(complexSiteNameNeut);
         const name = createAdventureSiteData(data).name;
         expect(name).toBeOneOf([
             'Чёрное Дупло',

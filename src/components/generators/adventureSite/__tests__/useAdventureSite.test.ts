@@ -9,8 +9,8 @@ vi.mock('nanoid', () => ({
 
 const mockGeneratorData: AdventureSiteGeneratorData = {
     siteName: {
-        partA: ['Black', 'White'],
-        partB: ['Tower', 'Tree'],
+        modifier: ['Black', 'White'],
+        location: ['Tower', 'Tree'],
     },
     summary: {
         format: '',
