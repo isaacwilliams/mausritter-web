@@ -9,6 +9,7 @@ const LANGUAGE_OPTIONS = [
     { value: 'en', label: '🇬🇧 English' },
     { value: 'it', label: '🇮🇹 Italiano' },
     { value: 'de', label: '🇩🇪 Deutsch' },
+    { value: 'ru', label: '🇷🇺 Русский' },
 ];
 
 const Container = styled.div`
