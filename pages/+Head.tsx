@@ -18,6 +18,17 @@ export default function HeadDefault(pageContext) {
             <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
             <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
             <link rel="stylesheet" href="https://use.typekit.net/jcg4vha.css" />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin="anonymous"
+            />
+            <link
+                href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&subset=cyrillic&display=swap"
+                rel="stylesheet"
+            />
+            <link rel="stylesheet" href="/fonts/adventureSiteFonts.css" />
 
             <meta name="description" content={description} />
             <meta property="og:title" content={title} />

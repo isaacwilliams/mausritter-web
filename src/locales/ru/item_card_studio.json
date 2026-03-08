@@ -1,0 +1,228 @@
+{
+  "title": "Студия карточек предметов",
+  "pageTitle": "Студия карточек предметов",
+  "controlPanel": {
+    "template": "Шаблон",
+    "name": "Название",
+    "damageOrDef": "Урон/защита",
+    "mechanic": "Механика",
+    "clear": "Способ избавиться",
+    "class": "Класс",
+    "usage": "Использований",
+    "star": "Звёдочка",
+    "image": "Изображение",
+    "width": "Ширина",
+    "height": "Высота",
+    "background": "Фон",
+    "foreground": "Передний план",
+    "divider": "Разделитель",
+    "border": "Граница",
+    "resolution": "Разрешение",
+    "resolutionOptions": [
+      {
+        "dpi": 100,
+        "label": "Низкое (маленький экран)"
+      },
+      {
+        "dpi": 300,
+        "label": "Высокое (печать/экран)"
+      },
+      {
+        "dpi": 600,
+        "label": "Очень высокое"
+      }
+    ],
+    "saveToSheetButton": "Сохранить на лист",
+    "saveImageButton": "Сохранить изображение предмета",
+    "cardImages": {
+      "None": "Нет",
+      "Custom...": "Своё...",
+      "Torch": "Факел",
+      "Lantern": "Фонарь",
+      "Electric lantern": "Электрический фонарь",
+      "Pip purse": "Кошлёк для зёрнышек",
+      "Quiver": "Колчан",
+      "Rations": "Пайки",
+      "Stones": "Камни",
+      "Branch": "Ветка",
+      "Dagger": "Кинжал",
+      "Needle": "Игла",
+      "Axe": "Топор",
+      "Sword": "Меч",
+      "Mace": "Булава",
+      "Warhammer": "Молот",
+      "Spear": "Копьё",
+      "Hookarm": "Багор",
+      "Bow": "Лук",
+      "Sling": "Праща",
+      "Heavy armour": "Тяжёлая броня",
+      "Light armour": "Лёгкая броня",
+      "Spell 1": "Заклинание 1",
+      "Spell 2": "Заклинание 2",
+      "Spell 3": "Заклинание 3",
+      "Spell 4": "Заклинание 4",
+      "Spell 5": "Заклинание 5",
+      "Spell (blank)": "Заклинание (пустое)"
+    }
+  },
+  "sheet": {
+    "saveSheetButton": "Сохранить лист",
+    "loadSheetButton": "Загрузить лист",
+    "loadSheetButton_hasItems": "Загрузить предметы",
+    "clearSheetButton": "Очистить лист",
+    "printSheetButton": "Печать",
+    "sheetNamePlaceholder": "Название листа"
+  },
+  "printSheet": {
+    "instructionsTitle": "Инструкции (не будут напечатаны)",
+    "instructions": "Используй функцию бразуера <strong>Печать</strong> или <strong>Экспортировать в PDF</strong>. Убедитесь, что масштаб выставлен в 100%.",
+    "returnButton": "Вернуться в Студию предметов"
+  },
+  "itemTemplates": [
+    {
+      "id": "item",
+      "name": "Предмет",
+      "template": {
+        "name": "Новый предмет",
+        "usage": 3,
+        "damage": "",
+        "mechanicDetail": "",
+        "clearDetail": "",
+        "classDetail": "",
+        "image": "",
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#000000",
+        "width": 1,
+        "height": 1,
+        "divider": true,
+        "border": true,
+        "star": false
+      },
+      "controls": {
+        "name": true,
+        "usage": true,
+        "image": true
+      }
+    },
+    {
+      "id": "weapon",
+      "name": "Оружие",
+      "template": {
+        "name": "Меч",
+        "usage": 3,
+        "damage": "d6/d8",
+        "mechanicDetail": "",
+        "clearDetail": "",
+        "classDetail": "Среднее",
+        "image": "Sword",
+        "__image_comment__": "Don't translate the image name in the templates, they're used as lookup keys",
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#000000",
+        "width": 1,
+        "height": 1,
+        "divider": true,
+        "border": true,
+        "star": false
+      },
+      "controls": {
+        "name": true,
+        "usage": true,
+        "damage": true,
+        "classDetail": true,
+        "image": true
+      }
+    },
+    {
+      "id": "armour",
+      "name": "Броня",
+      "template": {
+        "name": "Тяжёлая броня",
+        "usage": 3,
+        "damage": "1 def",
+        "mechanicDetail": "",
+        "clearDetail": "",
+        "classDetail": "Тяжёлая",
+        "image": "Heavy armour",
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#000000",
+        "width": 1,
+        "height": 2,
+        "divider": true,
+        "border": true,
+        "star": false
+      },
+      "controls": {
+        "name": true,
+        "usage": true,
+        "damage": true,
+        "classDetail": true,
+        "image": true
+      }
+    },
+    {
+      "id": "spell",
+      "name": "Заклинание",
+      "template": {
+        "name": "Восстановление",
+        "usage": 3,
+        "damage": "",
+        "mechanicDetail": "",
+        "clearDetail": "",
+        "classDetail": "",
+        "image": "Spell 1",
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#000000",
+        "width": 1,
+        "height": 1,
+        "divider": true,
+        "border": true,
+        "star": true
+      },
+      "controls": {
+        "name": true,
+        "usage": true,
+        "image": true
+      }
+    },
+    {
+      "id": "condition",
+      "name": "Состояние",
+      "template": {
+        "name": "Ранен",
+        "usage": 0,
+        "damage": "",
+        "mechanicDetail": "Помеха к спасброскам СИЛ и ЛОВ",
+        "clearDetail": "Полный отдых",
+        "classDetail": "",
+        "image": "",
+        "backgroundColor": "#ff4444",
+        "foregroundColor": "#000000",
+        "width": 1,
+        "height": 1,
+        "divider": false,
+        "border": true,
+        "star": false
+      },
+      "controls": {
+        "name": true,
+        "mechanicDetail": true,
+        "clearDetail": true
+      }
+    },
+    {
+      "id": "freeform",
+      "name": "Свободная форма",
+      "template": {},
+      "controls": {
+        "name": true,
+        "usage": true,
+        "damage": true,
+        "mechanicDetail": true,
+        "clearDetail": true,
+        "classDetail": true,
+        "star": true,
+        "image": true
+      }
+    }
+  ]
+}

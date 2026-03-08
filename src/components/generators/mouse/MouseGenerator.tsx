@@ -60,7 +60,7 @@ const AttrName = styled.div`
 `;
 
 const AttrVal = styled.div`
-    font-family: 'Caveat Brush', cursive;
+    font-family: 'Caveat Brush', 'Caveat', cursive;
     font-size: 2rem;
     text-align: left;
     margin-left: 1rem;
