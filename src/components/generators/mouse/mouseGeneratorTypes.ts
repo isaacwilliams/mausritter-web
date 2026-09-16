@@ -1,3 +1,5 @@
+import type { Term } from '../generatorTypes';
+
 export type Item = {
     name: string;
     type?: string;
@@ -8,20 +10,20 @@ export type Item = {
 };
 
 export type MouseBackground = {
-    title: string;
+    title: Term;
     items: [Item, Item];
 };
 
 export type MouseBirthsign = {
     title: string;
-    disposition: string;
+    disposition: Term;
 };
 
 export type MouseGeneratorData = {
     standardItems: Item[];
     backgrounds: MouseBackground[];
-    firstNames: string[];
-    familyNames: string[];
+    firstNames: Term[];
+    familyNames: Term[];
     coatColors: string[];
     coatPatterns: string[];
     physicalDetail: string[];
@@ -40,7 +42,13 @@ export type MouseCharacter = {
     hp: number;
     pips: number;
     physicalDetail: string;
-    birthsign: MouseBirthsign;
-    background: MouseBackground;
+    birthsign: {
+        title: string;
+        disposition: string;
+    };
+    background: {
+        title: string;
+        items: [Item, Item];
+    };
     items: Item[];
 };

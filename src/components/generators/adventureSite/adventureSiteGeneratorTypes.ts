@@ -1,11 +1,11 @@
-export type NounContext = 'masc' | 'fem' | 'neut' | 'plural';
+import type { Term } from '../generatorTypes';
 
-export type NamedWithContext = {
-    name: string;
-    context: NounContext;
-};
-
-export type FormVariants = Record<NounContext, string>;
+export type {
+    FormVariants,
+    NamedWithContext,
+    NounContext,
+    Term,
+} from '../generatorTypes';
 
 export type RoomTypeData = {
     weight: number;
@@ -15,21 +15,18 @@ export type RoomTypeData = {
     treasureChance: number;
 };
 
-export type Name = NamedWithContext | string;
-export type Modifier = FormVariants | string;
-
 export type AdventureSiteGeneratorData = {
     siteName: {
-        modifier: Modifier[];
-        location: Name[];
+        modifier: Term[];
+        location: Term[];
     };
     summary: {
         format: string;
-        construction: Name[];
-        ruinAction: Modifier[];
-        ruin: string[];
-        inhabitant: Name[];
-        inhabitantAction: Modifier[];
+        construction: Term[];
+        ruinAction: Term[];
+        ruin: Term[];
+        inhabitant: Term[];
+        inhabitantAction: Term[];
         inhabitantGoal: string[];
         secretHidden: string[];
         secret: string[];

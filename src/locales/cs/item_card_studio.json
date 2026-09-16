@@ -1,0 +1,228 @@
+{
+    "title": "Kartičky vybavení",
+    "pageTitle": "Tvorba kartiček vybavení",
+    "controlPanel": {
+        "template": "Šablona",
+        "name": "Název",
+        "damageOrDef": "Zranění/Obrana",
+        "mechanic": "Mechanika",
+        "clear": "Odstranění",
+        "class": "Třída",
+        "usage": "Použití",
+        "star": "Hvězda",
+        "image": "Obrázek",
+        "width": "Šířka",
+        "height": "Výška",
+        "background": "Pozadí",
+        "foreground": "Text",
+        "divider": "Oddělovač",
+        "border": "Okraj",
+        "resolution": "Rozlišení",
+        "resolutionOptions": [
+            {
+                "dpi": 100,
+                "label": "Nízké"
+            },
+            {
+                "dpi": 300,
+                "label": "Vysoké"
+            },
+            {
+                "dpi": 600,
+                "label": "Extra vysoké"
+            }
+        ],
+        "saveToSheetButton": "Ulož na stránku",
+        "saveImageButton": "Ulož obrázek",
+        "cardImages": {
+            "None": "Žádný",
+            "Custom...": "Vlastní...",
+            "Torch": "Pochodně",
+            "Lantern": "Lucerna",
+            "Electric lantern": "Elektrická lampa",
+            "Pip purse": "Váček na ďobky",
+            "Quiver": "Šípy",
+            "Rations": "Zásoby",
+            "Stones": "Kamení",
+            "Branch": "Větev",
+            "Dagger": "Dýka",
+            "Needle": "Jehla",
+            "Axe": "Sekyrka",
+            "Sword": "Meč",
+            "Mace": "Řemdich",
+            "Warhammer": "Válečné kladivo",
+            "Spear": "Kopí",
+            "Hookarm": "Hákopí",
+            "Bow": "Luk",
+            "Sling": "Prak",
+            "Heavy armour": "Těžká zbroj",
+            "Light armour": "Lehká zbroj",
+            "Spell 1": "Kouzlo 1",
+            "Spell 2": "Kouzlo 2",
+            "Spell 3": "Kouzlo 3",
+            "Spell 4": "Kouzlo 4",
+            "Spell 5": "Kouzlo 5",
+            "Spell (blank)": "Kouzlo (prázdné)"
+        }
+    },
+    "sheet": {
+        "saveSheetButton": "Uložit stránku",
+        "loadSheetButton": "Nahrát stránku",
+        "loadSheetButton_hasItems": "Nahrát další předměty",
+        "clearSheetButton": "Smazat stránku",
+        "printSheetButton": "Tisk",
+        "sheetNamePlaceholder": "Název stránky"
+    },
+    "printSheet": {
+        "instructionsTitle": "Instrukce (nejsou součástí tisku)",
+        "instructions": "Ve svém prohlížeči vyberte možnost <strong>Tisk</strong> nebo <strong>Exportovat jako PDF</strong>. Ujistěte se, že je přiblížení nastaveno na 100%.",
+        "returnButton": "Vrátit se k tvorbě kartiček vybavení"
+    },
+    "itemTemplates": [
+        {
+            "id": "item",
+            "name": "Předmět",
+            "template": {
+                "name": "Nový předmět",
+                "usage": 3,
+                "damage": "",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "",
+                "image": "",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": true,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "image": true
+            }
+        },
+        {
+            "id": "weapon",
+            "name": "Zbraň",
+            "template": {
+                "name": "Meč",
+                "usage": 3,
+                "damage": "k6/k8",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "Střední",
+                "image": "Sword",
+                "__image_comment__": "Don't translate the image name in the templates, they're used as lookup keys",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": true,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "damage": true,
+                "classDetail": true,
+                "image": true
+            }
+        },
+        {
+            "id": "armour",
+            "name": "Zbroj",
+            "template": {
+                "name": "Těžká zbroj",
+                "usage": 3,
+                "damage": "1 obr.",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "Těžká",
+                "image": "Heavy armour",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 2,
+                "divider": true,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "damage": true,
+                "classDetail": true,
+                "image": true
+            }
+        },
+        {
+            "id": "spell",
+            "name": "Kouzlo",
+            "template": {
+                "name": "Zahojení",
+                "usage": 3,
+                "damage": "",
+                "mechanicDetail": "",
+                "clearDetail": "",
+                "classDetail": "",
+                "image": "Spell 1",
+                "backgroundColor": "#ffffff",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": true,
+                "border": true,
+                "star": true
+            },
+            "controls": {
+                "name": true,
+                "usage": true,
+                "image": true
+            }
+        },
+        {
+            "id": "condition",
+            "name": "Stav",
+            "template": {
+                "name": "Poranění",
+                "usage": 0,
+                "damage": "",
+                "mechanicDetail": "Nevýhoda při hodech na sílu a mrštnost",
+                "clearDetail": "po úplném odpočinku",
+                "classDetail": "",
+                "image": "",
+                "backgroundColor": "#ff4444",
+                "foregroundColor": "#000000",
+                "width": 1,
+                "height": 1,
+                "divider": false,
+                "border": true,
+                "star": false
+            },
+            "controls": {
+                "name": true,
+                "mechanicDetail": true,
+                "clearDetail": true
+            }
+        },
+        {
+            "id": "freeform",
+            "name": "Vlastní",
+            "template": {},
+            "controls": {
+                "name": true,
+                "usage": true,
+                "damage": true,
+                "mechanicDetail": true,
+                "clearDetail": true,
+                "classDetail": true,
+                "star": true,
+                "image": true
+            }
+        }
+    ]
+}

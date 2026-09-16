@@ -1,6 +1,8 @@
 import lodash from 'lodash/fp';
 const { sum, times } = lodash;
 
+import { FormVariants, NamedWithContext, Term } from './generatorTypes';
+
 export const pick = <T>(array: T[]) =>
     array[Math.floor(Math.random() * array.length)];
 
@@ -24,10 +26,8 @@ export const roll = (size: number) => Math.floor(Math.random() * size) + 1;
 export const rollDice = (numberOfDice: number) => (sides: number) =>
     sum(times(() => roll(sides), numberOfDice));
 
-export type FormVariant = Record<string, string>;
-
 export const selectForm = (
-    forms: string | FormVariant,
+    forms: string | FormVariants,
     contextKey: string,
 ): string => {
     if (typeof forms === 'string') {
@@ -36,3 +36,12 @@ export const selectForm = (
 
     return forms[contextKey] ?? forms.masc ?? Object.values(forms)[0] ?? '';
 };
+
+const isNamed = (term: Term): term is NamedWithContext =>
+    typeof term === 'object' && 'context' in term;
+
+export const resolveTerm = (term: Term | undefined, context = ''): string =>
+    term == null ? '' : selectForm(isNamed(term) ? term.name : term, context);
+
+export const contextOf = (term: Term | undefined): string =>
+    term != null && isNamed(term) ? term.context : '';

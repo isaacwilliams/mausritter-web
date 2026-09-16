@@ -3,7 +3,13 @@ import lodash from 'lodash/fp';
 const { sum, times, drop, compact } = lodash;
 import { nanoid } from 'nanoid';
 
-import { pick, roll, rollDice } from '../generatorUtils';
+import {
+    contextOf,
+    pick,
+    resolveTerm,
+    roll,
+    rollDice,
+} from '../generatorUtils';
 
 import { MouseGeneratorData, MouseCharacter } from './mouseGeneratorTypes';
 
@@ -19,8 +25,11 @@ const rollCharacter = (generatorData: MouseGeneratorData): MouseCharacter => {
     const hp = rollHp();
     const pips = rollPips();
 
-    const name = `${pick(generatorData.firstNames)} ${pick(
-        generatorData.familyNames,
+    const firstName = pick(generatorData.firstNames);
+    const nameContext = contextOf(firstName);
+    const name = `${resolveTerm(firstName)} ${resolveTerm(
+        pick(generatorData.familyNames),
+        nameContext,
     )}`;
 
     const coat = `${pick(generatorData.coatColors)}, ${pick(
@@ -34,7 +43,6 @@ const rollCharacter = (generatorData: MouseGeneratorData): MouseCharacter => {
         generatorData.backgrounds[(hp - 1) * 6 + (pips - 1)];
 
     const background = getBackground(hp, pips);
-
     const consolationBackground = getBackground(rollHp(), rollPips());
 
     const statMax = Math.max(str, dex, wil);
@@ -44,7 +52,10 @@ const rollCharacter = (generatorData: MouseGeneratorData): MouseCharacter => {
         name,
         coat,
         physicalDetail,
-        birthsign,
+        birthsign: {
+            title: birthsign.title,
+            disposition: resolveTerm(birthsign.disposition, nameContext),
+        },
         stats: {
             str,
             dex,
@@ -52,7 +63,10 @@ const rollCharacter = (generatorData: MouseGeneratorData): MouseCharacter => {
         },
         hp,
         pips,
-        background,
+        background: {
+            title: resolveTerm(background.title, nameContext),
+            items: background.items,
+        },
         items: compact([
             background.items[0],
             background.items[1],
